@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Thu, 21 Apr 2022 22:18:49",
+	"@generated": "Fri, 22 Apr 2022 08:46:50",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -318,7 +318,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "601"
+					"sourceid": "734"
 				},
 				{
 					"pluginid": "10098",
@@ -345,7 +345,7 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lorette-ne-pouvait-pas-passer-cote-de-lusage-des-reseaux-sociaux",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lhorloger-de-la-croix-rousse-le-choix-du-numerique-sest-impose",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -417,6 +417,32 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "90003",
+					"alertRef": "90003",
+					"alert": "Sub Resource Integrity Attribute Missing",
+					"name": "Sub Resource Integrity Attribute Missing",
+					"riskcode": "2",
+					"confidence": "3",
+					"riskdesc": "Medium (High)",
+					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
+					"instances":[ 
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"stylesheet\" media=\"all\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\" />"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
+					"cweid": "345",
+					"wascid": "15",
+					"sourceid": "737"
+				},
+				{
 					"pluginid": "10003",
 					"alertRef": "10003",
 					"alert": "Vulnerable JS Library",
@@ -440,7 +466,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "724"
+					"sourceid": "649"
 				},
 				{
 					"pluginid": "10044",
@@ -522,7 +548,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "670"
+					"sourceid": "1040"
 				},
 				{
 					"pluginid": "10110",
@@ -555,7 +581,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "699"
+					"sourceid": "624"
 				},
 				{
 					"pluginid": "10063",
@@ -567,13 +593,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/core/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/assets/vendor/css-escape/css.escape.js?v=1.5.1",
 							"method": "GET",
@@ -589,6 +608,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/core/assets/vendor/jquery.ui/ui/version-min.js?v=1.12.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
 							"method": "GET",
 							"param": "",
@@ -597,6 +623,20 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/core/misc/drupal.init.js?v=9.3.9",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/core/misc/drupal.js?v=9.3.9",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -624,28 +664,14 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/files/languages/fr_aBnw0yZKdxUvTFdLHiF03yxpzLpicSj-_21XP4s6pgE.js?r9v37z",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/libraries/blazy/blazy.js?v=1.x",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/README.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/web.config",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -658,7 +684,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "628"
+					"sourceid": "630"
 				},
 				{
 					"pluginid": "10035",
@@ -761,7 +787,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "528"
+					"sourceid": "527"
 				},
 				{
 					"pluginid": "10096",
@@ -785,13 +811,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "121144457"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "20180215"
 						},
 						{
@@ -799,28 +818,28 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "541065684"
+							"evidence": "327484004"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "929432374"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "626985552"
+							"evidence": "141853574"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1008926779"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/user/login",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1008241063"
+							"evidence": "363726141"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/user/login",
@@ -828,6 +847,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": "12097481"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/user/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "143753765"
 						}
 					],
 					"count": "8",
@@ -863,25 +889,25 @@
 							"evidence": "/files/styles/vignette_remontees_grande/public/2022-04/MVigreux"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lorette-ne-pouvait-pas-passer-cote-de-lusage-des-reseaux-sociaux",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lhorloger-de-la-croix-rousse-le-choix-du-numerique-sest-impose",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "com/channel/UCWftPRtigUYh6cSfbRt93Nw"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/mollat-notre-deuxieme-librairie-est-sur-le-net",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "/files/languages/fr_aBnw0yZKdxUvTFdLHiF03yxpzLpicSj-_21XP4s6pgE"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/nigay-fabricant-de-caramel-optimise-sa-production-son-administratif-avec-le",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/supratec-le-gain-cest-la-survie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "/files/languages/fr_aBnw0yZKdxUvTFdLHiF03yxpzLpicSj-_21XP4s6pgE"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/vert-tige-la-caisse-enregistreuse-sur-tablette-tactile-facilite-la-vie-du",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "com/Vert-Tige-Artisan-Fleuriste-320447122015114"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/financer-son-projet",
@@ -1055,21 +1081,21 @@
 							"evidence": "<a href=\"/comprendre-le-numerique\" target=\"_self\" data-drupal-link-system-path=\"comprendre-le-numerique\" class=\"is-active\">Comprendre le num\u00E9rique</a>"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lorette-ne-pouvait-pas-passer-cote-de-lusage-des-reseaux-sociaux",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lhorloger-de-la-croix-rousse-le-choix-du-numerique-sest-impose",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"/comprendre-le-numerique\" target=\"_self\" data-drupal-link-system-path=\"comprendre-le-numerique\">Comprendre le num\u00E9rique</a>"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/nigay-fabricant-de-caramel-optimise-sa-production-son-administratif-avec-le",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/mollat-notre-deuxieme-librairie-est-sur-le-net",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"/comprendre-le-numerique\" target=\"_self\" data-drupal-link-system-path=\"comprendre-le-numerique\">Comprendre le num\u00E9rique</a>"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/vert-tige-la-caisse-enregistreuse-sur-tablette-tactile-facilite-la-vie-du",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/supratec-le-gain-cest-la-survie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1184,7 +1210,7 @@
 							"evidence": "max-age=86400, public"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lorette-ne-pouvait-pas-passer-cote-de-lusage-des-reseaux-sociaux",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lhorloger-de-la-croix-rousse-le-choix-du-numerique-sest-impose",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1280,7 +1306,7 @@
 							"evidence": "max-age=86400"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lorette-ne-pouvait-pas-passer-cote-de-lusage-des-reseaux-sociaux",
+							"uri": "https://www.francenum.gouv.fr/comprendre-le-numerique/lhorloger-de-la-croix-rousse-le-choix-du-numerique-sest-impose",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1360,15 +1386,64 @@
 							"param": "term_node_tid_depth",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "field_secteur_type_activite",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "field_secteur_type_activite",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "field_thematique",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "field_thematique",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/recommandation?field_secteur_type_activite=All&field_taille_entreprise=All&field_thematique=All&localisation=ZAP&request_region",
+							"method": "GET",
+							"param": "localisation",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "2",
+					"count": "9",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.francenum.gouv.fr/comprendre-le-numerique?term_node_tid_depth=73</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>term_node_tid_depth=73</p><p></p><p>The user-controlled value was:</p><p>73</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "340"
+					"sourceid": "339"
 				}
 			]
 		}
