@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Thu, 21 Apr 2022 22:19:13",
+	"@generated": "Fri, 22 Apr 2022 08:56:44",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "2",
+					"riskdesc": "High (Medium)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=129",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2500187983960291"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Mastercard</p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "1422"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -344,7 +370,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "297"
+					"sourceid": "300"
 				},
 				{
 					"pluginid": "10044",
@@ -460,14 +486,7 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=129",
-							"method": "GET",
-							"param": "SSESScbd06ca2f6e636e9ce6d6a7d2cef851b",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESScbd06ca2f6e636e9ce6d6a7d2cef851b"
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=131",
+							"uri": "https://www.modernisation.gouv.fr/mois-de-linnovation-publique/creer-un-compte-organisateur",
 							"method": "GET",
 							"param": "SSESScbd06ca2f6e636e9ce6d6a7d2cef851b",
 							"attack": "",
@@ -481,13 +500,13 @@
 							"evidence": "Set-Cookie: SSESScbd06ca2f6e636e9ce6d6a7d2cef851b"
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1419"
+					"sourceid": "1406"
 				},
 				{
 					"pluginid": "10110",
@@ -815,7 +834,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "608"
+					"sourceid": "593"
 				},
 				{
 					"pluginid": "10094",
@@ -1443,7 +1462,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1571"
+					"sourceid": "1568"
 				}
 			]
 		}
