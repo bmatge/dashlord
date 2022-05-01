@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 24 Apr 2022 01:54:05",
+	"@generated": "Sun, 1 May 2022 02:27:17",
 	"site":[ 
 		{
 			"@name": "https://www.cohesion-territoires.gouv.fr",
@@ -23,13 +23,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form class=\"exit-popup-form\" data-drupal-selector=\"exit-popup-form\" action=\"/\" method=\"post\" id=\"exit-popup-form\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "<form class=\"generic-search-form\" data-drupal-selector=\"generic-search-form-2\" action=\"/\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
@@ -40,11 +33,39 @@
 							"evidence": "<form class=\"localite-search-form\" onsubmit=\"return false;\" data-drupal-selector=\"localite-search-form-2\" action=\"/\" method=\"post\" id=\"localite-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/ma-commune",
+							"uri": "https://www.cohesion-territoires.gouv.fr/actualites",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form class=\"exit-popup-form\" data-drupal-selector=\"exit-popup-form\" action=\"/ma-commune\" method=\"post\" id=\"exit-popup-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form class=\"generic-search-form\" data-drupal-selector=\"generic-search-form-2\" action=\"/actualites\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/actualites",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"news-filter-form\" data-drupal-selector=\"news-filter-form-2\" action=\"/actualites\" method=\"GET\" id=\"news-filter-form--2\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"generic-search-form\" data-drupal-selector=\"generic-search-form-2\" action=\"/budget-et-dotations-des-collectivites-locales\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"webform-submission-form webform-submission-add-form webform-submission-feedback-form webform-submission-feedback-add-form webform-submission-feedback-node-43708-form webform-submission-feedback-node-43708-add-form js-webform-details-toggle webform-details-toggle\" data-drupal-selector=\"webform-submission-feedback-node-43708-add-form\" action=\"/budget-et-dotations-des-collectivites-locales\" method=\"post\" id=\"webform-submission-feedback-node-43708-add-form\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/le-ministere",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"generic-search-form\" data-drupal-selector=\"generic-search-form-2\" action=\"/le-ministere\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/ma-commune",
@@ -65,21 +86,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form class=\"exit-popup-form\" data-drupal-selector=\"exit-popup-form\" action=\"/mes-demarches\" method=\"post\" id=\"exit-popup-form\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/mes-demarches",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "<form class=\"generic-search-form\" data-drupal-selector=\"generic-search-form-2\" action=\"/mes-demarches\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/politiques-publiques",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"exit-popup-form\" data-drupal-selector=\"exit-popup-form\" action=\"/politiques-publiques\" method=\"post\" id=\"exit-popup-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/politiques-publiques",
@@ -89,9 +96,9 @@
 							"evidence": "<form class=\"generic-search-form\" data-drupal-selector=\"generic-search-form-2\" action=\"/politiques-publiques\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-feedback-blank\" \"edit-feedback-no\" \"edit-feedback-yes\" \"edit-url\" \"form_build_id\" \"form_id\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"form_build_id\" \"form_id\" \"generic-search-form-input\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -164,14 +171,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/robots.txt",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -314,14 +321,14 @@
 							"evidence": "/*! jQuery UI - v1.12.1"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/jquery.ui/ui/focusable-min.js?v=1.12.1",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/jquery.ui/ui/form-min.js?v=1.12.1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "/*! jQuery UI - v1.12.1"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/jquery.ui/ui/form-min.js?v=1.12.1",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/jquery.ui/ui/ie-min.js?v=1.12.1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -383,7 +390,7 @@
 					"reference": "<p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1867"
+					"sourceid": "1825"
 				},
 				{
 					"pluginid": "10044",
@@ -422,15 +429,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/politiques-publiques",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 41 [https://www.cohesion-territoires.gouv.fr/].</p><p>Predicted response size: 341.</p><p>Response Body Length: 410.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1742"
+					"sourceid": "1711"
 				},
 				{
 					"pluginid": "10017",
@@ -506,7 +520,7 @@
 							"evidence": "<script src=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js\"></script>"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js",
 							"attack": "",
@@ -539,13 +553,6 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/jquery-form/jquery.form.min.js?v=4.22",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval"
-						},
-						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.4.1",
 							"method": "GET",
 							"param": "",
@@ -553,20 +560,20 @@
 							"evidence": "Eval"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/modules/custom/mte_tacjs/assets/vendor/tarteaucitron.js/tarteaucitron.js?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/modules/custom/mte_tacjs/assets/vendor/tarteaucitron.js/tarteaucitron.js?ravynb",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "eval"
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1921"
+					"sourceid": "1813"
 				},
 				{
 					"pluginid": "10063",
@@ -635,14 +642,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/robots.txt",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -778,13 +785,6 @@
 							"evidence": "510101534"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/brezilhac/11051",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "200035707"
-						},
-						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/dispositif-pinel",
 							"method": "GET",
 							"param": "",
@@ -813,6 +813,13 @@
 							"evidence": "347356060"
 						},
 						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/pontigny/89307",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "200067080"
+						},
+						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -826,7 +833,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1712"
+					"sourceid": "1679"
 				},
 				{
 					"pluginid": "10021",
@@ -839,77 +846,77 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/normalize-css/normalize.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/assets/vendor/normalize-css/normalize.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/misc/normalize-fixes.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/misc/normalize-fixes.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/ajax-progress.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/ajax-progress.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/align.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/align.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/autocomplete-loading.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/autocomplete-loading.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/clearfix.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/clearfix.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/container-inline.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/container-inline.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/details.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/details.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/fieldgroup.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/fieldgroup.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/hidden.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/hidden.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/item-list.module.css?ralinu",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/item-list.module.css?ravynb",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -929,7 +936,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1743"
+					"sourceid": "1704"
 				},
 				{
 					"pluginid": "10094",
@@ -946,82 +953,82 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-4ad2lOoO36xzdKP7XMxKgg2jINw4e_u_ahbPTKkBUa8"
+							"evidence": "form--SXnWRsntoJaHYE4yjgYulmS3q4_ZhWcya1Nf0e7SGA"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/actualites",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-XKyIG0N1zKRSi_8wa24Jy9OCE104JW8Y35NFVR42vNI"
+							"evidence": "form-nV37YjA69BxtXuKfX6v90zIM_XEwMAOFWQq_aCTnSGQ"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-sSExyO9nmL8KVDuh4vS9TRMIzUPcmlsnX8hoMO-Cn4o"
+							"evidence": "form-nV37YjA69BxtXuKfX6v90zIM_XEwMAOFWQq_aCTnSGQ"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/france-services",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-vyHPD6tLXodnGCx5yRSZDeiCu1QXm27DkOHqXXkLyrE"
+							"evidence": "form-nV37YjA69BxtXuKfX6v90zIM_XEwMAOFWQq_aCTnSGQ"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/le-ministere",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-RDdIFnRN19lBpmIBXcar8GV0Sop9NH6pLRfTXR4i88E"
+							"evidence": "form-p2vQa2zAgaePLr9tEhjRoD03EiRVb_qRRW_gOKjA0xw"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/ma-commune",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-Cg4V1R_W0_M-fTjBAs4Eh6E-96UhUhLbyd7KUGhOF0k"
+							"evidence": "form-p2vQa2zAgaePLr9tEhjRoD03EiRVb_qRRW_gOKjA0xw"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/mes-demarches",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-iReblSirf6EK7Xuu1goNMszmbNqFD2f8wp-9JCkmdYU"
+							"evidence": "form-p2vQa2zAgaePLr9tEhjRoD03EiRVb_qRRW_gOKjA0xw"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/politiques-publiques",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-Q9r8QYxFd5diytpSozAbBRSZ87V3_EYj-F6m47VV0gY"
+							"evidence": "form-p2vQa2zAgaePLr9tEhjRoD03EiRVb_qRRW_gOKjA0xw"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form--mKGw4e8Q53iikePs-5UOPHPVkoUCAikaYpbI5RemPM"
+							"evidence": "form-p2vQa2zAgaePLr9tEhjRoD03EiRVb_qRRW_gOKjA0xw"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-GOxNrs07QthRfVzf5_h9Ams7Ii8UorbaFIhDS4Wvanc"
+							"evidence": "form-nV37YjA69BxtXuKfX6v90zIM_XEwMAOFWQq_aCTnSGQ"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/tiers-lieux",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-RizewfBmaSskh2A7L7VmzzC7KUPtr9di9LCC45bo1EM"
+							"evidence": "form-nV37YjA69BxtXuKfX6v90zIM_XEwMAOFWQq_aCTnSGQ"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDS\uFFFD;~\uFFFD\uFFFD\u048F\uFFFDs1*\\x00086\uFFFD\uFFFDp\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD[=2\uFFFD\\x0005F\uFFFD</p>",
+					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFD\u45DDdl\uFFFD\uFFFD\thv\\x0004\uFFFD(\uFFFDb\uFFFDfKz\uFFFD\uFFFD\uFFFDVs&\uFFFD5\uFFFD\\x001e\uFFFD!\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1101,7 +1108,7 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1197,7 +1204,7 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1382,14 +1389,14 @@
 							"evidence": "must-revalidate, no-cache, private"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "must-revalidate, no-cache, private"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sitemap.xml",
+							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1520,28 +1527,7 @@
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/",
 							"method": "POST",
-							"param": "feedback",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
-							"method": "POST",
 							"param": "form_id",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
-							"method": "POST",
-							"param": "form_id",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
-							"method": "POST",
-							"param": "op",
 							"attack": "",
 							"evidence": ""
 						},
@@ -1551,22 +1537,15 @@
 							"param": "search",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
-							"method": "POST",
-							"param": "url",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "6",
+					"count": "2",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.cohesion-territoires.gouv.fr/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>feedback=yes</p><p></p><p>The user-controlled value was:</p><p>yes</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.cohesion-territoires.gouv.fr/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=localite_search_form</p><p></p><p>The user-controlled value was:</p><p>localite_search_form</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1957"
+					"sourceid": "1927"
 				}
 			]
 		}
