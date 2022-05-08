@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 1 May 2022 02:22:55",
+	"@generated": "Sun, 8 May 2022 01:51:41",
 	"site":[ 
 		{
 			"@name": "https://www.bercynumerique.finances.gouv.fr",
@@ -8,6 +8,39 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10097",
+					"alertRef": "10097",
+					"alert": "Hash Disclosure - Mac OSX salted SHA-1",
+					"name": "Hash Disclosure - Mac OSX salted SHA-1",
+					"riskcode": "3",
+					"confidence": "2",
+					"riskdesc": "High (Medium)",
+					"desc": "<p>A hash was disclosed by the web server. - Mac OSX salted SHA-1</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/file/11322/download?token=jF9tkduR",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF00460069006E00200064201900750073006100670065"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/file/11322/download?token=jF9tkduR",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF005700650062006F0067007200610070006800690065"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure that hashes that are used to protect credentials or other resources are not leaked by the web server or database. There is typically no requirement for password hashes to be accessible to the web browser.      </p>",
+					"otherinfo": "<p>FEFF00460069006E00200064201900750073006100670065</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1078"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -89,7 +122,7 @@
 							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-bef-auto-submit-full-form=\"\" data-drupal-selector=\"views-exposed-form-l-information-en-continu-page-1\" action=\"/l-information-en-continu\" method=\"get\" id=\"views-exposed-form-l-information-en-continu-page-1\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=6",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -109,7 +142,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "458"
+					"sourceid": "504"
 				},
 				{
 					"pluginid": "10055",
@@ -332,7 +365,33 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "133"
+					"sourceid": "137"
+				},
+				{
+					"pluginid": "10099",
+					"alertRef": "10099",
+					"alert": "Source Code Disclosure - Perl",
+					"name": "Source Code Disclosure - Perl",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/file/11322/download?token=jF9tkduR",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "$#RMBOS"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
+					"otherinfo": "<p>$#RMBOS</p>",
+					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
+					"cweid": "540",
+					"wascid": "13",
+					"sourceid": "1078"
 				},
 				{
 					"pluginid": "10044",
@@ -365,7 +424,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "191"
+					"sourceid": "192"
 				},
 				{
 					"pluginid": "10110",
@@ -405,7 +464,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "708"
+					"sourceid": "759"
 				},
 				{
 					"pluginid": "10063",
@@ -604,7 +663,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "133"
+					"sourceid": "137"
 				},
 				{
 					"pluginid": "10096",
@@ -822,7 +881,33 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "154"
+					"sourceid": "157"
+				},
+				{
+					"pluginid": "10024",
+					"alertRef": "10024",
+					"alert": "Information Disclosure - Sensitive Information in URL",
+					"name": "Information Disclosure - Sensitive Information in URL",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/file/11322/download?token=jF9tkduR",
+							"method": "GET",
+							"param": "token",
+							"attack": "",
+							"evidence": "token"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Do not pass sensitive information in URIs.</p>",
+					"otherinfo": "<p>The URL contains potentially sensitive information. The following string was found via the pattern: token</p><p>token</p>",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1078"
 				},
 				{
 					"pluginid": "10027",
@@ -945,25 +1030,18 @@
 							"evidence": "<a id='\"+S+\"'></a>"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/l-information-en-continu/il-ne-faut-surtout-pas-diaboliser-la-data-ce-serait-une-grave-erreur",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8458\" data-entity-type=\"node\">J'aime</a>"
+							"evidence": "<a href=\"#\" title=\"Pr\u00E9c\u00E9dent\">Pr\u00E9c\u00E9dent</a>"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/l-information-en-continu/sociologie-des-crypto-monnayeurs",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/guide-bonnes-pratiques-numerique-responsable-pour-les-organisations",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8770\" data-entity-type=\"node\">J'aime</a>"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/france-transfert-un-nouvel-outil-dedie-aux-agents-de-letat-pour-lenvoi-de",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8841\" data-entity-type=\"node\">J'aime</a>"
+							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8853\" data-entity-type=\"node\">J'aime</a>"
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/la-numerisation-des-demarches-administratives-une-priorite-selon-les",
@@ -973,6 +1051,13 @@
 							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8847\" data-entity-type=\"node\">J'aime</a>"
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/les-technologies-numeriques-devraient-etre-des-supports-de-savoirs-pas-des",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8776\" data-entity-type=\"node\">J'aime</a>"
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/liens-utiles",
 							"method": "GET",
 							"param": "",
@@ -980,18 +1065,18 @@
 							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"299\" data-entity-type=\"node\">J'aime</a>"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/limpact-des-bonnes-pratiques-numeriques-ecoresponsables-au-sein-de-votre",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/materiel-informatique-rendre-le-numerique-ecologiquement-soutenable",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8356\" data-entity-type=\"node\">J'aime</a>"
+							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8850\" data-entity-type=\"node\">J'aime</a>"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/par-un-nouveau-decret-letat-affiche-son-ambition-de-renforcer-sa-propre",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/qui-teletravaille-et-dans-quelles-proportions-principaux-resultats-de",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8838\" data-entity-type=\"node\">J'aime</a>"
+							"evidence": "<a  title=\"J&#039;aime\" data-entity-id=\"8797\" data-entity-type=\"node\">J'aime</a>"
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/libraries/jquery.cycle/jquery.cycle.all.js?v=3.0.3",
@@ -1075,7 +1160,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "133"
+					"sourceid": "137"
 				},
 				{
 					"pluginid": "10015",
@@ -1123,14 +1208,21 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/france-transfert-un-nouvel-outil-dedie-aux-agents-de-letat-pour-lenvoi-de",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/guide-bonnes-pratiques-numerique-responsable-pour-les-organisations",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/la-numerisation-des-demarches-administratives-une-priorite-selon-les",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/les-technologies-numeriques-devraient-etre-des-supports-de-savoirs-pas-des",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu/materiel-informatique-rendre-le-numerique-ecologiquement-soutenable",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1152,13 +1244,6 @@
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/vivre-le-numerique-a-bercy",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/vivre-le-numerique-a-bercy/ceremonie-remise-des-prix",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1238,62 +1323,48 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=0",
 							"method": "GET",
 							"param": "field_thematiques_article_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=0",
 							"method": "GET",
 							"param": "field_thematiques_article_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=0",
 							"method": "GET",
 							"param": "field_thematiques_article_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=0",
 							"method": "GET",
 							"param": "field_thematiques_article_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
-							"method": "GET",
-							"param": "field_thematiques_article_target_id",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
-							"method": "GET",
-							"param": "field_thematiques_article_target_id",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=0",
 							"method": "GET",
 							"param": "field_thematiques_article_target_id",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "7",
+					"count": "5",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=1</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [data-drupal-link-system-path] attribute </p><p></p><p>The user input found was:</p><p>field_thematiques_article_target_id=All</p><p></p><p>The user-controlled value was:</p><p>aller-plus-loin-avec-la-formation</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.bercynumerique.finances.gouv.fr/l-information-en-continu?field_thematiques_article_target_id=All&page=0</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [data-drupal-link-system-path] attribute </p><p></p><p>The user input found was:</p><p>field_thematiques_article_target_id=All</p><p></p><p>The user-controlled value was:</p><p>aller-plus-loin-avec-la-formation</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "542"
+					"sourceid": "585"
 				}
 			]
 		}
