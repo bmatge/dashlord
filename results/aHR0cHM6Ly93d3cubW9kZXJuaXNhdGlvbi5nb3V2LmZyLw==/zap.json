@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 15 May 2022 03:05:38",
+	"@generated": "Sun, 22 May 2022 02:37:56",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -8,6 +8,32 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
+				{
+					"pluginid": "10062",
+					"alertRef": "10062",
+					"alert": "PII Disclosure",
+					"name": "PII Disclosure",
+					"riskcode": "3",
+					"confidence": "3",
+					"riskdesc": "High (High)",
+					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=126",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "501859415638710"
+						}
+					],
+					"count": "1",
+					"solution": "",
+					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 501859</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
+					"reference": "",
+					"cweid": "359",
+					"wascid": "13",
+					"sourceid": "1462"
+				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -318,7 +344,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "251"
+					"sourceid": "249"
 				},
 				{
 					"pluginid": "90003",
@@ -344,7 +370,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "301"
+					"sourceid": "296"
 				},
 				{
 					"pluginid": "10044",
@@ -447,7 +473,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "314"
+					"sourceid": "312"
 				},
 				{
 					"pluginid": "10054",
@@ -460,7 +486,14 @@
 					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/mois-de-linnovation-publique/creer-un-compte-organisateur",
+							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=129",
+							"method": "GET",
+							"param": "SSESScbd06ca2f6e636e9ce6d6a7d2cef851b",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESScbd06ca2f6e636e9ce6d6a7d2cef851b"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=131",
 							"method": "GET",
 							"param": "SSESScbd06ca2f6e636e9ce6d6a7d2cef851b",
 							"attack": "",
@@ -474,13 +507,13 @@
 							"evidence": "Set-Cookie: SSESScbd06ca2f6e636e9ce6d6a7d2cef851b"
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1396"
+					"sourceid": "1391"
 				},
 				{
 					"pluginid": "10110",
@@ -527,7 +560,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1281"
+					"sourceid": "1255"
 				},
 				{
 					"pluginid": "10063",
@@ -630,7 +663,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "272"
+					"sourceid": "270"
 				},
 				{
 					"pluginid": "10035",
@@ -733,7 +766,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "251"
+					"sourceid": "249"
 				},
 				{
 					"pluginid": "10096",
@@ -808,7 +841,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "600"
+					"sourceid": "604"
 				},
 				{
 					"pluginid": "10094",
@@ -832,7 +865,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-FPEFLqfDpryq4lanVqRfC4-mGgYjqX3HoIxctHQBAVU"
+							"evidence": "form-yatWZ78yUwBX5zbJ1kyG9I4Ak9EGmgjKBsqjtGEhmXU"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
@@ -930,7 +963,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "277"
+					"sourceid": "275"
 				},
 				{
 					"pluginid": "10027",
@@ -1346,13 +1379,6 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=121",
-							"method": "GET",
-							"param": "field_tags_target_id_1[0]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=126",
 							"method": "GET",
 							"param": "field_tags_target_id_1[0]",
@@ -1402,6 +1428,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=503",
+							"method": "GET",
+							"param": "field_tags_target_id_1[0]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "POST",
 							"param": "form_id",
@@ -1432,11 +1465,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=121</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_tags_target_id_1[0]=121</p><p></p><p>The user-controlled value was:</p><p>121</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.modernisation.gouv.fr/presse?field_tags_target_id_1%5B0%5D=126</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_tags_target_id_1[0]=126</p><p></p><p>The user-controlled value was:</p><p>126</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1734"
+					"sourceid": "1462"
 				}
 			]
 		}
