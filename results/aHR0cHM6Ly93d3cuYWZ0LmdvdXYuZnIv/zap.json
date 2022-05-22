@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 15 May 2022 01:59:44",
+	"@generated": "Sun, 22 May 2022 01:38:02",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -98,7 +98,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -421,7 +421,7 @@
 					"reference": "<p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2185"
+					"sourceid": "2329"
 				},
 				{
 					"pluginid": "10044",
@@ -454,7 +454,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "421"
+					"sourceid": "422"
 				},
 				{
 					"pluginid": "10017",
@@ -576,7 +576,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2173"
+					"sourceid": "2322"
 				},
 				{
 					"pluginid": "10063",
@@ -717,7 +717,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20220513"
+							"evidence": "20220516"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "20220519"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "20220520"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/",
@@ -734,7 +748,7 @@
 							"evidence": "28315037"
 						}
 					],
-					"count": "7",
+					"count": "9",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>20210225, which evaluates to: 1970-08-22 21:57:05</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1089,7 +1103,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "255"
+					"sourceid": "256"
 				},
 				{
 					"pluginid": "10015",
@@ -1259,63 +1273,175 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "changed",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "changed_1",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_fulltext",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ar]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[en]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[en]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[en]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[es]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[es]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[es]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[fr]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[fr]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[fr]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[fr]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ja]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ja]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ja]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ru]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ru]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[ru]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[zh-hans]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[zh-hans]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"method": "GET",
+							"param": "search_api_language[zh-hans]",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
 							"param": "destination",
 							"attack": "",
@@ -1336,13 +1462,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "28",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>destination=/fr</p><p></p><p>The user-controlled value was:</p><p>/fr/404?_exception_statuscode=404&destination=/fr</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "2243"
+					"sourceid": "2138"
 				}
 			]
 		}
