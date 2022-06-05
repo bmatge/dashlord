@@ -31,15 +31,15 @@
               "id"           : "TLS1",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "not offered"
+              "severity"     : "LOW",
+              "finding"      : "offered (deprecated)"
           }
 ,         {
               "id"           : "TLS1_1",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "not offered"
+              "severity"     : "LOW",
+              "finding"      : "offered (deprecated)"
           }
 ,         {
               "id"           : "TLS1_2",
@@ -123,6 +123,20 @@
               "port"         : "443",
               "severity"     : "OK",
               "finding"      : "offered"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-SHA"
+          }
+,         {
+              "id"           : "cipherorder_TLSv1_1",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "ECDHE-RSA-AES128-SHA"
           }
 ,         {
               "id"           : "cipherorder_TLSv1_2",
@@ -346,7 +360,7 @@
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "315 >= 60 days"
+              "finding"      : "308 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -591,14 +605,14 @@
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-201 seconds from localtime"
+              "finding"      : "0 seconds from localtime"
           }
 ,         {
               "id"           : "HTTP_headerTime",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "1653793616"
+              "finding"      : "1654398888"
           }
 ,         {
               "id"           : "ipv4_in_header",
@@ -799,7 +813,7 @@
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "no protocol below TLS 1.2 offered"
+              "finding"      : "supported"
           }
 ,         {
               "id"           : "SWEET32",
@@ -856,13 +870,22 @@
               "finding"      : "not vulnerable, no DH EXPORT ciphers,"
           }
 ,         {
+              "id"           : "BEAST_CBC_TLS1",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "MEDIUM",
+              "cve"          : "CVE-2011-3389",
+              "cwe"          : "CWE-20",
+              "finding"      : "ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA DHE-RSA-AES128-SHA DHE-RSA-AES256-SHA AES128-SHA AES256-SHA"
+          }
+,         {
               "id"           : "BEAST",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "LOW",
               "cve"          : "CVE-2011-3389",
               "cwe"          : "CWE-20",
-              "finding"      : "not vulnerable, no SSL3 or TLS1"
+              "finding"      : "VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)"
           }
 ,         {
               "id"           : "LUCKY13",
@@ -890,20 +913,6 @@
               "cve"          : "CVE-2013-2566 CVE-2015-2808",
               "cwe"          : "CWE-310",
               "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "clientsimulation-android_442",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-android_500",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-android_60",
@@ -941,7 +950,14 @@
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
-              "id"           : "clientsimulation-chrome_74_win10",
+              "id"           : "clientsimulation-android_11",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-android_12",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
@@ -955,6 +971,13 @@
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
+              "id"           : "clientsimulation-chrome_101_win10",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
+          }
+,         {
               "id"           : "clientsimulation-firefox_66_win81",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
@@ -962,7 +985,7 @@
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
-              "id"           : "clientsimulation-firefox_71_win10",
+              "id"           : "clientsimulation-firefox_100_win10",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
@@ -980,7 +1003,7 @@
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.0 ECDHE-RSA-AES128-SHA"
           }
 ,         {
               "id"           : "clientsimulation-ie_8_xp",
@@ -1025,39 +1048,11 @@
               "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-edge_17_win10",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-opera_66_win10",
+              "id"           : "clientsimulation-edge_101_win10_21h2",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
-          }
-,         {
-              "id"           : "clientsimulation-safari_9_ios9",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-safari_9_osx1011",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-safari_10_osx1012",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
           }
 ,         {
               "id"           : "clientsimulation-safari_121_ios_122",
@@ -1074,25 +1069,18 @@
               "finding"      : "TLSv1.3 TLS_CHACHA20_POLY1305_SHA256"
           }
 ,         {
-              "id"           : "clientsimulation-apple_ats_9_ios9",
+              "id"           : "clientsimulation-safari_154_osx_1231",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
-          }
-,         {
-              "id"           : "clientsimulation-java_6u45",
-              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-java_7u25",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.0 ECDHE-RSA-AES128-SHA"
           }
 ,         {
               "id"           : "clientsimulation-java_8u161",
@@ -1109,11 +1097,25 @@
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
-              "id"           : "clientsimulation-java1201",
+              "id"           : "clientsimulation-java1703",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-go_1178",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-libressl_283",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-CHACHA20-POLY1305"
           }
 ,         {
               "id"           : "clientsimulation-openssl_102e",
@@ -1137,7 +1139,21 @@
               "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
-              "id"           : "clientsimulation-thunderbird_68_3_1",
+              "id"           : "clientsimulation-openssl_303",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
+          }
+,         {
+              "id"           : "clientsimulation-apple_mail_16_0",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "TLSv1.2 ECDHE-RSA-AES128-GCM-SHA256"
+          }
+,         {
+              "id"           : "clientsimulation-thunderbird_91_9",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
@@ -1162,14 +1178,14 @@
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "100"
+              "finding"      : "95"
           }
 ,         {
               "id"           : "protocol_support_score_weighted",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "30"
+              "finding"      : "28"
           }
 ,         {
               "id"           : "key_exchange_score",
@@ -1204,20 +1220,34 @@
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "81"
+              "finding"      : "79"
           }
 ,         {
               "id"           : "overall_grade",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
-              "severity"     : "OK",
-              "finding"      : "A+"
+              "severity"     : "MEDIUM",
+              "finding"      : "B"
+          }
+,         {
+              "id"           : "grade_cap_reason_1",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Grade capped to B. TLS 1.1 offered"
+          }
+,         {
+              "id"           : "grade_cap_reason_2",
+              "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
+              "port"         : "443",
+              "severity"     : "INFO",
+              "finding"      : "Grade capped to B. TLS 1.0 offered"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "www.fonction-publique.gouv.fr/46.105.198.39",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "129"
+              "finding"      : "104"
           }
 ]
