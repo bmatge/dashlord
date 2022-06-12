@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 5 Jun 2022 02:01:53
+		Generated on Sun, 12 Jun 2022 02:01:59
 	</h3>
 
 	
@@ -152,7 +152,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>4</div>
+					<div>6</div>
 				</td>
 			</tr>
 			<tr>
@@ -204,6 +204,16 @@ td {
 				<td align="center">11</td>
 			</tr>
 			<tr>
+				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
+				<td><a href="#10040">Secure Pages Include Mixed Content (Including Scripts)</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">1</td>
+			</tr>
+			<tr>
 				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">10</td>
@@ -216,7 +226,7 @@ td {
 			<tr>
 				<td><a href="#10044">Big Redirect Detected (Potential Sensitive Information Leak)</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">6</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
@@ -281,7 +291,7 @@ td {
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">22</td>
 			</tr>
 		</table>
 		<div class="spacer-lg"></div>
@@ -921,7 +931,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/robots.txt">https://www.cohesion-territoires.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -947,7 +957,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/robots.txt">https://www.cohesion-territoires.gouv.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/territoires-dindustrie">https://www.cohesion-territoires.gouv.fr/territoires-dindustrie</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1045,6 +1055,173 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/10038/">10038</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10020"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Missing Anti-clickjacking Header</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response does not include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options to protect against &#39;ClickJacking&#39; attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/archives/archives-2017-2019-1.html">https://www.cohesion-territoires.gouv.fr/archives/archives-2017-2019-1.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">X-Frame-Options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</div>
+							<br />
+						
+							<div>If you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10020/">10020</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
+						id="10040"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Secure Pages Include Mixed Content (Including Scripts)</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/archives/archives-2017-2019-1.html">https://www.cohesion-territoires.gouv.fr/archives/archives-2017-2019-1.html</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">http://html5shiv.googlecode.com/svn/trunk/html5.js</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</div>
+							<br />
+						
+							<div>The page must not contain any content that is transmitted over unencrypted HTTP.</div>
+							<br />
+						
+							<div> This includes content from third party sites.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/311.html">311</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">4</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10040/">10040</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -1878,6 +2055,136 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites">https://www.cohesion-territoires.gouv.fr/actualites</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales">https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/le-ministere">https://www.cohesion-territoires.gouv.fr/le-ministere</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/ma-commune">https://www.cohesion-territoires.gouv.fr/ma-commune</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/mes-demarches">https://www.cohesion-territoires.gouv.fr/mes-demarches</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/politiques-publiques">https://www.cohesion-territoires.gouv.fr/politiques-publiques</a></td>
 					</tr>
 					<tr>
@@ -1903,7 +2210,7 @@ td {
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">6</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -2162,7 +2469,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville">https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2603,7 +2910,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/robots.txt">https://www.cohesion-territoires.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2629,7 +2936,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/robots.txt">https://www.cohesion-territoires.gouv.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/territoires-dindustrie">https://www.cohesion-territoires.gouv.fr/territoires-dindustrie</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3201,7 +3508,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/le-translay/80767">https://www.cohesion-territoires.gouv.fr/le-translay/80767</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/leulinghen-bernes/62505">https://www.cohesion-territoires.gouv.fr/leulinghen-bernes/62505</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3221,7 +3528,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">200071181</td>
+						<td width="80%">246200380</td>
 					</tr>
 				
 					<tr>
@@ -3670,7 +3977,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/item-list.module.css?rcual9">https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/item-list.module.css?rcual9</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/js.module.css?rcual9">https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/js.module.css?rcual9</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3801,7 +4108,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-seKwTjOpVQMP18FacOewohYyArwg4SHNdduCLfh42iU</td>
+						<td width="80%">form-HbV7MfdzQQG4n_tLRmdyg6bMvd1Hzy-RgKnkbMfNh9c</td>
 					</tr>
 				
 					<tr>
@@ -3827,7 +4134,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-TW58Ocdvs0LlJFIHB30Q_jw__tyY0cDQla_nULUSyE0</td>
+						<td width="80%">form-SGC3wMriKiTZpNv9jyJLZrIE--ZU5MApYl5iyz_8K38</td>
 					</tr>
 				
 					<tr>
@@ -3853,7 +4160,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-TW58Ocdvs0LlJFIHB30Q_jw__tyY0cDQla_nULUSyE0</td>
+						<td width="80%">form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo</td>
 					</tr>
 				
 					<tr>
@@ -3879,7 +4186,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-5hwy9q1cTa-OZKGXwENE0yfwaCtBpYwB2_XYSNRZTyY</td>
+						<td width="80%">form-ynk6x_Mim0xiXd68C_A3IGGh0CP6cNWiRDoxdGq6Nps</td>
 					</tr>
 				
 					<tr>
@@ -3905,7 +4212,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-5hwy9q1cTa-OZKGXwENE0yfwaCtBpYwB2_XYSNRZTyY</td>
+						<td width="80%">form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo</td>
 					</tr>
 				
 					<tr>
@@ -3931,7 +4238,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-5hwy9q1cTa-OZKGXwENE0yfwaCtBpYwB2_XYSNRZTyY</td>
+						<td width="80%">form-SGC3wMriKiTZpNv9jyJLZrIE--ZU5MApYl5iyz_8K38</td>
 					</tr>
 				
 					<tr>
@@ -3957,7 +4264,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-5hwy9q1cTa-OZKGXwENE0yfwaCtBpYwB2_XYSNRZTyY</td>
+						<td width="80%">form-ynk6x_Mim0xiXd68C_A3IGGh0CP6cNWiRDoxdGq6Nps</td>
 					</tr>
 				
 					<tr>
@@ -3983,13 +4290,13 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-5hwy9q1cTa-OZKGXwENE0yfwaCtBpYwB2_XYSNRZTyY</td>
+						<td width="80%">form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville">https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4009,7 +4316,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-TW58Ocdvs0LlJFIHB30Q_jw__tyY0cDQla_nULUSyE0</td>
+						<td width="80%">form-SGC3wMriKiTZpNv9jyJLZrIE--ZU5MApYl5iyz_8K38</td>
 					</tr>
 				
 					<tr>
@@ -4035,7 +4342,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-RsX0mmhxg2qbFYZ2DyXSzgIyv27re8foPuKagPCqtBY</td>
+						<td width="80%">form-ynk6x_Mim0xiXd68C_A3IGGh0CP6cNWiRDoxdGq6Nps</td>
 					</tr>
 				
 					<tr>
@@ -4061,7 +4368,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">form-TW58Ocdvs0LlJFIHB30Q_jw__tyY0cDQla_nULUSyE0</td>
+						<td width="80%">form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo</td>
 					</tr>
 				
 				<tr>
@@ -4328,7 +4635,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville">https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4664,7 +4971,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville">https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5377,7 +5684,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville">https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/sitemap.xml">https://www.cohesion-territoires.gouv.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5403,7 +5710,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/sitemap.xml">https://www.cohesion-territoires.gouv.fr/sitemap.xml</a></td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/territoires-dindustrie">https://www.cohesion-territoires.gouv.fr/territoires-dindustrie</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5739,7 +6046,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">HIT</td>
+						<td width="80%">Age: 0</td>
 					</tr>
 				
 					<tr>
@@ -5867,6 +6174,474 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_ministre[12153]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_ministre[12154]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_news_format[283]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_news_format[291]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_news_format[292]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_news_format[293]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_news_format[294]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[118]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[12150]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[13]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[13]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[14]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[15]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[18]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[56]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">field_politique_publique[57]</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">form_id</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com">https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&amp;field_ministre%5B12154%5D=12154&amp;field_news_format%5B283%5D=283&amp;field_news_format%5B291%5D=291&amp;field_news_format%5B292%5D=292&amp;field_news_format%5B293%5D=293&amp;field_news_format%5B294%5D=294&amp;field_politique_publique%5B118%5D=118&amp;field_politique_publique%5B12150%5D=12150&amp;field_politique_publique%5B13%5D=13&amp;field_politique_publique%5B14%5D=14&amp;field_politique_publique%5B15%5D=15&amp;field_politique_publique%5B18%5D=18&amp;field_politique_publique%5B56%5D=56&amp;field_politique_publique%5B57%5D=57&amp;form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&amp;form_id=news_filter_form&amp;op=Voir+les+r%C3%A9sultats&amp;url=https%3A%2F%2Fwww.example.com</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">op</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/">https://www.cohesion-territoires.gouv.fr/</a></td>
 					</tr>
 					<tr>
@@ -5916,9 +6691,61 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/ma-commune">https://www.cohesion-territoires.gouv.fr/ma-commune</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">form_id</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.cohesion-territoires.gouv.fr/ma-commune">https://www.cohesion-territoires.gouv.fr/ma-commune</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">search</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">22</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
