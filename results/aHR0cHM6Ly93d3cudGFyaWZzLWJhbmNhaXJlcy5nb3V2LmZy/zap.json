@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 5 Jun 2022 01:45:25",
+	"@generated": "Sun, 12 Jun 2022 01:43:34",
 	"site":[ 
 		{
 			"@name": "https://www.tarifs-bancaires.gouv.fr",
@@ -902,93 +902,93 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "255886244"
+							"evidence": "200442911"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "424673900"
+							"evidence": "989107185"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/CHANGELOG.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "75303375"
+							"evidence": "392659492"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/cron.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "252903561"
+							"evidence": "677021219"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/includes/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "307135172"
+							"evidence": "677021211"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "145622007"
+							"evidence": "677021213"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "307135174"
+							"evidence": "392659488"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "145622009"
+							"evidence": "677021215"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1027312022"
+							"evidence": "542542280"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/scripts/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "255755394"
+							"evidence": "392659490"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "215450157"
+							"evidence": "392659486"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/themes/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "252772694"
+							"evidence": "677021217"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>255886244, which evaluates to: 1978-02-09 15:30:44</p>",
+					"otherinfo": "<p>200442911, which evaluates to: 1976-05-08 22:35:11</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "45"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10021",
@@ -1000,6 +1000,13 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
@@ -1036,13 +1043,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_N4fHnx3QoBLvQrV9lk2tDGzIGLLxJZ-eX-aNeA25VAQ.js",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_oR1V_j-ZBjhZ7spmF1VtbkZkmP_F2ZYA0obOIhfQypA.js",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
@@ -1064,13 +1064,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
@@ -1085,13 +1078,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "146"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -1602,7 +1595,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "73"
+					"sourceid": "75"
 				},
 				{
 					"pluginid": "10031",
@@ -1747,7 +1740,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "193"
+					"sourceid": "194"
 				}
 			]
 		}
