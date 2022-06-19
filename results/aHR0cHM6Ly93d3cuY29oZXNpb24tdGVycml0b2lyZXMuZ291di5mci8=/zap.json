@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 12 Jun 2022 02:01:59",
+	"@generated": "Sun, 19 Jun 2022 02:12:48",
 	"site":[ 
 		{
 			"@name": "https://www.cohesion-territoires.gouv.fr",
@@ -201,58 +201,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10020",
-					"alertRef": "10020-1",
-					"alert": "Missing Anti-clickjacking Header",
-					"name": "Missing Anti-clickjacking Header",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/archives/archives-2017-2019-1.html",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
-					"cweid": "1021",
-					"wascid": "15",
-					"sourceid": "2295"
-				},
-				{
-					"pluginid": "10040",
-					"alertRef": "10040",
-					"alert": "Secure Pages Include Mixed Content (Including Scripts)",
-					"name": "Secure Pages Include Mixed Content (Including Scripts)",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/archives/archives-2017-2019-1.html",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "http://html5shiv.googlecode.com/svn/trunk/html5.js"
-						}
-					],
-					"count": "1",
-					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
-					"otherinfo": "<p>tag=script src=http://html5shiv.googlecode.com/svn/trunk/html5.js</p><p>tag=script src=http://www2.cohesion-territoires.gouv.fr/squelettes/js/xtclicks.js</p><p>tag=script src=http://www2.cohesion-territoires.gouv.fr/squelettes/js/xtcore.js</p><p>tag=img src=http://logp5.xiti.com/hit.xiti?s=508612&s2=1&p=archives_2017_2019&di=x&an=&ac=&stc={}</p><p></p>",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
-					"cweid": "311",
-					"wascid": "4",
-					"sourceid": "2295"
-				},
-				{
 					"pluginid": "90003",
 					"alertRef": "90003",
 					"alert": "Sub Resource Integrity Attribute Missing",
@@ -442,7 +390,7 @@
 					"reference": "<p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1806"
+					"sourceid": "1792"
 				},
 				{
 					"pluginid": "10044",
@@ -490,27 +438,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/le-ministere",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/ma-commune",
 							"method": "POST",
 							"param": "",
@@ -532,13 +459,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "8",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 41 [https://www.cohesion-territoires.gouv.fr/].</p><p>Predicted response size: 341.</p><p>Response Body Length: 410.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1675"
+					"sourceid": "1661"
 				},
 				{
 					"pluginid": "10017",
@@ -607,7 +534,7 @@
 							"evidence": "<script src=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js\"></script>"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
 							"method": "GET",
 							"param": "https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js",
 							"attack": "",
@@ -667,7 +594,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1794"
+					"sourceid": "1778"
 				},
 				{
 					"pluginid": "10063",
@@ -897,14 +824,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "347356060"
+							"evidence": "20220519"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/leulinghen-bernes/62505",
+							"uri": "https://www.cohesion-territoires.gouv.fr/dispositif-pinel",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "246200380"
+							"evidence": "347356060"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/modules/custom/mte_tacjs/assets/vendor/tarteaucitron.js/css/tarteaucitron.css?rcual9",
@@ -1031,7 +958,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/js.module.css?rcual9",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/themes/stable/css/system/components/item-list.module.css?rcual9",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -1051,7 +978,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1680"
+					"sourceid": "1670"
 				},
 				{
 					"pluginid": "10094",
@@ -1068,82 +995,82 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-HbV7MfdzQQG4n_tLRmdyg6bMvd1Hzy-RgKnkbMfNh9c"
+							"evidence": "form-zSgrGUTVPdKZJ6oN_46O9CKr9i3zOyMBChqY-yTxscI"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/actualites",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-SGC3wMriKiTZpNv9jyJLZrIE--ZU5MApYl5iyz_8K38"
+							"evidence": "form-7_5xWNiZQHwiU81wD2q7k_HIrzUES0jXfQUs1HHaX_g"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/budget-et-dotations-des-collectivites-locales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo"
+							"evidence": "form-7_5xWNiZQHwiU81wD2q7k_HIrzUES0jXfQUs1HHaX_g"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/france-services",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-ynk6x_Mim0xiXd68C_A3IGGh0CP6cNWiRDoxdGq6Nps"
+							"evidence": "form-7_5xWNiZQHwiU81wD2q7k_HIrzUES0jXfQUs1HHaX_g"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/le-ministere",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo"
+							"evidence": "form-ijAeQc3dvaDTni_qW0lcUADqFbGsNb7vtGn_LFKcM-c"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/ma-commune",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-SGC3wMriKiTZpNv9jyJLZrIE--ZU5MApYl5iyz_8K38"
+							"evidence": "form-7_5xWNiZQHwiU81wD2q7k_HIrzUES0jXfQUs1HHaX_g"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/mes-demarches",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-ynk6x_Mim0xiXd68C_A3IGGh0CP6cNWiRDoxdGq6Nps"
+							"evidence": "form-ijAeQc3dvaDTni_qW0lcUADqFbGsNb7vtGn_LFKcM-c"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/politiques-publiques",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo"
+							"evidence": "form-ijAeQc3dvaDTni_qW0lcUADqFbGsNb7vtGn_LFKcM-c"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-SGC3wMriKiTZpNv9jyJLZrIE--ZU5MApYl5iyz_8K38"
+							"evidence": "form-ijAeQc3dvaDTni_qW0lcUADqFbGsNb7vtGn_LFKcM-c"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/territoires-dindustrie",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-ynk6x_Mim0xiXd68C_A3IGGh0CP6cNWiRDoxdGq6Nps"
+							"evidence": "form-ijAeQc3dvaDTni_qW0lcUADqFbGsNb7vtGn_LFKcM-c"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/tiers-lieux",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-RcTx44wRU0hGy3naQEEP7ZgvZaY_JvE-sjm3EVtptzo"
+							"evidence": "form-ijAeQc3dvaDTni_qW0lcUADqFbGsNb7vtGn_LFKcM-c"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFDv\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0004\\x0006\uFFFD\uFFFD-\\x0019\uFFFD\uFFFD\\x000e\uFFFD2\uFFFDu\\x001f<\uFFFDF\\x0002\uFFFD\uFFFD\uFFFD\\x001f6\\x001f\\</p>",
+					"otherinfo": "<p>~\uFFFD\uFFFD\uFFFD4\uFFFD\uFFFDe\\x0013T\uFFFDJd\uFFFD\uFFFD7\uFFFD:;\u040A\uFFFD\u0637\uFFFD\uFFFD\\x0004(jc\uFFFD\uFFFD\uFFFD\\x0008</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1216,7 +1143,7 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1312,7 +1239,7 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/programme-action-coeur-de-ville",
+							"uri": "https://www.cohesion-territoires.gouv.fr/quartiers-de-la-politique-de-la-ville",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1640,132 +1567,6 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_ministre[12153]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_ministre[12154]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_news_format[283]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_news_format[291]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_news_format[292]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_news_format[293]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_news_format[294]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[118]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[12150]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[13]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[13]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[14]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[15]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[18]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[56]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "field_politique_publique[57]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "form_id",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com",
-							"method": "GET",
-							"param": "op",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/",
 							"method": "POST",
 							"param": "form_id",
@@ -1794,13 +1595,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "22",
+					"count": "4",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.cohesion-territoires.gouv.fr/actualites?field_ministre%5B12153%5D=12153&field_ministre%5B12154%5D=12154&field_news_format%5B283%5D=283&field_news_format%5B291%5D=291&field_news_format%5B292%5D=292&field_news_format%5B293%5D=293&field_news_format%5B294%5D=294&field_politique_publique%5B118%5D=118&field_politique_publique%5B12150%5D=12150&field_politique_publique%5B13%5D=13&field_politique_publique%5B14%5D=14&field_politique_publique%5B15%5D=15&field_politique_publique%5B18%5D=18&field_politique_publique%5B56%5D=56&field_politique_publique%5B57%5D=57&form_build_id=form-h1GWoMApmbEMx5O_Wso-tibn0ImQfq8OPLuVfLttj-g&form_id=news_filter_form&op=Voir+les+r%C3%A9sultats&url=https%3A%2F%2Fwww.example.com</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_ministre[12153]=12153</p><p></p><p>The user-controlled value was:</p><p>12153</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.cohesion-territoires.gouv.fr/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>form_id=localite_search_form</p><p></p><p>The user-controlled value was:</p><p>localite_search_form</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "2558"
+					"sourceid": "1894"
 				}
 			]
 		}
