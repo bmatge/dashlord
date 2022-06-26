@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 19 Jun 2022 02:28:54",
+	"@generated": "Sun, 26 Jun 2022 02:24:43",
 	"site":[ 
 		{
 			"@name": "https://www.collectivites-locales.gouv.fr",
@@ -24,23 +24,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/recherche\" method=\"GET\" id=\"search-form-block\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/lettres-information",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"mailto:sympa@listes.dgfip.finances.gouv.fr?subject=SUB collectivites.locales&amp;body=Cliquez sur le bouton ENVOYER de votre client de messagerie sans rien changer \u00E0 ce mail pour vous abonner. Merci\" enctype=\"text/plain\" method=\"POST\">"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/recherche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-page-1\" action=\"/recherche\" method=\"get\" id=\"views-exposed-form-recherche-page-1\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "3",
+					"count": "1",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -235,13 +221,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -261,6 +240,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
 					"count": "12",
@@ -269,7 +255,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1393"
+					"sourceid": "1368"
 				},
 				{
 					"pluginid": "10098",
@@ -405,7 +391,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1412"
+					"sourceid": "1415"
 				},
 				{
 					"pluginid": "10035",
@@ -474,13 +460,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -500,6 +479,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
 					"count": "12",
@@ -508,7 +494,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1393"
+					"sourceid": "1368"
 				},
 				{
 					"pluginid": "10096",
@@ -521,125 +507,244 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20141208"
+							"evidence": "20080724"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150090"
+							"evidence": "20110211"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150091"
+							"evidence": "20120825"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150092"
+							"evidence": "1156156179"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150272"
+							"evidence": "1176101934"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150273"
+							"evidence": "1307324685"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150274"
+							"evidence": "1393470590"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20150275"
+							"evidence": "1554031557"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20151001"
+							"evidence": "168518655"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20151002"
+							"evidence": "1757720243"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20151003"
+							"evidence": "1916340480"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20151004"
+							"evidence": "1942304509"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20151016"
+							"evidence": "1956152018"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "29990101"
+							"evidence": "20100219"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "572792924"
+							"evidence": "20100224"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "831164950"
+							"evidence": "20100326"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "20131113"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "20131115"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "2100443420"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "375445853"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "474041304"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "483836348"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "485136247"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "491636755"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "500631607"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "646587966"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "746402980"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "767964881"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "770286899"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "832347599"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "845231541"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "910076067"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "98453303"
 						}
 					],
-					"count": "16",
+					"count": "33",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>20141208, which evaluates to: 1970-08-22 02:46:48</p>",
+					"otherinfo": "<p>20080724, which evaluates to: 1970-08-21 09:58:44</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1993"
+					"sourceid": "1929"
 				},
 				{
 					"pluginid": "10094",
@@ -761,7 +866,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1415"
+					"sourceid": "1418"
 				},
 				{
 					"pluginid": "10027",
@@ -816,28 +921,28 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "select"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "select"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1021,7 +1126,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1393"
+					"sourceid": "1368"
 				},
 				{
 					"pluginid": "10015",
@@ -1041,7 +1146,21 @@
 							"evidence": "max-age=600, public"
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/actualites-du-21-septembre-2020",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/html",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1055,42 +1174,21 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/cadre-institutionnel",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-reforme-territoriale",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/historique-de-la-decentralisation",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/lettres-information",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/recherche",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/participation-des-citoyens",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1105,6 +1203,13 @@
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/texte-pa",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
