@@ -21,11 +21,11 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-chacha (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az453-263:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az377-716:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Jan 18 17:12:17 2019&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2022-06-19 02:11:24        --&gt;&gt; 80.87.236.14:443 (www.bercynumerique.finances.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2022-06-26 02:15:07        --&gt;&gt; 80.87.236.14:443 (www.bercynumerique.finances.gouv.fr) &lt;&lt;--</span>
 
  rDNS (80.87.236.14):    svr236014.actimage.net.
  Service detected:       HTTP
@@ -99,16 +99,16 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Server key size              </span>RSA 2048 bits (exponent is 65537)
 <span style="font-weight:bold;"> Server key usage             </span>Digital Signature, Key Encipherment
 <span style="font-weight:bold;"> Server extended key usage    </span>TLS Web Server Authentication, TLS Web Client Authentication
-<span style="font-weight:bold;"> Serial                       </span>ABDF1072433BE7167A1D94DCE5E507E2 (OK: length 16)
-<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 EA5A82D9CCF95ADFB75593D99AF2A65DC0D7E39A
-                              SHA256 6A8C55485474E408CAC0198C7B41DD156678912D683E4CEA11A37233A7328854
+<span style="font-weight:bold;"> Serial                       </span>DC22D96510DF726348D034E24C025CEC (OK: length 16)
+<span style="font-weight:bold;"> Fingerprints                 </span>SHA1 6182C835C7AC4714AADF06F4F0888F701A87380B
+                              SHA256 A50285B25E6F05D3BA43AAC480369E7381209289F3F6634D211EEA128D8C216D
 <span style="font-weight:bold;"> Common Name (CN)             </span><i>www.bercynumerique.finances.gouv.fr </i> (CN in response to request w/o SNI: <i>commerces-et-numerique.francenum.gouv.fr </i>)
 <span style="font-weight:bold;"> subjectAltName (SAN)         </span><i>www.bercynumerique.finances.gouv.fr
                               bercynumerique.finances.gouv.fr </i>
 <span style="font-weight:bold;"> Trust (hostname)             </span><span style="color:#008817;">Ok via SAN and CN</span> (SNI mandatory)
 <span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#008817;">Ok   </span><span style="color:#cd00cd;"></span>
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#e52207;">expires &lt; 30 days (6)</span> (2021-06-16 00:00 --&gt; 2022-06-25 23:59)
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">365 &gt;= 60 days</span> (2022-06-22 00:00 --&gt; 2023-06-26 23:59)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>http://crl.usertrust.com/GandiStandardSSLCA2.crl
 <span style="font-weight:bold;"> OCSP URI                     </span>http://ocsp.usertrust.com
@@ -126,7 +126,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 
 <span style="font-weight:bold;"> HTTP Status Code           </span>  200 OK
 <span style="font-weight:bold;"> HTTP clock skew              </span>0 sec from localtime
-<span style="font-weight:bold;"> Strict Transport Security    </span><span style="color:#008817;">400 days</span>=34560000 s<span style="color:#008817;">, includeSubDomains</span>
+<span style="font-weight:bold;"> Strict Transport Security    </span><span style="color:#008817;">365 days</span>=31536000 s<span style="color:#008817;">, includeSubDomains</span>
 <span style="font-weight:bold;"> Public Key Pinning           </span>--
 <span style="font-weight:bold;"> Server banner                </span>nginx
 <span style="font-weight:bold;"> Application banner           </span>--
@@ -136,11 +136,13 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
                               <span style="color:#008817;">Content-Security-Policy</span>: default-src https:
                                 &apos;unsafe-eval&apos; &apos;unsafe-inline&apos;; object-src
                                 https: ; child-src https: platform.twitter.com;
-                                img-src https: data:
+                                img-src https: data:; 
                               X-XSS-Protection: 1;mode=block
-                              Referrer-Policy: origin
+                              Access-Control-Allow-Origin: *
+                              Referrer-Policy: same-origin
                               X-UA-Compatible: IE=edge
-                              Cache-Control: max-age=600, public
+                              <span style="color:#c05600;">misconfiguration: </span><i>Cache-Control</i><span style="color:#c05600;"> 2x</span> -- checking first one only
+                              Cache-Control: max-age=600
 <span style="font-weight:bold;"> Reverse Proxy banner         </span>--
 
 
@@ -161,7 +163,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> FREAK</span> (CVE-2015-0204)                     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
 <span style="font-weight:bold;"> DROWN</span> (CVE-2016-0800, CVE-2016-0703)      <span style="color:#008817;font-weight:bold;">not vulnerable on this host and port (OK)</span>
                                            make sure you don&apos;t use this certificate elsewhere with SSLv2 enabled services, see
-                                           <a href="https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=6A8C55485474E408CAC0198C7B41DD156678912D683E4CEA11A37233A7328854" style="color:black;text-decoration:none;">https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=6A8C55485474E408CAC0198C7B41DD156678912D683E4CEA11A37233A7328854</a>
+                                           <a href="https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=A50285B25E6F05D3BA43AAC480369E7381209289F3F6634D211EEA128D8C216D" style="color:black;text-decoration:none;">https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=A50285B25E6F05D3BA43AAC480369E7381209289F3F6634D211EEA128D8C216D</a>
 <span style="font-weight:bold;"> LOGJAM</span> (CVE-2015-4000), experimental      <span style="color:#008817;">not vulnerable (OK):</span> no DH EXPORT ciphers, no DH key detected with &lt;= TLS 1.2
 <span style="font-weight:bold;"> BEAST</span> (CVE-2011-3389)                     <span style="color:#008817;">not vulnerable (OK)</span>, no SSL3 or TLS1
 <span style="font-weight:bold;"> LUCKY13</span> (CVE-2013-0169), experimental     <span style="color:#008817;font-weight:bold;">not vulnerable (OK)</span>
@@ -220,7 +222,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Final Score                  </span>93
 <span style="font-weight:bold;"> Overall Grade                </span><span style="color:#008817;font-weight:bold;">A+</span>
 
-<span style="color:white;background-color:black;"> Done 2022-06-19 02:13:53 [ 152s] --&gt;&gt; 80.87.236.14:443 (www.bercynumerique.finances.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2022-06-26 02:17:29 [ 144s] --&gt;&gt; 80.87.236.14:443 (www.bercynumerique.finances.gouv.fr) &lt;&lt;--</span>
 
 
 </pre>
