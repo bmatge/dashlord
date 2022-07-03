@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 26 Jun 2022 03:34:23",
+	"@generated": "Sun, 3 Jul 2022 03:31:08",
 	"site":[ 
 		{
 			"@name": "https://www.pass.fonction-publique.gouv.fr",
@@ -8,32 +8,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/files/2022-06/DGA%20-%20APPRENTI%20CHARGE%20DE%20PROJET%20-%202022.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "677604719823719"
-						}
-					],
-					"count": "1",
-					"solution": "",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 677604</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "1005"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -450,6 +424,32 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "247"
+				},
+				{
 					"pluginid": "10044",
 					"alertRef": "10044",
 					"alert": "Big Redirect Detected (Potential Sensitive Information Leak)",
@@ -509,6 +509,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=892&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=580&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=R%C3%A9initialiser+ma+recherche",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/search",
 							"method": "GET",
 							"param": "",
@@ -537,13 +544,39 @@
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 43 [https://www.pass.fonction-publique.gouv.fr/].</p><p>Predicted response size: 343.</p><p>Response Body Length: 418.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "969"
+					"sourceid": "421"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "247"
 				},
 				{
 					"pluginid": "10110",
@@ -577,7 +610,7 @@
 							"evidence": "eval"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rdkfdn",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?re6gfv",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -590,7 +623,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "900"
+					"sourceid": "352"
 				},
 				{
 					"pluginid": "10063",
@@ -631,13 +664,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/drupal.init.js?v=9.3.8",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/drupal.js?v=9.3.8",
 							"method": "GET",
 							"param": "",
@@ -666,7 +692,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/files/languages/fr_0qJuj9jv6YcqP8IW6d1_6mR4s7HeGxBA-dxASPGnaC8.js?rdkfdn",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/files/languages/fr_0qJuj9jv6YcqP8IW6d1_6mR4s7HeGxBA-dxASPGnaC8.js?re6gfv",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -681,6 +707,13 @@
 						},
 						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/README.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -820,13 +853,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "10091530"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "11365071"
 						},
 						{
@@ -855,13 +881,6 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "26535987"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
 							"evidence": "38482720"
 						},
 						{
@@ -883,6 +902,13 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
+							"evidence": "48913701"
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
+							"method": "GET",
+							"param": "",
+							"attack": "",
 							"evidence": "49949564"
 						},
 						{
@@ -890,7 +916,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "84674048"
+							"evidence": "66196439"
 						},
 						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
@@ -907,13 +933,13 @@
 							"evidence": "96408676"
 						}
 					],
-					"count": "14",
+					"count": "13",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>09806265, which evaluates to: 1970-04-24 11:57:45</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "265"
+					"sourceid": "261"
 				},
 				{
 					"pluginid": "10094",
@@ -1120,7 +1146,7 @@
 					],
 					"count": "10",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script src=\"/themes/custom/pass/js/a11y/select-a11y.min.js?rdkfdn\"></script>\", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script src=\"/themes/custom/pass/js/a11y/select-a11y.min.js?re6gfv\"></script>\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
@@ -1322,14 +1348,14 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/apprenti-charge-de-projet-aupres-de-la-directrice-generale-adjointe-fh",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/charge-de-mission-aupres-de-la-direction-generale-en-contrat-dapprentissage-fh",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/offre-dalternance-videaste-infographiste-pao-0",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stage-long-ambassade-de-france-tallinn-estonie-service-de-presse-et-de-communication",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1520,7 +1546,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "929"
+					"sourceid": "381"
 				}
 			]
 		}
