@@ -21,11 +21,11 @@
 ###########################################################</span>
 
  Using &quot;OpenSSL 1.0.2-chacha (1.0.2k-dev)&quot; [~183 ciphers]
- on fv-az213-690:/home/testssl/bin/openssl.Linux.x86_64
+ on fv-az190-497:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Jan 18 17:12:17 2019&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2022-08-14 02:08:46        --&gt;&gt; 193.17.19.48:443 (www.aft.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2022-08-21 02:02:17        --&gt;&gt; 193.17.19.48:443 (www.aft.gouv.fr) &lt;&lt;--</span>
 
  rDNS (193.17.19.48):    --
  Service detected:       HTTP
@@ -55,6 +55,8 @@
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server&apos;s cipher preferences </span>
 
+<span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
+<span style="color:#cd00cd;">no matching cipher in this list found (pls report this): </span>DHE-RSA-SEED-SHA:SEED-SHA:DES-CBC3-SHA:RC4-MD5:DES-CBC-SHA:RC4-SHA:AES128-SHA:AES128-SHA256:AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:ECDH-RSA-DES-CBC3-SHA:ECDH-RSA-AES128-SHA:ECDH-RSA-AES256-SHA:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:DHE-DSS-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:AES256-SHA256:ECDHE-RSA-DES-CBC3-SHA:ECDHE-RSA-AES128-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:ADH-AES256-GCM-SHA384:AECDH-AES128-SHA:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-AES128-SHA  . 
 Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Cipher Suite Name (IANA/RFC)
 -----------------------------------------------------------------------------------------------------------------------------
 <u>SSLv2</u>
@@ -65,31 +67,9 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
  - 
 <u>TLSv1.1</u>
  - 
-<u>TLSv1.2</u> (server order)
-<u>TLSv1.3</u>
-<span style="color:#cd00cd;">Local problem: /home/testssl/bin/openssl.Linux.x86_64 doesn&apos;t support &quot;s_client -tls1_3&quot;</span>
-
-<span style="font-weight:bold;"> Has server cipher order?     </span><span style="color:#008817;font-weight:bold;">yes (OK)</span> -- TLS 1.3 and below
-<span style="font-weight:bold;"> Negotiated protocol          </span><span style="color:#008817;font-weight:bold;">TLSv1.3</span>
-<span style="font-weight:bold;"> Negotiated cipher            </span><span style="color:#008817;font-weight:bold;">TLS_AES_256_GCM_SHA384</span>, <span style="color:#008817;">253 bit ECDH (X25519)</span>
-
-<span style="text-decoration:underline;font-weight:bold;"> Testing robust forward secrecy (FS)</span><u> -- omitting Null Authentication/Encryption, 3DES, RC4 </u>
-
-
-<span style="color:#008817;"> FS is offered (OK) </span>          DHE-RSA-AES128-GCM-SHA256 DHE-RSA-AES128-SHA256
-                              DHE-RSA-AES128-SHA DHE-RSA-AES256-GCM-SHA384
-                              DHE-RSA-AES256-SHA256 DHE-RSA-AES256-SHA
-                              ECDHE-RSA-AES128-GCM-SHA256
-                              ECDHE-RSA-AES128-SHA256 ECDHE-RSA-AES128-SHA
-                              ECDHE-RSA-AES256-GCM-SHA384
-                              ECDHE-RSA-AES256-SHA384 ECDHE-RSA-AES256-SHA 
-<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> <span style="color:#008817;">secp521r1</span> 
-
-<span style="color:#cd00cd;"> Oops: TCP connect problem</span>
-
-<span style="color:#cd00cd;">Unable to open a socket to 193.17.19.48:443. </span>
-<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated TCP connect problems, giving up</span>
-Consider increasing MAX_SOCKET_FAIL (currently: 2)
+<u>TLSv1.2</u>
+<span style="color:#be32d0;font-weight:bold;">Fatal error: repeated openssl s_client connect problem, doesn&apos;t make sense to continue</span>
+Consider increasing MAX_OSSL_FAIL (currently: 2)
 
 </pre>
 </body>
