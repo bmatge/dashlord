@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 14 Aug 2022 03:11:04",
+	"@generated": "Sun, 21 Aug 2022 03:07:52",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -318,7 +318,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "132"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "10098",
@@ -441,6 +441,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/search",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -448,13 +455,39 @@
 							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 41 [https://www.francenum.gouv.fr/filter/tips].</p><p>Predicted response size: 341.</p><p>Response Body Length: 410.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "182"
+					"sourceid": "179"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.francenum.gouv.fr/files/js/js_gKsb3sQWOJ3w9TL26oiJfmROdHbDL3saIHsvIi8Vhk8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval"
+						}
+					],
+					"count": "1",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "987"
 				},
 				{
 					"pluginid": "10063",
@@ -474,7 +507,42 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/files/js/js_7VOQUNU7IA_rgxTjx-GDQAte-Zf6pr8z6Myjfdtgj9k.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/files/js/js_gKsb3sQWOJ3w9TL26oiJfmROdHbDL3saIHsvIi8Vhk8.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/files/js/js_LkQLN5Lds17JAVHDEtNn5a0HtBrLD1MYEjJvdshrhhk.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/profiles/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/profiles/custom/design_system_profile/themes/design_system/js/dsfr.module.min.js?v=0.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/profiles/custom/design_system_profile/themes/design_system/js/dsfr.nomodule.min.js?v=0.6.0",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -488,7 +556,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "3",
+					"count": "8",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -597,7 +665,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "132"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "10096",
@@ -621,21 +689,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "354091470"
+							"evidence": "431654213"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "465308957"
+							"evidence": "907642352"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "69566948"
+							"evidence": "251265401"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/*.css$",
@@ -649,14 +717,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "465308959"
+							"evidence": "907741410"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "465308961"
+							"evidence": "251265403"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/*.js$",
@@ -670,21 +738,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "69566950"
+							"evidence": "907741412"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1073415254"
+							"evidence": "122652830"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "69566946"
+							"evidence": "143229637"
 						}
 					],
 					"count": "11",
@@ -1074,6 +1142,13 @@
 							"evidence": "must-revalidate, no-cache, private"
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "must-revalidate, no-cache, private"
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1103,13 +1178,6 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/ma-priorite/proteger-mon-entreprise",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "must-revalidate, no-cache, private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?field_localisation=All&field_niveau_expertise=All&items_per_page=10&search_api_fulltext&secteurs&sort_by=date_desc",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1197,7 +1265,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "132"
+					"sourceid": "135"
 				},
 				{
 					"pluginid": "10049",
@@ -1237,7 +1305,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "134"
+					"sourceid": "132"
 				},
 				{
 					"pluginid": "10031",
@@ -1396,7 +1464,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "258"
+					"sourceid": "355"
 				}
 			]
 		}
