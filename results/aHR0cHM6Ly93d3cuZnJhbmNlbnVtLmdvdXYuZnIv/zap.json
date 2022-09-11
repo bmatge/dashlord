@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 4 Sep 2022 03:17:09",
+	"@generated": "Sun, 11 Sep 2022 03:21:40",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -33,70 +33,63 @@
 							"evidence": "<form action=\"/newsletter/subscribe\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/newsletter/subscribe\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
+							"uri": "https://www.francenum.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
+							"uri": "https://www.francenum.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/newsletter/subscribe\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
+							"uri": "https://www.francenum.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
+							"uri": "https://www.francenum.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/newsletter/subscribe\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-magazine-numerique\" action=\"/magazine-du-numerique\" method=\"get\" id=\"views-exposed-form-recherche-magazine-numerique\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/newsletter/subscribe\">"
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -122,14 +115,14 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; font-src 'self' data: https:;"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; font-src 'self' data: https:;"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
+							"uri": "https://www.francenum.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -162,14 +155,14 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; font-src 'self' data: https:;"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; font-src 'self' data: https:;"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
+							"uri": "https://www.francenum.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -202,14 +195,14 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; font-src 'self' data: https:;"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; font-src 'self' data: https:;"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
+							"uri": "https://www.francenum.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -325,7 +318,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "775"
+					"sourceid": "121"
 				},
 				{
 					"pluginid": "10098",
@@ -345,56 +338,14 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/piloter-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/proteger-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -408,7 +359,49 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/search/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/user/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/user/logout",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/user/password",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/user/register",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/web.config",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -422,243 +415,6 @@
 					"cweid": "264",
 					"wascid": "14",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10044",
-					"alertRef": "10044",
-					"alert": "Big Redirect Detected (Potential Sensitive Information Leak)",
-					"name": "Big Redirect Detected (Potential Sensitive Information Leak)",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/index.php/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "2",
-					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 41 [https://www.francenum.gouv.fr/filter/tips].</p><p>Predicted response size: 341.</p><p>Response Body Length: 410.</p>",
-					"reference": "",
-					"cweid": "201",
-					"wascid": "13",
-					"sourceid": "820"
-				},
-				{
-					"pluginid": "10110",
-					"alertRef": "10110",
-					"alert": "Dangerous JS Functions",
-					"name": "Dangerous JS Functions",
-					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_eFg7EV1kxSlavQDpmEE-OSKBjrGikkUScm_PNvKOeDs.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Eval"
-						}
-					],
-					"count": "1",
-					"solution": "<p>See the references for security advice on the use of these functions.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://angular.io/guide/security</p>",
-					"cweid": "749",
-					"wascid": "-1",
-					"sourceid": "730"
-				},
-				{
-					"pluginid": "10063",
-					"alertRef": "10063",
-					"alert": "Permissions Policy Header Not Set",
-					"name": "Permissions Policy Header Not Set",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/core/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_eFg7EV1kxSlavQDpmEE-OSKBjrGikkUScm_PNvKOeDs.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_IHMfsRNiRrXAJFE9AJB-Os_nMYtACV04bD_Ub2ydD2U.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_LkQLN5Lds17JAVHDEtNn5a0HtBrLD1MYEjJvdshrhhk.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/custom/design_system_profile/themes/design_system/js/dsfr.module.min.js?v=0.6.0",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/custom/design_system_profile/themes/design_system/js/dsfr.nomodule.min.js?v=0.6.0",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/README.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "8",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
-					"cweid": "693",
-					"wascid": "15",
-					"sourceid": "792"
-				},
-				{
-					"pluginid": "10035",
-					"alertRef": "10035",
-					"alert": "Strict-Transport-Security Header Not Set",
-					"name": "Strict-Transport-Security Header Not Set",
-					"riskcode": "1",
-					"confidence": "3",
-					"riskdesc": "Low (High)",
-					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/files/css/css_ckPT8G5Xa8pSGhnNxnB0qJs4108tQyoFIQ_G82j7e0g.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/css/css_GeUMIP7zmVk-ZRVJIvsz9FpGFGJR6g5rB6kvlUnRZOo.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/css/css_hK7iYDj9Ztfa-cVoWarHOgn6WFQx8ch9BzswAc0mIzI.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/css/css_UZVp2jFnXj4fKrrRKNdDOqADbpXJm5xiqRyIrFfz57Y.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_eFg7EV1kxSlavQDpmEE-OSKBjrGikkUScm_PNvKOeDs.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_IHMfsRNiRrXAJFE9AJB-Os_nMYtACV04bD_Ub2ydD2U.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/files/js/js_LkQLN5Lds17JAVHDEtNn5a0HtBrLD1MYEjJvdshrhhk.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/custom/design_system_profile/themes/design_system/js/dsfr.module.min.js?v=0.6.0",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/custom/design_system_profile/themes/design_system/js/dsfr.nomodule.min.js?v=0.6.0",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/themes/custom/francenum/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/themes/custom/francenum/img/logo-francenum.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "12",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
-					"cweid": "319",
-					"wascid": "15",
-					"sourceid": "726"
 				},
 				{
 					"pluginid": "10096",
@@ -682,171 +438,75 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "715621223"
+							"evidence": "174031838"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "926515353"
+							"evidence": "26148889"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "554665904"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "12097481"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "491196004"
+							"evidence": "186091493"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
+							"uri": "https://www.francenum.gouv.fr/core/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "114854553"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "12097481"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
+							"uri": "https://www.francenum.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "491196008"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "12097481"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "491196006"
+							"evidence": "554665906"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "376539937"
+							"evidence": "656049686"
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "491196002"
+							"evidence": "527405994"
 						}
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>12097481, which evaluates to: 1970-05-21 00:24:41</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10094",
-					"alertRef": "10094",
-					"alert": "Base64 Disclosure",
-					"name": "Base64 Disclosure",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>Base64 encoded data was disclosed by the application/web server. Note: in the interests of performance not all base64 strings in the response were analyzed individually, the entire response should be looked at by the analyst/security team/developer(s).</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_n2Derr0OyZ_ZPoxHv48Ozwve2qneWRRMtsEnCJYx2FU"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/gerer-mes-ressources-humaines",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/piloter-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/proteger-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_uATcNm7OwAMxQtRSCLw6Yz4OKkmPAYPSVh01IyYUvMM"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_vhJ8OAzIik5cwzHAHA0EkRV3B5KUtriS09rxlFPDNFs"
-						}
-					],
-					"count": "11",
-					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uF11F\\x000e\\x00032\"\uFFFD\uFFFD0\uFFFDp\\x0007\\x0003A$E]\uFFFD\uFFFD-\uFFFD$\uFFFD\uFFFD\uFFFDe\\x0014\uFFFD\uFFFD\\x0016</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -876,7 +536,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "795"
+					"sourceid": "145"
 				},
 				{
 					"pluginid": "10027",
@@ -896,70 +556,70 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
+							"uri": "https://www.francenum.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique",
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
+							"uri": "https://www.francenum.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
+							"uri": "https://www.francenum.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/gerer-mes-ressources-humaines",
+							"uri": "https://www.francenum.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/piloter-mon-entreprise",
+							"uri": "https://www.francenum.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/proteger-mon-entreprise",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -971,191 +631,6 @@
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10109",
-					"alertRef": "10109",
-					"alert": "Modern Web Application",
-					"name": "Modern Web Application",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Barom\u00E8tre France Num</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Strat\u00E9gie num\u00E9rique</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Comment d\u00E9marrer ?</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">D\u00E9velopper mes ventes</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">\u00CAtre visible sur internet</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/gerer-mes-ressources-humaines",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">G\u00E9rer mes ressources humaines</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/piloter-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Piloter mon entreprise</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/proteger-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Prot\u00E9ger mon entreprise</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Le magazine du num\u00E9rique</a>"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Pr\u00E8s de chez moi</a>"
-						}
-					],
-					"count": "11",
-					"solution": "<p>This is an informational alert and so no changes are required.</p>",
-					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
-					"reference": "",
-					"cweid": "-1",
-					"wascid": "-1",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Non-Storable Content",
-					"name": "Non-Storable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/barometre-france-num",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/etre-visible-sur-internet",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/piloter-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/proteger-mon-entreprise",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
-						}
-					],
-					"count": "10",
-					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
-					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
-					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
 				},
@@ -1184,6 +659,13 @@
 							"evidence": "must-revalidate, no-cache, private"
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "must-revalidate, no-cache, private"
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1226,13 +708,6 @@
 							"evidence": "must-revalidate, no-cache, private"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "must-revalidate, no-cache, private"
-						},
-						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1254,338 +729,6 @@
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable and Cacheable Content",
-					"name": "Storable and Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
-					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "77"
-				},
-				{
-					"pluginid": "10031",
-					"alertRef": "10031",
-					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
-					"name": "User Controllable HTML Element Attribute (Potential XSS)",
-					"riskcode": "0",
-					"confidence": "1",
-					"riskdesc": "Informational (Low)",
-					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc",
-							"method": "GET",
-							"param": "sort_by",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_localisation",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_secteurs_activite",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "field_taille_entreprise",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "items_per_page",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "items_per_page",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "sort_by",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=date_desc&type_1%5Btemoignage%5D=temoignage",
-							"method": "GET",
-							"param": "type_1[temoignage]",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "41",
-					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [option] tag [value] attribute </p><p></p><p>The user input found was:</p><p>sort_by=date_desc</p><p></p><p>The user-controlled value was:</p><p>date_desc</p>",
-					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
-					"cweid": "20",
-					"wascid": "20",
-					"sourceid": "156"
 				}
 			]
 		}
