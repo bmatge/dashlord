@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 11 Sep 2022 04:13:08",
+	"@generated": "Sun, 18 Sep 2022 04:16:11",
 	"site":[ 
 		{
 			"@name": "https://www.amenagement-numerique.gouv.fr",
@@ -46,7 +46,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "514"
+					"sourceid": "460"
 				},
 				{
 					"pluginid": "10055",
@@ -457,102 +457,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10096",
-					"alertRef": "10096",
-					"alert": "Timestamp Disclosure - Unix",
-					"name": "Timestamp Disclosure - Unix",
-					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "15260709"
-						}
-					],
-					"count": "11",
-					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>15260709, which evaluates to: 1970-06-26 15:05:09</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "1"
-				},
-				{
 					"pluginid": "10019",
 					"alertRef": "10019",
 					"alert": "Content-Type Header Missing",
@@ -576,7 +480,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "233"
+					"sourceid": "232"
 				},
 				{
 					"pluginid": "10027",
@@ -631,7 +535,7 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/comment/reply/",
+							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -680,8 +584,8 @@
 					"alert": "Re-examine Cache-control Directives",
 					"name": "Re-examine Cache-control Directives",
 					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
 					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
 					"instances":[ 
 						{
@@ -706,13 +610,6 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/fr/demarche-collaborative",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
 							"uri": "https://www.amenagement-numerique.gouv.fr/fr/dispositif-cohesion-numerique-territoires-garantir-tous-acces-internet-fixe-qualite",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -728,6 +625,13 @@
 						},
 						{
 							"uri": "https://www.amenagement-numerique.gouv.fr/fr/projets-collectivites-territoriales",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.amenagement-numerique.gouv.fr/fr/referentiel-dadresses-commun-base-adresse-nationale",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -765,7 +669,7 @@
 					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
