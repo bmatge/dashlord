@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 11 Sep 2022 02:51:13",
+	"@generated": "Sun, 18 Sep 2022 02:55:50",
 	"site":[ 
 		{
 			"@name": "https://cnnumerique.fr",
@@ -325,7 +325,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "173"
+					"sourceid": "169"
 				},
 				{
 					"pluginid": "10098",
@@ -424,6 +424,32 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://cnnumerique.fr/index.php/presse",
+							"method": "POST",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "1280"
+				},
+				{
 					"pluginid": "10096",
 					"alertRef": "10096",
 					"alert": "Timestamp Disclosure - Unix",
@@ -434,76 +460,97 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://cnnumerique.fr/index.php/le-conseil/transparence",
+							"uri": "https://cnnumerique.fr/index.php/cenum-lettre-dinformation-du-3-decembre-2021",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20140630"
+							"evidence": "1638427047"
 						},
 						{
-							"uri": "https://cnnumerique.fr/le-conseil/transparence",
+							"uri": "https://cnnumerique.fr/index.php/democratie-et-numerique-synthese-du-13-octobre-2021",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20140630"
+							"evidence": "1634293855"
 						},
 						{
-							"uri": "https://cnnumerique.fr/le-droit-detre-exigeant-avec-lintelligence-artificielle-5-questions-matthieu-porte-coordinateur-des",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "00556579"
+							"evidence": "1450228793"
 						},
 						{
-							"uri": "https://cnnumerique.fr/libraries/shariff/build/shariff.complete.js?v=9.3.16",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2147483647"
+							"evidence": "1495908701"
 						},
 						{
-							"uri": "https://cnnumerique.fr/modules/contrib/webform/js/webform.behaviors.js?v=9.3.16",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20899274"
+							"evidence": "1603801131"
 						},
 						{
-							"uri": "https://cnnumerique.fr/modules/contrib/webform/js/webform.behaviors.js?v=9.3.16",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "20899422"
+							"evidence": "1618183404"
 						},
 						{
-							"uri": "https://cnnumerique.fr/modules/contrib/webform/js/webform.behaviors.js?v=9.3.16",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "37838430"
+							"evidence": "1645159379"
 						},
 						{
-							"uri": "https://cnnumerique.fr/modules/contrib/webform/js/webform.form.js?v=9.3.16",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "11235622"
+							"evidence": "1711532673"
 						},
 						{
-							"uri": "https://cnnumerique.fr/modules/contrib/webform/js/webform.states.js?v=9.3.16",
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "37825072"
+							"evidence": "1791317718"
+						},
+						{
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1825968477"
+						},
+						{
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1889150067"
+						},
+						{
+							"uri": "https://cnnumerique.fr/rapport-dactivite-et-bilan-de-la-mandature-2018-2020",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1959829130"
 						}
 					],
-					"count": "9",
+					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>20140630, which evaluates to: 1970-08-22 02:37:10</p>",
+					"otherinfo": "<p>1638427047, which evaluates to: 2021-12-02 06:37:27</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "431"
+					"sourceid": "930"
 				},
 				{
 					"pluginid": "10019",
@@ -529,7 +576,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "193"
+					"sourceid": "191"
 				},
 				{
 					"pluginid": "10027",
@@ -563,7 +610,7 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://cnnumerique.fr/profiles/*.css$",
+							"uri": "https://cnnumerique.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -598,7 +645,7 @@
 							"evidence": "from"
 						},
 						{
-							"uri": "https://cnnumerique.fr/profiles/*.css$",
+							"uri": "https://cnnumerique.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -626,8 +673,8 @@
 					"alert": "Re-examine Cache-control Directives",
 					"name": "Re-examine Cache-control Directives",
 					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
 					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
 					"instances":[ 
 						{
@@ -680,6 +727,13 @@
 							"evidence": "max-age=600, public"
 						},
 						{
+							"uri": "https://cnnumerique.fr/paroles-de",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
 							"uri": "https://cnnumerique.fr/presse",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -699,19 +753,12 @@
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://cnnumerique.fr/taxonomy/term/101",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
 						}
 					],
 					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
