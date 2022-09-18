@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 11 Sep 2022 03:57:55",
+	"@generated": "Sun, 18 Sep 2022 04:00:13",
 	"site":[ 
 		{
 			"@name": "https://www.pass.fonction-publique.gouv.fr",
@@ -47,6 +47,13 @@
 							"evidence": "<form action=\"/recherche-offre\" method=\"get\" id=\"views-exposed-form-recherche-offre-page-1\" accept-charset=\"UTF-8\">"
 						},
 						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=870&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=580&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/recherche-offre\" method=\"get\" id=\"views-exposed-form-recherche-offre-page-1\" accept-charset=\"UTF-8\">"
+						},
+						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/ressources",
 							"method": "GET",
 							"param": "",
@@ -87,13 +94,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"user-register-form user-form\" data-user-info-from-browser data-drupal-selector=\"user-register-form\" enctype=\"multipart/form-data\" action=\"/user/register/recruteur\" method=\"post\" id=\"user-register-form\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/login",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"user-login-form\" data-drupal-selector=\"user-login-form\" action=\"/user/login\" method=\"post\" id=\"user-login-form\" accept-charset=\"UTF-8\">"
 						}
 					],
 					"count": "11",
@@ -359,6 +359,13 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/index.php/admin/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -381,13 +388,6 @@
 						},
 						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/user/login",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -422,168 +422,6 @@
 					"cweid": "264",
 					"wascid": "14",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "90022",
-					"alertRef": "90022",
-					"alert": "Application Error Disclosure",
-					"name": "Application Error Disclosure",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "247"
-				},
-				{
-					"pluginid": "10017",
-					"alertRef": "10017",
-					"alert": "Cross-Domain JavaScript Source File Inclusion",
-					"name": "Cross-Domain JavaScript Source File Inclusion",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "829",
-					"wascid": "15",
-					"sourceid": "247"
-				},
-				{
-					"pluginid": "10096",
-					"alertRef": "10096",
-					"alert": "Timestamp Disclosure - Unix",
-					"name": "Timestamp Disclosure - Unix",
-					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "03718870"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "07092823"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "22056410"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "23631623"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "25598133"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "42785376"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "49949564"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "52217774"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "56839789"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "59453664"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "83424326"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "93757721"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/flux/offres_stages",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "96408676"
-						}
-					],
-					"count": "13",
-					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>03718870, which evaluates to: 1970-02-13 01:01:10</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "261"
 				},
 				{
 					"pluginid": "10019",
@@ -706,8 +544,8 @@
 					"alert": "Re-examine Cache-control Directives",
 					"name": "Re-examine Cache-control Directives",
 					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
 					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
 					"instances":[ 
 						{
@@ -725,14 +563,21 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/dge-russieukraine-mise-en-oeuvre-dun-mecanisme-national-de-repartition-du-gaz-naturel-0",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/apprentie-assistante-de-direction-10",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-au-sein-du-cabinet-de-la-ministre-deleguee-chargee-de-lenseignement-et-de-la",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stage-participation-levaluation-regionale-du-dispositif-vih-test-ref-dire-sta-2022-01",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-au-sein-du-cabinet-du-ministre-des-solidarites-de-lautonomie-et-des-personnes",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -779,19 +624,12 @@
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/register/recruteur",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
 						}
 					],
 					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
