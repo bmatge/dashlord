@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 25 Sep 2022 02:54:52",
+	"@generated": "Sun, 2 Oct 2022 02:57:36",
 	"site":[ 
 		{
 			"@name": "https://www.budget.gouv.fr",
@@ -24,13 +24,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-rechercher-es-page-1\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/download_csv/timeline/donn\u00E9es_.csv\" method=\"POST\">"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
@@ -82,7 +75,7 @@
 							"evidence": "<form action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-rechercher-es-page-1\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-tags-target-id\" \"edit-query\" \"edit-submit-rechercher-es\" \"f[0]\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -311,7 +304,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "251"
+					"sourceid": "250"
 				},
 				{
 					"pluginid": "10098",
@@ -410,6 +403,58 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "10020",
+					"alertRef": "10020-1",
+					"alert": "Missing Anti-clickjacking Header",
+					"name": "Missing Anti-clickjacking Header",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.budget.gouv.fr/ressources-documentaires/budgetek",
+							"method": "GET",
+							"param": "X-Frame-Options",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
+					"cweid": "1021",
+					"wascid": "15",
+					"sourceid": "1853"
+				},
+				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.budget.gouv.fr/sitemap",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1982"
+				},
+				{
 					"pluginid": "10054",
 					"alertRef": "10054",
 					"alert": "Cookie without SameSite Attribute",
@@ -425,15 +470,55 @@
 							"param": "SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
 							"attack": "",
 							"evidence": "Set-Cookie: SSESSd14a8e0a64a3b34ee847b4f13e76a58f"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2022/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2022",
+							"method": "GET",
+							"param": "SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSd14a8e0a64a3b34ee847b4f13e76a58f"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "452"
+					"sourceid": "499"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.budget.gouv.fr/ressources-documentaires/budgetek",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/sitemap",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "1853"
 				},
 				{
 					"pluginid": "10019",
@@ -459,7 +544,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "270"
+					"sourceid": "273"
 				},
 				{
 					"pluginid": "10027",
@@ -589,13 +674,6 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-de-securite-sociale-asso",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-publiques-locales-apul",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -618,6 +696,13 @@
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/performance-depense",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/rechercher",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
