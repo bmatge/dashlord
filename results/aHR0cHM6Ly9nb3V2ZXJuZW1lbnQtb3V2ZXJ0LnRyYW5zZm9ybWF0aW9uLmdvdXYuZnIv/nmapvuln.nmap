@@ -1,6 +1,6 @@
-# Nmap 7.92 scan initiated Sun Oct  2 03:52:32 2022 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln gouvernement-ouvert.transformation.gouv.fr
+# Nmap 7.92 scan initiated Sun Oct  9 03:10:09 2022 as: nmap -sV --script vulners --script-args mincvss=5.0 -oA /data/nmapvuln gouvernement-ouvert.transformation.gouv.fr
 Nmap scan report for gouvernement-ouvert.transformation.gouv.fr (94.23.123.122)
-Host is up (0.087s latency).
+Host is up (0.15s latency).
 rDNS record for 94.23.123.122: ip122.ip-94-23-123.eu
 Not shown: 997 closed tcp ports (reset)
 PORT    STATE SERVICE        VERSION
@@ -10,25 +10,11 @@ PORT    STATE SERVICE        VERSION
 |_    SSH-2.0-Platform.sh
 80/tcp  open  http-proxy     (bad gateway)
 | fingerprint-strings: 
-|   FourOhFourRequest, GetRequest, HTTPOptions: 
-|     HTTP/1.0 502 Bad Gateway
-|     Cache-Control: private, max-age=0
-|     Content-Type: application/json
-|     Date: Sun, 02 Oct 2022 03:52:41 GMT
-|     Content-Length: 68
-|     {"status":502,"message":"No route known for ","additional_error":""}
-|   GenericLines, Help, NessusTPv10, RTSPRequest, SSLSessionReq, Socks5: 
-|     HTTP/1.1 400 Bad Request
-|     Content-Type: text/plain; charset=utf-8
-|     Connection: close
-|_    Request
-443/tcp open  ssl/http-proxy (bad gateway)
-| fingerprint-strings: 
 |   FourOhFourRequest: 
 |     HTTP/1.0 502 Bad Gateway
 |     Cache-Control: private, max-age=0
 |     Content-Type: application/json
-|     Date: Sun, 02 Oct 2022 03:52:48 GMT
+|     Date: Sun, 09 Oct 2022 03:10:19 GMT
 |     Content-Length: 68
 |     {"status":502,"message":"No route known for ","additional_error":""}
 |   GenericLines, Help, NessusTPv10, RTSPRequest, SSLSessionReq, Socks5: 
@@ -40,29 +26,50 @@ PORT    STATE SERVICE        VERSION
 |     HTTP/1.0 502 Bad Gateway
 |     Cache-Control: private, max-age=0
 |     Content-Type: application/json
-|     Date: Sun, 02 Oct 2022 03:52:47 GMT
+|     Date: Sun, 09 Oct 2022 03:10:18 GMT
+|     Content-Length: 68
+|_    {"status":502,"message":"No route known for ","additional_error":""}
+443/tcp open  ssl/http-proxy (bad gateway)
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 502 Bad Gateway
+|     Cache-Control: private, max-age=0
+|     Content-Type: application/json
+|     Date: Sun, 09 Oct 2022 03:10:26 GMT
+|     Content-Length: 68
+|     {"status":502,"message":"No route known for ","additional_error":""}
+|   GenericLines, Help, NessusTPv10, RTSPRequest, SSLSessionReq, Socks5: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|     Request
+|   GetRequest, HTTPOptions: 
+|     HTTP/1.0 502 Bad Gateway
+|     Cache-Control: private, max-age=0
+|     Content-Type: application/json
+|     Date: Sun, 09 Oct 2022 03:10:25 GMT
 |     Content-Length: 68
 |_    {"status":502,"message":"No route known for ","additional_error":""}
 3 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port22-TCP:V=7.92%I=7%D=10/2%Time=63390B09%P=x86_64-alpine-linux-musl%r
+SF-Port22-TCP:V=7.92%I=7%D=10/9%Time=63423B9A%P=x86_64-alpine-linux-musl%r
 SF:(NULL,15,"SSH-2\.0-Platform\.sh\r\n");
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port80-TCP:V=7.92%I=7%D=10/2%Time=63390B09%P=x86_64-alpine-linux-musl%r
+SF-Port80-TCP:V=7.92%I=7%D=10/9%Time=63423B9A%P=x86_64-alpine-linux-musl%r
 SF:(GetRequest,DC,"HTTP/1\.0\x20502\x20Bad\x20Gateway\r\nCache-Control:\x2
 SF:0private,\x20max-age=0\r\nContent-Type:\x20application/json\r\nDate:\x2
-SF:0Sun,\x2002\x20Oct\x202022\x2003:52:41\x20GMT\r\nContent-Length:\x2068\
+SF:0Sun,\x2009\x20Oct\x202022\x2003:10:18\x20GMT\r\nContent-Length:\x2068\
 SF:r\n\r\n{\"status\":502,\"message\":\"No\x20route\x20known\x20for\x20\",
 SF:\"additional_error\":\"\"}")%r(HTTPOptions,DC,"HTTP/1\.0\x20502\x20Bad\
 SF:x20Gateway\r\nCache-Control:\x20private,\x20max-age=0\r\nContent-Type:\
-SF:x20application/json\r\nDate:\x20Sun,\x2002\x20Oct\x202022\x2003:52:41\x
+SF:x20application/json\r\nDate:\x20Sun,\x2009\x20Oct\x202022\x2003:10:18\x
 SF:20GMT\r\nContent-Length:\x2068\r\n\r\n{\"status\":502,\"message\":\"No\
 SF:x20route\x20known\x20for\x20\",\"additional_error\":\"\"}")%r(RTSPReque
 SF:st,67,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plai
 SF:n;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Reques
 SF:t")%r(FourOhFourRequest,DC,"HTTP/1\.0\x20502\x20Bad\x20Gateway\r\nCache
 SF:-Control:\x20private,\x20max-age=0\r\nContent-Type:\x20application/json
-SF:\r\nDate:\x20Sun,\x2002\x20Oct\x202022\x2003:52:41\x20GMT\r\nContent-Le
+SF:\r\nDate:\x20Sun,\x2009\x20Oct\x202022\x2003:10:19\x20GMT\r\nContent-Le
 SF:ngth:\x2068\r\n\r\n{\"status\":502,\"message\":\"No\x20route\x20known\x
 SF:20for\x20\",\"additional_error\":\"\"}")%r(GenericLines,67,"HTTP/1\.1\x
 SF:20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-
@@ -77,19 +84,19 @@ SF:\n400\x20Bad\x20Request")%r(Socks5,67,"HTTP/1\.1\x20400\x20Bad\x20Reque
 SF:st\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:\x20c
 SF:lose\r\n\r\n400\x20Bad\x20Request");
 ==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
-SF-Port443-TCP:V=7.92%T=SSL%I=7%D=10/2%Time=63390B0F%P=x86_64-alpine-linux
+SF-Port443-TCP:V=7.92%T=SSL%I=7%D=10/9%Time=63423BA1%P=x86_64-alpine-linux
 SF:-musl%r(GetRequest,DC,"HTTP/1\.0\x20502\x20Bad\x20Gateway\r\nCache-Cont
 SF:rol:\x20private,\x20max-age=0\r\nContent-Type:\x20application/json\r\nD
-SF:ate:\x20Sun,\x2002\x20Oct\x202022\x2003:52:47\x20GMT\r\nContent-Length:
+SF:ate:\x20Sun,\x2009\x20Oct\x202022\x2003:10:25\x20GMT\r\nContent-Length:
 SF:\x2068\r\n\r\n{\"status\":502,\"message\":\"No\x20route\x20known\x20for
 SF:\x20\",\"additional_error\":\"\"}")%r(HTTPOptions,DC,"HTTP/1\.0\x20502\
 SF:x20Bad\x20Gateway\r\nCache-Control:\x20private,\x20max-age=0\r\nContent
-SF:-Type:\x20application/json\r\nDate:\x20Sun,\x2002\x20Oct\x202022\x2003:
-SF:52:47\x20GMT\r\nContent-Length:\x2068\r\n\r\n{\"status\":502,\"message\
+SF:-Type:\x20application/json\r\nDate:\x20Sun,\x2009\x20Oct\x202022\x2003:
+SF:10:25\x20GMT\r\nContent-Length:\x2068\r\n\r\n{\"status\":502,\"message\
 SF:":\"No\x20route\x20known\x20for\x20\",\"additional_error\":\"\"}")%r(Fo
 SF:urOhFourRequest,DC,"HTTP/1\.0\x20502\x20Bad\x20Gateway\r\nCache-Control
 SF::\x20private,\x20max-age=0\r\nContent-Type:\x20application/json\r\nDate
-SF::\x20Sun,\x2002\x20Oct\x202022\x2003:52:48\x20GMT\r\nContent-Length:\x2
+SF::\x20Sun,\x2009\x20Oct\x202022\x2003:10:26\x20GMT\r\nContent-Length:\x2
 SF:068\r\n\r\n{\"status\":502,\"message\":\"No\x20route\x20known\x20for\x2
 SF:0\",\"additional_error\":\"\"}")%r(GenericLines,67,"HTTP/1\.1\x20400\x2
 SF:0Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nCon
@@ -107,4 +114,4 @@ SF:20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnectio
 SF:n:\x20close\r\n\r\n400\x20Bad\x20Request");
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Sun Oct  2 03:52:53 2022 -- 1 IP address (1 host up) scanned in 20.27 seconds
+# Nmap done at Sun Oct  9 03:10:33 2022 -- 1 IP address (1 host up) scanned in 24.60 seconds
