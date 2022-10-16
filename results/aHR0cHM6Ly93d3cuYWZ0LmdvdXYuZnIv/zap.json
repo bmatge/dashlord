@@ -1,6 +1,6 @@
 {
 	"@version": "2.11.1",
-	"@generated": "Sun, 9 Oct 2022 02:07:55",
+	"@generated": "Sun, 16 Oct 2022 02:20:37",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -98,7 +98,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -119,21 +119,21 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
 					"count": "3",
@@ -159,21 +159,21 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
 					"count": "3",
@@ -199,21 +199,21 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js; style-src 'self' 'unsafe-inline'"
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
 					"count": "3",
@@ -421,7 +421,7 @@
 					"reference": "<p>https://bugs.jqueryui.com/ticket/15284</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2413"
+					"sourceid": "2410"
 				},
 				{
 					"pluginid": "10044",
@@ -454,7 +454,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "494"
+					"sourceid": "423"
 				},
 				{
 					"pluginid": "10017",
@@ -576,7 +576,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2401"
+					"sourceid": "2377"
 				},
 				{
 					"pluginid": "10063",
@@ -699,6 +699,13 @@
 							"evidence": "1379448247"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1665886779"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
 							"method": "GET",
 							"param": "",
@@ -710,7 +717,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1665281228"
+							"evidence": "1665886780"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
@@ -725,50 +732,111 @@
 							"param": "",
 							"attack": "",
 							"evidence": "1884101225"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/cadre-juridique-budget",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1352574678"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/cadre-juridique-budget",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1379448247"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/contact",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1665281210"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/presentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1756338842"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/recevoir-nos-publications",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1665281210"
 						}
 					],
-					"count": "11",
+					"count": "7",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1352574678, which evaluates to: 2012-11-10 19:11:18</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1639"
+					"sourceid": "1575"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aft.gouv.fr/",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/ar/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/index.php/filter/tips",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/ja/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/web.config",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/zh-hans/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -977,7 +1045,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/comment/reply/",
@@ -1117,7 +1185,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "323"
+					"sourceid": "255"
 				},
 				{
 					"pluginid": "10015",
@@ -1287,6 +1355,62 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
 							"param": "destination",
@@ -1294,163 +1418,65 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "changed",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "changed_1",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_fulltext",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_language[ar]",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_language[en]",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_language[en]",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_language[en]",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_language[es]",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
+							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
-							"param": "search_api_language[es]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[es]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[fr]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[fr]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[fr]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[fr]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[ja]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[ja]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[ja]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[ru]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[ru]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[ru]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[zh-hans]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[zh-hans]",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/404?changed=ZAP&changed_1=ZAP&search_api_fulltext=ZAP&search_api_language%5Bar%5D=ar&search_api_language%5Ben%5D=en&search_api_language%5Bes%5D=es&search_api_language%5Bfr%5D=fr&search_api_language%5Bja%5D=ja&search_api_language%5Bru%5D=ru&search_api_language%5Bzh-hans%5D=zh-hans",
-							"method": "GET",
-							"param": "search_api_language[zh-hans]",
+							"param": "destination",
 							"attack": "",
 							"evidence": ""
 						},
@@ -1467,22 +1493,15 @@
 							"param": "destination",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "28",
+					"count": "21",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>destination=/fr</p><p></p><p>The user-controlled value was:</p><p>/fr/404?_exception_statuscode=404&destination=/fr</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "2483"
+					"sourceid": "2141"
 				}
 			]
 		}
