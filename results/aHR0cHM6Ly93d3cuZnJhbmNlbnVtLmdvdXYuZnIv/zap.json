@@ -1,6 +1,6 @@
 {
-	"@version": "2.11.1",
-	"@generated": "Sun, 23 Oct 2022 02:52:38",
+	"@version": "2.12.0",
+	"@generated": "Sun, 30 Oct 2022 02:46:44",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -87,9 +87,23 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/newsletter/subscribe\">"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/newsletter/subscribe\">"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -305,6 +319,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
@@ -312,7 +333,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -441,20 +462,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/newsletter/subscribe?newsletter-email=foo-bar%40example.com",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/search",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.francenum.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -462,13 +469,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "5",
+					"count": "3",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 41 [https://www.francenum.gouv.fr/filter/tips].</p><p>Predicted response size: 341.</p><p>Response Body Length: 410.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "168"
+					"sourceid": "169"
 				},
 				{
 					"pluginid": "10110",
@@ -494,7 +501,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "821"
+					"sourceid": "775"
 				},
 				{
 					"pluginid": "10063",
@@ -652,14 +659,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -810,7 +817,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "831"
+					"sourceid": "785"
 				},
 				{
 					"pluginid": "10094",
@@ -933,32 +940,6 @@
 					"cweid": "345",
 					"wascid": "12",
 					"sourceid": "146"
-				},
-				{
-					"pluginid": "10024",
-					"alertRef": "10024",
-					"alert": "Information Disclosure - Sensitive Information in URL",
-					"name": "Information Disclosure - Sensitive Information in URL",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.francenum.gouv.fr/newsletter/subscribe?newsletter-email=foo-bar%40example.com",
-							"method": "GET",
-							"param": "newsletter-email",
-							"attack": "",
-							"evidence": "foo-bar@example.com"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Do not pass sensitive information in URIs.</p>",
-					"otherinfo": "<p>The URL contains email address(es).</p>",
-					"reference": "",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "869"
 				},
 				{
 					"pluginid": "10027",
@@ -1150,7 +1131,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10049",
@@ -1176,7 +1157,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "119"
+					"sourceid": "121"
 				},
 				{
 					"pluginid": "10015",
@@ -1272,7 +1253,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10049",
@@ -1340,7 +1321,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10049",
@@ -1707,7 +1688,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "223"
+					"sourceid": "198"
 				}
 			]
 		}
