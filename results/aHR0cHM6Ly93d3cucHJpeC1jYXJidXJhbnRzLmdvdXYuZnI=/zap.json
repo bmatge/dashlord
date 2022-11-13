@@ -1,6 +1,6 @@
 {
 	"@version": "2.12.0",
-	"@generated": "Sun, 6 Nov 2022 01:41:56",
+	"@generated": "Sun, 13 Nov 2022 01:30:36",
 	"site":[ 
 		{
 			"@name": "https://www.prix-carburants.gouv.fr",
@@ -75,6 +75,34 @@
 							"evidence": "<form action=\"/internaute/inscrire\" method=\"post\">"
 						},
 						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\"  id=\"form\">"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form name=\"itineraire\" method=\"post\">"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form method=\"post\">"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form name=\"etape\" method=\"post\">"
+						},
+						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
 							"param": "",
@@ -82,7 +110,7 @@
 							"evidence": "<form name=\"contact\" enctype=\"multipart/form-data\" id=\"form_contact\" action=\"/contact/\" method=\"post\"\n              class=\"internaute\">"
 						}
 					],
-					"count": "9",
+					"count": "13",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"recherche_choix_services\" \"rechercher__token\" \"rechercher_choix_carbu_0\" \"rechercher_choix_carbu_1\" \"rechercher_choix_carbu_2\" \"rechercher_choix_carbu_3\" \"rechercher_choix_carbu_4\" \"rechercher_choix_carbu_5\" \"rechercher_choix_services_0\" \"rechercher_choix_services_1\" \"rechercher_choix_services_10\" \"rechercher_choix_services_11\" \"rechercher_choix_services_12\" \"rechercher_choix_services_13\" \"rechercher_choix_services_14\" \"rechercher_choix_services_15\" \"rechercher_choix_services_16\" \"rechercher_choix_services_17\" \"rechercher_choix_services_18\" \"rechercher_choix_services_19\" \"rechercher_choix_services_2\" \"rechercher_choix_services_20\" \"rechercher_choix_services_21\" \"rechercher_choix_services_22\" \"rechercher_choix_services_23\" \"rechercher_choix_services_24\" \"rechercher_choix_services_25\" \"rechercher_choix_services_3\" \"rechercher_choix_services_4\" \"rechercher_choix_services_5\" \"rechercher_choix_services_6\" \"rechercher_choix_services_7\" \"rechercher_choix_services_8\" \"rechercher_choix_services_9\" \"rechercher_geolocalisation_lat\" \"rechercher_geolocalisation_long\" \"rechercher_localisation\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -128,7 +156,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -168,7 +196,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -208,7 +236,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10038",
@@ -248,7 +276,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "131"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10098",
@@ -296,13 +324,6 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/css/multiple-select.min.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/internaute/",
 							"method": "GET",
 							"param": "",
@@ -336,6 +357,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/personal_data/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
 						}
 					],
 					"count": "11",
@@ -344,7 +372,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90003",
@@ -371,14 +399,28 @@
 							"evidence": "<script src=\"https://tracker.quadran.eu/qa-combined.js\" type=\"text/javascript\"></script>"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script src=\"https://tag.aticdn.net/495337/smarttag.js\"></script>"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://tracker.quadran.eu/qa-combined.js\" type=\"text/javascript\"></script>"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://tag.aticdn.net/495337/smarttag.js\"></script>"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -427,13 +469,13 @@
 							"evidence": "<script src=\"https://tracker.quadran.eu/qa-combined.js\" type=\"text/javascript\"></script>"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10003",
@@ -466,7 +508,7 @@
 					"reference": "<p>https://github.com/jquery/jquery/issues/2432</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "102"
+					"sourceid": "104"
 				},
 				{
 					"pluginid": "90022",
@@ -492,7 +534,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "211"
+					"sourceid": "210"
 				},
 				{
 					"pluginid": "10044",
@@ -532,7 +574,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "143"
+					"sourceid": "156"
 				},
 				{
 					"pluginid": "10017",
@@ -559,14 +601,28 @@
 							"evidence": "<script src=\"https://tracker.quadran.eu/qa-combined.js\" type=\"text/javascript\"></script>"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "https://tag.aticdn.net/495337/smarttag.js",
 							"attack": "",
 							"evidence": "<script src=\"https://tag.aticdn.net/495337/smarttag.js\"></script>"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "GET",
+							"param": "https://tracker.quadran.eu/qa-combined.js",
+							"attack": "",
+							"evidence": "<script src=\"https://tracker.quadran.eu/qa-combined.js\" type=\"text/javascript\"></script>"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
+							"method": "GET",
+							"param": "https://tag.aticdn.net/495337/smarttag.js",
+							"attack": "",
+							"evidence": "<script src=\"https://tag.aticdn.net/495337/smarttag.js\"></script>"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
 							"method": "GET",
 							"param": "https://tracker.quadran.eu/qa-combined.js",
 							"attack": "",
@@ -615,7 +671,7 @@
 							"evidence": "<script src=\"https://tracker.quadran.eu/qa-combined.js\" type=\"text/javascript\"></script>"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
@@ -661,7 +717,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "107"
+					"sourceid": "112"
 				},
 				{
 					"pluginid": "10063",
@@ -709,7 +765,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -797,7 +853,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "131"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10094",
@@ -814,21 +870,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "dhBoiswi0KA7pM4fj0lNs0xHA0qM2cnnl_toEpK33PQ"
+							"evidence": "Hlbz0CEXBH09XhqWftP2qsQgXSiJYxmmCzWNjHXfYWI"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "uCr3x_I54NZTSzZyrZm8XEWCGZJXPUbF-KA6HncspH0"
+							"evidence": "Up_YEOZ9m4yVlyPf6jzvJecj7J8NDDdwL65wnL1Lrqs"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "twZrWAijt2Cpr8SKXa9vwron3rHIfqae520u76roV98"
+							"evidence": "UkTLAfYzv5RUZvTp90Q55awwwaOT0ZY6vVIg_G4gea4"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/carto/OpenLayers-2.13.1/OpenLayers.js",
@@ -842,21 +898,21 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "yeo0z1FouIH6-gXOAbDEJHn7VmZqYoP-EV1q-S5TVLk"
+							"evidence": "CEQe1zZregeerRngC5mqwTbwOS3_zK2PItbcV6CfNZw"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/?rubrique=faq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "JPPZIW4rdOlBMc1CTuklO3z8RcvvDveOf9Ac1X1fsgA"
+							"evidence": "i_pzghIw9OjisSNZcIpXsdu0oAnWIyVR0t9YVoRRKSg"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "rjvcvSme7bjny3yVxhxN5a5hjxwVX4yhxaoBbumy5uc"
+							"evidence": "HQFc4U_9vd1QVyu-egQgD-3OUfLp8RZUPuoRexA0aGc"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/css/jquery-ui-1.10.4.custom.min.css",
@@ -870,7 +926,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "epjFM0ZS6Y4dKIAhG4pxRLlzqTgCi1RfTpbbxbvQgYg"
+							"evidence": "l2Nu8EKrNHeDKxsxqQOdfNZb4UR4CCIDdcgfNTc82As"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fPkD3LqIOykguVk7s87NdMKt-tnCatN1d2IxFtYHR_c"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/js/jquery-1.11.0.min.js",
@@ -884,19 +947,12 @@
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "RlGcwTttVhcqj59Zlgg4wYs-nOFNYzaWIkMkrK21L6Y"
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact/",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "km3oY-CCtcxhcE0UEWKNHTrLuZT_fBljEc2tGiGmpN4"
+							"evidence": "8AoIgVVLa-hgzsfjbivkhBaZF-Ri_EZfeXVL1fTFVuI"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>v\\x0010h\uFFFD\uFFFD\"\u0420;\uFFFD\uFFFD\\x001f\uFFFDIM\uFFFDLG\\x0003J\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDh\\x0012\uFFFD\uFFFD\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>\\x001eV\uFFFD\uFFFD!\\x0017\\x0004}=^\\x001a\uFFFD~\uFFFD\uFFFD\uFFFD\uFFFD ](\uFFFDc\\x0019\uFFFD\\x000b5\uFFFD\uFFFDu\uFFFDab</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -939,6 +995,20 @@
 							"param": "",
 							"attack": "",
 							"evidence": "TODO"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/js/jquery-1.11.0.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "db"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/js/jquery-1.11.0.min.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "username"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/lib/prototype.js",
@@ -997,7 +1067,7 @@
 							"evidence": "xxx"
 						}
 					],
-					"count": "12",
+					"count": "14",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script src=\"/js/multiple-select.min.js\"></script>\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1063,9 +1133,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<a name='\" + id + \"'/>\";\n\n\tvar root = document.documentElement;\n\troot.insertBefore( form, root.firstChild );\n\n\tif ( !!document.getElementById( id ) ) {\n\t\tExpr.find.ID = function(match, context, isXML){\n\t\t\tif ( typeof context.getElementById !== \"undefined\" && !isXML ) {\n\t\t\t\tvar m = context.getElementById(match[1]);\n\t\t\t\treturn m ? m.id === match[1] || typeof m.getAttributeNode !== \"undefined\" && m.getAttributeNode(\"id\").nodeValue === match[1] ? [m] : undefined : [];\n\t\t\t}\n\t\t};\n\n\t\tExpr.filter.ID = function(elem, match){\n\t\t\tvar node = typeof elem.getAttributeNode !== \"undefined\" && elem.getAttributeNode(\"id\");\n\t\t\treturn elem.nodeType === 1 && node && node.nodeValue === match;\n\t\t};\n\t}\n\n\troot.removeChild( form );\n\troot = form = null; // release memory in IE\n})();\n\n(function(){\n\n\tvar div = document.createElement(\"div\");\n\tdiv.appendChild( document.createComment(\"\") );\n\n\tif ( div.getElementsByTagName(\"*\").length > 0 ) {\n\t\tExpr.find.TAG = function(match, context){\n\t\t\tvar results = context.getElementsByTagName(match[1]);\n\n\t\t\tif ( match[1] === \"*\" ) {\n\t\t\t\tvar tmp = [];\n\n\t\t\t\tfor ( var i = 0; results[i]; i++ ) {\n\t\t\t\t\tif ( results[i].nodeType === 1 ) {\n\t\t\t\t\t\ttmp.push( results[i] );\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tresults = tmp;\n\t\t\t}\n\n\t\t\treturn results;\n\t\t};\n\t}\n\n\tdiv.innerHTML = \""
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" id=\"print-itineraire\">Plan &amp; Feuille de route</a>"
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
@@ -1214,7 +1291,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1228,13 +1305,6 @@
 					"instances":[ 
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=86400"
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact/?rubrique=faq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1269,13 +1339,13 @@
 							"evidence": "max-age=86400"
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "65"
+					"sourceid": "64"
 				},
 				{
 					"pluginid": "10049",
@@ -1288,6 +1358,13 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache"
+						},
+						{
 							"uri": "https://www.prix-carburants.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1295,13 +1372,13 @@
 							"evidence": "no-cache"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10031",
@@ -1453,7 +1530,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "156"
+					"sourceid": "155"
 				}
 			]
 		}
