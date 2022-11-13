@@ -1,6 +1,6 @@
 {
 	"@version": "2.12.0",
-	"@generated": "Sun, 6 Nov 2022 01:42:06",
+	"@generated": "Sun, 13 Nov 2022 01:31:08",
 	"site":[ 
 		{
 			"@name": "https://www.transformation.gouv.fr",
@@ -8,39 +8,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.transformation.gouv.fr/files/ressource/Contribution_SP_CFE_CGC_perspectives_salariales.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "503503503503"
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/files/ressource/Perpsectives_salariales_Contribution_France_urbaine.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "503503503503"
-						}
-					],
-					"count": "2",
-					"solution": "",
-					"otherinfo": "<p>Credit Card Type detected: Maestro</p><p>Bank Identification Number: 503503</p><p>Brand: MAESTRO</p><p>Category: </p><p>Issuer: </p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "809"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -131,7 +98,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -175,7 +142,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10055",
@@ -255,7 +222,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10038",
@@ -345,13 +312,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.transformation.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -359,13 +319,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "150"
+					"sourceid": "152"
 				},
 				{
 					"pluginid": "10098",
@@ -400,6 +360,13 @@
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/index.php/admin/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -455,39 +422,13 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
 					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "47"
-				},
-				{
-					"pluginid": "10003",
-					"alertRef": "10003",
-					"alert": "Vulnerable JS Library",
-					"name": "Vulnerable JS Library",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>The identified library jquery, version 1.6.4 is vulnerable.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.transformation.gouv.fr/carto_france/scripts/jquery.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "* jQuery JavaScript Library v1.6.4"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Please upgrade to the latest version of jquery.</p>",
-					"otherinfo": "<p>CVE-2020-11023</p><p>CVE-2020-11022</p><p>CVE-2015-9251</p><p>CVE-2019-11358</p><p>CVE-2012-6708</p><p></p>",
-					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
-					"cweid": "829",
-					"wascid": "-1",
-					"sourceid": "785"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10044",
@@ -555,7 +496,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "347"
+					"sourceid": "348"
 				},
 				{
 					"pluginid": "10110",
@@ -567,13 +508,6 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.transformation.gouv.fr/carto_france/scripts/jquery.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval"
-						},
 						{
 							"uri": "https://www.transformation.gouv.fr/core/assets/vendor/jquery-form/jquery.form.min.js?v=4.3.0",
 							"method": "GET",
@@ -596,20 +530,20 @@
 							"evidence": "eval"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rkcuz5",
+							"uri": "https://www.transformation.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rkz6oa",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "eval"
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "785"
+					"sourceid": "472"
 				},
 				{
 					"pluginid": "10063",
@@ -643,6 +577,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.transformation.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.transformation.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
 							"method": "GET",
 							"param": "",
@@ -650,7 +591,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/core/misc/drupal.js?v=9.4.8",
+							"uri": "https://www.transformation.gouv.fr/core/misc/drupal.init.js?v=9.4.8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -685,13 +626,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/files/languages/fr_1wE74fK3Mw1UDriuvUjO1JMLcBn9egttTC55-FjuNDs.js?rkcuz5",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.transformation.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
@@ -712,7 +646,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "167"
+					"sourceid": "169"
 				},
 				{
 					"pluginid": "10035",
@@ -802,13 +736,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.transformation.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -816,13 +743,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "150"
+					"sourceid": "152"
 				},
 				{
 					"pluginid": "10094",
@@ -918,7 +845,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -944,7 +871,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "170"
+					"sourceid": "173"
 				},
 				{
 					"pluginid": "10027",
@@ -1136,7 +1063,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1197,7 +1124,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "150"
+					"sourceid": "152"
 				},
 				{
 					"pluginid": "10015",
@@ -1239,13 +1166,6 @@
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/france-services",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1294,7 +1214,7 @@
 							"evidence": "max-age=600, public"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1354,7 +1274,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10031",
@@ -1395,48 +1315,55 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_type_de_presse_target_id[17]=17</p><p></p><p>The user-controlled value was:</p><p>17</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "656"
+					"sourceid": "659"
 				}
 			]
 		}
