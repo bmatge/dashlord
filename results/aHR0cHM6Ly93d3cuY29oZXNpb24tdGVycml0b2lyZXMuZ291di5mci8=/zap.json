@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 27 Nov 2022 01:45:59",
+	"@generated": "Sun, 4 Dec 2022 01:40:19",
 	"site":[ 
 		{
 			"@name": "https://www.cohesion-territoires.gouv.fr",
@@ -24,7 +24,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"solr-query-form\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/core/*.css$\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css$",
@@ -34,11 +41,11 @@
 							"evidence": "<form action=\"/core/*.css$\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css$",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/core/*.css$\" method=\"post\" id=\"generic-search-form--3\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/core/*.js$\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.js$",
@@ -48,11 +55,11 @@
 							"evidence": "<form action=\"/core/*.js$\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.js$",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/core/*.js$\" method=\"post\" id=\"generic-search-form--3\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/core/*.svg\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.svg",
@@ -62,11 +69,11 @@
 							"evidence": "<form action=\"/core/*.svg\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.svg",
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/core/*.svg\" method=\"post\" id=\"generic-search-form--3\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/profiles/*.css$\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
@@ -76,11 +83,11 @@
 							"evidence": "<form action=\"/profiles/*.css$\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/profiles/*.css$\" method=\"post\" id=\"generic-search-form--3\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/profiles/*.js$\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js$",
@@ -90,16 +97,23 @@
 							"evidence": "<form action=\"/profiles/*.js$\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js$",
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/profiles/*.js$\" method=\"post\" id=\"generic-search-form--3\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/profiles/*.svg\" method=\"post\" id=\"generic-search-form\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/profiles/*.svg\" method=\"post\" id=\"generic-search-form--2\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"form_build_id\" \"form_id\" \"generic-search-form-input\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-query\" \"edit-url\" \"form_build_id\" \"form_id\" \"honeypot_time\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -186,14 +200,35 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "14",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -216,14 +251,28 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel=\"stylesheet\" media=\"all\" href=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/rateit.css\" />"
+							"evidence": "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Minist\u00E8res \u00C9cologie \u00C9nergie Territoires - Actualit\u00E9s\" href=\"https://www.ecologique-solidaire.gouv.fr/rss_actualites.xml\" />"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script src=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js\"></script>"
+							"evidence": "<link rel=\"alternate\" type=\"application/rss+xml\" title=\"Minist\u00E8res \u00C9cologie \u00C9nergie Territoires - presse\" href=\"https://www.ecologique-solidaire.gouv.fr/rss_presse.xml\" />"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"shortlink\" href=\"https://www.ecologie.gouv.fr/\" />"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js\"></script>"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css$",
@@ -268,21 +317,21 @@
 							"evidence": "<script src=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js\"></script>"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js$",
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"stylesheet\" media=\"all\" href=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/rateit.css\" />"
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.js$",
+							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script src=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js\"></script>"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
@@ -301,7 +350,7 @@
 					"desc": "<p>The identified library jquery-ui, version 1.12.1 is vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_eqeJg-ZJttoVyx3PEsY1TqpghC6s8iaNj9o07IFGvwA.js",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_km2Iq5vbdN2kvh9nQDpMWNqRg-G0OLKNiXNPDCafBRY.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -314,7 +363,33 @@
 					"reference": "<p>https://bugs.jqueryui.com/ticket/15284</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "1493"
+					"sourceid": "1576"
+				},
+				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/affichage-de-lautorisation-durbanisme-sur-le-terrain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 500 Service unavailable (with message)"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "2545"
 				},
 				{
 					"pluginid": "10044",
@@ -390,7 +465,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
+							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css$",
 							"method": "POST",
 							"param": "",
 							"attack": "",
@@ -403,7 +478,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1433"
+					"sourceid": "1427"
 				},
 				{
 					"pluginid": "10017",
@@ -418,9 +493,9 @@
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/",
 							"method": "GET",
-							"param": "https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js",
+							"param": "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js",
 							"attack": "",
-							"evidence": "<script src=\"https://cdn.jsdelivr.net/gh/gjunge/rateit.js@1.1.3/scripts/jquery.rateit.min.js\"></script>"
+							"evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js\"></script>"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/admin/",
@@ -519,18 +594,18 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_eqeJg-ZJttoVyx3PEsY1TqpghC6s8iaNj9o07IFGvwA.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval"
-						},
-						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_Leg37xldb4uCzeX64XbGqWbGmBPYYI05iXZfMWxHQO4.js",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js__tFkxE28fbmstI7tkOFMeIYdFNnY-wFWZ_WY1DOlAUc.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Eval"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_km2Iq5vbdN2kvh9nQDpMWNqRg-G0OLKNiXNPDCafBRY.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval"
 						}
 					],
 					"count": "2",
@@ -539,7 +614,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1493"
+					"sourceid": "1575"
 				},
 				{
 					"pluginid": "10063",
@@ -551,6 +626,13 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/affichage-de-lautorisation-durbanisme-sur-le-terrain",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/",
 							"method": "GET",
@@ -566,14 +648,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_eqeJg-ZJttoVyx3PEsY1TqpghC6s8iaNj9o07IFGvwA.js",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js__tFkxE28fbmstI7tkOFMeIYdFNnY-wFWZ_WY1DOlAUc.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_Leg37xldb4uCzeX64XbGqWbGmBPYYI05iXZfMWxHQO4.js",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_km2Iq5vbdN2kvh9nQDpMWNqRg-G0OLKNiXNPDCafBRY.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -587,13 +669,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "5",
+					"count": "6",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1392"
+					"sourceid": "2545"
 				},
 				{
 					"pluginid": "10035",
@@ -669,14 +751,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.svg",
+							"uri": "https://www.cohesion-territoires.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/robots.txt",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -689,7 +771,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10096",
@@ -702,7 +784,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_eqeJg-ZJttoVyx3PEsY1TqpghC6s8iaNj9o07IFGvwA.js",
+							"uri": "https://www.cohesion-territoires.gouv.fr/sites/default/files/js/js_km2Iq5vbdN2kvh9nQDpMWNqRg-G0OLKNiXNPDCafBRY.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -715,7 +797,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1493"
+					"sourceid": "1576"
 				},
 				{
 					"pluginid": "10094",
@@ -732,7 +814,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/sites/default/files/css/css_JrTJ2QHRF-ZQneSdHBYb6UEOa1t1zwiKOF5TBqQwowI"
+							"evidence": "zgQcCBnafU0iVW8z9_b6lL6cS2-a0ODqLPDxyFqU3Ig"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/admin/",
@@ -764,6 +846,13 @@
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/sites/default/files/css/css_JrTJ2QHRF-ZQneSdHBYb6UEOa1t1zwiKOF5TBqQwowI"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -805,9 +894,9 @@
 							"evidence": "/sites/default/files/css/css_JrTJ2QHRF-ZQneSdHBYb6UEOa1t1zwiKOF5TBqQwowI"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\u022Dz\uFFFD\uFFFDy\uFFFD\uFFFD\uFFFD\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFD\uFFFD\uFFFD'd\\x0007D_\uFFFDBw\uFFFDtpXo\uFFFD\\x00049\uFFFDm\uFFFD<\"(\uFFFDyL\\x001a\uFFFD\u008C\\x0008</p>",
+					"otherinfo": "<p>\uFFFD\\x0004\\x001c\\x0008\\x0019\uFFFD}M\"Uo3\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDKo\uFFFD\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD\uFFFDZ\uFFFD\u0708</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -837,7 +926,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1398"
+					"sourceid": "1392"
 				},
 				{
 					"pluginid": "10027",
@@ -892,6 +981,13 @@
 							"evidence": "user"
 						},
 						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -927,7 +1023,7 @@
 							"evidence": "user"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -950,7 +1046,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
+							"evidence": "<a href=\"/renovation-energetique\" target=\"_self\" title=\"La r\u00E9novation \u00E9nerg\u00E9tique\">La r\u00E9novation \u00E9nerg\u00E9tique</a>"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/admin/",
@@ -995,6 +1091,13 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/node/add/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
+						},
+						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1023,9 +1126,9 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
-					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
+					"otherinfo": "<p>Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
@@ -1042,13 +1145,6 @@
 					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.cohesion-territoires.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-store"
-						},
-						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "",
@@ -1117,6 +1213,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": "no-store"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-store"
 						}
 					],
 					"count": "11",
@@ -1125,7 +1228,33 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "642"
+				},
+				{
+					"pluginid": "10015",
+					"alertRef": "10015",
+					"alert": "Re-examine Cache-control Directives",
+					"name": "Re-examine Cache-control Directives",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600"
+						}
+					],
+					"count": "1",
+					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
+					"otherinfo": "",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
+					"cweid": "525",
+					"wascid": "13",
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10050",
@@ -1142,7 +1271,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Age: 0"
+							"evidence": "HIT"
 						},
 						{
 							"uri": "https://www.cohesion-territoires.gouv.fr/core/*.css",
@@ -1213,15 +1342,55 @@
 							"param": "",
 							"attack": "",
 							"evidence": "Age: 0"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Age: 0"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
-					"otherinfo": "<p>The presence of the 'Age' header indicates that that a HTTP/1.1 compliant caching server is in use.</p>",
+					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "47"
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10049",
+					"alertRef": "10049",
+					"alert": "Storable and Cacheable Content",
+					"name": "Storable and Cacheable Content",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users.  If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.cohesion-territoires.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						}
+					],
+					"count": "2",
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"cweid": "524",
+					"wascid": "13",
+					"sourceid": "1"
 				}
 			]
 		}
