@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 11 Dec 2022 01:33:03",
+	"@generated": "Sun, 18 Dec 2022 01:22:26",
 	"site":[ 
 		{
 			"@name": "https://www.agence-francaise-anticorruption.gouv.fr",
@@ -48,6 +48,41 @@
 							"evidence": "FEFF004600610076006F00720069007400690073006D0065"
 						},
 						{
+							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_AFA_2020_ENG_Version_Finale.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF0043006F006E006300650061006C006D0065006E0074"
+						},
+						{
+							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_AFA_2020_ENG_Version_Finale.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF004600610076006F007500720069007400690073006D"
+						},
+						{
+							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_AFA_2020_ENG_Version_Finale.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF004B0065007900200066006900670075007200650073"
+						},
+						{
+							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_AFA_2020_ENG_Version_Finale.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF005000720065007000610072006100740069006F006E"
+						},
+						{
+							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_AFA_2020_ENG_Version_Finale.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "FEFF006F006600200069006E007400650072006500730074"
+						},
+						{
 							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_AFA_2020_V2_WEB.pdf",
 							"method": "GET",
 							"param": "",
@@ -55,13 +90,13 @@
 							"evidence": "FEFF005400E9006D006F00690067006E0061006700650073"
 						}
 					],
-					"count": "5",
+					"count": "10",
 					"solution": "<p>Ensure that hashes that are used to protect credentials or other resources are not leaked by the web server or database. There is typically no requirement for password hashes to be accessible to the web browser.      </p>",
 					"otherinfo": "<p>FEFF0042006C0061006E006300680069006D0065006E0074</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p><p>http://openwall.info/wiki/john/sample-hashes</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "930"
+					"sourceid": "929"
 				},
 				{
 					"pluginid": "10062",
@@ -129,7 +164,7 @@
 					"reference": "",
 					"cweid": "359",
 					"wascid": "13",
-					"sourceid": "902"
+					"sourceid": "900"
 				},
 				{
 					"pluginid": "10202",
@@ -442,6 +477,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
@@ -456,13 +498,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "14",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "219"
+					"sourceid": "220"
 				},
 				{
 					"pluginid": "10098",
@@ -497,13 +539,6 @@
 						},
 						{
 							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/index.php/admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -559,7 +594,7 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
 					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
@@ -885,16 +920,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/sitemap",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 54 [https://www.agence-francaise-anticorruption.gouv.fr/fr].</p><p>Predicted response size: 354.</p><p>Response Body Length: 462.</p>",
 					"reference": "",
@@ -1057,7 +1085,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "783"
+					"sourceid": "782"
 				},
 				{
 					"pluginid": "10063",
@@ -1140,13 +1168,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/modules/custom/xiti_actimage/js/xiti_actimage.js?v=9.4.8",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
@@ -1161,7 +1182,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -1250,13 +1271,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.agence-francaise-anticorruption.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
@@ -1271,13 +1285,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "219"
+					"sourceid": "220"
 				},
 				{
 					"pluginid": "10096",
@@ -1338,7 +1352,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "916"
+					"sourceid": "912"
 				},
 				{
 					"pluginid": "10094",
@@ -1467,7 +1481,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "240"
+					"sourceid": "241"
 				},
 				{
 					"pluginid": "10027",
@@ -1727,7 +1741,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "219"
+					"sourceid": "220"
 				},
 				{
 					"pluginid": "10015",
