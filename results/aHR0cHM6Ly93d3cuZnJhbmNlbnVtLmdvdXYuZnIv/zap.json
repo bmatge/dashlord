@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 18 Dec 2022 01:51:08",
+	"@generated": "Sun, 25 Dec 2022 01:57:21",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -313,20 +313,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
@@ -334,7 +320,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "14",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
@@ -381,6 +367,13 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/index.php/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -396,6 +389,13 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/user/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -430,7 +430,7 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
 					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
@@ -476,7 +476,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "246"
+					"sourceid": "243"
 				},
 				{
 					"pluginid": "10063",
@@ -516,7 +516,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "217"
+					"sourceid": "216"
 				},
 				{
 					"pluginid": "10035",
@@ -606,14 +606,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.gif",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1497,7 +1497,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "262"
+					"sourceid": "272"
 				}
 			]
 		}
