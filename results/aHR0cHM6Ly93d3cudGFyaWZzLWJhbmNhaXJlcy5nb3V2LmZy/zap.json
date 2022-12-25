@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 18 Dec 2022 01:18:23",
+	"@generated": "Sun, 25 Dec 2022 01:22:19",
 	"site":[ 
 		{
 			"@name": "https://www.tarifs-bancaires.gouv.fr",
@@ -9,32 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "30065761465043"
-						}
-					],
-					"count": "1",
-					"solution": "",
-					"otherinfo": "<p>Credit Card Type detected: DinersClub</p><p>Bank Identification Number: 300657</p><p>Brand: DISCOVER</p><p>Category: BUSINESS CARD</p><p>Issuer: DINERS CLUB INTERNATIONAL</p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "138"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -81,11 +55,18 @@
 							"evidence": "<form class=\"webform-client-form webform-client-form-46716\" action=\"/contactez-nous\" method=\"post\" id=\"webform-client-form-46716\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/exercer-droits-sur-traitements-donnees-personnelles",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/user\" method=\"post\" id=\"user-login\" accept-charset=\"UTF-8\">"
+							"evidence": "<form class=\"webform-client-form webform-client-form-52132\" action=\"/exercer-droits-sur-traitements-donnees-personnelles\" method=\"post\" id=\"webform-client-form-52132\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/46716",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"webform-client-form webform-client-form-46716\" action=\"/node/46716\" method=\"post\" id=\"webform-client-form-46716\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
@@ -93,13 +74,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/user/login/\" method=\"post\" id=\"user-login\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/user/password\" method=\"post\" id=\"user-pass\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
@@ -116,11 +90,11 @@
 							"evidence": "<form action=\"/\" method=\"post\" id=\"comparateurtarifs-search-form\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=user/password/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/?q=user/password/\" method=\"post\" id=\"user-pass\" accept-charset=\"UTF-8\">"
+							"evidence": "<form class=\"webform-client-form webform-client-form-46716\" action=\"/contactez-nous\" method=\"post\" id=\"webform-client-form-46716\" accept-charset=\"UTF-8\">"
 						}
 					],
 					"count": "11",
@@ -129,7 +103,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "45"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -149,14 +123,14 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -189,14 +163,14 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -209,7 +183,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -229,14 +203,14 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -249,7 +223,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "45"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10038",
@@ -352,7 +326,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "88"
+					"sourceid": "136"
 				},
 				{
 					"pluginid": "10098",
@@ -372,35 +346,56 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/admin/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/cron.php",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/install.php",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/LICENSE.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -414,28 +409,7 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/update.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/xmlrpc.php",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/rss.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -448,7 +422,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "45"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10020",
@@ -474,7 +448,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "221"
+					"sourceid": "249"
 				},
 				{
 					"pluginid": "90003",
@@ -494,14 +468,14 @@
 							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -515,21 +489,42 @@
 							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/node/add/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/search/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -537,27 +532,6 @@
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<link rel=\"profile\" href=\"http://www.w3.org/1999/xhtml/vocab\" />"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/register/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -596,7 +570,7 @@
 					"reference": "<p>https://github.com/jquery/jquery/issues/2432</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "192"
+					"sourceid": "112"
 				},
 				{
 					"pluginid": "10017",
@@ -616,14 +590,14 @@
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
@@ -637,21 +611,42 @@
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/node/add/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/search/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
 							"method": "GET",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
@@ -659,27 +654,6 @@
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/register/",
 							"method": "GET",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
@@ -732,7 +706,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "192"
+					"sourceid": "112"
 				},
 				{
 					"pluginid": "10063",
@@ -745,7 +719,35 @@
 					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/CHANGELOG.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_MRdvkC2u4oGsp5wVxBG1pGV5NrCPW3mssHxIn6G9tGE.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_mU9FH0Xz6-RQW4-2LXMomS4NKdzgapjHC90Jxgw65Rk.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_N4fHnx3QoBLvQrV9lk2tDGzIGLLxJZ-eX-aNeA25VAQ.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_oR1V_j-ZBjhZ7spmF1VtbkZkmP_F2ZYA0obOIhfQypA.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_R9UbiVw2xuTUI0GZoaqMDOdX0lrZtgX-ono8RVOUEVc.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -760,27 +762,6 @@
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.mysql.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.pgsql.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.sqlite.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -820,13 +801,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/UPGRADE.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
 						}
 					],
 					"count": "12",
@@ -835,7 +809,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "88"
+					"sourceid": "115"
 				},
 				{
 					"pluginid": "10035",
@@ -848,70 +822,63 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/CHANGELOG.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/css/css_2ylWHo57m9CdrkauV2jEv0zufVAa8pzo-DwChzGIq3I.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/includes/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/css/css_47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.mysql.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.pgsql.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/css/css_YmuMqUm--85MDg6GF8xFt60xnxOSYeKArfr5yk0-sVc.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.sqlite.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_MRdvkC2u4oGsp5wVxBG1pGV5NrCPW3mssHxIn6G9tGE.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/INSTALL.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_mU9FH0Xz6-RQW4-2LXMomS4NKdzgapjHC90Jxgw65Rk.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_N4fHnx3QoBLvQrV9lk2tDGzIGLLxJZ-eX-aNeA25VAQ.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_oR1V_j-ZBjhZ7spmF1VtbkZkmP_F2ZYA0obOIhfQypA.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/profiles/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/scripts/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_R9UbiVw2xuTUI0GZoaqMDOdX0lrZtgX-ono8RVOUEVc.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -925,7 +892,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/themes/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sites/all/themes/comparateur/favicon.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sites/all/themes/comparateur/logo.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -938,7 +912,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "88"
+					"sourceid": "109"
 				},
 				{
 					"pluginid": "10021",
@@ -993,6 +967,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_mU9FH0Xz6-RQW4-2LXMomS4NKdzgapjHC90Jxgw65Rk.js",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_oR1V_j-ZBjhZ7spmF1VtbkZkmP_F2ZYA0obOIhfQypA.js",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
@@ -1001,13 +982,6 @@
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_R9UbiVw2xuTUI0GZoaqMDOdX0lrZtgX-ono8RVOUEVc.js",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/LICENSE.txt",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -1054,49 +1028,63 @@
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=admin/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_mU9FH0Xz6-RQW4-2LXMomS4NKdzgapjHC90Jxgw65Rk.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "D27CDB6E-AE6D-11cf-96B8-444553540000"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/node/add/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/search/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1108,37 +1096,9 @@
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/logout/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/register/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4"
 						}
 					],
-					"count": "13",
+					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>~\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFDT\\x001ae\uFFFD\u0567\\x0003\uFFFD\uFFFDcjv\u0542J\uFFFDS\uFFFDC*]\uFFFD\"S\uFFFD\\x001e\uFFFD\uFFFD\uFFFDBw8</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1171,35 +1131,49 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "select"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/node/add/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/search/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1211,36 +1185,15 @@
 							"param": "",
 							"attack": "",
 							"evidence": "user"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/register/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected in the element starting with: \"<script type=\"text/javascript\"></p><p>  (function ($) {</p><p>    $(document).ready(function() {</p><p>    //Fonction permettant de supprimer l\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "45"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -1260,42 +1213,63 @@
 							"evidence": "<a name=\"top\"></a>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a name=\"top\"></a>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a name=\"top\"></a>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/comment/reply/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a name=\"top\"></a>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_mU9FH0Xz6-RQW4-2LXMomS4NKdzgapjHC90Jxgw65Rk.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href='#'></a>"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a name=\"top\"></a>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/node/add/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a name=\"top\"></a>"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/search/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a name=\"top\"></a>"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a name=\"top\"></a>"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1303,27 +1277,6 @@
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a name=\"top\"></a>"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a name=\"top\"></a>"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a name=\"top\"></a>"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/register/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1336,75 +1289,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "45"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Non-Storable Content",
-					"name": "Non-Storable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/CHANGELOG.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/includes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/profiles/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/scripts/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/themes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "403"
-						}
-					],
-					"count": "7",
-					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
-					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "88"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1431,35 +1316,35 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/accessibilite",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=user/login/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=user/password/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/filter/tips/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/LICENSE.txt",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1473,6 +1358,13 @@
 							"evidence": "max-age=600, public"
 						},
 						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1480,14 +1372,7 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/rss.xml",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1500,7 +1385,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "45"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1520,11 +1405,53 @@
 							"evidence": "max-age=600"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/cron.php",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/les-tarifs-bancaires",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mentions-legales",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/mes-donnees-personnelles",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/node/51543",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/pourquoi-ce-site",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/robots.txt",
@@ -1532,9 +1459,23 @@
 							"param": "",
 							"attack": "",
 							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/rss.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sites/all/themes/comparateur/favicon.ico",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "s-maxage=3600"
 						}
 					],
-					"count": "3",
+					"count": "11",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1566,7 +1507,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "75"
+					"sourceid": "74"
 				},
 				{
 					"pluginid": "10031",
