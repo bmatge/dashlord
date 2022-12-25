@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 18 Dec 2022 01:22:04",
+	"@generated": "Sun, 25 Dec 2022 01:23:56",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -24,14 +24,14 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/index.php/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/index.php/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css$",
@@ -45,7 +45,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/index.php/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.js$",
@@ -59,7 +59,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/index.php/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.svg",
@@ -73,10 +73,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/index.php/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-404-page-1\" action=\"/fr/404\" method=\"get\" id=\"views-exposed-form-recherche-404-page-1\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -87,7 +101,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/index.php/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche-avancee\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
@@ -97,9 +111,9 @@
 							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-404-page-1\" action=\"/fr/404\" method=\"get\" id=\"views-exposed-form-recherche-404-page-1\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -524,6 +538,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
@@ -538,7 +559,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -564,11 +585,25 @@
 							"evidence": "1379448247"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1671931390"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1756338842"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/recevoir-nos-publications",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1671931391"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
@@ -583,20 +618,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "1884101225"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/contact",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1671326481"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/recevoir-nos-publications",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1671326482"
 						}
 					],
 					"count": "6",
@@ -605,7 +626,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1582"
+					"sourceid": "1623"
 				},
 				{
 					"pluginid": "10021",
@@ -910,77 +931,77 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						}
 					],
 					"count": "11",
@@ -1050,7 +1071,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "258"
+					"sourceid": "257"
 				},
 				{
 					"pluginid": "10015",
@@ -1105,6 +1126,13 @@
 							"evidence": "max-age=300, public"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/ja/recherche-avancee",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=300, public"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/recherche-avancee",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1117,13 +1145,6 @@
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/ru/recherche-avancee",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=300, public"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/web.config",
