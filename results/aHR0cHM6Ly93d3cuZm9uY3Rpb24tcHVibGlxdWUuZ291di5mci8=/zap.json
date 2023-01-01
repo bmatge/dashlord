@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 25 Dec 2022 02:07:54",
+	"@generated": "Sun, 1 Jan 2023 02:17:14",
 	"site":[ 
 		{
 			"@name": "https://www.fonction-publique.gouv.fr",
@@ -27,77 +27,63 @@
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
+							"uri": "https://www.fonction-publique.gouv.fr/droits-et-obligations",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpeg",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
+							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.png",
+							"uri": "https://www.fonction-publique.gouv.fr/loi-6-aout-2012-relative-au-harcelement-sexuel",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -109,15 +95,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form id=\"FormRecherche\"\n          action=\"/recherche-resultat\" method=\"get\">"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search_api_views_fulltext\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -137,21 +130,28 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/comment/reply/",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/filter/tips/",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action</p><p></p><p>The directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -177,27 +177,34 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/comment/reply/",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/filter/tips/",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -217,27 +224,34 @@
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/comment/reply/",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/filter/tips/",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:; frame-ancestors 'self' https://*.safire.fonction-publique.gouv.fr;"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10038",
@@ -250,83 +264,6 @@
 					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -334,13 +271,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "1",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header, to achieve optimal browser support: \"Content-Security-Policy\" for Chrome 25+, Firefox 23+ and Safari 7+, \"X-Content-Security-Policy\" for Firefox 4.0+ and Internet Explorer 10+, and \"X-WebKit-CSP\" for Chrome 14+ and Safari 6+.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1062"
+					"sourceid": "1054"
 				},
 				{
 					"pluginid": "10098",
@@ -360,49 +297,56 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/admin/",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/comment/reply/",
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/cron.php",
+							"uri": "https://www.fonction-publique.gouv.fr/droits-et-obligations",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/filter/tips/",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/install.php",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/LICENSE.txt",
+							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/node/add/",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -416,14 +360,7 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/update.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/xmlrpc.php",
+							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -436,7 +373,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90003",
@@ -463,42 +400,42 @@
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"mineco - Actualit\u00E9s\" href=\"javascript:;\" />"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"mineco - Actualit\u00E9s\" href=\"javascript:;\" />"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<link rel=\"alternate\" type=\"application/atom+xml\" title=\"mineco - Actualit\u00E9s\" href=\"javascript:;\" />"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -525,7 +462,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10017",
@@ -545,77 +482,56 @@
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
+							"uri": "https://www.fonction-publique.gouv.fr/droits-et-obligations",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpeg",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
+							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.png",
-							"method": "GET",
-							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css",
-							"method": "GET",
-							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css$",
-							"method": "GET",
-							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
-							"attack": "",
-							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
 							"method": "GET",
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
@@ -627,118 +543,22 @@
 							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
 							"attack": "",
 							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
+							"method": "GET",
+							"param": "https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" defer=\"defer\" src=\"https://www.synomia-autocompletion.com/suggest.js.php?mid=79ef556207a137407fecde6fe1dfdc47\"></script>"
 						}
 					],
-					"count": "13",
+					"count": "11",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10063",
-					"alertRef": "10063-1",
-					"alert": "Permissions Policy Header Not Set",
-					"name": "Permissions Policy Header Not Set",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/CHANGELOG.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/includes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/INSTALL.mysql.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/INSTALL.pgsql.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/INSTALL.sqlite.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/INSTALL.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/MAINTAINERS.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/profiles/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/scripts/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/themes/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						}
-					],
-					"count": "12",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
-					"cweid": "693",
-					"wascid": "15",
-					"sourceid": "1116"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10035",
@@ -751,83 +571,6 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -835,13 +578,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "1",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1062"
+					"sourceid": "1054"
 				},
 				{
 					"pluginid": "10096",
@@ -861,11 +604,39 @@
 							"evidence": "1789420105"
 						},
 						{
+							"uri": "https://www.fonction-publique.gouv.fr/emplois-de-chef-de-service-et-de-sous-directeur-des-administrations-de-letat",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1449874815"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/emplois-de-chef-de-service-et-de-sous-directeur-des-administrations-de-letat",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1620603195"
+						},
+						{
 							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1628186119"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/lacces-au-grade-dadministrateur-general-corps-des-administrateurs-civils",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1978217926"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/lacces-au-grade-dadministrateur-general-corps-des-administrateurs-civils",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1987107229"
 						},
 						{
 							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
@@ -903,13 +674,13 @@
 							"evidence": "1826604659"
 						}
 					],
-					"count": "7",
+					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1789420105, which evaluates to: 2026-09-14 21:08:25</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1418"
+					"sourceid": "1286"
 				},
 				{
 					"pluginid": "10094",
@@ -929,63 +700,56 @@
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
+							"uri": "https://www.fonction-publique.gouv.fr/droits-et-obligations",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpeg",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
+							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -993,6 +757,13 @@
 						},
 						{
 							"uri": "https://www.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1005,7 +776,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10027",
@@ -1025,84 +796,49 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
+							"uri": "https://www.fonction-publique.gouv.fr/droits-et-obligations",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "from"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "from"
+							"evidence": "user"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1117,19 +853,26 @@
 						},
 						{
 							"uri": "https://www.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user"
 						}
 					],
-					"count": "15",
+					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected 3 times, the first in the element starting with: \"<script type=\"text/javascript\"></p><p><!--//--><![CDATA[//><!--</p><p>jQuery.extend(Drupal.settings, {\"basePath\":\"\\/\",\"pathPrefix\":\"\",\"setHa\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10109",
@@ -1143,13 +886,6 @@
 					"instances":[ 
 						{
 							"uri": "https://www.fonction-publique.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"#\" class=\"closeMenu\"><img src=\"/sites/all/themes/fp2015/assets/img/croixmenu.png\" alt=\"Fermer le menu\"/></a>"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/?q=admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1198,14 +934,21 @@
 							"evidence": "<a href=\"#\" class=\"closeMenu\"><img src=\"/sites/all/themes/fp2015/assets/img/croixmenu.png\" alt=\"Fermer le menu\"/></a>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<a href=\"#\" class=\"closeMenu\"><img src=\"/sites/all/themes/fp2015/assets/img/croixmenu.png\" alt=\"Fermer le menu\"/></a>"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/recherche-resultat",
+							"uri": "https://www.fonction-publique.gouv.fr/loi-6-aout-2012-relative-au-harcelement-sexuel",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" class=\"closeMenu\"><img src=\"/sites/all/themes/fp2015/assets/img/croixmenu.png\" alt=\"Fermer le menu\"/></a>"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1225,7 +968,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10015",
@@ -1246,6 +989,13 @@
 						},
 						{
 							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1280,7 +1030,7 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/LICENSE.txt",
+							"uri": "https://www.fonction-publique.gouv.fr/laicite-et-fonction-publique",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1288,13 +1038,6 @@
 						},
 						{
 							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/recherche-resultat",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1321,7 +1064,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1341,20 +1084,76 @@
 							"evidence": "max-age=600"
 						},
 						{
+							"uri": "https://www.fonction-publique.gouv.fr/coronavirus-covid-19",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/droit-syndical-et-droit-de-greve",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/droits-et-obligations",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/flux-rss",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/fonction-publique-france",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/la-discipline",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/lutte-contre-harcelement-dans-la-fonction-publique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
 							"uri": "https://www.fonction-publique.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600"
+						},
+						{
+							"uri": "https://www.fonction-publique.gouv.fr/statut-general-des-fonctionnaires",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "max-age=600"
 						}
 					],
-					"count": "2",
+					"count": "10",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10049",
@@ -1367,62 +1166,6 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/misc/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
-							"uri": "https://www.fonction-publique.gouv.fr/modules/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache"
-						},
-						{
 							"uri": "https://www.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1430,13 +1173,13 @@
 							"evidence": "no-cache"
 						}
 					],
-					"count": "9",
+					"count": "1",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1062"
+					"sourceid": "1054"
 				}
 			]
 		}
