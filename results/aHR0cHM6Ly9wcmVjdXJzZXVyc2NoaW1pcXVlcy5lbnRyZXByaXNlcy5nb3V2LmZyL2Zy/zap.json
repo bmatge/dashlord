@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 1 Jan 2023 01:57:36",
+	"@generated": "Sun, 8 Jan 2023 01:52:59",
 	"site":[ 
 		{
 			"@name": "https://precurseurschimiques.entreprises.gouv.fr",
@@ -110,7 +110,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "250"
+					"sourceid": "249"
 				},
 				{
 					"pluginid": "10055",
@@ -318,6 +318,13 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/procedures/demande-d-autorisation-d-importation-pour-substances-de-categorie-1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/procedures/l-agrement-pour-substances-de-categorie-1",
 							"method": "GET",
 							"param": "",
@@ -353,13 +360,13 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
 					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "90003",
@@ -672,20 +679,6 @@
 							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-33\"></script>"
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/substances-controlees",
-							"method": "GET",
-							"param": "https://tag.aticdn.net/615755/smarttag.js",
-							"attack": "",
-							"evidence": "<script src=\"https://tag.aticdn.net/615755/smarttag.js\" async=\"async\"></script>"
-						},
-						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/substances-controlees",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-41292125-33",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-33\"></script>"
-						},
-						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche",
 							"method": "GET",
 							"param": "https://tag.aticdn.net/615755/smarttag.js",
@@ -707,7 +700,7 @@
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
 						}
 					],
-					"count": "13",
+					"count": "11",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
@@ -953,13 +946,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/core/themes/stable/css/system/components/js.module.css?rhs1yk",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/files_mncpc/favicon-marianne_7.png",
 							"method": "GET",
 							"param": "",
@@ -974,13 +960,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "336"
+					"sourceid": "345"
 				},
 				{
 					"pluginid": "10094",
@@ -1117,7 +1103,7 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/substances-controlees",
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1152,7 +1138,7 @@
 							"evidence": "TODO"
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/substances-controlees",
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1314,6 +1300,13 @@
 							"evidence": "max-age=600, public"
 						},
 						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/contacter-la-mncpc",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/la-mncpc-missions-et-organisation",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1329,13 +1322,6 @@
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/la-mncpc/substances-controlees",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/procedures/demande-d-autorisation-d-exportation-de-substances-de-categorie-1-2a-2b-et-3",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1465,7 +1451,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10031",
@@ -1567,9 +1553,114 @@
 							"param": "sort_by",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "publie_depuis",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=1&publie_depuis=All&sort_by=search_api_relevance",
+							"method": "GET",
+							"param": "sort_by",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "28",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://precurseurschimiques.entreprises.gouv.fr/fr/recherche?date_0&date_1&keys&page=0&publie_depuis=All&sort_by=search_api_relevance</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [title] attribute </p><p></p><p>The user input found was:</p><p>publie_depuis=All</p><p></p><p>The user-controlled value was:</p><p>aller \u00E0 la derni\u00E8re page</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
