@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 8 Jan 2023 02:12:59",
+	"@generated": "Sun, 15 Jan 2023 02:10:42",
 	"site":[ 
 		{
 			"@name": "https://gouvernement-ouvert.transformation.gouv.fr",
@@ -110,7 +110,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "365"
+					"sourceid": "411"
 				},
 				{
 					"pluginid": "10038",
@@ -247,13 +247,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/category/ogp/",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/decouvrez-les-quinze-feuilles-de-route-ministerielles-des-donnees-algorithmes-et-codes-sources/",
 							"method": "GET",
 							"param": "X-Frame-Options",
@@ -303,7 +296,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
@@ -438,7 +431,7 @@
 					"reference": "<p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "241"
+					"sourceid": "269"
 				},
 				{
 					"pluginid": "10010",
@@ -478,7 +471,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "502"
+					"sourceid": "504"
 				},
 				{
 					"pluginid": "10054",
@@ -518,7 +511,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "502"
+					"sourceid": "504"
 				},
 				{
 					"pluginid": "10110",
@@ -558,7 +551,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "239"
+					"sourceid": "267"
 				},
 				{
 					"pluginid": "10063",
@@ -634,14 +627,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2",
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-content/plugins/modern-events-calendar-lite/assets/js/events.js?ver=5.17.6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-includes/js/jquery/jquery.min.js?ver=3.5.1",
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -675,13 +668,6 @@
 						},
 						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/decouvrez-les-quinze-feuilles-de-route-ministerielles-des-donnees-algorithmes-et-codes-sources/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=0"
-						},
-						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/la-communaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -742,6 +728,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": "max-age=0"
+						},
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=0"
 						}
 					],
 					"count": "11",
@@ -763,6 +756,13 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/events/2eme-edition-linclusion-numerique-au-service-de-leducation/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1621536028"
+						},
+						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/events/letat-centre-usager-oui-cest-possible/",
 							"method": "GET",
 							"param": "",
@@ -770,13 +770,13 @@
 							"evidence": "1613408477"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1613408477, which evaluates to: 2021-02-15 17:01:17</p>",
+					"otherinfo": "<p>1621536028, which evaluates to: 2021-05-20 18:40:28</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "834"
+					"sourceid": "966"
 				},
 				{
 					"pluginid": "10021",
@@ -796,7 +796,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/calendrier/",
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/accueil/feed/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -831,13 +831,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/newsletter/",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/publication-du-rapport-devaluation-du-2e-plan-daction-par-lirm/",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
@@ -860,6 +853,13 @@
 						},
 						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-content/uploads/2021/04/kit_de_presentation_ogp_2202.pdf",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-sitemap.xml",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -975,7 +975,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "71"
+					"sourceid": "76"
 				},
 				{
 					"pluginid": "90011",
@@ -1003,13 +1003,6 @@
 						},
 						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fgouvernement-ouvert.transformation.gouv.fr%2Fcomment-renforcer-la-lutte-contre-le-cyberharcelement-et-le-cybersexisme%2F",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-json/oembed/1.0/embed?format=xml&url=https%3A%2F%2Fgouvernement-ouvert.transformation.gouv.fr%2Fcontact%2F",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1072,13 +1065,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Force UTF-8 for all text content in both the HTTP header and meta tags in HTML or encoding declarations in XML.</p>",
 					"otherinfo": "<p>There was a charset mismatch between the HTTP Header and the XML encoding declaration: [UTF-8] and [null] do not match.</p>",
 					"reference": "<p>http://code.google.com/p/browsersec/wiki/Part2#Character_set_handling_and_detection</p>",
 					"cweid": "436",
 					"wascid": "15",
-					"sourceid": "213"
+					"sourceid": "220"
 				},
 				{
 					"pluginid": "10027",
@@ -1161,13 +1154,6 @@
 							"evidence": "select"
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-includes/js/jquery/jquery.min.js?ver=3.5.1",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "username"
-						},
-						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1",
 							"method": "GET",
 							"param": "",
@@ -1175,7 +1161,7 @@
 							"evidence": "select"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bADMIN\\b and was detected 3 times, the first in the element starting with: \"<script type='text/javascript' id='mec-frontend-script-js-extra'></p><p>/* <![CDATA[ */</p><p>var mecdata = {\"day\":\"jour\",\"days\":\"jours\",\"ho\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1317,7 +1303,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "63"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10015",
@@ -1372,13 +1358,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/newsletter/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/publication-du-rapport-devaluation-du-2e-plan-daction-par-lirm/",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1393,21 +1372,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/robots.txt",
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-json/",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-json/",
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-sitemap.xml",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": ""
 						}
 					],
-					"count": "11",
+					"count": "10",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1434,13 +1413,6 @@
 						},
 						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/decouvrez-les-quinze-feuilles-de-route-ministerielles-des-donnees-algorithmes-et-codes-sources/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/la-communaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1480,6 +1452,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
 					"count": "8",
@@ -1500,6 +1479,20 @@
 					"riskdesc": "Informational (Low)",
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?action=lostpassword",
+							"method": "GET",
+							"param": "action",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?action=lostpassword",
+							"method": "GET",
+							"param": "action",
+							"attack": "",
+							"evidence": ""
+						},
 						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fgouvernement-ouvert.transformation.gouv.fr%2Fwp-admin%2F",
 							"method": "GET",
@@ -1599,13 +1592,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "14",
+					"count": "16",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fgouvernement-ouvert.transformation.gouv.fr%2Fwp-admin%2F</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>redirect_to=https://gouvernement-ouvert.transformation.gouv.fr/wp-admin/</p><p></p><p>The user-controlled value was:</p><p>https://gouvernement-ouvert.transformation.gouv.fr/</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?action=lostpassword</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [form] tag [id] attribute </p><p></p><p>The user input found was:</p><p>action=lostpassword</p><p></p><p>The user-controlled value was:</p><p>lostpasswordform</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "258"
+					"sourceid": "504"
 				}
 			]
 		}
