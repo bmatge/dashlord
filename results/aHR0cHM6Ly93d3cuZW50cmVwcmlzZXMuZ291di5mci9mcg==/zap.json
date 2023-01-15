@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 8 Jan 2023 01:51:45",
+	"@generated": "Sun, 15 Jan 2023 01:44:47",
 	"site":[ 
 		{
 			"@name": "https://www.entreprises.gouv.fr",
@@ -55,6 +55,13 @@
 							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
+							"uri": "https://www.entreprises.gouv.fr/fr/commerce-et-artisanat/la-filiere-restauration",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+						},
+						{
 							"uri": "https://www.entreprises.gouv.fr/fr/recherche",
 							"method": "GET",
 							"param": "",
@@ -63,13 +70,6 @@
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/fr/recherche",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.entreprises.gouv.fr/fr/vous-etes/entreprise",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -249,7 +249,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1487"
+					"sourceid": "1492"
 				},
 				{
 					"pluginid": "10098",
@@ -372,13 +372,6 @@
 							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/fr/commerce-et-artisanat/acteurs/chambres-de-commerce-et-d-industrie",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
-						},
-						{
 							"uri": "https://www.entreprises.gouv.fr/fr/commerce-et-artisanat/acteurs/reseau-des-chambres-de-metiers-et-de-l-artisanat-cma",
 							"method": "GET",
 							"param": "",
@@ -408,6 +401,13 @@
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/fr/toutes-les-etudes-commerce-artisanat",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
+						},
+						{
+							"uri": "https://www.entreprises.gouv.fr/fr/vous-etes/entreprise",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -460,7 +460,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "321"
+					"sourceid": "175"
 				},
 				{
 					"pluginid": "10044",
@@ -629,7 +629,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "321"
+					"sourceid": "175"
 				},
 				{
 					"pluginid": "10035",
@@ -662,7 +662,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "1487"
+					"sourceid": "1492"
 				},
 				{
 					"pluginid": "10096",
@@ -675,6 +675,20 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.entreprises.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1369278807"
+						},
+						{
+							"uri": "https://www.entreprises.gouv.fr/fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1369278807"
+						},
+						{
 							"uri": "https://www.entreprises.gouv.fr/fr/vous-etes/entreprise",
 							"method": "GET",
 							"param": "",
@@ -682,13 +696,13 @@
 							"evidence": "1367290475"
 						}
 					],
-					"count": "1",
+					"count": "3",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1367290475, which evaluates to: 2013-04-30 02:54:35</p>",
+					"otherinfo": "<p>1369278807, which evaluates to: 2013-05-23 03:13:27</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "482"
+					"sourceid": "3"
 				},
 				{
 					"pluginid": "10094",
