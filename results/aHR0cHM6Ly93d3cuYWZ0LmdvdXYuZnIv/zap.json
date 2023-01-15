@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 8 Jan 2023 01:27:11",
+	"@generated": "Sun, 15 Jan 2023 01:27:00",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -99,7 +99,7 @@
 					],
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -130,6 +130,13 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/*.css$",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -137,7 +144,7 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>form-action</p><p></p><p>The directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -170,6 +177,13 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/*.css$",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -177,7 +191,7 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -210,6 +224,13 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/*.css$",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -217,7 +238,7 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -352,7 +373,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "488"
+					"sourceid": "498"
 				},
 				{
 					"pluginid": "10017",
@@ -531,13 +552,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -545,7 +559,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -575,7 +589,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1673141185"
+							"evidence": "1673745976"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
@@ -589,7 +603,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1673141185"
+							"evidence": "1673745976"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
@@ -612,7 +626,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1575"
+					"sourceid": "1594"
 				},
 				{
 					"pluginid": "10021",
@@ -667,6 +681,13 @@
 							"evidence": ""
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/ja/recherche-avancee",
+							"method": "GET",
+							"param": "X-Content-Type-Options",
+							"attack": "",
+							"evidence": ""
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/recherche-avancee",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
@@ -675,13 +696,6 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/robots.txt",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/ru/recherche-avancee",
 							"method": "GET",
 							"param": "X-Content-Type-Options",
 							"attack": "",
@@ -763,13 +777,6 @@
 							"evidence": "/files/css/css_Yl-fOcjQkUKvoAn99eZkCwqg17LmjCdV7HINbczTQ1o"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/index.php/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_SyW3hey8g96qrn1ey1JCcAzcLBSn1BcV-OuXzJtidPs"
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -805,7 +812,7 @@
 							"evidence": "/files/css/css_SyW3hey8g96qrn1ey1JCcAzcLBSn1BcV-OuXzJtidPs"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\r\uFFFDM\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD~\uFFFD*\\x0008\uFFFD+w\u0591E\uFFFDwK{\\x000c\uFFFD\uFFFD\\x000c\uFFFD\uFFFD\uFFFD</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -873,13 +880,6 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/index.php/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -915,7 +915,7 @@
 							"evidence": "user"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script type=\"text/javascript\"></p><p>  xtnv = document;        //parent.document or top.document or document         </p><p>  xtsd = \"https\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -976,7 +976,7 @@
 							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/index.php/comment/reply/",
+							"uri": "https://www.aft.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1078,7 +1078,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "257"
+					"sourceid": "327"
 				},
 				{
 					"pluginid": "10015",
