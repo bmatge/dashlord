@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 22 Jan 2023 02:08:35",
+	"@generated": "Sun, 29 Jan 2023 02:08:41",
 	"site":[ 
 		{
 			"@name": "https://gouvernement-ouvert.transformation.gouv.fr",
@@ -431,7 +431,7 @@
 					"reference": "<p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "270"
+					"sourceid": "269"
 				},
 				{
 					"pluginid": "10010",
@@ -471,7 +471,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "499"
+					"sourceid": "504"
 				},
 				{
 					"pluginid": "10054",
@@ -511,7 +511,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "499"
+					"sourceid": "504"
 				},
 				{
 					"pluginid": "10110",
@@ -674,7 +674,7 @@
 							"evidence": "max-age=0"
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/les-actualites/",
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/la-communaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -744,6 +744,32 @@
 					"cweid": "319",
 					"wascid": "15",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/events/letat-centre-usager-oui-cest-possible/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1613408477"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1613408477, which evaluates to: 2021-02-15 17:01:17</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "738"
 				},
 				{
 					"pluginid": "10021",
@@ -1379,13 +1405,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/les-actualites/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/publication-du-rapport-devaluation-du-2e-plan-daction-par-lirm/",
 							"method": "GET",
 							"param": "",
@@ -1421,7 +1440,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1439,6 +1458,20 @@
 					"riskdesc": "Informational (Low)",
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?action=lostpassword",
+							"method": "GET",
+							"param": "action",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?action=lostpassword",
+							"method": "GET",
+							"param": "action",
+							"attack": "",
+							"evidence": ""
+						},
 						{
 							"uri": "https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fgouvernement-ouvert.transformation.gouv.fr%2Fwp-admin%2F",
 							"method": "GET",
@@ -1538,13 +1571,13 @@
 							"evidence": ""
 						}
 					],
-					"count": "14",
+					"count": "16",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?reauth=1&redirect_to=https%3A%2F%2Fgouvernement-ouvert.transformation.gouv.fr%2Fwp-admin%2F</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>redirect_to=https://gouvernement-ouvert.transformation.gouv.fr/wp-admin/</p><p></p><p>The user-controlled value was:</p><p>https://gouvernement-ouvert.transformation.gouv.fr/</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://gouvernement-ouvert.transformation.gouv.fr/wp-login.php?action=lostpassword</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [form] tag [id] attribute </p><p></p><p>The user input found was:</p><p>action=lostpassword</p><p></p><p>The user-controlled value was:</p><p>lostpasswordform</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "223"
+					"sourceid": "504"
 				}
 			]
 		}
