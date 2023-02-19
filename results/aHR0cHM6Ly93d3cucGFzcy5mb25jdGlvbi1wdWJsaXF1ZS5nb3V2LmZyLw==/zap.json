@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 12 Feb 2023 02:19:26",
+	"@generated": "Sun, 19 Feb 2023 02:14:55",
 	"site":[ 
 		{
 			"@name": "https://www.pass.fonction-publique.gouv.fr",
@@ -48,7 +48,7 @@
 							"evidence": "<form action=\"/recherche-offre\" method=\"get\" id=\"views-exposed-form-recherche-offre-page-1\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -143,7 +143,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -183,7 +183,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10055",
@@ -223,7 +223,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10038",
@@ -402,14 +402,14 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/password",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/register",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/user/password",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -430,32 +430,6 @@
 					"cweid": "264",
 					"wascid": "14",
 					"sourceid": "47"
-				},
-				{
-					"pluginid": "90022",
-					"alertRef": "90022",
-					"alert": "Application Error Disclosure",
-					"name": "Application Error Disclosure",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "264"
 				},
 				{
 					"pluginid": "10044",
@@ -551,33 +525,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1667"
-				},
-				{
-					"pluginid": "10017",
-					"alertRef": "10017",
-					"alert": "Cross-Domain JavaScript Source File Inclusion",
-					"name": "Cross-Domain JavaScript Source File Inclusion",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "829",
-					"wascid": "15",
-					"sourceid": "264"
+					"sourceid": "1752"
 				},
 				{
 					"pluginid": "10110",
@@ -624,7 +572,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1581"
+					"sourceid": "1667"
 				},
 				{
 					"pluginid": "10063",
@@ -659,6 +607,13 @@
 						},
 						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/drupal.init.js?v=9.3.8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -708,13 +663,6 @@
 						},
 						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/README.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/sitemap",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -810,7 +758,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/profiles/*.css$",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -824,7 +779,7 @@
 							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
@@ -913,6 +868,13 @@
 							"evidence": "/files/languages/fr_0qJuj9jv6YcqP8IW6d1_6mR4s7HeGxBA-dxASPGnaC8"
 						},
 						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/user/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM"
+						},
+						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/user/password",
 							"method": "GET",
 							"param": "",
@@ -920,13 +882,13 @@
 							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\uFFFDjx.j\\x0007\uFFFD\uFFFD\uFFFD\uFFFD\u04A2n\uFFFD\uFFFD\uFFFD\uFFFD*?\uFFFD\\x0016\uFFFD\uFFFD\uFFFDdx\uFFFD\uFFFD\uFFFD\\x001b\\x0010@\uFFFD\uFFFD@H\uFFFDh/</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -1041,7 +1003,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10109",
@@ -1124,7 +1086,7 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/password",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/user/login",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1192,14 +1154,14 @@
 							"evidence": "private"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/core/*.js$",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "private"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/profiles/*.css",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1239,28 +1201,21 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/adjoint-au-charge-de-prevention-et-des-risques-professionnels",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-appui-la-strategie-editoriale-de-la-recherche-stage-de-5-mois-strasbourg-22106s",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/charge-e-de-mission-aupres-du-directeur-du-programme-france-services",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-assistante-de-recherche-en-action-publique-stage-de-5-mois-strasbourg-22113s",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stage-aupres-de-la-direction-de-la-ddets-2",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-chargee-detudes-memoire-partagee-fh",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-assistante-de-recherche-en-transformation-publique-stage-de-5-mois-strasbourg",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1316,13 +1271,13 @@
 							"evidence": "max-age=600, public"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10049",
@@ -1362,7 +1317,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10031",
@@ -1375,70 +1330,70 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "combine",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_administration_de_rattache_target_id[]",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_domaine_d_activite_target_id[]",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_niveau_de_diplome_prepare_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_niveau_de_diplome_prepare_target_id",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_pays_target_id[]",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_region_target_id[]",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_type_de_contrat_value[apprentissage]",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_type_de_contrat_value[stage]",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
@@ -1447,11 +1402,11 @@
 					],
 					"count": "10",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=678&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>combine=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=874&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=742&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&op=Rechercher+toutes+les+offres</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>combine=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1620"
+					"sourceid": "1706"
 				}
 			]
 		}
