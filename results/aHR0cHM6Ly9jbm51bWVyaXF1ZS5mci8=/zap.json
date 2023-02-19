@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 12 Feb 2023 01:45:44",
+	"@generated": "Sun, 19 Feb 2023 01:41:43",
 	"site":[ 
 		{
 			"@name": "https://cnnumerique.fr",
@@ -69,13 +69,6 @@
 							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						},
 						{
-							"uri": "https://cnnumerique.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
-						},
-						{
 							"uri": "https://cnnumerique.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -104,9 +97,9 @@
 							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -509,7 +502,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "845"
+					"sourceid": "885"
 				},
 				{
 					"pluginid": "10063",
@@ -557,14 +550,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/misc/drupalSettingsLoader.js?v=9.3.22",
+							"uri": "https://cnnumerique.fr/core/misc/drupal.js?v=9.3.22",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/misc/jquery.once.bc.js?v=9.3.22",
+							"uri": "https://cnnumerique.fr/core/misc/drupalSettingsLoader.js?v=9.3.22",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -718,46 +711,6 @@
 					"sourceid": "168"
 				},
 				{
-					"pluginid": "10096",
-					"alertRef": "10096",
-					"alert": "Timestamp Disclosure - Unix",
-					"name": "Timestamp Disclosure - Unix",
-					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
-					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/deplacement-nancy-echanges-autour-des-exosquelettes-et-des-systemes-robotises",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1593517083"
-						},
-						{
-							"uri": "https://cnnumerique.fr/index.php/cenum-lettre-dinformation-conseil-national-de-la-refondation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1647043374"
-						},
-						{
-							"uri": "https://cnnumerique.fr/index.php/cenum-lettre-dinformation-numerique-et-politique-publique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1664293575"
-						}
-					],
-					"count": "3",
-					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1593517083, which evaluates to: 2020-06-30 11:38:03</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "454"
-				},
-				{
 					"pluginid": "10094",
 					"alertRef": "10094",
 					"alert": "Base64 Disclosure",
@@ -810,7 +763,7 @@
 							"evidence": "/files/uploads/2022/Logo_de_PeerTube"
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/comment/reply/",
+							"uri": "https://cnnumerique.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -911,6 +864,13 @@
 							"evidence": "user"
 						},
 						{
+							"uri": "https://cnnumerique.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user"
+						},
+						{
 							"uri": "https://cnnumerique.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -946,6 +906,13 @@
 							"evidence": "from"
 						},
 						{
+							"uri": "https://cnnumerique.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "from"
+						},
+						{
 							"uri": "https://cnnumerique.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -960,7 +927,7 @@
 							"evidence": "from"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -1021,7 +988,7 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/comment/reply/",
+							"uri": "https://cnnumerique.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1178,13 +1145,6 @@
 							"evidence": "max-age=600, public"
 						},
 						{
-							"uri": "https://cnnumerique.fr/humains-machines-quelles-interactions-au-travail",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public"
-						},
-						{
 							"uri": "https://cnnumerique.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1241,7 +1201,7 @@
 							"evidence": "max-age=600, public"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1341,7 +1301,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "877"
+					"sourceid": "909"
 				}
 			]
 		}
