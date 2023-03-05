@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 26 Feb 2023 01:35:33",
+	"@generated": "Sun, 5 Mar 2023 01:37:14",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -46,13 +46,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-404-page-1\" action=\"/fr/404\" method=\"get\" id=\"views-exposed-form-recherche-404-page-1\" accept-charset=\"UTF-8\">"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/en/files/webform/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-404-page-1\" action=\"/en/404\" method=\"get\" id=\"views-exposed-form-recherche-404-page-1\" accept-charset=\"UTF-8\">"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/files/webform/",
@@ -111,13 +104,13 @@
 							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-404-page-1\" action=\"/fr/404\" method=\"get\" id=\"views-exposed-form-recherche-404-page-1\" accept-charset=\"UTF-8\">"
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-changed\" \"edit-changed-1\" \"edit-search-api-fulltext\" \"edit-search-api-language-ar\" \"edit-search-api-language-en\" \"edit-search-api-language-es\" \"edit-search-api-language-fr\" \"edit-search-api-language-ja\" \"edit-search-api-language-ru\" \"edit-search-api-language-zh-hans\" \"edit-submit-recherche-404\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "433"
+					"sourceid": "347"
 				},
 				{
 					"pluginid": "10055",
@@ -151,6 +144,13 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/*.js$",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -158,7 +158,7 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>form-action</p><p></p><p>The directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -198,6 +198,13 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/*.js$",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -205,7 +212,7 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -245,6 +252,13 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/*.js$",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -252,7 +266,7 @@
 							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self' https://stats.g.doubleclick.net/j/collect https://www.google-analytics.com/j/collect; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self' https://logs1187.xiti.com https://www.google-analytics.com; script-src 'self' 'unsafe-inline' https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'"
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -272,6 +286,13 @@
 					"instances":[ 
 						{
 							"uri": "https://www.aft.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-28315037-1\"></script>"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -300,13 +321,6 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-28315037-1\"></script>"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -380,7 +394,7 @@
 					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2692"
+					"sourceid": "2461"
 				},
 				{
 					"pluginid": "10017",
@@ -486,32 +500,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10110",
-					"alertRef": "10110",
-					"alert": "Dangerous JS Functions",
-					"name": "Dangerous JS Functions",
-					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Eval"
-						}
-					],
-					"count": "1",
-					"solution": "<p>See the references for security advice on the use of these functions.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://angular.io/guide/security</p>",
-					"cweid": "749",
-					"wascid": "-1",
-					"sourceid": "2652"
-				},
-				{
 					"pluginid": "10063",
 					"alertRef": "10063-1",
 					"alert": "Permissions Policy Header Not Set",
@@ -550,21 +538,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery.ui/ui/disable-selection-min.js?v=1.13.1",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery.ui/ui/version-min.js?v=1.13.1",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -579,6 +553,13 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/misc/drupal.init.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupal.js?v=9.3.22",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -611,6 +592,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/themes/custom/aft/js/xtcore.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
 					"count": "13",
@@ -619,7 +607,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "334"
+					"sourceid": "333"
 				},
 				{
 					"pluginid": "10096",
@@ -639,6 +627,13 @@
 							"evidence": "1379448247"
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/fr/contact",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1677980177"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
 							"method": "GET",
 							"param": "",
@@ -650,7 +645,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1677375294"
+							"evidence": "1677980177"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
@@ -665,36 +660,15 @@
 							"param": "",
 							"attack": "",
 							"evidence": "1884101225"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/contact",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1677375275"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/presentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1756338842"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/recevoir-nos-publications",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1677375275"
 						}
 					],
-					"count": "8",
+					"count": "6",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1379448247, which evaluates to: 2013-09-17 20:04:07</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1611"
+					"sourceid": "1584"
 				},
 				{
 					"pluginid": "10094",
@@ -712,6 +686,13 @@
 							"param": "",
 							"attack": "",
 							"evidence": "/files/css/css_ZQhezKiJksnzoNObMvCO6KBc4Bt-kvLRg4xpjrES5zA"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_D94g4S8ntCedBcTdhBn71JBCpVv9i3v3y2nNPdsaT_w"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css$",
@@ -764,13 +745,6 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_D94g4S8ntCedBcTdhBn71JBCpVv9i3v3y2nNPdsaT_w"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -873,13 +847,6 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user"
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -887,7 +854,7 @@
 							"evidence": "user"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected 2 times, the first in the element starting with: \"<script type=\"text/javascript\"></p><p>  xtnv = document;        //parent.document or top.document or document         </p><p>  xtsd = \"https\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -910,87 +877,80 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
+							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>"
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload.</p>",
 					"reference": "",
@@ -1049,15 +1009,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": "private"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private"
 						}
 					],
-					"count": "6",
+					"count": "7",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "69"
+					"sourceid": "180"
 				},
 				{
 					"pluginid": "10015",
@@ -1112,13 +1079,6 @@
 							"evidence": "max-age=300, public"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/ja/recherche-avancee",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=300, public"
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/recherche-avancee",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1131,6 +1091,13 @@
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/ru/recherche-avancee",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=300, public"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/web.config",
@@ -1234,7 +1201,63 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/ja/404?_exception_statuscode=404&destination=/fr",
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
+							"method": "GET",
+							"param": "destination",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/es/404?_exception_statuscode=404&destination=/fr",
 							"method": "GET",
 							"param": "destination",
 							"attack": "",
@@ -1246,78 +1269,15 @@
 							"param": "destination",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/zh-hans/404?_exception_statuscode=404&destination=/fr",
-							"method": "GET",
-							"param": "destination",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.aft.gouv.fr/en/404?_exception_statuscode=404&destination=/fr</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [href] attribute </p><p></p><p>The user input found was:</p><p>destination=/fr</p><p></p><p>The user-controlled value was:</p><p>/fr/404?_exception_statuscode=404&destination=/fr</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1451"
+					"sourceid": "1445"
 				}
 			]
 		}
