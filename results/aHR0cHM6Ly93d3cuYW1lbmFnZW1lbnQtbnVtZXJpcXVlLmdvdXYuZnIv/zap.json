@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 19 Mar 2023 02:32:41",
+	"@generated": "Sun, 26 Mar 2023 02:30:18",
 	"site":[ 
 		{
 			"@name": "https://www.amenagement-numerique.gouv.fr",
@@ -47,7 +47,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "985"
+					"sourceid": "987"
 				},
 				{
 					"pluginid": "10055",
@@ -270,7 +270,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "120"
+					"sourceid": "215"
 				},
 				{
 					"pluginid": "10098",
@@ -325,7 +325,14 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/user/logout/",
+							"uri": "https://www.amenagement-numerique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *"
+						},
+						{
+							"uri": "https://www.amenagement-numerique.gouv.fr/user/login/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -353,7 +360,7 @@
 							"evidence": "Access-Control-Allow-Origin: *"
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
 					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
@@ -455,7 +462,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1068"
+					"sourceid": "1071"
 				},
 				{
 					"pluginid": "10099",
@@ -481,7 +488,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1053"
+					"sourceid": "1056"
 				},
 				{
 					"pluginid": "90003",
@@ -603,7 +610,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "292"
+					"sourceid": "286"
 				},
 				{
 					"pluginid": "10017",
@@ -725,7 +732,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "784"
+					"sourceid": "783"
 				},
 				{
 					"pluginid": "10063",
@@ -787,14 +794,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.png",
+							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.svg",
+							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -808,7 +815,7 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.css$",
+							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -890,13 +897,6 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": ""
-						},
-						{
 							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -904,7 +904,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.css$",
+							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
+						},
+						{
+							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -924,7 +931,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "120"
+					"sourceid": "215"
 				},
 				{
 					"pluginid": "10094",
@@ -979,7 +986,7 @@
 							"evidence": "/files/languages/fr_5RXeT2eX1vm3yOwDWRRXiRb9agwcIaEriCBSooSsPH8"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1046,7 +1053,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "237"
+					"sourceid": "233"
 				},
 				{
 					"pluginid": "10027",
@@ -1101,7 +1108,7 @@
 							"evidence": "user"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1197,7 +1204,7 @@
 							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.amenagement-numerique.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1291,22 +1298,15 @@
 							"param": "",
 							"attack": "",
 							"evidence": "private"
-						},
-						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private"
 						}
 					],
-					"count": "7",
+					"count": "6",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "120"
+					"sourceid": "215"
 				},
 				{
 					"pluginid": "10015",
@@ -1334,6 +1334,13 @@
 						},
 						{
 							"uri": "https://www.amenagement-numerique.gouv.fr/fr/2013-2025-12-ans-equiper-100-du-territoire-reseaux-dacces-internet-nouvelle-generation",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.amenagement-numerique.gouv.fr/fr/demarche-collaborative",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1394,9 +1401,16 @@
 							"param": "Cache-Control",
 							"attack": "",
 							"evidence": "max-age=600, public"
+						},
+						{
+							"uri": "https://www.amenagement-numerique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public"
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
@@ -1429,7 +1443,7 @@
 							"evidence": "max-age=300"
 						},
 						{
-							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.svg",
+							"uri": "https://www.amenagement-numerique.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
