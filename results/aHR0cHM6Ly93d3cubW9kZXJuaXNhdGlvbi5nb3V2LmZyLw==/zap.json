@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 19 Mar 2023 02:02:43",
+	"@generated": "Sun, 26 Mar 2023 02:04:11",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -88,9 +88,23 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.css$\" method=\"post\" id=\"hubscore-newsletter-form\">"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.js$\" method=\"post\" id=\"hubscore-newsletter-form\">"
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -116,14 +130,14 @@
 							"evidence": "default-src https: 'self'; object-src 'none'; child-src https: platform.twitter.com; img-src https: 'self' data:; font-src https: data: 'unsafe-inline'; style-src  https: 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://stats.modernisation.gouv.fr https://platform.twitter.com https://cdn.syndication.twimg.com https://syndication.twitter.com https://cdnjs.cloudflare.com https://tag.aticdn.net https://cdn.delivr.net"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/filter/tips",
+							"uri": "https://www.modernisation.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'self'; object-src 'none'; child-src https: platform.twitter.com; img-src https: 'self' data:; font-src https: data: 'unsafe-inline'; style-src  https: 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://stats.modernisation.gouv.fr https://platform.twitter.com https://cdn.syndication.twimg.com https://syndication.twitter.com https://cdnjs.cloudflare.com https://tag.aticdn.net https://cdn.delivr.net"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/search/",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -156,14 +170,14 @@
 							"evidence": "default-src https: 'self'; object-src 'none'; child-src https: platform.twitter.com; img-src https: 'self' data:; font-src https: data: 'unsafe-inline'; style-src  https: 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://stats.modernisation.gouv.fr https://platform.twitter.com https://cdn.syndication.twimg.com https://syndication.twitter.com https://cdnjs.cloudflare.com https://tag.aticdn.net https://cdn.delivr.net"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/filter/tips",
+							"uri": "https://www.modernisation.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'self'; object-src 'none'; child-src https: platform.twitter.com; img-src https: 'self' data:; font-src https: data: 'unsafe-inline'; style-src  https: 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://stats.modernisation.gouv.fr https://platform.twitter.com https://cdn.syndication.twimg.com https://syndication.twitter.com https://cdnjs.cloudflare.com https://tag.aticdn.net https://cdn.delivr.net"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/search/",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -196,14 +210,14 @@
 							"evidence": "default-src https: 'self'; object-src 'none'; child-src https: platform.twitter.com; img-src https: 'self' data:; font-src https: data: 'unsafe-inline'; style-src  https: 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://stats.modernisation.gouv.fr https://platform.twitter.com https://cdn.syndication.twimg.com https://syndication.twitter.com https://cdnjs.cloudflare.com https://tag.aticdn.net https://cdn.delivr.net"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/filter/tips",
+							"uri": "https://www.modernisation.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'self'; object-src 'none'; child-src https: platform.twitter.com; img-src https: 'self' data:; font-src https: data: 'unsafe-inline'; style-src  https: 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://stats.modernisation.gouv.fr https://platform.twitter.com https://cdn.syndication.twimg.com https://syndication.twitter.com https://cdnjs.cloudflare.com https://tag.aticdn.net https://cdn.delivr.net"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/search/",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -311,15 +325,22 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "160"
+					"sourceid": "110"
 				},
 				{
 					"pluginid": "10044",
@@ -379,22 +400,15 @@
 							"param": "",
 							"attack": "",
 							"evidence": ""
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": ""
 						}
 					],
-					"count": "8",
+					"count": "7",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 45 [https://www.modernisation.gouv.fr/filter/tips].</p><p>Predicted response size: 345.</p><p>Response Body Length: 426.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1186"
+					"sourceid": "1185"
 				},
 				{
 					"pluginid": "10110",
@@ -428,7 +442,7 @@
 							"evidence": "eval"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rrgqqu",
+							"uri": "https://www.modernisation.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rrz0j1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -441,7 +455,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1974"
+					"sourceid": "2359"
 				},
 				{
 					"pluginid": "10063",
@@ -482,14 +496,14 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/misc/drupal.js?v=9.4.8",
+							"uri": "https://www.modernisation.gouv.fr/core/misc/drupalSettingsLoader.js?v=9.4.8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/misc/drupalSettingsLoader.js?v=9.4.8",
+							"uri": "https://www.modernisation.gouv.fr/core/misc/jquery.once.bc.js?v=9.4.8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -510,21 +524,21 @@
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/files/languages/fr_hdKJdsq8CEOD0p9-gj-Hlnt2PtPL1oFFIjgqbvooiZQ.js?rrgqqu",
+							"uri": "https://www.modernisation.gouv.fr/files/languages/fr_hdKJdsq8CEOD0p9-gj-Hlnt2PtPL1oFFIjgqbvooiZQ.js?rrz0j1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/modules/internal/tarteaucitron/js/load.js?rrgqqu",
+							"uri": "https://www.modernisation.gouv.fr/modules/internal/tarteaucitron/js/load.js?rrz0j1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/modules/internal/tarteaucitron/js/tarteaucitron.js?rrgqqu",
+							"uri": "https://www.modernisation.gouv.fr/modules/internal/tarteaucitron/js/tarteaucitron.js?rrz0j1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -544,7 +558,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1143"
+					"sourceid": "1142"
 				},
 				{
 					"pluginid": "10035",
@@ -647,7 +661,33 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "160"
+					"sourceid": "110"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.modernisation.gouv.fr/actualites/un-appel-projets-participation-citoyenne-pour-les-territoires",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1589546272"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1589546272, which evaluates to: 2020-05-15 12:37:52</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "2787"
 				},
 				{
 					"pluginid": "10094",
@@ -671,7 +711,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-44gY-LBPq6ocV8xF0YU18bwaqewPj5a_CmHW-NGMM4k"
+							"evidence": "form-FkMhbWZOHRQmkh9leFQ7HddydPqAr9rEwhg46-rY25U"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
@@ -702,13 +742,6 @@
 							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM"
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -731,6 +764,13 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/user/register",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -769,7 +809,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1144"
+					"sourceid": "1143"
 				},
 				{
 					"pluginid": "10027",
@@ -835,7 +875,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "user"
+							"evidence": "admin"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
@@ -857,9 +897,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "user"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/user/register",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "admin"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
@@ -920,13 +967,6 @@
 							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Astuces de r\u00E9daction</a>"
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -949,6 +989,13 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/user/register",
 							"method": "GET",
 							"param": "",
 							"attack": "",
