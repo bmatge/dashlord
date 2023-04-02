@@ -20,12 +20,12 @@
 <span style="font-weight:bold;">
 ###########################################################</span>
 
- Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~179 ciphers]
- on fv-az337-905:/home/testssl/bin/openssl.Linux.x86_64
+ Using &quot;OpenSSL 1.0.2-bad (1.0.2k-dev)&quot; [~183 ciphers]
+ on fv-az370-815:/home/testssl/bin/openssl.Linux.x86_64
  (built: &quot;Sep  1 14:03:44 2022&quot;, platform: &quot;linux-x86_64&quot;)
 
 
-<span style="color:white;background-color:black;"> Start 2023-03-26 01:33:28                --&gt;&gt; 193.17.19.48:443 (www.aft.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Start 2023-04-02 01:27:09                --&gt;&gt; 193.17.19.48:443 (www.aft.gouv.fr) &lt;&lt;--</span>
 
  rDNS (193.17.19.48):    --
  Service detected:       HTTP
@@ -47,7 +47,8 @@
 <span style="font-weight:bold;"> Anonymous NULL Ciphers (no authentication)        </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> Export ciphers (w/o ADH+NULL)                     </span><span style="color:#008817;font-weight:bold;">not offered (OK)</span>
 <span style="font-weight:bold;"> LOW: 64 Bit + DES, RC[2,4], MD5 (w/o export)      </span><span style="color:#008817;">not offered (OK)</span>
-<span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span>not offered
+<span style="font-weight:bold;"> Triple DES Ciphers / IDEA                         </span><span style="color:#cd00cd;"> Oops: openssl s_client connect problem</span>
+not offered
 <span style="font-weight:bold;"> Obsoleted CBC ciphers (AES, ARIA etc.)            </span><span style="color:#a86437;">offered</span>
 <span style="font-weight:bold;"> Strong encryption (AEAD ciphers) with no FS       </span>not offered
 <span style="font-weight:bold;"> Forward Secrecy strong encryption (AEAD ciphers)  </span><span style="color:#008817;font-weight:bold;">offered (OK)</span>
@@ -79,7 +80,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
                               ECDHE-RSA-AES128-SHA256
                               ECDHE-RSA-AES256-GCM-SHA384
                               ECDHE-RSA-AES256-SHA384 
-<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> <span style="color:#008817;">secp384r1</span> <span style="color:#008817;">secp521r1</span> 
+<span style="font-weight:bold;"> Elliptic curves offered:     </span><span style="color:#008817;">prime256v1</span> 
 
 <span style="text-decoration:underline;font-weight:bold;"> Testing server defaults (Server Hello) </span>
 
@@ -109,7 +110,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Chain of trust</span>               <span style="color:#e52207;font-weight:bold;">NOT ok</span><span style="color:#e52207;font-weight:bold;">:</span><span style="color:#e52207;"> Java </span>(chain incomplete)
 <span style="color:#008817;">OK: Mozilla Microsoft Linux Apple </span>
 <span style="font-weight:bold;"> EV cert</span> (experimental)       no 
-<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">341 &gt;= 60 days</span> (2023-03-02 23:00 --&gt; 2024-03-01 22:59)
+<span style="font-weight:bold;"> Certificate Validity (UTC)   </span><span style="color:#008817;">334 &gt;= 60 days</span> (2023-03-02 23:00 --&gt; 2024-03-01 22:59)
 <span style="font-weight:bold;"> ETS/&quot;eTLS&quot;</span>, visibility info  not present
 <span style="font-weight:bold;"> Certificate Revocation List  </span>http://crl.dhimyotis.com/servicesca.crl
                               http://crl.certigna.fr/servicesca.crl
@@ -128,7 +129,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="text-decoration:underline;font-weight:bold;"> Testing HTTP header response @ &quot;/&quot; </span>
 
 <span style="font-weight:bold;"> HTTP Status Code           </span>  200 OK
-<span style="font-weight:bold;"> HTTP clock skew              </span>-1 sec from localtime
+<span style="font-weight:bold;"> HTTP clock skew              </span>-9 sec from localtime
 <span style="font-weight:bold;"> Strict Transport Security    </span><span style="color:#008817;">400 days</span>=34560000 s<span style="color:#008817;">, includeSubDomains</span><span style="color:#008817;">, preload</span>
 <span style="font-weight:bold;"> Public Key Pinning           </span>--
 <span style="font-weight:bold;"> Server banner                </span>Apache
@@ -138,17 +139,10 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
                               <span style="color:#008817;">X-Content-Type-Options</span>: nosniff
                               <span style="color:#008817;">Content-Security-Policy</span>: default-src &apos;none&apos;;
                                 upgrade-insecure-requests; frame-ancestors
-                                &apos;none&apos;; connect-src &apos;self&apos;
-                                https://stats.g.doubleclick.net/j/collect
-                                https://www.google-analytics.com/j/collect;
-                                font-src &apos;self&apos;; frame-src
-                                https://www.youtube.com
-                                https://player.ausha.co; img-src &apos;self&apos;
-                                https://logs1187.xiti.com
-                                https://www.google-analytics.com; script-src
-                                &apos;self&apos; &apos;unsafe-inline&apos;
-                                https://www.google-analytics.com/analytics.js
-                                https://www.googletagmanager.com/gtag/js
+                                &apos;none&apos;; connect-src &apos;self&apos;; font-src &apos;self&apos;;
+                                frame-src https://www.youtube.com
+                                https://player.ausha.co; img-src &apos;self&apos;;
+                                script-src &apos;self&apos; &apos;unsafe-inline&apos;
                                 https://player.ausha.co/ausha-player.js;
                                 style-src &apos;self&apos; &apos;unsafe-inline&apos;
                               <span style="color:#008817;">Permissions-Policy</span>: interest-cohort=()
@@ -235,7 +229,7 @@ Hexcode  Cipher Suite Name (OpenSSL)       KeyExch.   Encryption  Bits     Ciphe
 <span style="font-weight:bold;"> Final Score                  </span>81
 <span style="font-weight:bold;"> Overall Grade                </span><span style="color:#008817;font-weight:bold;">A+</span>
 
-<span style="color:white;background-color:black;"> Done 2023-03-26 01:36:09 [ 164s] --&gt;&gt; 193.17.19.48:443 (www.aft.gouv.fr) &lt;&lt;--</span>
+<span style="color:white;background-color:black;"> Done 2023-04-02 01:28:40 [  93s] --&gt;&gt; 193.17.19.48:443 (www.aft.gouv.fr) &lt;&lt;--</span>
 
 
 </pre>
