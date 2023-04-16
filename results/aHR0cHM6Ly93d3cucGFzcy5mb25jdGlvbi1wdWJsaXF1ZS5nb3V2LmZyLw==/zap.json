@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 9 Apr 2023 02:10:51",
+	"@generated": "Sun, 16 Apr 2023 02:13:12",
 	"site":[ 
 		{
 			"@name": "https://www.pass.fonction-publique.gouv.fr",
@@ -52,7 +52,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-combine--3\" \"edit-field-type-de-contrat-value-apprentissage--2\" \"edit-field-type-de-contrat-value-stage--2\" \"edit-geo-boundary-group-lat-north-east--2\" \"edit-geo-boundary-group-lat-south-west--2\" \"edit-geo-boundary-group-lng-north-east--2\" \"edit-geo-boundary-group-lng-south-west--2\" \"edit-loadall--2\" \"edit-submit-recherche-offre--2\" ]."
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -149,17 +149,9 @@
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/logout",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -200,17 +192,9 @@
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
 							"otherinfo": "script-src includes unsafe-inline."
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/logout",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
-							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -251,17 +235,9 @@
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
 							"otherinfo": "style-src includes unsafe-inline."
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/logout",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
-							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -419,14 +395,6 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/index.php/admin/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -475,6 +443,14 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/user/register",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/web.config",
 							"method": "GET",
 							"param": "",
@@ -490,49 +466,6 @@
 					"cweid": "264",
 					"wascid": "14",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "90022",
-					"alertRef": "90022",
-					"alert": "Application Error Disclosure",
-					"name": "Application Error Disclosure",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine&field_administration_de_rattache_target_id&field_departement_target_id&field_domaine_d_activite_target_id&field_niveau_de_diplome_prepare_target_id&field_pays_target_id&field_region_target_id&field_type_de_contrat_value&items_per_page=12&loadall&reset&type_de_contrat_value_2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine&field_administration_de_rattache_target_id&field_departement_target_id&field_domaine_d_activite_target_id&field_niveau_de_diplome_prepare_target_id&field_pays_target_id&field_region_target_id&field_type_de_contrat_value&items_per_page=24&loadall&reset&type_de_contrat_value_2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine&field_administration_de_rattache_target_id&field_departement_target_id&field_domaine_d_activite_target_id&field_niveau_de_diplome_prepare_target_id&field_pays_target_id&field_region_target_id&field_type_de_contrat_value&items_per_page=48&loadall&reset&type_de_contrat_value_2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						}
-					],
-					"count": "3",
-					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "1196"
 				},
 				{
 					"pluginid": "10044",
@@ -639,50 +572,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1116"
-				},
-				{
-					"pluginid": "10017",
-					"alertRef": "10017",
-					"alert": "Cross-Domain JavaScript Source File Inclusion",
-					"name": "Cross-Domain JavaScript Source File Inclusion",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine&field_administration_de_rattache_target_id&field_departement_target_id&field_domaine_d_activite_target_id&field_niveau_de_diplome_prepare_target_id&field_pays_target_id&field_region_target_id&field_type_de_contrat_value&items_per_page=12&loadall&reset&type_de_contrat_value_2",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine&field_administration_de_rattache_target_id&field_departement_target_id&field_domaine_d_activite_target_id&field_niveau_de_diplome_prepare_target_id&field_pays_target_id&field_region_target_id&field_type_de_contrat_value&items_per_page=24&loadall&reset&type_de_contrat_value_2",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine&field_administration_de_rattache_target_id&field_departement_target_id&field_domaine_d_activite_target_id&field_niveau_de_diplome_prepare_target_id&field_pays_target_id&field_region_target_id&field_type_de_contrat_value&items_per_page=48&loadall&reset&type_de_contrat_value_2",
-							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
-							"otherinfo": ""
-						}
-					],
-					"count": "3",
-					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "829",
-					"wascid": "15",
-					"sourceid": "1196"
+					"sourceid": "1102"
 				},
 				{
 					"pluginid": "10110",
@@ -725,23 +615,15 @@
 							"attack": "",
 							"evidence": "eval",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/modules/contrib/leaflet/js/leaflet.drupal.js?v=9.4.10",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1038"
+					"sourceid": "1016"
 				},
 				{
 					"pluginid": "10063",
@@ -778,6 +660,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/core/assets/vendor/modernizr/modernizr.min.js?v=3.11.7",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
 							"method": "GET",
 							"param": "",
@@ -786,23 +676,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/drupal.init.js?v=9.4.10",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/drupal.js?v=9.4.10",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/drupalSettingsLoader.js?v=9.4.10",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/core/misc/modernizr-additional-tests.js?v=3.11.7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1402,9 +1284,17 @@
 							"attack": "",
 							"evidence": "private",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1439,7 +1329,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/apprenti-au-siraced-pc-prefecture-de-la-haute-garonne",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/dgddi-bac3-concepteur-developpeur-centre-informatique-douanier-osny-95",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1447,7 +1337,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/apprenti-pole-politique-de-la-ville-prefecture-de-la-haute-garonne",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/le-service-de-defense-et-de-securite-pole-protection-du-potentiel-scientifique-et-technique",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1455,7 +1345,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/apprentie-la-delegation-aux-collectivites-territoriales-et-la-decentralisation-de-lassemblee",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/offre-de-contrat-apprentissage-en-alternance-assistante-au-bureau-ordre-drad-defenseur-des",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.pass.fonction-publique.gouv.fr/offre/stagiaire-cooperation-internationale-0",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1496,14 +1394,6 @@
 						},
 						{
 							"uri": "https://www.pass.fonction-publique.gouv.fr/user/register",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/user/register/candidat",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1573,125 +1463,125 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "combine",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncombine=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ncombine=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_administration_de_rattache_target_id[]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_administration_de_rattache_target_id[]=1127\r\n\r\nThe user-controlled value was:\r\n1127"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_administration_de_rattache_target_id[]=1127\r\n\r\nThe user-controlled value was:\r\n1127"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_domaine_d_activite_target_id[]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_domaine_d_activite_target_id[]=1082\r\n\r\nThe user-controlled value was:\r\n1082"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_domaine_d_activite_target_id[]=1082\r\n\r\nThe user-controlled value was:\r\n1082"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_niveau_de_diplome_prepare_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_niveau_de_diplome_prepare_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_niveau_de_diplome_prepare_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_niveau_de_diplome_prepare_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_niveau_de_diplome_prepare_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_niveau_de_diplome_prepare_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_pays_target_id[]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_pays_target_id[]=608\r\n\r\nThe user-controlled value was:\r\n608"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_pays_target_id[]=837\r\n\r\nThe user-controlled value was:\r\n837"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_region_target_id[]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_region_target_id[]=858\r\n\r\nThe user-controlled value was:\r\n858"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_region_target_id[]=858\r\n\r\nThe user-controlled value was:\r\n858"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_type_de_contrat_value[apprentissage]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_contrat_value[apprentissage]=apprentissage\r\n\r\nThe user-controlled value was:\r\napprentissage"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_contrat_value[apprentissage]=apprentissage\r\n\r\nThe user-controlled value was:\r\napprentissage"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "field_type_de_contrat_value[stage]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_contrat_value[stage]=stage\r\n\r\nThe user-controlled value was:\r\nstage"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_contrat_value[stage]=stage\r\n\r\nThe user-controlled value was:\r\nstage"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "geo_boundary[group][lat_north_east]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lat_north_east]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lat_north_east]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "geo_boundary[group][lat_south_west]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lat_south_west]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lat_south_west]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "geo_boundary[group][lng_north_east]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lng_north_east]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lng_north_east]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "geo_boundary[group][lng_south_west]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lng_south_west]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ngeo_boundary[group][lng_south_west]=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
 						},
 						{
-							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
+							"uri": "https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres",
 							"method": "GET",
 							"param": "op",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Rechercher toutes les offres\r\n\r\nThe user-controlled value was:\r\nrechercher toutes les offres"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Rechercher toutes les offres\r\n\r\nThe user-controlled value was:\r\nrechercher toutes les offres"
 						}
 					],
 					"count": "14",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=608&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>combine=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.pass.fonction-publique.gouv.fr/recherche-offre?combine=ZAP&field_administration_de_rattache_target_id%5B%5D=1127&field_departement_target_id%5B%5D=871&field_domaine_d_activite_target_id%5B%5D=1082&field_niveau_de_diplome_prepare_target_id=All&field_pays_target_id%5B%5D=837&field_region_target_id%5B%5D=858&field_type_de_contrat_value%5Bapprentissage%5D=apprentissage&field_type_de_contrat_value%5Bstage%5D=stage&geo_boundary%5Bgroup%5D%5Blat_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blat_south_west%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_north_east%5D=ZAP&geo_boundary%5Bgroup%5D%5Blng_south_west%5D=ZAP&op=Rechercher+toutes+les+offres</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>combine=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1083"
+					"sourceid": "1071"
 				}
 			]
 		}
