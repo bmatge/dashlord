@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 19 Mar 2023 01:54:16",
+	"@generated": "Sun, 16 Apr 2023 01:43:04",
 	"site":[ 
 		{
 			"@name": "https://precurseurschimiques.entreprises.gouv.fr",
@@ -24,28 +24,32 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-bef-auto-submit-full-form=\"\" data-bef-auto-submit=\"\" data-bef-auto-submit-delay=\"500\" data-drupal-selector=\"views-exposed-form-l-information-en-continu-block-with-thematique\" action=\"/fr/rss/actualites\" method=\"get\" id=\"views-exposed-form-l-information-en-continu-block-with-thematique\" accept-charset=\"UTF-8\">"
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-bef-auto-submit-full-form=\"\" data-bef-auto-submit=\"\" data-bef-auto-submit-delay=\"500\" data-drupal-selector=\"views-exposed-form-l-information-en-continu-block-with-thematique\" action=\"/fr/rss/actualites\" method=\"get\" id=\"views-exposed-form-l-information-en-continu-block-with-thematique\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-type-de-media-target-id-10\" \"edit-field-type-de-media-target-id-8\" \"edit-field-type-de-media-target-id-9\" \"edit-submit-l-information-en-continu\" ]."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-keys\" \"edit-submit--2\" ]."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-bef-auto-submit-full-form=\"\" data-bef-auto-submit=\"\" data-bef-auto-submit-delay=\"500\" data-drupal-selector=\"views-exposed-form-l-information-en-continu-block-with-thematique\" action=\"/fr/rss/actualites\" method=\"get\" id=\"views-exposed-form-l-information-en-continu-block-with-thematique\" accept-charset=\"UTF-8\">"
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-bef-auto-submit-full-form=\"\" data-bef-auto-submit=\"\" data-bef-auto-submit-delay=\"500\" data-drupal-selector=\"views-exposed-form-l-information-en-continu-block-with-thematique\" action=\"/fr/rss/actualites\" method=\"get\" id=\"views-exposed-form-l-information-en-continu-block-with-thematique\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-type-de-media-target-id-10\" \"edit-field-type-de-media-target-id-8\" \"edit-field-type-de-media-target-id-9\" \"edit-submit-l-information-en-continu\" ]."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">"
+							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-keys\" \"edit-submit--2\" ]."
 						}
 					],
 					"count": "4",
@@ -71,14 +75,16 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
 					"count": "2",
@@ -104,14 +110,16 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
 					"count": "2",
@@ -137,14 +145,16 @@
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
-							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;"
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
 					"count": "2",
@@ -170,14 +180,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *"
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						}
 					],
 					"count": "2",
@@ -203,82 +215,39 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel=\"alternate\" hreflang=\"fr\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />"
+							"evidence": "<link rel=\"alternate\" hreflang=\"fr\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel=\"revision\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />"
-						},
-						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
+							"evidence": "<link rel=\"revision\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel=\"alternate\" hreflang=\"fr\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />"
+							"evidence": "<link rel=\"alternate\" hreflang=\"fr\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<link rel=\"revision\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />"
-						},
-						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
+							"evidence": "<link rel=\"revision\" href=\"https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\" />",
+							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "4",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
-					"wascid": "15",
-					"sourceid": "3"
-				},
-				{
-					"pluginid": "10017",
-					"alertRef": "10017",
-					"alert": "Cross-Domain JavaScript Source File Inclusion",
-					"name": "Cross-Domain JavaScript Source File Inclusion",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
-					"instances":[ 
-						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-41292125-1",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
-						},
-						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "https://www.googletagmanager.com/gtag/js?id=UA-41292125-1",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-41292125-1\"></script>"
-						}
-					],
-					"count": "2",
-					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
-					"otherinfo": "",
-					"reference": "",
-					"cweid": "829",
 					"wascid": "15",
 					"sourceid": "3"
 				},
@@ -297,14 +266,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/files/languages/fr_BxmG-a_u_diffMB5dxmjrIjgJz9jYmAiKs0wbafVbxY"
+							"evidence": "/files/languages/fr_BxmG-a_u_diffMB5dxmjrIjgJz9jYmAiKs0wbafVbxY",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\uFFFDjx.j\\x0007\uFFFD\uFFFD\uFFFD\uFFFD\\x0007\\x0019\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u061F|\uFFFDyw\\x0019\uFFFD\uFFFD\uFFFD\uFFFD'?cb`\"*\uFFFD0m\uFFFD\uFFFDo\\x0016"
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/files/languages/fr_BxmG-a_u_diffMB5dxmjrIjgJz9jYmAiKs0wbafVbxY"
+							"evidence": "/files/languages/fr_BxmG-a_u_diffMB5dxmjrIjgJz9jYmAiKs0wbafVbxY",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\uFFFDjx.j\\x0007\uFFFD\uFFFD\uFFFD\uFFFD\\x0007\\x0019\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u061F|\uFFFDyw\\x0019\uFFFD\uFFFD\uFFFD\uFFFD'?cb`\"*\uFFFD0m\uFFFD\uFFFDo\\x0016"
 						}
 					],
 					"count": "2",
@@ -330,28 +301,32 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "user"
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "user"
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "TODO"
+							"evidence": "TODO",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"<!-- TODO: XITI a ajouter ici quand on aura les codes -->\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "TODO"
+							"evidence": "TODO",
+							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected in the element starting with: \"<!-- TODO: XITI a ajouter ici quand on aura les codes -->\", see evidence field for the suspicious comment/snippet."
 						}
 					],
 					"count": "4",
@@ -377,14 +352,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"HautDePage\" tabindex=\"-1\"></a>"
+							"evidence": "<a id=\"HautDePage\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"HautDePage\" tabindex=\"-1\"></a>"
+							"evidence": "<a id=\"HautDePage\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
 					"count": "2",
@@ -410,14 +387,16 @@
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
-							"evidence": "max-age=300"
+							"evidence": "max-age=300",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
-							"evidence": "max-age=300"
+							"evidence": "max-age=300",
+							"otherinfo": ""
 						}
 					],
 					"count": "2",
@@ -443,42 +422,48 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=300"
+							"evidence": "max-age=300",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=300"
+							"evidence": "max-age=300",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": ""
+							"evidence": "",
+							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
 					"count": "6",
