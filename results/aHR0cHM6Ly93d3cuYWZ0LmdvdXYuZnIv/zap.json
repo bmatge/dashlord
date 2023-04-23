@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 16 Apr 2023 01:21:53",
+	"@generated": "Sun, 23 Apr 2023 01:25:26",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -122,7 +122,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "349"
+					"sourceid": "420"
 				},
 				{
 					"pluginid": "10055",
@@ -173,7 +173,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "63"
 				},
 				{
 					"pluginid": "10055",
@@ -224,7 +224,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "63"
 				},
 				{
 					"pluginid": "10055",
@@ -385,6 +385,33 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "10003",
+					"alertRef": "10003",
+					"alert": "Vulnerable JS Library",
+					"name": "Vulnerable JS Library",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The identified library jquery-ui, version 1.12.1 is vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aft.gouv.fr/themes/custom/aft/js/datepicker.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Please upgrade to the latest version of jquery-ui.</p>",
+					"otherinfo": "<p>CVE-2021-41184</p><p>CVE-2021-41183</p><p>CVE-2021-41182</p><p>CVE-2022-31160</p><p></p>",
+					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
+					"cweid": "829",
+					"wascid": "-1",
+					"sourceid": "2871"
+				},
+				{
 					"pluginid": "10017",
 					"alertRef": "10017",
 					"alert": "Cross-Domain JavaScript Source File Inclusion",
@@ -489,7 +516,34 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "63"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "2838"
 				},
 				{
 					"pluginid": "10063",
@@ -510,6 +564,86 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.2.3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupal.init.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupal.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupalSettingsLoader.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/jquery.once.bc.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/polyfills/element.matches.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/polyfills/object.assign.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/files/languages/fr_EYKSn8cfKn3Id9FJh-bkjysJ4g6fg1V-VSZrLsMMkXA.js?rsy8dm",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
@@ -518,40 +652,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "323"
-				},
-				{
-					"pluginid": "10035",
-					"alertRef": "10035",
-					"alert": "Strict-Transport-Security Header Not Set",
-					"name": "Strict-Transport-Security Header Not Set",
-					"riskcode": "1",
-					"confidence": "3",
-					"riskdesc": "Low (High)",
-					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.aft.gouv.fr/fr/comparaisons-internationales",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
-					"cweid": "319",
-					"wascid": "15",
-					"sourceid": "2025"
+					"sourceid": "402"
 				},
 				{
 					"pluginid": "10096",
@@ -576,8 +683,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1681608064",
-							"otherinfo": "1681608064, which evaluates to: 2023-04-16 01:21:04"
+							"evidence": "1682213065",
+							"otherinfo": "1682213065, which evaluates to: 2023-04-23 01:24:25"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
@@ -592,8 +699,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1681608064",
-							"otherinfo": "1681608064, which evaluates to: 2023-04-16 01:21:04"
+							"evidence": "1682213065",
+							"otherinfo": "1682213065, which evaluates to: 2023-04-23 01:24:25"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
@@ -610,15 +717,55 @@
 							"attack": "",
 							"evidence": "1884101225",
 							"otherinfo": "1884101225, which evaluates to: 2029-09-14 17:27:05"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/index.php/fr/cadre-juridique-budget",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1379448247",
+							"otherinfo": "1379448247, which evaluates to: 2013-09-17 20:04:07"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/index.php/fr/presentation",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1756338842",
+							"otherinfo": "1756338842, which evaluates to: 2025-08-27 23:54:02"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/index.php/fr/recevoir-nos-publications",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1682213086",
+							"otherinfo": "1682213086, which evaluates to: 2023-04-23 01:24:46"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/index.php/fr/tresorerie-cadre-juridique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1629897596",
+							"otherinfo": "1629897596, which evaluates to: 2021-08-25 13:19:56"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/index.php/fr/tresorerie-cadre-juridique",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1884101225",
+							"otherinfo": "1884101225, which evaluates to: 2029-09-14 17:27:05"
 						}
 					],
-					"count": "6",
+					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1379448247, which evaluates to: 2013-09-17 20:04:07</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1624"
+					"sourceid": "2216"
 				},
 				{
 					"pluginid": "10094",
@@ -832,7 +979,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "63"
 				},
 				{
 					"pluginid": "10109",
@@ -939,7 +1086,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "63"
 				},
 				{
 					"pluginid": "10049",
@@ -1006,9 +1153,17 @@
 							"attack": "",
 							"evidence": "private",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1099,14 +1254,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/ru/recherche-avancee",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=300, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/web.config",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1123,13 +1270,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "63"
 				},
 				{
 					"pluginid": "10049",
@@ -1158,14 +1305,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=300",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1182,7 +1321,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
@@ -1247,7 +1386,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1440"
+					"sourceid": "1884"
 				}
 			]
 		}
