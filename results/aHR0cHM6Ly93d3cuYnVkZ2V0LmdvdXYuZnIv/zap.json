@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 16 Apr 2023 01:38:52",
+	"@generated": "Sun, 23 Apr 2023 01:41:41",
 	"site":[ 
 		{
 			"@name": "https://www.budget.gouv.fr",
@@ -33,15 +33,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/download_csv/timeline/donn\u00E9es_.csv\" method=\"POST\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-643b4b8f37b0b\" \"url\" ]."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/download_csv/timeline/donn\u00E9es_.csv\" method=\"POST\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-643b4f94c305a\" \"url\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-64448b524509e\" \"url\" ]."
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
@@ -90,6 +82,14 @@
 							"attack": "",
 							"evidence": "<form action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-rechercher-es-page-1\" accept-charset=\"UTF-8\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-tags-target-id\" \"edit-query\" \"edit-submit-rechercher-es\" \"f[0]\" ]."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-rechercher-es-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-tags-target-id\" \"edit-query\" \"edit-submit-rechercher-es\" \"f[0]\" ]."
 						}
 					],
 					"count": "9",
@@ -98,7 +98,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "50"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -462,14 +462,6 @@
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/p",
-							"method": "GET",
-							"param": "X-Frame-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/ressources-documentaires/budgetek",
 							"method": "GET",
 							"param": "X-Frame-Options",
@@ -478,13 +470,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "2271"
+					"sourceid": "2906"
 				},
 				{
 					"pluginid": "90003",
@@ -511,7 +503,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1879"
+					"sourceid": "2906"
 				},
 				{
 					"pluginid": "10044",
@@ -546,7 +538,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "327"
+					"sourceid": "335"
 				},
 				{
 					"pluginid": "10017",
@@ -573,7 +565,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1879"
+					"sourceid": "2906"
 				},
 				{
 					"pluginid": "10110",
@@ -602,7 +594,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rsjbbm",
+							"uri": "https://www.budget.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rtgluq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -616,7 +608,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2163"
+					"sourceid": "2814"
 				},
 				{
 					"pluginid": "10063",
@@ -693,7 +685,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/files/languages/fr_MD8hhZ5p-D_ANw9E_HbHZXYCUKOuwV6c37Wr9RgsZXs.js?rsjbbm",
+							"uri": "https://www.budget.gouv.fr/modules/internal/tarteaucitron/js/load.js?rtgluq",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/modules/internal/tarteaucitron/js/tarteaucitron.js?rtgluq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -715,14 +715,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/ressources-documentaires/budgetek",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -731,7 +723,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "279"
+					"sourceid": "285"
 				},
 				{
 					"pluginid": "10035",
@@ -808,14 +800,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -832,7 +816,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -858,38 +850,6 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.budget.gouv.fr/documentation/circulaires-budgetaires/circulaires-2023",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1674640387",
-							"otherinfo": "1674640387, which evaluates to: 2023-01-25 09:53:07"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/documentation/comptes-de-letat/comptes-de-letat-2022",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1681389035",
-							"otherinfo": "1681389035, which evaluates to: 2023-04-13 12:30:35"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2021/programme-de-stabilite-2021-2027",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1618491612",
-							"otherinfo": "1618491612, which evaluates to: 2021-04-15 13:00:12"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2022/projet-de-loi-de-reglement",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1681385908",
-							"otherinfo": "1681385908, which evaluates to: 2023-04-13 11:38:28"
-						},
 						{
 							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2023/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2023",
 							"method": "GET",
@@ -947,6 +907,38 @@
 							"otherinfo": "1664976383, which evaluates to: 2022-10-05 13:26:23"
 						},
 						{
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-de-securite-sociale-asso",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1567438274",
+							"otherinfo": "1567438274, which evaluates to: 2019-09-02 15:31:14"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-publiques-locales-apul",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1567438323",
+							"otherinfo": "1567438323, which evaluates to: 2019-09-02 15:32:03"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/comparaison-europeenne",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1569831684",
+							"otherinfo": "1569831684, which evaluates to: 2019-09-30 08:21:24"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/etat-et-organismes-divers-dadministration-centrale-odac",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1567438351",
+							"otherinfo": "1567438351, which evaluates to: 2019-09-02 15:32:31"
+						},
+						{
 							"uri": "https://www.budget.gouv.fr/panorama-finances-publiques",
 							"method": "GET",
 							"param": "",
@@ -957,38 +949,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1674640387, which evaluates to: 2023-01-25 09:53:07</p>",
+					"otherinfo": "<p>1664975939, which evaluates to: 2022-10-05 13:18:59</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1438"
-				},
-				{
-					"pluginid": "10021",
-					"alertRef": "10021",
-					"alert": "X-Content-Type-Options Header Missing",
-					"name": "X-Content-Type-Options Header Missing",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.budget.gouv.fr/p",
-							"method": "GET",
-							"param": "X-Content-Type-Options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
-					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
-					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
-					"cweid": "693",
-					"wascid": "15",
-					"sourceid": "2271"
+					"sourceid": "516"
 				},
 				{
 					"pluginid": "10094",
@@ -1095,7 +1060,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "50"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -1122,7 +1087,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "280"
+					"sourceid": "288"
 				},
 				{
 					"pluginid": "10027",
@@ -1213,31 +1178,15 @@
 							"attack": "",
 							"evidence": "user",
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 2 times, the first in the element starting with: \"<script src=\"/themes/custom/budget/js/select-custom.js?v=9.4.10\"></script>\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected 2 times, the first in the element starting with: \"<script src=\"/themes/custom/budget/js/select-custom.js?v=9.4.10\"></script>\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "50"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -1344,7 +1293,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "50"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1365,23 +1314,15 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.budget.gouv.fr/budget-etat",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.budget.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/index.php/budget-etat",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1397,7 +1338,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/panorama-finances-publique/administrations-publiques-locales-apul",
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-de-securite-sociale-asso",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1405,7 +1346,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/panorama-finances-publiques",
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/etat-et-organismes-divers-dadministration-centrale-odac",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1413,7 +1354,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/performance-depense",
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publiques",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/performance-depense",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1494,7 +1443,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "50"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1628,7 +1577,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "2238"
+					"sourceid": "2957"
 				}
 			]
 		}
