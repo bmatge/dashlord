@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 23 Apr 2023 01:15:48",
+	"@generated": "Sun, 30 Apr 2023 01:14:54",
 	"site":[ 
 		{
 			"@name": "https://www.economie.gouv.fr",
@@ -114,7 +114,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -157,7 +157,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -200,7 +200,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10055",
@@ -243,7 +243,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10038",
@@ -358,7 +358,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "567"
+					"sourceid": "747"
 				},
 				{
 					"pluginid": "10098",
@@ -465,7 +465,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90003",
@@ -477,6 +477,14 @@
 					"riskdesc": "Medium (High)",
 					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
 					"instances":[ 
+						{
+							"uri": "https://www.economie.gouv.fr/cedef",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://www.economie.gouv.fr/cisirh",
 							"method": "GET",
@@ -550,13 +558,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "798"
+					"sourceid": "705"
 				},
 				{
 					"pluginid": "10003",
@@ -583,7 +591,7 @@
 					"reference": "<p>https://cdn.datatables.net/1.11.3/</p><p>https://github.com/DataTables/Dist-DataTables/commit/59a8d3f8a3c1138ab08704e783bc52bfe88d7c9b</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "3192"
+					"sourceid": "2843"
 				},
 				{
 					"pluginid": "10044",
@@ -612,20 +620,20 @@
 							"otherinfo": "Location header URI length: 51 [https://www.economie.gouv.fr/ministere/organigramme].\nPredicted response size: 351.\nResponse Body Length: 450."
 						},
 						{
+							"uri": "https://www.economie.gouv.fr/node/3100155",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 52 [https://www.economie.gouv.fr/ministres/gabriel-attal].\nPredicted response size: 352.\nResponse Body Length: 454."
+						},
+						{
 							"uri": "https://www.economie.gouv.fr/node/48069",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 41 [https://www.economie.gouv.fr/particuliers].\nPredicted response size: 341.\nResponse Body Length: 410."
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/node/57063",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 40 [https://www.economie.gouv.fr/entreprises].\nPredicted response size: 340.\nResponse Body Length: 406."
 						},
 						{
 							"uri": "https://www.economie.gouv.fr/particuliers/epargne-et-investissement",
@@ -698,7 +706,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2183"
+					"sourceid": "2389"
 				},
 				{
 					"pluginid": "10017",
@@ -710,6 +718,14 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.economie.gouv.fr/cedef",
+							"method": "GET",
+							"param": "https://platform.twitter.com/widgets.js",
+							"attack": "",
+							"evidence": "<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://www.economie.gouv.fr/cisirh",
 							"method": "GET",
@@ -783,13 +799,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "10",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "798"
+					"sourceid": "705"
 				},
 				{
 					"pluginid": "10110",
@@ -818,7 +834,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rsl6pu",
+							"uri": "https://www.economie.gouv.fr/libraries/tarteaucitron/tarteaucitron.js?rtmhq6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -832,7 +848,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "3156"
+					"sourceid": "2827"
 				},
 				{
 					"pluginid": "10063",
@@ -885,14 +901,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/core/misc/drupal.js?v=9.4.10",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.economie.gouv.fr/core/misc/drupalSettingsLoader.js?v=9.4.10",
 							"method": "GET",
 							"param": "",
@@ -917,7 +925,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/modules/internal/tarteaucitron/js/load.js?rsl6pu",
+							"uri": "https://www.economie.gouv.fr/modules/internal/tarteaucitron/js/load.js?rtmhq6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.economie.gouv.fr/modules/internal/tarteaucitron/js/tarteaucitron.js?rtmhq6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -947,7 +963,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1889"
+					"sourceid": "1813"
 				},
 				{
 					"pluginid": "10035",
@@ -1048,14 +1064,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.economie.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
@@ -1064,13 +1072,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "13",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "567"
+					"sourceid": "747"
 				},
 				{
 					"pluginid": "10096",
@@ -1087,16 +1095,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1682072322",
-							"otherinfo": "1682072322, which evaluates to: 2023-04-21 10:18:42"
+							"evidence": "1682604049",
+							"otherinfo": "1682604049, which evaluates to: 2023-04-27 14:00:49"
 						},
 						{
 							"uri": "https://www.economie.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1682072322",
-							"otherinfo": "1682072322, which evaluates to: 2023-04-21 10:18:42"
+							"evidence": "1682604049",
+							"otherinfo": "1682604049, which evaluates to: 2023-04-27 14:00:49"
 						},
 						{
 							"uri": "https://www.economie.gouv.fr/entreprises",
@@ -1173,11 +1181,11 @@
 					],
 					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1682072322, which evaluates to: 2023-04-21 10:18:42</p>",
+					"otherinfo": "<p>1682604049, which evaluates to: 2023-04-27 14:00:49</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10094",
@@ -1284,7 +1292,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -1311,7 +1319,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1892"
+					"sourceid": "1815"
 				},
 				{
 					"pluginid": "10027",
@@ -1418,7 +1426,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -1525,7 +1533,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "6"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10015",
@@ -1669,6 +1677,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.economie.gouv.fr/ministere/missions-ministere",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=1200",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.economie.gouv.fr/ministres/bruno-le-maire",
 							"method": "GET",
 							"param": "",
@@ -1733,13 +1749,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "6"
+					"sourceid": "1"
 				}
 			]
 		}
