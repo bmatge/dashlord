@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 14 May 2023 01:51:32",
+	"@generated": "Sun, 21 May 2023 01:55:18",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -98,9 +98,25 @@
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.css$\" method=\"post\" id=\"hubscore-newsletter-form\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.js$\" method=\"post\" id=\"hubscore-newsletter-form\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -149,7 +165,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10055",
@@ -192,7 +208,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10055",
@@ -235,7 +251,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10038",
@@ -350,7 +366,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "144"
+					"sourceid": "196"
 				},
 				{
 					"pluginid": "10044",
@@ -419,6 +435,14 @@
 							"otherinfo": "Location header URI length: 34 [https://www.modernisation.gouv.fr/].\nPredicted response size: 334.\nResponse Body Length: 382."
 						},
 						{
+							"uri": "https://www.modernisation.gouv.fr/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 41 [https://www.modernisation.gouv.fr/accueil].\nPredicted response size: 341.\nResponse Body Length: 410."
+						},
+						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
 							"method": "POST",
 							"param": "",
@@ -427,13 +451,13 @@
 							"otherinfo": "Location header URI length: 44 [https://www.modernisation.gouv.fr/system/404].\nPredicted response size: 344.\nResponse Body Length: 422."
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 45 [https://www.modernisation.gouv.fr/filter/tips].</p><p>Predicted response size: 345.</p><p>Response Body Length: 426.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1195"
+					"sourceid": "1200"
 				},
 				{
 					"pluginid": "10110",
@@ -484,7 +508,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2032"
+					"sourceid": "2037"
 				},
 				{
 					"pluginid": "10063",
@@ -506,6 +530,22 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.2.3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -561,23 +601,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/files/languages/fr_hdKJdsq8CEOD0p9-gj-Hlnt2PtPL1oFFIjgqbvooiZQ.js?rtetip",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/modules/internal/tarteaucitron/js/load.js?rtetip",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/modules/internal/tarteaucitron/js/tarteaucitron.js?rtetip",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -599,7 +623,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1155"
+					"sourceid": "1158"
 				},
 				{
 					"pluginid": "10035",
@@ -676,23 +700,15 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.modernisation.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -706,6 +722,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -714,7 +738,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "144"
+					"sourceid": "196"
 				},
 				{
 					"pluginid": "10096",
@@ -741,7 +765,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "2890"
+					"sourceid": "2893"
 				},
 				{
 					"pluginid": "10094",
@@ -766,8 +790,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-_d74Bz_ZYHPWiYkwJ5qIQ1zhCSociSmf47yT3AmXhqg",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD{\uFFFD\\x001c\uFFFDe\uFFFD\uFFFDZ&$\uFFFD\uFFFDj!\rs\uFFFD$\uFFFDr$\uFFFD\uFFFD\uFFFDOp&^\\x001a\uFFFD"
+							"evidence": "form-sAaAob1PEBBQwogXgdXnLByHFwn70VRWsos7J3iGER0",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD\\x001a\\x0002\uFFFD\uFFFD<@AC\n ^\\x0007W\uFFFD\uFFFDr\\x001c\\'\uFFFDEQZ\uFFFD,\uFFFD\uFFFD\\x0018Dt"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
@@ -848,7 +872,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10019",
@@ -982,7 +1006,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10109",
@@ -1089,7 +1113,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10049",
@@ -1174,6 +1198,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1182,13 +1214,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10015",
@@ -1225,14 +1257,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/presse",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "must-revalidate, no-cache, private",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/README.txt",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1250,6 +1274,14 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "must-revalidate, no-cache, private",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1295,7 +1327,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10049",
