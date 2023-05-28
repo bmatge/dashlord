@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 21 May 2023 01:30:06",
+	"@generated": "Sun, 28 May 2023 01:34:46",
 	"site":[ 
 		{
 			"@name": "https://www.bercynumerique.finances.gouv.fr",
@@ -344,6 +344,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
@@ -352,13 +368,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "14",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "328"
+					"sourceid": "92"
 				},
 				{
 					"pluginid": "10098",
@@ -411,6 +427,14 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/search/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -420,14 +444,6 @@
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/user/login",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -465,7 +481,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10044",
@@ -478,84 +494,12 @@
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 44 [https://www.bercynumerique.finances.gouv.fr/].\nPredicted response size: 344.\nResponse Body Length: 422."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/faites-fleurir-vos-competences-numeriques",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 85 [https://www.bercynumerique.finances.gouv.fr/faites-fleurir-vos-competences-numeriques].\nPredicted response size: 385.\nResponse Body Length: 586."
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 55 [https://www.bercynumerique.finances.gouv.fr/filter/tips].\nPredicted response size: 355.\nResponse Body Length: 466."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/information-en-continu",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 66 [https://www.bercynumerique.finances.gouv.fr/information-en-continu].\nPredicted response size: 366.\nResponse Body Length: 510."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/liens-utiles",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 56 [https://www.bercynumerique.finances.gouv.fr/liens-utiles].\nPredicted response size: 356.\nResponse Body Length: 470."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/pac-num/formation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 61 [https://www.bercynumerique.finances.gouv.fr/pac-num/formation].\nPredicted response size: 361.\nResponse Body Length: 490."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/pac-num/la-ressourcerie-numerique-pac-num",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 85 [https://www.bercynumerique.finances.gouv.fr/pac-num/la-ressourcerie-numerique-pac-num].\nPredicted response size: 385.\nResponse Body Length: 586."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/pac-num/pix",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 55 [https://www.bercynumerique.finances.gouv.fr/pac-num/pix].\nPredicted response size: 355.\nResponse Body Length: 466."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/presentation-du-pac-num",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 67 [https://www.bercynumerique.finances.gouv.fr/presentation-du-pac-num].\nPredicted response size: 367.\nResponse Body Length: 514."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/quest-ce-que-le-sac-dos-numerique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 77 [https://www.bercynumerique.finances.gouv.fr/quest-ce-que-le-sac-dos-numerique].\nPredicted response size: 377.\nResponse Body Length: 554."
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/search/",
@@ -566,14 +510,6 @@
 							"otherinfo": "Location header URI length: 50 [https://www.bercynumerique.finances.gouv.fr/search].\nPredicted response size: 350.\nResponse Body Length: 446."
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/sitemap",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 51 [https://www.bercynumerique.finances.gouv.fr/sitemap].\nPredicted response size: 351.\nResponse Body Length: 450."
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -582,13 +518,13 @@
 							"otherinfo": "Location header URI length: 50 [https://www.bercynumerique.finances.gouv.fr/search].\nPredicted response size: 350.\nResponse Body Length: 446."
 						}
 					],
-					"count": "13",
+					"count": "3",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 44 [https://www.bercynumerique.finances.gouv.fr/].</p><p>Predicted response size: 344.</p><p>Response Body Length: 422.</p>",
+					"otherinfo": "<p>Location header URI length: 55 [https://www.bercynumerique.finances.gouv.fr/filter/tips].</p><p>Predicted response size: 355.</p><p>Response Body Length: 466.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1352"
+					"sourceid": "1178"
 				},
 				{
 					"pluginid": "10110",
@@ -615,7 +551,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1323"
+					"sourceid": "1335"
 				},
 				{
 					"pluginid": "10063",
@@ -690,7 +626,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1147"
+					"sourceid": "1135"
 				},
 				{
 					"pluginid": "10035",
@@ -767,7 +703,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -781,22 +733,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -805,7 +741,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "328"
+					"sourceid": "92"
 				},
 				{
 					"pluginid": "10096",
@@ -818,12 +754,12 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/conference-datavisualisation-saison-2",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/forum-api-culture",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1680513412",
-							"otherinfo": "1680513412, which evaluates to: 2023-04-03 09:16:52"
+							"evidence": "1680515088",
+							"otherinfo": "1680515088, which evaluates to: 2023-04-03 09:44:48"
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/penser-la-souverainete-numerique-pour-une-autonomie-strategique",
@@ -836,11 +772,11 @@
 					],
 					"count": "2",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1680513412, which evaluates to: 2023-04-03 09:16:52</p>",
+					"otherinfo": "<p>1680515088, which evaluates to: 2023-04-03 09:44:48</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1244"
+					"sourceid": "1247"
 				},
 				{
 					"pluginid": "10094",
@@ -947,7 +883,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10019",
@@ -974,7 +910,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1150"
+					"sourceid": "1140"
 				},
 				{
 					"pluginid": "10027",
@@ -1081,7 +1017,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10109",
@@ -1188,7 +1124,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "49"
 				},
 				{
 					"pluginid": "10049",
@@ -1255,7 +1191,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "328"
+					"sourceid": "92"
 				},
 				{
 					"pluginid": "10015",
@@ -1276,6 +1212,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/dossier-du-crd-eteignez-votre-ordinateur",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/faites-fleurir-vos-competences-numeriques",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1285,14 +1229,6 @@
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "Cache-Control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu",
 							"method": "GET",
 							"param": "Cache-Control",
 							"attack": "",
@@ -1399,7 +1335,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1407,7 +1343,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/sitemap.xml",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1421,7 +1357,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "49"
 				}
 			]
 		}
