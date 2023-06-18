@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.12.0",
-	"@generated": "Sun, 4 Jun 2023 01:31:33",
+	"@generated": "Sun, 18 Jun 2023 01:25:40",
 	"site":[ 
 		{
 			"@name": "https://www.prix-carburants.gouv.fr",
@@ -106,7 +106,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "18"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10055",
@@ -135,7 +135,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/faq/",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/opendata/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -178,7 +178,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/faq/",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/opendata/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -221,7 +221,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/faq/",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/opendata/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -278,7 +278,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "50"
+					"sourceid": "32"
 				},
 				{
 					"pluginid": "10098",
@@ -308,6 +308,14 @@
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/css/_style--main.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -379,13 +387,13 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</p><p>Configure the \"Access-Control-Allow-Origin\" HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</p>",
 					"otherinfo": "<p>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</p>",
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "18"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90003",
@@ -492,7 +500,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "18"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90022",
@@ -519,7 +527,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "207"
+					"sourceid": "200"
 				},
 				{
 					"pluginid": "10044",
@@ -562,7 +570,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "147"
+					"sourceid": "136"
 				},
 				{
 					"pluginid": "10017",
@@ -591,7 +599,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "https://tag.aticdn.net/495337/smarttag.js",
 							"attack": "",
@@ -599,7 +607,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/?rubrique=faq",
 							"method": "GET",
 							"param": "https://tag.aticdn.net/495337/smarttag.js",
 							"attack": "",
@@ -669,7 +677,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "18"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10110",
@@ -741,7 +749,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -749,7 +757,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/src/effects.js",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -819,7 +827,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "18"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10035",
@@ -862,7 +870,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "50"
+					"sourceid": "32"
 				},
 				{
 					"pluginid": "10094",
@@ -879,24 +887,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "W4gEyNmkhON3kasBrhcVX2chdhbXFJiiikvpNkKmEik",
-							"otherinfo": "[\uFFFD\\x0004\uFFFD\u0664\uFFFD\uFFFDw\uFFFD\uFFFD\\x0001\uFFFD\\x0017\\x0015_g!v\\x0016\uFFFD\\x0014\uFFFD\uFFFD\uFFFDK\uFFFD6B\uFFFD\\x0012)"
+							"evidence": "YehqzuEzdpg5q50kmbjmPvc__ssVpbca3jWi1RDThE0",
+							"otherinfo": "a\uFFFDj\uFFFD\uFFFD3v\uFFFD9\uFFFD\uFFFD$\uFFFD\uFFFD\uFFFD>\uFFFD?\uFFFD\uFFFD\\x0015\uFFFD\uFFFD\\x001a\uFFFD5\uFFFD\uFFFD\\x0010\u04C4M"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "fBz4uFDmeOwRtzPvONMhbFWnlnbdsfZaXkOvTun73_k",
-							"otherinfo": "|\\x001c\uFFFD\uFFFDP\uFFFDx\uFFFD\\x0011\uFFFD3\uFFFD8\uFFFD!lU\uFFFD\uFFFDv\u0771\uFFFDZ^C\uFFFDN\uFFFD\uFFFD\uFFFD\uFFFD"
+							"evidence": "wreWYmDnc-jMOvN4CIqYktwV_uznSjZB4fDyTGznYTA",
+							"otherinfo": "\u00B7\uFFFDb`\uFFFDs\uFFFD\uFFFD:\uFFFDx\\x0008\uFFFD\uFFFD\uFFFD\uFFFD\\x0015\uFFFD\uFFFD\uFFFDJ6A\uFFFD\uFFFD\uFFFDLl\uFFFDa0"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "RzloypbBylIoeXX_2y1H0QQDvfEAAPbt-lI4t4eJ3v4",
-							"otherinfo": "G9h\u0296\uFFFD\uFFFDR(yu\uFFFD\uFFFD-G\uFFFD\\x0004\\x0003\uFFFD\uFFFD\\x0000\\x0000\uFFFD\uFFFD\uFFFDR8\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD"
+							"evidence": "3hPCv_gYBGTeYLNyd3726Od9otEL3SDbjMjxAlitw0c",
+							"otherinfo": "\uFFFD\\x0013\u00BF\uFFFD\\x0018\\x0004d\uFFFD`\uFFFDrw~\uFFFD\uFFFD\uFFFD}\uFFFD\uFFFD\\x000b\uFFFD \u06CC\uFFFD\uFFFD\\x0002X\uFFFD\uFFFDG"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/carto/OpenLayers-2.13.1/OpenLayers.js",
@@ -911,24 +919,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "70GKJbLYIGSEu4Hpm-A5erEoQLOrVOBLr66aOAnkHlE",
-							"otherinfo": "\uFFFDA\uFFFD%\uFFFD\uFFFD d\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD9z\uFFFD(@\uFFFD\uFFFDT\uFFFDK\uFFFD\uFFFD\uFFFD8\t\uFFFD\\x001eQ"
+							"evidence": "4VZvgxtCIMbQ9rO-p2Y-Vhs_H2CJ58fH05hF26GHdkg",
+							"otherinfo": "\uFFFDVo\uFFFD\\x001bB \uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDf>V\\x001b?\\x001f`\uFFFD\uFFFD\uFFFD\uFFFD\u04D8E\u06E1\uFFFDvH"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/?rubrique=faq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "QI3TqAuI3PLP4qk439NhxIxN9lGkyliYQDmHbKINdoM",
-							"otherinfo": "@\uFFFD\u04E8\\x000b\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD8\uFFFD\uFFFDa\u010CM\uFFFDQ\uFFFD\uFFFDX\uFFFD@9\uFFFDl\uFFFD\rv\uFFFD"
+							"evidence": "SXrTeB7ov3XVHBz0gTsQgAs6UVFMRN6o7qbSV7K_fNI",
+							"otherinfo": "Iz\uFFFDx\\x001e\uFFFDu\uFFFD\\x001c\\x001c\uFFFD;\\x0010\uFFFD\\x000b:QQLD\u07A8\uFFFD\uFFFDW\uFFFD\uFFFD|\uFFFD"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "ZeMlcEmksXDkwIf5IeyoEq368ith1n4_ePV4C9BikSM",
-							"otherinfo": "e\uFFFD%pI\uFFFD\uFFFDp\uFFFD\uFFFD\uFFFD\uFFFD!\uFFFD\\x0012\uFFFD\uFFFD\uFFFD+a\uFFFD~?x\uFFFDx\\x000b\uFFFDb\uFFFD#"
+							"evidence": "mUghxHatdBedIqu3k4Tty3YpB7T6eznfhUg6bOne92Y",
+							"otherinfo": "\uFFFDH!\uFFFDv\uFFFDt\\x0017\uFFFD\"\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDv)\\x0007\uFFFD\uFFFD{9\u07C5H:l\uFFFD\uFFFD\uFFFDf"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/css/jquery-ui.min.css",
@@ -943,41 +951,41 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "--SM8LKkx_6VICAzc-MvBDvrYudQoJ6tv6JZBcHXefE",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD  3s\uFFFD/\\x0004;\uFFFDb\uFFFDP\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDY\\x0005\uFFFD\uFFFDy\uFFFD"
+							"evidence": "6IaUPmCpWYFgOdmKfUDO07chOMYJIxI4-QAKtuMZATY",
+							"otherinfo": "\u8194>`\uFFFDY\uFFFD`9\u064A}@\uFFFD\u04F7!8\uFFFD\t#\\x00128\uFFFD\\x0000\n\uFFFD\uFFFD\\x0019\\x00016"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/internaute/inscrire",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Wko7YMf0R4Eflx2wVCloLLGtje0509N9w38aoud1ZZo",
-							"otherinfo": "ZJ;`\uFFFD\uFFFDG\uFFFD\\x001f\uFFFD\\x001d\uFFFDT)h,\uFFFD\uFFFD\uFFFD\uFFFD9\uFFFD\uFFFD}\uFFFD\\x001a\uFFFD\uFFFDue\uFFFD"
+							"evidence": "6aR-eoP3APJvSdwaxlpo6NH-MA78CJ-h8HiZB1Scufo",
+							"otherinfo": "\uFFFD~z\uFFFD\uFFFD\\x0000\uFFFDoI\uFFFD\\x001a\uFFFDZh\uFFFD\uFFFD\uFFFD0\\x000e\uFFFD\\x0008\uFFFD\uFFFD\uFFFDx\uFFFD\\x0007T\uFFFD\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "WPISuqRr8QPf4QczO2jQ_sqL8nJKyV3Lwwg8wRBogj8",
-							"otherinfo": "X\uFFFD\\x0012\uFFFD\uFFFDk\uFFFD\\x0003\uFFFD\uFFFD\\x00073;h\uFFFD\uFFFD\u028B\uFFFDrJ\uFFFD]\uFFFD\uFFFD\\x0008<\uFFFD\\x0010h\uFFFD?"
+							"evidence": "xzCAIPLzEmwyC0p63dbaL_od2P5SzBQOqyFoBSsbnAU",
+							"otherinfo": "\uFFFD0\uFFFD \uFFFD\uFFFD\\x0012l2\\x000bJz\uFFFD\uFFFD\uFFFD/\uFFFD\\x001d\uFFFD\uFFFDR\uFFFD\\x0014\\x000e\uFFFD!h\\x0005+\\x001b\uFFFD\\x0005"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/inscrire",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "wUiyaEly_7WM_jpZy8zW7uRk84ExNqiZlEeZzTgKrkU",
-							"otherinfo": "\uFFFDH\uFFFDhIr\uFFFD\uFFFD\uFFFD\uFFFD:Y\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDd\uFFFD16\uFFFD\uFFFD\uFFFDG\uFFFD\uFFFD8\n\uFFFDE"
+							"evidence": "w13fZ5O6jjShdMymZ4AM2P_uGlDMhWlBFP2bZMKw74s",
+							"otherinfo": "\uFFFD]\uFFFDg\uFFFD\uFFFD\uFFFD4\uFFFDt\u0326g\uFFFD\\x000c\uFFFD\uFFFD\uFFFD\\x001aP\u0305iA\\x0014\uFFFD\uFFFDd\u00B0\uFFFD"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>[\uFFFD\\x0004\uFFFD\u0664\uFFFD\uFFFDw\uFFFD\uFFFD\\x0001\uFFFD\\x0017\\x0015_g!v\\x0016\uFFFD\\x0014\uFFFD\uFFFD\uFFFDK\uFFFD6B\uFFFD\\x0012)</p>",
+					"otherinfo": "<p>a\uFFFDj\uFFFD\uFFFD3v\uFFFD9\uFFFD\uFFFD$\uFFFD\uFFFD\uFFFD>\uFFFD?\uFFFD\uFFFD\\x0015\uFFFD\uFFFD\\x001a\uFFFD5\uFFFD\uFFFD\\x0010\u04C4M</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10027",
@@ -990,109 +998,101 @@
 					"desc": "<p>The response appears to contain suspicious comments which may help an attacker. Note: Matches made within script blocks or files are against the entire content not only comments.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/autocompletion.js",
+							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 2 times, the first in the element starting with: \"        select: function( event, ui ) { \", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/general_201112.js",
+							"uri": "https://www.prix-carburants.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "bugs",
-							"otherinfo": "The following pattern was used: \\bBUGS\\b and was detected in the element starting with: \"            else{ // Pour eviter les bugs\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/general_201112.js",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "TODO",
-							"otherinfo": "The following pattern was used: \\bTODO\\b and was detected 2 times, the first in the element starting with: \"                // TODO\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/jquery-3.6.1.min.js",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/?rubrique=faq",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "username",
-							"otherinfo": "The following pattern was used: \\bUSERNAME\\b and was detected in the element starting with: \"!function(e,t){\"use strict\";\"object\"==typeof module&&\"object\"==typeof module.exports?module.exports=e.document?t(e,!0):function(\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/lib/prototype.js",
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "bug",
-							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in the element starting with: \"       * around a bug where XMLHttpRequest sends an incorrect\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/lib/prototype.js",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 2 times, the first in the element starting with: \"Array.from = $A;\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/lib/prototype.js",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/copyright/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "later",
-							"otherinfo": "The following pattern was used: \\bLATER\\b and was detected 3 times, the first in the element starting with: \"\tvar tmpSet = [], later = \"\", match,\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/lib/prototype.js",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/faq/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "query",
-							"otherinfo": "The following pattern was used: \\bQUERY\\b and was detected 6 times, the first in the element starting with: \"    var query = document.evaluate(expression, $(parentElement) || document,\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/lib/prototype.js",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/opendata/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "select",
-							"otherinfo": "The following pattern was used: \\bSELECT\\b and was detected 33 times, the first in the element starting with: \"    select:     findAll,\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/src/effects.js",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/personal_data/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Bug",
-							"otherinfo": "The following pattern was used: \\bBUG\\b and was detected in the element starting with: \"// Bug in opera makes the TD containing this element expand for a instance after finish\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/src/effects.js",
+							"uri": "https://www.prix-carburants.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "from",
-							"otherinfo": "The following pattern was used: \\bFROM\\b and was detected 13 times, the first in the element starting with: \"    from:       0.0,\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/js/scriptaculous/src/effects.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "xxx",
-							"otherinfo": "The following pattern was used: \\bXXX\\b and was detected in the element starting with: \"// converts rgb() and #xxx to #xxxxxx format,\", see evidence field for the suspicious comment/snippet."
+							"evidence": "Debug",
+							"otherinfo": "The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script>\n            // variables globales utilisees dans les scripts pour les requetes ajax\n            var BASE_URL = '';\n    \", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
-					"otherinfo": "<p>The following pattern was used: \\bSELECT\\b and was detected 2 times, the first in the element starting with: \"        select: function( event, ui ) { \", see evidence field for the suspicious comment/snippet.</p>",
+					"otherinfo": "<p>The following pattern was used: \\bDEBUG\\b and was detected in the element starting with: \"<script></p><p>            // variables globales utilisees dans les scripts pour les requetes ajax</p><p>            var BASE_URL = '';</p><p>    \", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "108"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10109",
@@ -1111,15 +1111,31 @@
 							"attack": "",
 							"evidence": "<a href=\"#\" id=\"print-itineraire\">Plan &amp; Feuille de route</a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"sup\"><span>Supprimer</span></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/itineraire/voir",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "<a href=\"#\" id=\"print-itineraire\">Plan &amp; Feuille de route</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
-					"count": "1",
+					"count": "3",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "160"
+					"sourceid": "164"
 				},
 				{
 					"pluginid": "10049",
@@ -1140,14 +1156,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/internaute/",
 							"method": "GET",
 							"param": "",
@@ -1156,13 +1164,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10015",
@@ -1215,6 +1223,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Cache-Control",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
 							"method": "GET",
 							"param": "Cache-Control",
@@ -1255,13 +1271,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10049",
@@ -1282,20 +1298,28 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/favicons/favicon.ico",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "s-maxage=3600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=86400",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/copyright/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=86400",
+							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/faq/",
@@ -1322,13 +1346,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "6",
+					"count": "7",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "55"
+					"sourceid": "59"
 				},
 				{
 					"pluginid": "10049",
@@ -1363,7 +1387,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "50"
+					"sourceid": "32"
 				},
 				{
 					"pluginid": "10031",
@@ -1534,7 +1558,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "149"
+					"sourceid": "148"
 				}
 			]
 		}
