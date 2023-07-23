@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 16 Jul 2023 02:05:27",
+	"@generated": "Sun, 23 Jul 2023 01:40:19",
 	"site":[ 
 		{
 			"@name": "https://www.collectivites-locales.gouv.fr",
@@ -26,17 +26,9 @@
 							"attack": "",
 							"evidence": "<form action=\"/recherche\" method=\"GET\" id=\"search-form-block\" accept-charset=\"UTF-8\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ]."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/recherche\" method=\"GET\" id=\"search-form-block\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ]."
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -436,7 +428,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1838"
+					"sourceid": "1420"
 				},
 				{
 					"pluginid": "10035",
@@ -564,7 +556,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/competences/action-sociale-et-sante",
+							"uri": "https://www.collectivites-locales.gouv.fr/competences/action-sociale-et-sante",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -572,7 +564,7 @@
 							"otherinfo": "1582938477, which evaluates to: 2020-02-29 01:07:57"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -580,7 +572,7 @@
 							"otherinfo": "1393470590, which evaluates to: 2014-02-27 03:09:50"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -588,7 +580,7 @@
 							"otherinfo": "1554031557, which evaluates to: 2019-03-31 11:25:57"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -596,7 +588,7 @@
 							"otherinfo": "1757720243, which evaluates to: 2025-09-12 23:37:23"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -604,7 +596,7 @@
 							"otherinfo": "1916340480, which evaluates to: 2030-09-22 20:48:00"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -612,7 +604,7 @@
 							"otherinfo": "1942304509, which evaluates to: 2031-07-20 09:01:49"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -626,7 +618,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1902"
+					"sourceid": "1877"
 				},
 				{
 					"pluginid": "10094",
@@ -760,7 +752,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1842"
+					"sourceid": "1423"
 				},
 				{
 					"pluginid": "10027",
@@ -1070,6 +1062,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/actualites-du-21-septembre-2020",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "cache-control",
@@ -1078,15 +1078,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/actualites-du-21-septembre-2020",
+							"uri": "https://www.collectivites-locales.gouv.fr/html",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1102,7 +1094,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/html",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1110,7 +1102,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/collectivites-doutre-mer",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-reforme-territoriale",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1118,15 +1110,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-reforme-territoriale",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/texte-pa",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1148,6 +1132,14 @@
 							"attack": "",
 							"evidence": "max-age=600, public",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/texte-pa",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
 						}
 					],
 					"count": "11",
@@ -1157,6 +1149,178 @@
 					"cweid": "525",
 					"wascid": "13",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-3",
+					"alert": "Sec-Fetch-Dest Header is Missing",
+					"name": "Sec-Fetch-Dest Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "48"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-2",
+					"alert": "Sec-Fetch-Mode Header is Missing",
+					"name": "Sec-Fetch-Mode Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "48"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-1",
+					"alert": "Sec-Fetch-Site Header is Missing",
+					"name": "Sec-Fetch-Site Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "48"
+				},
+				{
+					"pluginid": "90005",
+					"alertRef": "90005-4",
+					"alert": "Sec-Fetch-User Header is Missing",
+					"name": "Sec-Fetch-User Header is Missing",
+					"riskcode": "0",
+					"confidence": "3",
+					"riskdesc": "Informational (High)",
+					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
+					"cweid": "352",
+					"wascid": "9",
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10049",
