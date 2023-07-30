@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 23 Jul 2023 01:44:00",
+	"@generated": "Sun, 30 Jul 2023 01:39:15",
 	"site":[ 
 		{
 			"@name": "https://cnnumerique.fr",
@@ -358,7 +358,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "90"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10098",
@@ -403,14 +403,6 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -428,6 +420,14 @@
 						},
 						{
 							"uri": "https://cnnumerique.fr/user/login/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://cnnumerique.fr/user/logout/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -524,7 +524,7 @@
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1641"
+					"sourceid": "1643"
 				},
 				{
 					"pluginid": "10099",
@@ -537,6 +537,14 @@
 					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
 					"instances":[ 
 						{
+							"uri": "https://cnnumerique.fr/files/uploads/2021/CNNum-Dossier-Billets_et_jetons_la_nouvelle_concurrence_des_monnaies.pdf",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "$#BfPR",
+							"otherinfo": "$#BfPR"
+						},
+						{
 							"uri": "https://cnnumerique.fr/files/uploads/2023/Itineraires_numeriques_Le_Temps_du_debat_Versionweb.pdf",
 							"method": "GET",
 							"param": "",
@@ -545,13 +553,13 @@
 							"otherinfo": "$#K3hZ"
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "<p>$#K3hZ</p>",
+					"otherinfo": "<p>$#BfPR</p>",
 					"reference": "<p>http://blogs.wsj.com/cio/2013/10/08/adobe-source-code-leak-is-bad-news-for-u-s-government/</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1526"
+					"sourceid": "1731"
 				},
 				{
 					"pluginid": "90003",
@@ -578,7 +586,7 @@
 					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "448"
+					"sourceid": "429"
 				},
 				{
 					"pluginid": "10044",
@@ -590,14 +598,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/bienvenue-sur-paroles-de",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 57 [http://cnnumerique.fr/paroles-de/bienvenue-sur-paroles-de].\nPredicted response size: 357.\nResponse Body Length: 474."
-						},
 						{
 							"uri": "https://cnnumerique.fr/comment-perenniser-les-communs-numeriques-echange-avec-judith-rochfeld",
 							"method": "GET",
@@ -623,6 +623,14 @@
 							"otherinfo": "Location header URI length: 33 [http://cnnumerique.fr/filter/tips].\nPredicted response size: 333.\nResponse Body Length: 378."
 						},
 						{
+							"uri": "https://cnnumerique.fr/index.php/il-ny-aura-pas-de-fin-du-travail-echange-avec-juan-sebastian-carbonell",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 113 [http://cnnumerique.fr/index.php/paroles-de/il-ny-aura-pas-de-fin-du-travail-echange-avec-juan-sebastian-carbonell].\nPredicted response size: 413.\nResponse Body Length: 698."
+						},
+						{
 							"uri": "https://cnnumerique.fr/index.php/nos-travaux",
 							"method": "GET",
 							"param": "",
@@ -639,12 +647,12 @@
 							"otherinfo": "Location header URI length: 28 [http://cnnumerique.fr/search].\nPredicted response size: 328.\nResponse Body Length: 358."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/taxonomy/term/256",
+							"uri": "https://cnnumerique.fr/intelligence-artificielle",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "Location header URI length: 39 [http://cnnumerique.fr/taxonomy/term/256].\nPredicted response size: 339.\nResponse Body Length: 402."
+							"otherinfo": "Location header URI length: 58 [http://cnnumerique.fr/intelligence-artificielle-generative].\nPredicted response size: 358.\nResponse Body Length: 478."
 						},
 						{
 							"uri": "https://cnnumerique.fr/itineraires-numeriques-carnet-de-bord",
@@ -663,6 +671,14 @@
 							"otherinfo": "Location header URI length: 101 [http://cnnumerique.fr/paroles-de/la-priorite-cest-le-changement-de-societe-echange-avec-angie-gaudion].\nPredicted response size: 401.\nResponse Body Length: 650."
 						},
 						{
+							"uri": "https://cnnumerique.fr/le-cnnum-et-le-blog-binaire-explorent-ensemble-les-communs-numeriques",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 99 [http://cnnumerique.fr/annonce/le-cnnum-et-le-blog-binaire-explorent-ensemble-les-communs-numeriques].\nPredicted response size: 399.\nResponse Body Length: 642."
+						},
+						{
 							"uri": "https://cnnumerique.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -677,23 +693,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 116 [http://cnnumerique.fr/paroles-de/une-vie-numerique-sans-gafam-est-elle-possible-echange-avec-corinne-vercher-chaptal].\nPredicted response size: 416.\nResponse Body Length: 710."
-						},
-						{
-							"uri": "https://cnnumerique.fr/presse",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 100 [http://cnnumerique.fr/node/90/webform/confirmation?token=gYubIuKb6JAwqdf2tVHGLRc-P9pfY3G5NR2TWL1_aH8].\nPredicted response size: 400.\nResponse Body Length: 646."
 						}
 					],
 					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 57 [http://cnnumerique.fr/paroles-de/bienvenue-sur-paroles-de].</p><p>Predicted response size: 357.</p><p>Response Body Length: 474.</p>",
+					"otherinfo": "<p>Location header URI length: 103 [http://cnnumerique.fr/paroles-de/comment-perenniser-les-communs-numeriques-echange-avec-judith-rochfeld].</p><p>Predicted response size: 403.</p><p>Response Body Length: 658.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1512"
+					"sourceid": "1556"
 				},
 				{
 					"pluginid": "10017",
@@ -720,7 +728,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "448"
+					"sourceid": "429"
 				},
 				{
 					"pluginid": "10110",
@@ -757,7 +765,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/libraries/tarteaucitron/tarteaucitron.js?ry1gfk",
+							"uri": "https://cnnumerique.fr/libraries/tarteaucitron/tarteaucitron.js?ryapls",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -771,7 +779,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1013"
+					"sourceid": "1051"
 				},
 				{
 					"pluginid": "10063",
@@ -785,6 +793,14 @@
 					"instances":[ 
 						{
 							"uri": "https://cnnumerique.fr/core/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cnnumerique.fr/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.2.3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -840,7 +856,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/files/languages/fr_tvqtYdBY8KtH7O3CF8iLZPvygj_zzNVKlGax8vdqgP8.js?ry1gfk",
+							"uri": "https://cnnumerique.fr/files/languages/fr_tvqtYdBY8KtH7O3CF8iLZPvygj_zzNVKlGax8vdqgP8.js?ryapls",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -848,15 +864,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/modules/internal/tarteaucitron/js/load.js?ry1gfk",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://cnnumerique.fr/modules/internal/tarteaucitron/js/tarteaucitron.js?ry1gfk",
+							"uri": "https://cnnumerique.fr/modules/internal/tarteaucitron/js/load.js?ryapls",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -886,7 +894,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "248"
+					"sourceid": "249"
 				},
 				{
 					"pluginid": "10035",
@@ -1001,7 +1009,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "90"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10096",
@@ -1100,7 +1108,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "792"
+					"sourceid": "734"
 				},
 				{
 					"pluginid": "10094",
@@ -1161,7 +1169,7 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\uFFFDjx.j\\x0007\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDa\uFFFDX\uFFFDG\uFFFD\uFFFD\uFFFD\\x0017\u020Bd\uFFFD\uFFFD?\uFFFD\uFFFD\uFFFDJ\uFFFDf\uFFFD\uFFFD\uFFFDj\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/comment/reply/",
+							"uri": "https://cnnumerique.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1234,7 +1242,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "249"
+					"sourceid": "250"
 				},
 				{
 					"pluginid": "10027",
@@ -1523,7 +1531,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "90"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10015",
@@ -1584,7 +1592,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-52-linfluence-des-emojis",
+							"uri": "https://cnnumerique.fr/newsletter/cenum-la-lettre-du-conseil-53-cahiers-de-vacances",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1952,7 +1960,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1058"
+					"sourceid": "1010"
 				}
 			]
 		}
