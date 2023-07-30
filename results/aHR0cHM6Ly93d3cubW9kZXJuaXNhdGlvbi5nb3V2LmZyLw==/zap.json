@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 23 Jul 2023 02:01:47",
+	"@generated": "Sun, 30 Jul 2023 01:55:49",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -135,7 +135,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -178,7 +178,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -221,7 +221,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -350,7 +350,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "98"
+					"sourceid": "181"
 				},
 				{
 					"pluginid": "10044",
@@ -401,23 +401,15 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 34 [https://www.modernisation.gouv.fr/].\nPredicted response size: 334.\nResponse Body Length: 382."
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 44 [https://www.modernisation.gouv.fr/system/404].\nPredicted response size: 344.\nResponse Body Length: 422."
 						}
 					],
-					"count": "6",
+					"count": "5",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 45 [https://www.modernisation.gouv.fr/filter/tips].</p><p>Predicted response size: 345.</p><p>Response Body Length: 426.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1236"
+					"sourceid": "1240"
 				},
 				{
 					"pluginid": "10110",
@@ -468,7 +460,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2162"
+					"sourceid": "2069"
 				},
 				{
 					"pluginid": "10063",
@@ -561,7 +553,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -676,7 +668,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.js",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -690,34 +682,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "98"
-				},
-				{
-					"pluginid": "10096",
-					"alertRef": "10096",
-					"alert": "Timestamp Disclosure - Unix",
-					"name": "Timestamp Disclosure - Unix",
-					"riskcode": "1",
-					"confidence": "1",
-					"riskdesc": "Low (Low)",
-					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.modernisation.gouv.fr/actualites/un-appel-projets-participation-citoyenne-pour-les-territoires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1589546272",
-							"otherinfo": "1589546272, which evaluates to: 2020-05-15 12:37:52"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1589546272, which evaluates to: 2020-05-15 12:37:52</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
-					"cweid": "200",
-					"wascid": "13",
-					"sourceid": "2906"
+					"sourceid": "181"
 				},
 				{
 					"pluginid": "10094",
@@ -742,8 +707,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-w39yPUH84sJApEMpTi2vqFHtieY-DGEZ18eKIyxpbzE",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD\r\uFFFD\uFFFD\uFFFD\\x0007\uFFFD\t\\x0002\uFFFD\\x000c\uFFFD8\uFFFD\uFFFD\uFFFDG\uFFFD'\uFFFD\uFFFD1\uFFFDg_\\x001e(\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD"
+							"evidence": "form-ra1_EelHCdyqxWaX9N7xtSJaJwdHBrhF27rMwjXUFRY",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDG\uFFFD\\x001c'r\uFFFD\\x0015\uFFFD_\uFFFD{\uFFFD\u0509h\uFFFD\\x001d\\x001c\\x001a\uFFFD\\x0017n\uFFFD3\\x0008\uFFFDPTX"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
@@ -851,7 +816,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1195"
+					"sourceid": "1192"
 				},
 				{
 					"pluginid": "10027",
@@ -1150,7 +1115,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.svg",
+							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1241,7 +1206,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique/le-comite-interministeriel-de-la-transformation-publique-citp",
+							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique/assurer-la-mise-en-oeuvre-des-politiques-prioritaires-du-gouvernement",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
