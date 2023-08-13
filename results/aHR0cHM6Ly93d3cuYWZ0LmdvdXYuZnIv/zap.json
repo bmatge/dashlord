@@ -1,7 +1,7 @@
 {
 	"@programName": "OWASP ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 30 Jul 2023 01:21:53",
+	"@generated": "Sun, 13 Aug 2023 01:10:21",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -52,12 +52,12 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-changed\" \"edit-changed-1\" \"edit-search-api-fulltext\" \"edit-search-api-language-ar\" \"edit-search-api-language-en\" \"edit-search-api-language-es\" \"edit-search-api-language-fr\" \"edit-search-api-language-ja\" \"edit-search-api-language-ru\" \"edit-search-api-language-zh-hans\" \"edit-submit-recherche-404\" ]."
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/en/recherche-avancee",
+							"uri": "https://www.aft.gouv.fr/files/webform/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-page-1\" action=\"/en/recherche-avancee\" method=\"get\" id=\"views-exposed-form-recherche-page-1\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-changed\" \"edit-changed-1\" \"edit-keys\" \"edit-search-api-language-ar\" \"edit-search-api-language-en\" \"edit-search-api-language-es\" \"edit-search-api-language-fr\" \"edit-search-api-language-ja\" \"edit-search-api-language-ru\" \"edit-search-api-language-zh-hans\" \"edit-submit-recherche\" ]."
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-404-page-1\" action=\"/fr/404\" method=\"get\" id=\"views-exposed-form-recherche-404-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-changed\" \"edit-changed-1\" \"edit-search-api-fulltext\" \"edit-search-api-language-ar\" \"edit-search-api-language-en\" \"edit-search-api-language-es\" \"edit-search-api-language-fr\" \"edit-search-api-language-ja\" \"edit-search-api-language-ru\" \"edit-search-api-language-zh-hans\" \"edit-submit-recherche-404\" ]."
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/index.php/comment/reply/",
@@ -122,7 +122,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "443"
+					"sourceid": "370"
 				},
 				{
 					"pluginid": "10055",
@@ -151,14 +151,6 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nform-action\n\nThe directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self'; script-src 'self' 'unsafe-inline' https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nform-action\n\nThe directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -167,7 +159,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nform-action\n\nThe directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>form-action</p><p></p><p>The directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -202,14 +194,6 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self'; script-src 'self' 'unsafe-inline' https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'",
-							"otherinfo": "script-src includes unsafe-inline."
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -218,7 +202,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -253,14 +237,6 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Content-Security-Policy",
-							"attack": "",
-							"evidence": "default-src 'none'; upgrade-insecure-requests; frame-ancestors 'none'; connect-src 'self'; font-src 'self'; frame-src https://www.youtube.com https://player.ausha.co; img-src 'self'; script-src 'self' 'unsafe-inline' https://player.ausha.co/ausha-player.js; style-src 'self' 'unsafe-inline'",
-							"otherinfo": "style-src includes unsafe-inline."
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -269,7 +245,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -289,6 +265,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.aft.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-28315037-1\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -353,14 +337,6 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-28315037-1\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -524,7 +500,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "411"
+					"sourceid": "339"
 				},
 				{
 					"pluginid": "10096",
@@ -537,20 +513,12 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.aft.gouv.fr/fr/cadre-juridique-budget",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1379448247",
-							"otherinfo": "1379448247, which evaluates to: 2013-09-17 20:04:07"
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1690680056",
-							"otherinfo": "1690680056, which evaluates to: 2023-07-30 01:20:56"
+							"evidence": "1691888965",
+							"otherinfo": "1691888965, which evaluates to: 2023-08-13 01:09:25"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
@@ -565,8 +533,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1690680056",
-							"otherinfo": "1690680056, which evaluates to: 2023-07-30 01:20:56"
+							"evidence": "1691888965",
+							"otherinfo": "1691888965, which evaluates to: 2023-08-13 01:09:25"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/titre/fr0011982776",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1832714789",
+							"otherinfo": "1832714789, which evaluates to: 2028-01-28 23:26:29"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
@@ -578,54 +554,6 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1884101225",
-							"otherinfo": "1884101225, which evaluates to: 2029-09-14 17:27:05"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/cadre-juridique-budget",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1379448247",
-							"otherinfo": "1379448247, which evaluates to: 2013-09-17 20:04:07"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/contact",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1690680107",
-							"otherinfo": "1690680107, which evaluates to: 2023-07-30 01:21:47"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/presentation",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1756338842",
-							"otherinfo": "1756338842, which evaluates to: 2025-08-27 23:54:02"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/recevoir-nos-publications",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1690680107",
-							"otherinfo": "1690680107, which evaluates to: 2023-07-30 01:21:47"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/tresorerie-cadre-juridique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1629897596",
-							"otherinfo": "1629897596, which evaluates to: 2021-08-25 13:19:56"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/index.php/fr/tresorerie-cadre-juridique",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -633,13 +561,13 @@
 							"otherinfo": "1884101225, which evaluates to: 2029-09-14 17:27:05"
 						}
 					],
-					"count": "12",
+					"count": "6",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1379448247, which evaluates to: 2013-09-17 20:04:07</p>",
+					"otherinfo": "<p>1691888965, which evaluates to: 2023-08-13 01:09:25</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1690"
+					"sourceid": "1461"
 				},
 				{
 					"pluginid": "10094",
@@ -658,6 +586,14 @@
 							"attack": "",
 							"evidence": "/files/css/css_ZQhezKiJksnzoNObMvCO6KBc4Bt-kvLRg4xpjrES5zA",
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFDB\\x0017\uFFFD*\"d\uFFFD|\uFFFD4\uFFFD\u033C#\uFFFD(\\x00178\\x0006\u07E4\uFFFD\uFFFD`\uFFFD\\x001ac\uFFFDD\uFFFD\uFFFD"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_D94g4S8ntCedBcTdhBn71JBCpVv9i3v3y2nNPdsaT_w",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\uFFFD8K\uFFFD\uFFFD\t\uFFFDAq7a\\x0006~\uFFFD$\\x0010\uFFFDV\uFFFDb\uFFFD\uFFFD\uFFFD\uFFFDsOv\u0193\uFFFD"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/core/*.css$",
@@ -717,14 +653,6 @@
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/profiles/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_D94g4S8ntCedBcTdhBn71JBCpVv9i3v3y2nNPdsaT_w",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\uFFFD8K\uFFFD\uFFFD\t\uFFFDAq7a\\x0006~\uFFFD$\\x0010\uFFFDV\uFFFDb\uFFFD\uFFFD\uFFFD\uFFFDsOv\u0193\uFFFD"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1035,7 +963,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "133"
+					"sourceid": "88"
 				},
 				{
 					"pluginid": "10015",
@@ -1096,6 +1024,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/ja/recherche-avancee",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=300, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/recherche-avancee",
 							"method": "GET",
 							"param": "cache-control",
@@ -1109,14 +1045,6 @@
 							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/ru/recherche-avancee",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=300, public",
 							"otherinfo": ""
 						},
 						{
@@ -1432,7 +1360,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1505"
+					"sourceid": "1511"
 				}
 			]
 		}
