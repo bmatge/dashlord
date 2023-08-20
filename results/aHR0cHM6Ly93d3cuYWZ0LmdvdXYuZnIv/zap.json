@@ -1,7 +1,7 @@
 {
-	"@programName": "OWASP ZAP",
+	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 13 Aug 2023 01:10:21",
+	"@generated": "Sun, 20 Aug 2023 01:11:39",
 	"site":[ 
 		{
 			"@name": "https://www.aft.gouv.fr",
@@ -122,7 +122,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "370"
+					"sourceid": "373"
 				},
 				{
 					"pluginid": "10055",
@@ -361,6 +361,33 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "10003",
+					"alertRef": "10003",
+					"alert": "Vulnerable JS Library",
+					"name": "Vulnerable JS Library",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The identified library jquery-ui, version 1.12.1 is vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aft.gouv.fr/themes/custom/aft/js/datepicker.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/*! jQuery UI - v1.12.1",
+							"otherinfo": "CVE-2021-41184\nCVE-2021-41183\nCVE-2021-41182\nCVE-2022-31160\n"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Please upgrade to the latest version of jquery-ui.</p>",
+					"otherinfo": "<p>CVE-2021-41184</p><p>CVE-2021-41183</p><p>CVE-2021-41182</p><p>CVE-2022-31160</p><p></p>",
+					"reference": "<p>https://github.com/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://bugs.jqueryui.com/ticket/15284</p><p>https://github.com/jquery/jquery-ui/commit/8cc5bae1caa1fcf96bf5862c5646c787020ba3f9</p><p>https://nvd.nist.gov/vuln/detail/CVE-2022-31160</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-h6gj-6jjq-h8g9</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-gpqq-952q-5327</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41184</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41183</p><p>https://github.com/jquery/jquery-ui/security/advisories/GHSA-9gj3-hwp5-pmwc</p><p>https://nvd.nist.gov/vuln/detail/CVE-2021-41182</p><p>https://github.com/jquery/jquery-ui/issues/2101</p><p></p>",
+					"cweid": "829",
+					"wascid": "-1",
+					"sourceid": "2491"
+				},
+				{
 					"pluginid": "10017",
 					"alertRef": "10017",
 					"alert": "Cross-Domain JavaScript Source File Inclusion",
@@ -468,6 +495,33 @@
 					"sourceid": "1"
 				},
 				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "2466"
+				},
+				{
 					"pluginid": "10063",
 					"alertRef": "10063-1",
 					"alert": "Permissions Policy Header Not Set",
@@ -486,6 +540,86 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/css-escape/css.escape.js?v=1.5.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery-once/jquery.once.min.js?v=2.2.3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery.ui/ui/version-min.js?v=1.13.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/jquery/jquery.min.js?v=3.6.0",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/assets/vendor/once/once.min.js?v=1.0.1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupal.init.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupal.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/drupalSettingsLoader.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/polyfills/element.matches.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/core/misc/polyfills/object.assign.js?v=9.3.22",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
@@ -494,7 +628,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -513,12 +647,28 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.aft.gouv.fr/en/titre/fr0011008705",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1557995195",
+							"otherinfo": "1557995195, which evaluates to: 2019-05-16 08:26:35"
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/fr/cadre-juridique-budget",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1379448247",
+							"otherinfo": "1379448247, which evaluates to: 2013-09-17 20:04:07"
+						},
+						{
 							"uri": "https://www.aft.gouv.fr/fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1691888965",
-							"otherinfo": "1691888965, which evaluates to: 2023-08-13 01:09:25"
+							"evidence": "1692493849",
+							"otherinfo": "1692493849, which evaluates to: 2023-08-20 01:10:49"
 						},
 						{
 							"uri": "https://www.aft.gouv.fr/fr/presentation",
@@ -533,41 +683,33 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1691888965",
-							"otherinfo": "1691888965, which evaluates to: 2023-08-13 01:09:25"
+							"evidence": "1692493849",
+							"otherinfo": "1692493849, which evaluates to: 2023-08-20 01:10:49"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/titre/fr0011982776",
+							"uri": "https://www.aft.gouv.fr/index.php/fr/contact",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1832714789",
-							"otherinfo": "1832714789, which evaluates to: 2028-01-28 23:26:29"
+							"evidence": "1692493842",
+							"otherinfo": "1692493842, which evaluates to: 2023-08-20 01:10:42"
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
+							"uri": "https://www.aft.gouv.fr/index.php/fr/recevoir-nos-publications",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1629897596",
-							"otherinfo": "1629897596, which evaluates to: 2021-08-25 13:19:56"
-						},
-						{
-							"uri": "https://www.aft.gouv.fr/fr/tresorerie-cadre-juridique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1884101225",
-							"otherinfo": "1884101225, which evaluates to: 2029-09-14 17:27:05"
+							"evidence": "1692493842",
+							"otherinfo": "1692493842, which evaluates to: 2023-08-20 01:10:42"
 						}
 					],
-					"count": "6",
+					"count": "7",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1691888965, which evaluates to: 2023-08-13 01:09:25</p>",
+					"otherinfo": "<p>1557995195, which evaluates to: 2019-05-16 08:26:35</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1461"
+					"sourceid": "2189"
 				},
 				{
 					"pluginid": "10094",
@@ -798,7 +940,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a href=\"/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>",
+							"evidence": "<a href=\"/index.php/fr/contact\" target=\"_self\" data-drupal-link-system-path=\"node/82\">Contact</a>",
 							"otherinfo": "Links have been found with a target of '_self' - this is often used by modern frameworks to force a full page reload."
 						},
 						{
@@ -963,7 +1105,7 @@
 					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "88"
+					"sourceid": "104"
 				},
 				{
 					"pluginid": "10015",
@@ -1024,14 +1166,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.aft.gouv.fr/ja/recherche-avancee",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=300, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.aft.gouv.fr/recherche-avancee",
 							"method": "GET",
 							"param": "cache-control",
@@ -1045,6 +1179,14 @@
 							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.aft.gouv.fr/ru/recherche-avancee",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=300, public",
 							"otherinfo": ""
 						},
 						{
@@ -1360,7 +1502,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1511"
+					"sourceid": "1839"
 				}
 			]
 		}
