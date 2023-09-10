@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 3 Sep 2023 01:25:23",
+	"@generated": "Sun, 10 Sep 2023 01:25:00",
 	"site":[ 
 		{
 			"@name": "https://www.collectivites-locales.gouv.fr",
@@ -26,17 +26,9 @@
 							"attack": "",
 							"evidence": "<form action=\"/recherche\" method=\"GET\" id=\"search-form-block\" accept-charset=\"UTF-8\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ]."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/recherche\" method=\"GET\" id=\"search-form-block\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ]."
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
@@ -272,7 +264,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -286,7 +278,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "49"
+					"sourceid": "50"
 				},
 				{
 					"pluginid": "10098",
@@ -433,10 +425,10 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1767"
+					"sourceid": "1348"
 				},
 				{
 					"pluginid": "10035",
@@ -537,7 +529,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -551,7 +543,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "49"
+					"sourceid": "50"
 				},
 				{
 					"pluginid": "10096",
@@ -564,7 +556,7 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/competences/action-sociale-et-sante",
+							"uri": "https://www.collectivites-locales.gouv.fr/competences/action-sociale-et-sante",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -572,47 +564,7 @@
 							"otherinfo": "1582938477, which evaluates to: 2020-02-29 01:07:57"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/fonction-publique-territoriale/obligations-des-fonctionnaires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1498209846",
-							"otherinfo": "1498209846, which evaluates to: 2017-06-23 09:24:06"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/fonction-publique-territoriale/obligations-des-fonctionnaires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1669214086",
-							"otherinfo": "1669214086, which evaluates to: 2022-11-23 14:34:46"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/fonction-publique-territoriale/obligations-des-fonctionnaires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1669214869",
-							"otherinfo": "1669214869, which evaluates to: 2022-11-23 14:47:49"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/fonction-publique-territoriale/recrutements-particuliers",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1656168002",
-							"otherinfo": "1656168002, which evaluates to: 2022-06-25 14:40:02"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/fonction-publique-territoriale/recrutements-particuliers",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1669214086",
-							"otherinfo": "1669214086, which evaluates to: 2022-11-23 14:34:46"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -620,7 +572,7 @@
 							"otherinfo": "1393470590, which evaluates to: 2014-02-27 03:09:50"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -628,7 +580,7 @@
 							"otherinfo": "1554031557, which evaluates to: 2019-03-31 11:25:57"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -636,7 +588,7 @@
 							"otherinfo": "1757720243, which evaluates to: 2025-09-12 23:37:23"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -644,7 +596,7 @@
 							"otherinfo": "1916340480, which evaluates to: 2030-09-22 20:48:00"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -652,7 +604,7 @@
 							"otherinfo": "1942304509, which evaluates to: 2031-07-20 09:01:49"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -660,13 +612,13 @@
 							"otherinfo": "1956152018, which evaluates to: 2031-12-27 15:33:38"
 						}
 					],
-					"count": "12",
+					"count": "7",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1582938477, which evaluates to: 2020-02-29 01:07:57</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1831"
+					"sourceid": "1807"
 				},
 				{
 					"pluginid": "10094",
@@ -770,7 +722,7 @@
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD'\uFFFD\\x001f\uFFFD\uFFFD\uFFFD\uFFFD.\uFFFD\\x0012\u050E\\x001c\\x001f\uFFFD\uFFFD\uFFFDr\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0019i\uFFFD\uFFFD\uFFFDG)</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "1"
@@ -800,7 +752,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1768"
+					"sourceid": "1350"
 				},
 				{
 					"pluginid": "10027",
@@ -1078,10 +1030,10 @@
 					"count": "6",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "49"
+					"sourceid": "50"
 				},
 				{
 					"pluginid": "10015",
@@ -1102,6 +1054,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/actualites-du-21-septembre-2020",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "cache-control",
@@ -1110,15 +1070,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/actualites-du-21-septembre-2020",
+							"uri": "https://www.collectivites-locales.gouv.fr/html",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1134,7 +1086,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/html",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1142,7 +1094,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/collectivites-doutre-mer",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-reforme-territoriale",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1150,15 +1102,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/institutions/la-reforme-territoriale",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/index.php/texte-pa",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1175,6 +1119,14 @@
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/texte-pa",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1384,7 +1336,7 @@
 					"count": "5",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
