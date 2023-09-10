@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 3 Sep 2023 01:02:31",
+	"@generated": "Sun, 10 Sep 2023 01:03:06",
 	"site":[ 
 		{
 			"@name": "https://www.economie.gouv.fr",
@@ -114,7 +114,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "10055",
@@ -336,7 +336,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/profiles/*.css$",
+							"uri": "https://www.economie.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -344,7 +344,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/profiles/*.js",
+							"uri": "https://www.economie.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -358,7 +358,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "271"
+					"sourceid": "270"
 				},
 				{
 					"pluginid": "10098",
@@ -468,33 +468,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10020",
-					"alertRef": "10020-1",
-					"alert": "Missing Anti-clickjacking Header",
-					"name": "Missing Anti-clickjacking Header",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.economie.gouv.fr/p",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
-					"cweid": "1021",
-					"wascid": "15",
-					"sourceid": "2846"
-				},
-				{
 					"pluginid": "90003",
 					"alertRef": "90003",
 					"alert": "Sub Resource Integrity Attribute Missing",
@@ -564,10 +537,10 @@
 					"count": "7",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en/docs/Web/Security/Subresource_Integrity</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "2338"
+					"sourceid": "2335"
 				},
 				{
 					"pluginid": "10003",
@@ -594,7 +567,7 @@
 					"reference": "<p>https://cdn.datatables.net/1.11.3/</p><p>https://github.com/DataTables/Dist-DataTables/commit/59a8d3f8a3c1138ab08704e783bc52bfe88d7c9b</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "2745"
+					"sourceid": "2735"
 				},
 				{
 					"pluginid": "10044",
@@ -606,14 +579,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.economie.gouv.fr/index.php/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 29 [https://www.economie.gouv.fr/].\nPredicted response size: 329.\nResponse Body Length: 362."
-						},
 						{
 							"uri": "https://www.economie.gouv.fr/index.php/filter/tips",
 							"method": "GET",
@@ -647,13 +612,13 @@
 							"otherinfo": "Location header URI length: 92 [https://www.economie.gouv.fr/particuliers/prix-immobilier-estimation-demande-valeur-fonciere].\nPredicted response size: 392.\nResponse Body Length: 614."
 						}
 					],
-					"count": "5",
+					"count": "4",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 29 [https://www.economie.gouv.fr/].</p><p>Predicted response size: 329.</p><p>Response Body Length: 362.</p>",
+					"otherinfo": "<p>Location header URI length: 40 [https://www.economie.gouv.fr/filter/tips].</p><p>Predicted response size: 340.</p><p>Response Body Length: 406.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "2849"
+					"sourceid": "330"
 				},
 				{
 					"pluginid": "10017",
@@ -728,7 +693,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "2338"
+					"sourceid": "2335"
 				},
 				{
 					"pluginid": "10110",
@@ -771,7 +736,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2722"
+					"sourceid": "2707"
 				},
 				{
 					"pluginid": "10063",
@@ -875,7 +840,7 @@
 					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy</p><p>https://developers.google.com/web/updates/2018/06/feature-policy</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
@@ -971,7 +936,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/profiles/*.css$",
+							"uri": "https://www.economie.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -979,7 +944,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/profiles/*.js",
+							"uri": "https://www.economie.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -993,7 +958,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "271"
+					"sourceid": "270"
 				},
 				{
 					"pluginid": "10096",
@@ -1010,16 +975,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1693484951",
-							"otherinfo": "1693484951, which evaluates to: 2023-08-31 12:29:11"
+							"evidence": "1694186410",
+							"otherinfo": "1694186410, which evaluates to: 2023-09-08 15:20:10"
 						},
 						{
 							"uri": "https://www.economie.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1693484951",
-							"otherinfo": "1693484951, which evaluates to: 2023-08-31 12:29:11"
+							"evidence": "1694186410",
+							"otherinfo": "1694186410, which evaluates to: 2023-09-08 15:20:10"
 						},
 						{
 							"uri": "https://www.economie.gouv.fr/entreprises",
@@ -1030,44 +995,20 @@
 							"otherinfo": "1689773307, which evaluates to: 2023-07-19 13:28:27"
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/ministere/engagements-ministere",
+							"uri": "https://www.economie.gouv.fr/ministere",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1687771883",
-							"otherinfo": "1687771883, which evaluates to: 2023-06-26 09:31:23"
+							"evidence": "1680774056",
+							"otherinfo": "1680774056, which evaluates to: 2023-04-06 09:40:56"
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/ministere/organigramme",
+							"uri": "https://www.economie.gouv.fr/ministere/missions-ministere",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1584432812",
-							"otherinfo": "1584432812, which evaluates to: 2020-03-17 08:13:32"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/ministere/organigramme",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1651073105",
-							"otherinfo": "1651073105, which evaluates to: 2022-04-27 15:25:05"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/ministere/organigramme",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1693217384",
-							"otherinfo": "1693217384, which evaluates to: 2023-08-28 10:09:44"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/ministere/organigramme",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1833994344",
-							"otherinfo": "1833994344, which evaluates to: 2028-02-12 18:52:24"
+							"evidence": "1680772358",
+							"otherinfo": "1680772358, which evaluates to: 2023-04-06 09:12:38"
 						},
 						{
 							"uri": "https://www.economie.gouv.fr/ministres/bruno-le-maire",
@@ -1118,40 +1059,13 @@
 							"otherinfo": "1689773138, which evaluates to: 2023-07-19 13:25:38"
 						}
 					],
-					"count": "14",
+					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1693484951, which evaluates to: 2023-08-31 12:29:11</p>",
+					"otherinfo": "<p>1694186410, which evaluates to: 2023-09-08 15:20:10</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10021",
-					"alertRef": "10021",
-					"alert": "X-Content-Type-Options Header Missing",
-					"name": "X-Content-Type-Options Header Missing",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.economie.gouv.fr/p",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
-					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
-					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
-					"cweid": "693",
-					"wascid": "15",
-					"sourceid": "2846"
 				},
 				{
 					"pluginid": "10094",
@@ -1255,7 +1169,7 @@
 					"count": "11",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\uFFFDjx.j\\x0007\uFFFD\uFFFD\uFFFD\uFFFD8]\uFFFDP\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001e\\x0014e\uFFFD\uFFFD\uFFFD\uFFFD#\uFFFD\uFFFD\r\uFFFD]\uFFFD\\x0006\uFFFD\uFFFD{\uFFFD\uFFFD\uFFFD\\x0018Q</p>",
-					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "1"
@@ -1524,7 +1438,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=1200",
+							"evidence": "max-age=600, public",
 							"otherinfo": ""
 						},
 						{
@@ -1544,7 +1458,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/ministres/bruno-le-maire",
+							"uri": "https://www.economie.gouv.fr/ministres/jean-noel-barrot",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1552,7 +1466,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/ministres/jean-noel-barrot",
+							"uri": "https://www.economie.gouv.fr/ministres/olivia-gregoire",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1633,17 +1547,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1676,17 +1582,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1719,17 +1617,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1762,17 +1652,9 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1847,7 +1729,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/core/*.js$",
+							"uri": "https://www.economie.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1855,7 +1737,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.economie.gouv.fr/core/*.png",
+							"uri": "https://www.economie.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1882,101 +1764,10 @@
 					"count": "11",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
-					"reference": "<p>https://tools.ietf.org/html/rfc7234</p><p>https://tools.ietf.org/html/rfc7231</p><p>http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html (obsoleted by rfc7234)</p>",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10031",
-					"alertRef": "10031",
-					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
-					"name": "User Controllable HTML Element Attribute (Potential XSS)",
-					"riskcode": "0",
-					"confidence": "1",
-					"riskdesc": "Informational (Low)",
-					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=concours",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=concours\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=concours\r\n\r\nThe user-controlled value was:\r\nconcours"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=formulaire%20dc1",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=formulaire%20dc1\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=formulaire dc1\r\n\r\nThe user-controlled value was:\r\nformulaire dc1"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=forum%20action%20publique",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=forum%20action%20publique\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=forum action publique\r\n\r\nThe user-controlled value was:\r\nforum action publique"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=pacte",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=pacte\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=pacte\r\n\r\nThe user-controlled value was:\r\npacte"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=pr%C3%A9l%C3%A8vement%20%C3%A0%20la%20source",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=pr%C3%A9l%C3%A8vement%20%C3%A0%20la%20source\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=pr\u00E9l\u00E8vement \u00E0 la source\r\n\r\nThe user-controlled value was:\r\npr\u00E9l\u00E8vement \u00E0 la source"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=recrutement",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=recrutement\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=recrutement\r\n\r\nThe user-controlled value was:\r\nrecrutement"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=simulateur%20pouvoir%20d'achat",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=simulateur%20pouvoir%20d'achat\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=simulateur pouvoir d'achat\r\n\r\nThe user-controlled value was:\r\nsimulateur pouvoir d'achat"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=taxe%20d'habitation",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=taxe%20d'habitation\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=taxe d'habitation\r\n\r\nThe user-controlled value was:\r\ntaxe d'habitation"
-						},
-						{
-							"uri": "https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=tva",
-							"method": "GET",
-							"param": "search_api_views_fulltext",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=tva\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsearch_api_views_fulltext=tva\r\n\r\nThe user-controlled value was:\r\ntva"
-						}
-					],
-					"count": "9",
-					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.economie.gouv.fr/recherche-resultat?search_api_views_fulltext=concours</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>search_api_views_fulltext=concours</p><p></p><p>The user-controlled value was:</p><p>concours</p>",
-					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
-					"cweid": "20",
-					"wascid": "20",
-					"sourceid": "2851"
 				}
 			]
 		}
