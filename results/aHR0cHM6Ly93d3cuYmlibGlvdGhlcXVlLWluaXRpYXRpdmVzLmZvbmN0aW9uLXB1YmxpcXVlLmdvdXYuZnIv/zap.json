@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 17 Sep 2023 02:06:58",
+	"@generated": "Sun, 24 Sep 2023 02:07:37",
 	"site":[ 
 		{
 			"@name": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr",
@@ -122,7 +122,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "250"
+					"sourceid": "248"
 				},
 				{
 					"pluginid": "10055",
@@ -157,9 +157,17 @@
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -200,9 +208,17 @@
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
 							"otherinfo": "script-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -243,9 +259,17 @@
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
 							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -687,7 +711,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "184"
+					"sourceid": "178"
 				},
 				{
 					"pluginid": "10017",
@@ -802,7 +826,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "217"
+					"sourceid": "212"
 				},
 				{
 					"pluginid": "10110",
@@ -877,7 +901,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "779"
+					"sourceid": "791"
 				},
 				{
 					"pluginid": "10063",
@@ -1233,7 +1257,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "136"
+					"sourceid": "128"
 				},
 				{
 					"pluginid": "10027",
@@ -1581,9 +1605,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1616,9 +1648,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1651,9 +1691,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1686,9 +1734,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1707,19 +1763,19 @@
 					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=2&field_type_de_structure_target_id=All",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=4&field_type_de_structure_target_id=All",
 							"method": "GET",
 							"param": "SSESS45a11a12261650538569594258b47965",
 							"attack": "",
-							"evidence": "BRwyRp40mutsJKqbNPcmb4wQlrhHfElWKoDy4oAgUGeSfZqS",
+							"evidence": "6DlgWwSMWdbvvN2IW3oGqWYZFzI6o5xgZPubIVCEMKL%2CF3wj",
 							"otherinfo": "\ncookie:SSESS45a11a12261650538569594258b47965"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=2&field_type_de_structure_target_id=All",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=4&field_type_de_structure_target_id=All",
 							"method": "GET",
 							"param": "SSESS45a11a12261650538569594258b47965",
 							"attack": "",
-							"evidence": "BRwyRp40mutsJKqbNPcmb4wQlrhHfElWKoDy4oAgUGeSfZqS",
+							"evidence": "6DlgWwSMWdbvvN2IW3oGqWYZFzI6o5xgZPubIVCEMKL%2CF3wj",
 							"otherinfo": "\ncookie:SSESS45a11a12261650538569594258b47965"
 						}
 					],
@@ -1729,7 +1785,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "999"
+					"sourceid": "1458"
 				},
 				{
 					"pluginid": "10049",
@@ -1953,45 +2009,21 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_principale_target_id=67\r\n\r\nThe user-controlled value was:\r\n67"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login",
-							"method": "POST",
-							"param": "form_id",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?sort_bef_combine=title_ASC",
+							"method": "GET",
+							"param": "sort_bef_combine",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nform_id=user_login_form\r\n\r\nThe user-controlled value was:\r\nuser_login_form"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login",
-							"method": "POST",
-							"param": "name",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nname=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login",
-							"method": "POST",
-							"param": "op",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nop=Se connecter\r\n\r\nThe user-controlled value was:\r\nse connecter"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login",
-							"method": "POST",
-							"param": "pass",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\npass=ZAP\r\n\r\nThe user-controlled value was:\r\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?sort_bef_combine=title_ASC\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_bef_combine=title_ASC\r\n\r\nThe user-controlled value was:\r\ntitle_asc"
 						}
 					],
-					"count": "17",
+					"count": "14",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=All&field_type_de_structure_target_id=All</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [title] attribute </p><p></p><p>The user input found was:</p><p>field_fonction_publique_target_id=All</p><p></p><p>The user-controlled value was:</p><p>aller \u00E0 la page suivante</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "795"
+					"sourceid": "796"
 				}
 			]
 		}
