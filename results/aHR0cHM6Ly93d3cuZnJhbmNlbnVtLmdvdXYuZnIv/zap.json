@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.13.0",
-	"@generated": "Sun, 17 Sep 2023 01:42:36",
+	"@generated": "Sun, 24 Sep 2023 01:47:37",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -21,6 +21,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.francenum.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/*/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -61,14 +69,6 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -336,7 +336,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -358,7 +358,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "140"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "10098",
@@ -387,7 +387,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/index.php/admin/",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -492,7 +492,34 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "1231"
+					"sourceid": "1221"
+				},
+				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?items_per_page=10&search_api_fulltext=E-mail+marketing+sms&sort_by=search_api_relevance&type_1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "1981"
 				},
 				{
 					"pluginid": "10044",
@@ -562,6 +589,33 @@
 					"sourceid": "195"
 				},
 				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?items_per_page=10&search_api_fulltext=E-mail+marketing+sms&sort_by=search_api_relevance&type_1",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "1981"
+				},
+				{
 					"pluginid": "10110",
 					"alertRef": "10110",
 					"alert": "Dangerous JS Functions",
@@ -586,7 +640,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1203"
+					"sourceid": "1193"
 				},
 				{
 					"pluginid": "10063",
@@ -679,7 +733,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -786,7 +840,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -808,7 +862,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "140"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "10096",
@@ -971,7 +1025,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1202"
+					"sourceid": "1196"
 				},
 				{
 					"pluginid": "10021",
@@ -998,7 +1052,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1231"
+					"sourceid": "1221"
 				},
 				{
 					"pluginid": "10094",
@@ -1012,6 +1066,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.francenum.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_A3fzTgyWaKvpxEX_7j5Lb5nTUOOKk82THxTjUnBFhMA",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\uFFFD\u04C3%\uFFFD*\uFFFDq\\x0011\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDt\uFFFD8\uFFFD\uFFFDd\uFFFD\uFFFD8\u051C\\x0011a0"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/*/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1052,14 +1114,6 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_A3fzTgyWaKvpxEX_7j5Lb5nTUOOKk82THxTjUnBFhMA",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\uFFFD\u04C3%\uFFFD*\uFFFDq\\x0011\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDt\uFFFD8\uFFFD\uFFFDd\uFFFD\uFFFD8\u051C\\x0011a0"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1153,6 +1207,14 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/*/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
@@ -1186,14 +1248,6 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1260,6 +1314,14 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/*/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Page non trouv\u00E9e</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
@@ -1297,14 +1359,6 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/media/oembed",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Acc\u00E8s refus\u00E9</a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
@@ -1373,7 +1427,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "58"
+					"sourceid": "56"
 				},
 				{
 					"pluginid": "10015",
@@ -1493,7 +1547,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1507,15 +1561,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "90005",
@@ -1528,7 +1590,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1542,15 +1604,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "90005",
@@ -1563,7 +1633,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1577,15 +1647,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "90005",
@@ -1598,7 +1676,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1612,15 +1690,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "57"
 				},
 				{
 					"pluginid": "10112",
@@ -1633,35 +1719,43 @@
 					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/droits-affectes/licence-creative-commons-nc-sa-30-fr",
+							"uri": "https://www.francenum.gouv.fr/formations/2-minutes-pour-creer-un-site-e-commerce",
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/protection-contre-les-risques/cybersecurite/faute-de-presence-en-ligne-un",
+							"uri": "https://www.francenum.gouv.fr/formations/elaborer-une-strategie-e-commerce",
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique/transformation-numerique-des-entreprises-les-etudes-retenir",
+							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/gestion-des-donnees-clients/le-fichier-client-un-actif",
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite",
+							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/prospection-commerciale-comment-trouver-des-clients",
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
+							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/developpement-commercial/site-e-commerce/guide-du-debutant-pour-vendre-en-ligne",
+							"method": "GET",
+							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
+							"attack": "",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
@@ -1669,33 +1763,49 @@
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/protection-contre-les-risques/cybersecurite/faute-de-presence-en-ligne-un",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/guides-et-conseils/strategie-numerique/transformation-numerique-des-entreprises-les-etudes-retenir",
+							"uri": "https://www.francenum.gouv.fr/formations/2-minutes-pour-creer-un-site-e-commerce",
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "lzKD%2ChfKgDgprwdBAVglHl7klvx7qY45C8HIVWZnKvGCCYMu",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
+							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/formations/elaborer-une-strategie-e-commerce",
+							"method": "GET",
+							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
+							"attack": "",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
+							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
+							"attack": "",
+							"evidence": "QAuE8jJJ2HVoXKngWHaT4dQeI1VU362TyMT49pbWVEp6LQ6M",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						}
 					],
-					"count": "7",
+					"count": "10",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SSESS9074c3441d8d2a1acfdcaae274616c14</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1508"
+					"sourceid": "1578"
 				},
 				{
 					"pluginid": "10049",
@@ -1756,6 +1866,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=3600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1764,7 +1882,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -1797,23 +1915,15 @@
 							"attack": "",
 							"evidence": "no-cache",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache",
-							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "145"
+					"sourceid": "60"
 				},
 				{
 					"pluginid": "10031",
@@ -1890,93 +2000,253 @@
 							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/magazine-du-numerique?search_api_fulltext&sort_by=date_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_by=date_desc\r\n\r\nThe user-controlled value was:\r\ndate_desc"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_localisation",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [aria-label] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_localisation",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la derni\u00E8re page"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_localisation",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 2"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_localisation",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_localisation",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_localisation",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_localisation",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_localisation",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_localisation=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_secteurs_activite",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [aria-label] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_secteurs_activite",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la derni\u00E8re page"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_secteurs_activite",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 2"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_secteurs_activite",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_secteurs_activite",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_secteurs_activite",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_secteurs_activite",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_secteurs_activite",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_secteurs_activite=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_taille_entreprise",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [aria-label] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_taille_entreprise",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la derni\u00E8re page"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 2"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_taille_entreprise",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_taille_entreprise=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_thematiques[231363]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematiques[231363]=231363\r\n\r\nThe user-controlled value was:\r\n231363"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "field_thematiques[231365]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematiques[231365]=231365\r\n\r\nThe user-controlled value was:\r\n231365"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "field_thematiques[231403]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematiques[231403]=231403\r\n\r\nThe user-controlled value was:\r\n231403"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematiques[231403]=231403\r\n\r\nThe user-controlled value was:\r\n231403"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "items_per_page",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nitems_per_page=10\r\n\r\nThe user-controlled value was:\r\n10"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nitems_per_page=10\r\n\r\nThe user-controlled value was:\r\n10"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "sort_by",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_by=search_api_relevance\r\n\r\nThe user-controlled value was:\r\nsearch_api_relevance"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_by=search_api_relevance\r\n\r\nThe user-controlled value was:\r\nsearch_api_relevance"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
 							"method": "GET",
 							"param": "type_1[temoignage]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ntype_1[temoignage]=temoignage\r\n\r\nThe user-controlled value was:\r\ntemoignage"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=All&field_secteurs_activite=All&field_taille_entreprise=All&field_thematiques%5B231363%5D=231363&field_thematiques%5B231365%5D=231365&field_thematiques%5B231403%5D=231403&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\ntype_1[temoignage]=temoignage\r\n\r\nThe user-controlled value was:\r\ntemoignage"
 						}
 					],
-					"count": "18",
+					"count": "38",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
 					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.francenum.gouv.fr/magazine-du-numerique?page=1&search_api_fulltext&sort_by=date_desc</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [option] tag [value] attribute </p><p></p><p>The user input found was:</p><p>sort_by=date_desc</p><p></p><p>The user-controlled value was:</p><p>date_desc</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1353"
+					"sourceid": "1304"
 				}
 			]
 		}
