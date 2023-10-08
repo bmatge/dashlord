@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 1 Oct 2023 02:23:20
+		Generated on Sun, 8 Oct 2023 02:21:16
 	</h3>
 
 	<h3>
@@ -148,7 +148,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>0</div>
+					<div>1</div>
 				</td>
 			</tr>
 			<tr>
@@ -196,6 +196,11 @@ td {
 					align="center">Risk Level</th>
 				<th width="20%"
 					align="center">Number of Instances</th>
+			</tr>
+			<tr>
+				<td><a href="#10062">PII Disclosure</a></td>
+				<td align="center" class="risk-3">High</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
@@ -270,7 +275,7 @@ td {
 			<tr>
 				<td><a href="#10094">Base64 Disclosure</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">12</td>
+				<td align="center">11</td>
 			</tr>
 			<tr>
 				<td><a href="#10019">Content-Type Header Missing</a></td>
@@ -328,6 +333,91 @@ td {
 
 	
 		<h3>Alert Detail</h3>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-3"><a
+						id="10062"></a>
+						<div>High</div></th>
+					<th class="risk-3">PII Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/actualites?f%5B0%5D=date%3A2020-12">https://www.amenagement-numerique.gouv.fr/fr/actualites?f%5B0%5D=date%3A2020-12</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">4045802391103</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Credit Card Type detected: Visa
+Bank Identification Number: 404580
+Brand: VISA
+Category: 
+Issuer: </td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/359.html">359</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10062/">10062</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -1649,6 +1739,37 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/search/">https://www.amenagement-numerique.gouv.fr/search/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Access-Control-Allow-Origin: *</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/sitemap.xml">https://www.amenagement-numerique.gouv.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -1681,37 +1802,6 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/user/login/">https://www.amenagement-numerique.gouv.fr/user/login/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Access-Control-Allow-Origin: *</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/user/logout/">https://www.amenagement-numerique.gouv.fr/user/logout/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6742,7 +6832,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.js$">https://www.amenagement-numerique.gouv.fr/profiles/*.js$</a></td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.css$">https://www.amenagement-numerique.gouv.fr/profiles/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6773,7 +6863,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.js$">https://www.amenagement-numerique.gouv.fr/profiles/*.js$</a></td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.css$">https://www.amenagement-numerique.gouv.fr/profiles/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7248,7 +7338,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/core/*.svg">https://www.amenagement-numerique.gouv.fr/core/*.svg</a></td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.css">https://www.amenagement-numerique.gouv.fr/profiles/*.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7279,7 +7369,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.css">https://www.amenagement-numerique.gouv.fr/profiles/*.css</a></td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.css$">https://www.amenagement-numerique.gouv.fr/profiles/*.css$</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7716,7 +7806,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.js$">https://www.amenagement-numerique.gouv.fr/profiles/*.js$</a></td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/profiles/*.js">https://www.amenagement-numerique.gouv.fr/profiles/*.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8029,37 +8119,6 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/index.php/filter/tips">https://www.amenagement-numerique.gouv.fr/index.php/filter/tips</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">/files/languages/fr_5RXeT2eX1vm3yOwDWRRXiRb9agwcIaEriCBSooSsPH8</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">���z��jx.j������Og������YW��j!�+� R���&lt;</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/node/add/">https://www.amenagement-numerique.gouv.fr/node/add/</a></td>
 					</tr>
 					<tr>
@@ -8183,7 +8242,7 @@ Response Body Length: 466.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">12</td>
+					<td width="80%">11</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -9442,68 +9501,6 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/2013-2025-12-ans-equiper-100-du-territoire-reseaux-dacces-internet-nouvelle-generation">https://www.amenagement-numerique.gouv.fr/fr/2013-2025-12-ans-equiper-100-du-territoire-reseaux-dacces-internet-nouvelle-generation</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=600, public</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/demarche-collaborative">https://www.amenagement-numerique.gouv.fr/fr/demarche-collaborative</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=600, public</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/dispositif-cohesion-numerique-territoires-garantir-tous-acces-internet-fixe-qualite">https://www.amenagement-numerique.gouv.fr/fr/dispositif-cohesion-numerique-territoires-garantir-tous-acces-internet-fixe-qualite</a></td>
 					</tr>
 					<tr>
@@ -9566,7 +9563,69 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/modele-conceptuel-donnees-commun-gracethd">https://www.amenagement-numerique.gouv.fr/fr/modele-conceptuel-donnees-commun-gracethd</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=600, public</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/projets-collectivites-territoriales">https://www.amenagement-numerique.gouv.fr/fr/projets-collectivites-territoriales</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=600, public</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.amenagement-numerique.gouv.fr/fr/referentiel-dadresses-commun-base-adresse-nationale">https://www.amenagement-numerique.gouv.fr/fr/referentiel-dadresses-commun-base-adresse-nationale</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
