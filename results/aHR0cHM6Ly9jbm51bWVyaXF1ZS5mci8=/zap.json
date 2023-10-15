@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
-	"@version": "2.13.0",
-	"@generated": "Sun, 8 Oct 2023 01:36:56",
+	"@version": "2.14.0",
+	"@generated": "Sun, 15 Oct 2023 02:00:26",
 	"site":[ 
 		{
 			"@name": "https://cnnumerique.fr",
@@ -68,7 +68,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/comment/reply/",
+							"uri": "https://cnnumerique.fr/index.php/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -111,7 +111,7 @@
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
-					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>http://cwe.mitre.org/data/definitions/352.html</p>",
+					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
 					"sourceid": "1"
@@ -132,7 +132,7 @@
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
 							"uri": "https://cnnumerique.fr/filter/tips",
@@ -140,7 +140,7 @@
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
 							"uri": "https://cnnumerique.fr/search/",
@@ -148,12 +148,12 @@
 							"param": "Content-Security-Policy",
 							"attack": "",
 							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
-							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
-					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, prefetch-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
+					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
@@ -344,7 +344,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/profiles/*.js$",
+							"uri": "https://cnnumerique.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -358,7 +358,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "101"
+					"sourceid": "160"
 				},
 				{
 					"pluginid": "10098",
@@ -395,6 +395,14 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://cnnumerique.fr/index.php/admin/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -412,14 +420,6 @@
 						},
 						{
 							"uri": "https://cnnumerique.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://cnnumerique.fr/user/login/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -468,60 +468,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - PHP",
-					"name": "Source Code Disclosure - PHP",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - PHP</p>",
-					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/files/uploads/2020/CNNum%20-%20EGNum%20-%20Synthe%CC%80se.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<?=*\u00BF9\u00CA\\x001d\u00A1\u00B6\u009F9\n\\x0018<r;\u00D8 <\"\u0084\u00F9\u00FDQ.\\x00132\u00C2\u00C2\u00FD\\x001b\u00CC\u0082\u00A5\u0082nx\\x0016\u00D2V\u00C2AK\\x00118\u00C8/\u00D9\u00AC\\x0013Y\u00D7\u0088qV\u00C2\u00B6\u00C62\u0098,z*\\x0015!\\x0018\u0090 \\x0004j\u00A7u\u00D4\u00B0\\x000f$Px\u00C0\u00BCJJx\u00D0\u0098\u009Fg\\x0018\\x00046!\\x001b\u009A\u00A0cX)Vy<\u00C8\u00A6\u0095\u00B2\u00B9\u00E7\u00AA]6\u00A3\u00A1\\x001c\\x001a\u0081\u009C\\x0003\\x0005Tl\u0098[\u0098\u00DCN\u00BEW\u00A1\\x000e\\x0005)\\x0014\u00EA|\u0089\\x0007I\\x001b`#\u00EC\\x001f\\x0019\\x000b\u00B6\u008F\u0084\u00EC\u00D0\u0080v\u00BE&,\u00C4\u009E>\\x0007\\x0015\\x0004\u00A80\u00F9+1\u00C5\u00BD|\u00CBt\\x001a\\x0010\\x0002\u00896i\u00B3\u00C8\\x0012\\x0011iP\u009F&\u00DB!;\r\u00C0\\x0010\u00C5;\\x0013N\u00CA\\x0006\"TI#\u00C8\u00D9\u008B`\u00F8P\u00D8/\u008Fc\u00C5\u00822\u008F\u00CD\u00E44\u008Dg\u00EB\u00F5vZ2\\x0008\u008C\u00E7\u00A3\u00D5&\u00A4%z\u00AE\\x0011\u00E2\u00E2l\u00FE\u0094Z\\\u00A0 \u00AB%\u00B0\u00D8[\"\u00E2\u0096+Z!=\u0099\u00C8\u00CB_\u00D4:\\x0011\u00EB\u00A8\u0093\u00D0n\u00ABF\t\u00A1\u00A6[;\u00CD+$\u0091\u00BF\u0098\u00FC$\u00F4\u00C7:XXU\u00C05\\x0012\\x0014\u00D1L\\x0005U\\x0015mZ\u00DE\u008DX{\u00D2\u009A0$V}\u00C4:\u00C8T\\x0019?\u00D2\u00D2CrH\u00CE\u0099!\u00B4\u008B\u00A5\u008C#\u00CD~\\x0008+\u00D5q\\x0001N$\u00C2\u00DB\\x000fS\u0085r9\u009C,\u00C4j\u00AF\u0089\u00C0\u00F0\u00D7\u00A5\u00822\rc\t\u00ACxZ\u009B'7\u009A\u00F3\u00BC9\u009BpE\u0083f4g\u00E0\u008A\u00E6\\x0002,&'\u00C2Z\u00D7oy\u0098Rwj}W\r\u00C3\u00BEWs\u00E4!\u00C6[*P8+\u00F5 &\\x000b\u00C27\u00D4\u0089(\u00C8\u00C1b\u008Eu8\\x0019:\\x000b\u00B1\u00CE\u00C2\u00F0\u00E0\u00EBM\u00C6\\,F1\u00D4\u00C99\u00D8\"XMk\u00AA\\x0018\\x0018\u009D\u008C\u00A7\u0092\\x0016\u00A6<\u00E2e\u00B4\u00B0\u0085\u00B9@\u0095\u00D1\\x0012\u008Cs\"or\\x001d\u00908\u0091T\u00D1\\x001d\u0091\u00D67\u00B8WY\u00C0\\x0012\\x0012Rv\u00AA.\u00E4\u0087y?\u00D1V\\x0019\u0092,\u00E4\u00ACL\u00B8\u00A4\\x0006d\u00CEQH\u00B66@\u00C9j\\\u00C3s^\u008A\\x00063\u00DDI\\x0016\\x0008\u00DF\u00BB\u008D\\x0011-\u00C7A\u0088J.(Z~\\x0018\u00BA\u00C1\u00E0\\x000b\\x000f\u0085\u00DA\\x000b\\L\u00CC\\x00007\u00BEl\\x0005XB\\x000bl1\u00F1=943w\u0081\u00B8;u\\x0017.\u00C7H\u00AD\u00EDfm;\u009B\\x0017\u00D0\u0099\u00F5\\x000e#\u00D3\\x0017v\u00B6\\x001eK\u00FDh\u00BF\\x001ez\\x000f\u0091\u00D1\\x001ed\u00FD\u00A5\\x0000\u0082e\u0094y08$\u00C1\u00A0\u00F8@\u0098\u00D6\\x0015=\u00F4\u008C\\x001b\u00C7\u0091M\u00F4\\x001d \\x0016\u00FAD\u0097\u00BA\\x0007;t\u00F6%\u00D48\\x0014\\x0010\u00AC*rJ8\\x0003\\x001f\\x0011%\u00D9\\x0004X\u00EC~8%1=T\u0083D;\u0082{\n\"-R\\x0008#E\u00AD\\x000fJ@?\\x0011P[0\\x0003A\u008B9\u00A3\u00DD\u00A70\u00CA\\x0015QP\u00DA\\x001bF?\u00D4?\u009F:\u00D5\u00C5\u00E0E\u00DD\u008F\u00DD'\u00E1\u00B4\u009B\u00AA\u00C3\u00A2\u00A4'\u00888\u00AC\u00F1\u00FE\u00F2Q\u00C8\u0085m\u00CBB\u00BEH\u00B0[\u00C6\u00956\u00DBAK|h\u00E2\u00C8\u0081w(\u00E8\u00F4\u0088_\u00F7\u00C5\u00AF@\u00D2\u00D1\\x001d\u00CE\u00AE\u0091B!\u009C\u00CAx&)\u0082\\x0006\u009B\u0094\u00DA#s\u00B8\u00AC=:}sI\\x001d!\u00A9E\u00DE\u00D4\u00BA\u0098P\u00CA\u0094\u00C7\u00C4\u0092\u00E0n\\x0010u\u009D%\u008E\u00C6\u00B1B\u00B2\\x0018\u00D6\u00AA\u00DA\u00A9\u00EB\u0089\\x0018\u00EF\u00A3o\u00BEz/\u009Dup\u00AC\t\u00A2-p\u00F1\u00B8\u00C4\\x001cI\t\u00AFJ\\x001f\u00F8\u0089,\u00E7c\u00FA\u00A9\u0097\u00AD\u00EC\u00B3\u00BF\\x0004\u00FB-\u00FBJ\\x000fO?\u00AE\\x0019o\u00CB\u00F6\u00A3\u00C8\u0089\u0084\tr\u00DD8\u0088\u00B9O\u009Fg\u00EB\u009C\u00B9\u00B9T\u00C0\\x001a$f\\x0000\u00ED[\u00AA\u00F9\\x0003\u00FCy\u00D9!\\x0014\u0098h(\u0098Phx\u00FFO\u0097\u00EF\u00D7\u0097\u00ECv\\x0016\u00ED\u00E9}\u0097\u00DB9\u00EC\u00F4\u0093jjT\u00B2\u00BA\\x0001Ih\u00B4\\x0013J\u0089\u00BC\u00C6fc.\u009FP\u00A7c;\u00A3\u00E5\u00A6\u00AE,\u00F3\u00ACp\u00E8\u0096\u00C2\u008A\u00C1a\u0094\to\u00D5\"O\r&i\u009A\u00E9r\u00D7\u009C\u00B3\u00F7\\x000e\u00A2\u00EC\u00A9\u00F3p\u0083q6|~\u0086[\u00E9\u00B17\u00C9:\u00C5\u00E6\u00F6\u00FCRs\u00E5$\u00D4Z\u00FA:\u0088\u00A9\\x0015\u00DB\u00E3\u0099\t\u00A9\n\u00D2\u00AE0\u008F\\x0016\u00C6q\u008F\u00CD\u00EF]\u0081\u00B6\u0099\\x001d\u00C7 \u00E3\u00EE*\\x0017\u00A80\u00AA\u00EC\u00FB\u00F0\u00F5\\x0015wa\\x0005\u0097b\u00F3\\x0004\u00CBbK\t\u00A1\u00A8\\x0018Hc\u0082+\u00E6\u00BAD\u00E6=]\u008Fvx=\u00D2\u0086\u0090\u008A\u00F9#HJ\u00E1i\u008B@\u0085\\x0002\\x0005\u0099\u008B\u0082\\x0010\u00DBv\u00D1\u008B\u00AA9\u00C5\\x001e\\x001cJ\\x0018\u00DC\u00A2\u00E4f\u009FC\u0091J\u0099\u0094\\x001e\u008B\u008C\u0092\u00E6\u00D5\\x0002'+U\u00AC\u00D3\u00F6\\x0003\t^\u00EA\u00E2l\u0091z\\x0006\\x0001\u00BA\u009F\\x001cf\u00AF\u00CE\u00DA\u00B9R%+\u00A4y\u00C1~\\x0017W\u00D8\u00E3\u00D8\u00F3\\x0018\u00DB\\x000e\"\u00A1\u00F2\\x0011\u0085Fv|-\u00C2e\u00D2\u00CF\u0096\\x000f0\u00D2\u00CE\u00D6\u00B8\t\u00EE\u00EDT\\x0000DH\u00D5\\x0008\\\u00CB\u00DD\u00D6\u0080{{\u008B5p\\x0012j5T\u00FAu\\x001d\u00D3\\x0004\u00A1!\\x001eC\u00C6wTg7\u00D2\u00C9j\\x0012f\u00CB\u00BB\u00CCB\u00EC)\u008F\u00B8\\x0018&\u00D9oi\u00E5\\x0008\u00B6\u00FEb\u00C8\u00CAC;l+]\\x0008\u00E1\u00B1@\u00DE\\\\x0008]ots\\x0014>\u00F0\u00E4\u00EA\u00EC\u009C5?\\x0010\u00A1|\u00F6=z\u00B5\\x000c\\x0014\u00EE\u00B0S\u00F6\u00ED\u00E2\u00CF\t\u00EAg\u00DA\u0098\u0085X\\x001fj\u00BB\u008EI2\u009E\u00AA\u00B0\u00EA`}{e\u00C5J\u00BBK\u00D9;SB\u0099\\x0019'\\x001d\u00F4\u00D8\u00CB\u00A9\u00B2\u00B4\u0092\u00AB\\x0016\u00CCn\u00BC\u00EA\u00B4\u00DD\u00BBnI&N\u00903\u0090\u00CC\u00B9\u00AC\u00EC\u00D0\u0085\\x001d\u00DA\u00A9aX\u00B4\u00DF\\x0019!\\x0015\u00D4\u00CF\u00E6\u00CAo\u0095]r&\u00A5\u00E5\u00C6j\u0089\u009C\u00B7\u00D8\u00C0\u00FE\u00AC<\u00A6\\x0005\u00C9OCX<\\x001a\\x0004eg\u0093N\u00B7\\x001f\u00C2\u00EEv\u0097\u008FQ\u00E4\u00C5\u008ETd\u00D7/\u0099\u0097U3?\u00ED\u0092\u0081\u00A8y\\x001b\u009A\u00B5By\u00FCFy|U_=>\u0097N\u00EBp\\x0000\ry\u0091\u00B2J\u00BE0\u00F5HdD\u00BE\u00F6\u00D3\u00A9\u00B4Sj\\x0007\u0086_\u00A2\u00E3\t\u00B9\u0092\t\u00A7k\u00E2wU\u00A9\u00B8]*kU \u00AC\u00B7\u008A\u0082\u00A3M\u00F3\r%\u00CDk\u00E4`\\x0005\u00EA\u00A9\u00CF.\u00D1\u00A2\u008E\u00B9\u00E2\u00E9\u00A8=\u00BD\u00A1e\u00A7\u00A2\u00E9\u00E1g\u0082\u00A2\rX\u00F1\\x000e9^\u00A3U\u00C4\u00FFl\u00C2\u00F8\u00E8\\x0016lE\\x0017\u00F1\u0084\u00AC\u00A4\u00ECN\u0089\u00919\u00DCV\u00B0U\u00CD\u00F6~)\\x000f\\x0016\u00A8D\u00AE?\u00B8X\t\u00B5\u00C7\u00FDb\u00AE\u00CE\\x000f\u00AE\\x0007\n\u00F2\u008E\u00EE\u00D8\u00BF?3)z.\u00C6h0K\u00FA\\x0005\u00A2$\u00F1\u00A3=\u00E7\\x0000W\\x0011\u0086I\u00D7\u0082\u00B2\r\u00ADa\u00A6\u00AF&\u00F8\u00ACe\u00C3\u00AF\u0090\\x0011\\x0005\u00DB\\x0013T-\u00EC\u00D0\u00D8\u00D5\u00C7F\\x0002e<y\u00CB\\x0015\u008Cyu&\u00DA\u00D7\u00A0\u008D\r\u0080=\u00EE\\x001d\n\\x001f\u00B4\u00FBLL\u008F\ry!S`\u00C2\u00B3i'\n\u00BE\u00BB\u0092\u00A6\t\u00DCf#t\u00E1Tr\u00D4v\u00E7{T\"uG\u00B6K\\x001b`\u00BB|\u0082&?\\x0008\\x000c\u00A5\u0083\\x0014\u009B\u00DD\u00A9\u00FECM\u00A2}k\u00B7t \\x0005ci\\x0017A\\x0019\u00AE\u00AD<\u00D6u\u0096\\x001a9_d\\x001e\u00E6\u0096\u00DA\\x0008\n\u00E4!\u00C2\\x0002VYnT\u00C1XZ@\u00D5\\x0005?Eo\u0096\u00FCk\u00CE\\x0018&\u00C0(\u00AC\u009A\\x0000[\u00B9\u0091\u00C3\u00B6\u00ACm\u009Bj\u00DC\u0095\u00BDl\u00E4\u00DF\u0083\\x0013\u00DA>\u00AE \u00AC\u00CA\\x0002\u00EE\\x0006\u00ED\u00FE\u008C\\x000b[\u00ED\u008Bg\u00C6\\x0012\u00F9\u0095\u00F8M\u00E8\\x0001\u00E7\\x0015\u00D6\r4\"\u00F6d\u008C\u00E4n\u00B4&HYf\u0090\u00ED)\u00B0\\x0018N\u00F3V\u00FC'\t\u00D0\\x0010\u00BBR\u00BB\u00B2\u00E1\\x001c\u0095\u00A5[u\u00C0r\u00EE\\x0008\u00B7\u00A6\u0091uRP\u00CB\u00EF:)\u00AE\u00F6\u00B0\u00DAH\u00F3Z\\x000eC\u00F9Y\u00E6hu\u00BF\u00F5a1\u00D62\u00BD\\x001e\u00FE\u009E\\x0014\u00ABY0!f\u00A4 ^%\u00D3D\\x0016\u00B4s;\u00E4\\x000fv\u00D1\u00C6\u00C2\u00F5<\u00B4\u00BE\u00F1\\x0001\u00D4\u00BC\u0080\u00A3Y\\x001b\u009E\u009D\u0089\u00CD\u00F58I\u00AEeY\\x000c\u00C2 m\u00A2\u009B\u00D7\\x0001Y{\u00F0\u0084\u00C4\u00F5VD\u0092\u008FRCzb\u0092\\x0013\u00D2\u00C9\u00D4fH\u00DE\u00E7Bs=i]!HRH9z\u00AAr+\u00C7\\x001cJx\u00E9\u00F5\u00E4\u00F9\\x0002\u00A4\u0080\u00B00d\u00CC\u00F2\u0082\\x000bIJ+q\u00CF\u00F7 Y\u0096\u00AD&\u00AF\u0084/O\\x000b{N\\x0005\u009F\u00F4\u00A2\u0092\u00C8\\x001b9\\x0000\u00EA#{\u0088\u00C9Zf8\u00BD\\x000e\\x0012\u00D9\\x0011\u00EE\u0092<\\x0016k%\u00DF?E\u00D4\u0092hB2;\u00F3[:!\u00B3\u00DF\u00F8\u00A09+\u009ERH\u00DA*'$\u00A9\u00A5\u00E7R\u00E0\u00F0r\u00A5\u00CC\u00F4\u00FC\u00C8\u00E1%\u00D5S/\u00CBD.s\u00A3\u00E0\u00E5\u0092\u00F5\\x0000m\u009A\\x000c#\u00F9+\u00AD\u00EAa\u00BD2\u00AF\u00DF\u00E1\u00B1\\x0016\u00BC\u00EA`\u00EE\\x001eR/\u0088\u00E7$i\u00D1\u00A1'Z\u00E30\u00A0\u00BE\u00A3\u00AB\u00BF\u00F4\u0087\\x001c\u00DDw(\u00FCa)dgm\u00EEI\u0088,\u00A1\u00FA\\x0017PR8\u009B0]}\u00D5`5,`\u00DE\u00DC\u009D\u00BA!\u00A3\\x001a\u0080\u00CD\u00BC\u00F0\u008FJ\\x0007\u00A1\\x0008\\x0010\u00B3=$\u00E9Jn\u00BA\u00AEn\u00CA\u00A9\u00D2\u00ED\u00E8wg2\u00D2\\x0010\u00BD\\x0014m\u00E4\u00C1D\u00CCY/=\u00E4)#F/\u00EB\u00DC\u0082\t!\u00F4P,\u00A4\u00B3\u00CEW`\u00F18\u00EE1z\u00DB\u0095g\u0097y\u00C4\u00FB\\x0010\\x001b\u00D3\u0086@\u00C0<\u00BB\u00CC_Em\u00A7\u00DC\u00CA#2\u00FED\u008D(\u0093\u00C9\u00F7~\u00F12\\x0018\\x0004Q\\x0012\u00ED\u00C7\u0095;B\u00FEw~\u00C1\u00C5=4\u00FC\u009A\u0097\u00E1]\\x0014l\u00D5j\u00B7\\x001f\u00F4S\u00E2\\x0000\u0093i\\x000e\u00FA\u00C24\u008B\u00AC\u00E4\u00C4\u00E1\u00D4\u0096E\u0082\u00B1\u00C8\u00BE\u00998PH\u00B1&h\u00BB\u00ED\\x0004o\u00B8O\u00DD\\x0001w\u00A8\u00BA\\x001d\u00AB\u00CA\u00C6]\u009204md\u0085[\u00AD\u00B7\u00F0\u00C9\u00B0S\u00E4\u00A6H:_\u00B3\\x0010\u00AD\\x0007\u0092B\u00E17\u0091\u009B\u0090\u00B3E\u00FA\\x000f\u0082L\u00F8\u009C\u00BA\u00CB\u00EB\\x001e\u00D1\u00AD\u00FBKj,\u00B2\u0086{\\x00110\u00B3\\x0017\\x0006\u00E2\u00CD\u00F3Z\u0090\u009Ed\u009BD+\u00A5;\u00ED\u0094\u008D\u00A4-\u00BC\u00D9F\u00DCx\u00A1\u00B7\u00AC\u00D3n\u009Et#\u00AAm\u00AE\u00FB\u00E9~\u00F0\\\u00A45O\u00E3\u0081\u0081\\x0010.\u008A\u00A5\u00C1\u00B3\u0099\u00C8N\u00D2\u00D0]\u0085\u00F6\u00E7|\u0088\u00DC.\u00BEq\u00DB\\x0002\\x000ep\u0086\u0084!\u00E8\u00DFsl\\x001fA\u0086\u008C\u00A1e\\x0014C\u00E7t\u00CC'\u00D1\u00A7\u00C1\\x0013~&k\u00D9\\x001a\\x0012\u00A8pv\rTp\ni\u00A0\u00C2\\x0015R\\x0013\u008D\u00BF5\u00CBDj# \u00E70eF\\x0008\u00BF\u00DB\u00CBsdR8X\u008D*\\x0003\\x0014\\x000e\u00AB\\x0000\u00FD\u0099\u00B8\u00B5\u00F0\\x0014\u00DF\u00AE<\u00A8u^\\x0006\u00B1%@\u00C7\u009E\u00A5\u008A\\x001e\u0098\u0085R\u00FEGG\u008FR\\x0016\u00AB\u00A8\\x0002\\x000f\u00A4A\\x0003\u00AAN\u008B\u00B1\u00D7\u00B20C\u009C\u0089\u008A9\"PW\u00CD\u0089Y\\x001f\u00DB\\x0001\u009B\u00CB\\x0013\\x0004\\\u00863\u00CE\u00D0\u00B8\u00E3\\x0001^\u00CA\u009F\\\\x0015+H\u008B\u00C3\u00F2\u00B1\u0082#\u00F3\u00DF\u00ED\u00F8\\x0013\u00BE\u008E\rchQ\u00D0\\x0006\u00A48\t\u00AC\u0094\u00EE\u00C5\u00E7\\x000f:\u00AE\u00F8\\x001c/\u00C5\\x0010\u00F2@TR\u0087/\u00AC\u008F\u00C9\u00CDY\u00B6\u00A5U\u0088\u00DF\n\u00DD \\x0004-\u00E7ZH\\x0013\u00CBx\u0082\u0089C\u00979n\u00E4V,fXUD\u00CB\u00DB8\u00F4\\x000c\u00E8tx\\x0006\u00EC\u009A\\x0001\\x001f\\x0014\u00FB\\x0005\u00B6I\u00D8\u00A4L\"\u0097\u00C5C\u00D9\u0081s\u00F1\u0095\u00B2h^\u00F3p\u00FE\u00BCk\u00A7\u00AA\u00D5\\x0004U\u00E65\u00E5\u0088\u00C5\u009F\u0081\\x0000\\x001e\\x0005\u00B0-{g\u00C4dGO#\u009B\u00B0a\u00E1\\x0014\u00F4lp\\x001fxU\u00E39\\x0015\u00DE\u00A3\u00F5E\u00E09\u00EB\u00A5\u00F4Wr\u0088?\u00B6jm\u00E4\\x0004N9\u00C8\u0095\u00DD\u00B1\u00B4\u0092\\x001c\u009D\u00A2QS\\x0010>\u00D7\\x001b:\\x0016\u0082<1\u00B0T'\\x0018X\\x001ch4\\x0006\u00C7!\\x001a=xP\u0081\u00FC\u0097\nx\u00EA\\x0010\u0085\\x0016\u00DE\\x0008W\\x0014\u00A3\n*+\t\u00D7\u0095x\u0099|\u00C3\u00BF<\u00B3\u00EB\u00961\u008Ep\\x0015cN;\u00C1{*\\x0006\u00DD4\u00B0\u00F4\u00A1'\u00F8o\u00C9\\x0004\u00E0\u0085qq\u0085=Tl0\u00CE-=\u00F3X\u00B0\u00B7\n\\x0000\u00CD\u00C3}\"\\x000f\u00FEhf\u009E\u00C9\u00D5g\\x0018\u00C3\u0094\u00E3\u00D99n\u0086}\u00D5\u00C1I\u00EA\u009E\u00F7\u00C1\\x001aWR\u00CE\nX\\x0017\u00957\u00C5\u00C8\\x000f\u00C27w\u0097\\x0008MG{-D\u00DA'\\x00171U\\x0008e\u00EC\\x001c\u00C5\\x001c\u00F3\u0084\u0083\u00A5\u0095\u00C7\u00C8\u00A7$\u00D4\\x000c\u009Do\\x001c&\u0082\u00E3B\u00A0\u00F6\u00DC\u00BF\\x0015A\u0080\u00DE\\x0004\\x000c\u00E8\u00C3DV\u00A2\u00EA\u00F3E32\u008D\u00ACD\u00D1\\x000c\u00D8\u00D5\u00CDg\u00C8\u009A\\x0004;\u008Ai1P\u00FD\u0087\u00EA@\u00E8\t\u00C3\u00A5=%\u0096!r\u008B\u00EB\u0082\u00C8,\u0086\\x0006\u00CB\\x0014\u00E7sd6\u00DCzH\u00E5n\u00826\u008D\u00D6p\u008C\u00E3\"'\\\u00CD\u00AD\u00BB*Dw\u0091\u00E3\u00B81\u00ED\u00ABy\u00E7g[2x\u00D4\u00B7-_?\u00D6\u00C5\u00F3\\x000e\u00F0\u00881\u0089\u0096\u00CC\u00E7M\\x0002\u00DB\u0095\u00ED,\u00AB\\x001c~;m\u00D9/?\\x000f+__H|\\x0008\u00B6(\u00B0!\u00DC\u00CA\u0080\r\\x001e\u00E4\\x0004\u009A4=\\x0003\u00A9\u00FA\u00D9\\x0014\\x000eec\u00C0\\x0013\u0080\\x0015\\x000b\\x0011\u00AD\r\\x0002o\"\u00DB{\\x0004;\u00DC\u00AA()|\u00F4\\x0007\u00CC$k/ki\\x0010weSZ9\\x000f\u00C3$w\\x001f\u0087%\u0098\\x000f4\u0081l-\"\u00B4\u008C\u0082\\x0017s\u00C9q'\u0085>d.\u00AB\u00D92J\u0095\u00C4\u00CE\\x0016&\u00CAU>G\\x000e\u00B3\u00BD\u00F9\u00FA[\u00CFY\u00C7Y\\x0008\u00CD\n\u00D6\u00AF\u00B1\u0097\u00874\n\u00D0\\x0005\u00BC\u00CD\u00F3p\u00EF`}B\u00D7\u00A9io\u00D4Q\u00EA\u0080\u00F8KZ\\x0002T[\u00E9\\x0014\"\u008A\\x0010\u00AD\\x0012}\\x0014{@}\u0087\u00CB\\x000c.\\x0006\u00C6\\x0001\\x0013\u00A2\u00DD \u0081/\u00EAS\u00F2\u00D0\u008F5W\\x000eY\u00ECs\u00A2\u00D5\u00C1p\u00BE\\x0005\u00F0\u00D0\u00BD\u00B4\\x0005Au\u00D5\u0083\u00D9\u00AC\u00F86\u00B88\u00BB -\u0092\u00A4[\u00BD\u00B4\\x0003\u009A@\\x0015\u00CD]\u00E4\u0081g\u00C8\u00B2Y#\\x0013\\x0004\u00EA.3!\u00BB\u00C3\u00E9\u0088.V\ttsBt \u00D3\\x0010>+\u00ECp\\x0010!\u00FF\u00CE\\x001b=\u00DB^3\u00DAn\u00F6=\u00F3%\u0099\\x0001\\x00005\\x0001\\x001a\u00C8#&\u00D6?z\u00F2\u00B9\u00FD\u0098N\u00B4\\x001fy\\x001f\\x000c<~\u00D2\\x0007\u0093Y\u00B3\u0081o\rmKl\\x000c\u0082\u009A\u0099\\x0014vG\u00BDH\u00D29\u0099^\u00AC\u00EB\u00BF\u0089\u00EB2\u00CB\u00E2K\u008D;Z/4\u00E4\u00CB[d\u00E1\\x000c\u00D1\u008E\u00B7\u00AA\u00FDF\\x0010(\u00E2\u00EF\u00D5\u009B3\u00D7\u00DC\\x000ex\\x0010`!k\\x000co\u00994\u00A8B\u0090=\u00E7\u00A9\u00C7L\u0091\r\"\u00A7\u00A2\u0092\u00EB\u00CAA\u00A8\u00AF\u00AA\u00BA\u00F7\\x0004&\u00F5\u00D4f\u0089\"\u00AA\u0099\\x001c\u0093\u00D1(\\x0004G\\x001aZ\u00DCW\\x001ca\u0087\u00BC\u0081\\x0012\u00EFQH[B\u00DB\u00BA\u00E3\\x0019\\x0004\u00C6$\\x000f+\u00B0)\\x000b\u00D1\u00EBu\u0092\u00BC_\u00F98\u00C1\u00C9\u00C7\u00D3B\u00F6\u00F0\u00E0e\u00A0\"}\u0092\u00E1\u00CB\u008BbU\u00F3\u0099E%Gd\"m[A\u009A\\x0006\u00D1\u00F2\u00E2\u00A2\u00B0\u00FE\u00AB\\x0016]\u00C9\u00F9X\\x0005\u00E6;\u00CB\u0096\\x0017\u00A5\u0096\u00FD\u0091EU\u00C0W\u00F7\u00C4H\\x0015\u00C1\u0085\u00D3\u00ADRT6\\x001fE\u009F47\\x000b\u00BB\u00C4,\u00B0\u00F5\\x0015\u00FF\u00F7\u00DE\u00BD\u0087\u00ED\\x0016\u00FD\u00EE\\x001d\\x0018\u00C4\u00FC\u00E7,\\x000e\u00F8\u00E8\u009B?<\\\u00EF!a\\x000c\u009E\\x001fZ:\t0\u00E53O\u00D8(\\x0013\\x001e!\u00E1\r``LaW\u0088\u0080\\x0015\u00EB\n;\u00FBX. \u00D7\u009E\u00C2\\x001b\u00E1\u009Efb\"R\u0091/\r)\u00A0\u0095\u0081\u0091@V\u00D22\u0090\u00A2\u00A1D\u009A\u0084\u00E6(\u009C\u00A8T\u009D\u0095\u00A6\\x0018\u00B1\u00E0\u00F0\u00D8\u00DB s\u00DB)\u00DA\u00A4\u00BA\u00B0}\u00A8\u00F0/ \rF\u00C8\rv\u00BE\u0098F\u00DE\\x001f\\x0018\u008E={>\u00F4TK\u00CB\u00CE\u00D2`\u00F7Z9\u00C9\u00BA\u00C1\\x000b~\u00B4\u00D1\u00B1\u00A7\u00E8\\x001eott\u00ADJ:\u00BF\u0092\u00FE\\x0017\u009F\\x001e\u00CFq#\u00859\u0087\u00A1\u00CA\\x0015O\u00CC\u00A5\tB>V\u00905\u00A3\u00F0\u00F3\\x0019^\\x0016\u00F4X\\x000f\u00D3*\u008C<J^y\u0086#\u00A7\"Ht\\x0007$\u00B7\\x0017\u00DD\u00D98e\u00F1\u008E\\x0007\\x0017F!\u00D9\u00C8\u0084\u009B^\u00B2\"I\u0092#\\\u00A4$\\x001e'\\x0003O\u00A7\\x0002\u00EFhP\u00B8\u008A\u00B0R\u00DE\u0094`\u00E7\u00EB\u00D7\u009Fi\u00F4\\x0019V\u00D6\u00E8\u00D3\u0080'\u00B7a\\x0018\u00B8n)\\x0004\u00BD\u00F7\u0097\\x0005\u0089\u00F0\\x0017\u00F9\u00D4l\u00E3\u00C2m\u00B3\u00E9\u00D9\u00BB\u0083\u00E4)V\u00CB\u00FC\u00AF\u00A8\u00FAbC\u00BC\u00DB\u00A6\u00C3G\u00D7\u00A25~\u00BF\u008F\u00C8IE\u0083\\x0006\u0098\u0087\u0096\\x0019\\x0012'\u00F9\u00CC\\x0005\u00EA\\x001a\u00DA\u00A6\u00AC\u00B5\u0088_\u00A8\u00BA\u00F1\\x0005P\u00C4\u00DA\u00B6\\x0019\u00D7\u00C1=e\u00BBe\\x000b\u0092\u00E9\u0082\u00CC\u00A7\\x0014h\u009D\u008B\u00D3-\u00A3\\x000c\\x0005\u00EEW52Fb=\u00E6\u00D7\u00B3\\x0010@\\x0005\u00C6\\x0006\u00F0\u00BCd\u0089\u00DD\u00D9\r\\x000bM\\x0018\u008C6\n\u0088\\x0006\u00FB.\u00E3\u0082&\\x0004a\u00F4\u00ED\\x0004f\u00E0X\u00D0g\u00D7Jo\u008Df\\x000et*+\u00D65=\u0094\u009A\u00A2\u0086D2\u00DE\\x0014\u00AA{\u00E8!-\u00ECv]r\u0099\u00D2\u00DDW\u0096j\u00F1\u00CEpy\u00AE=q\u0096\u00B0\u0096\u00C6\u00E8\\x001dS\u00D1\u00A0Pw~\u00CBf0\u00B1KYZ\u009D[\u00B7\u00F1\u00F9[Z/\u00A1p\\x000f\"e\u00CD$oqIh\u00CD\u0092\u0081\\x000cF\u0088\u00A7$Al9,\u008Bl<\u00D5\\x0010s\\x00056V\u0092$1\r\u00C0\u00EB\\x001a5$\\x0008\r\u0093\u00A6\u00C9\\x0013\u00C6\\x000f|; R\u00C8\u00B1\u00AC\u008F\u00BF=WH\\x0000N2\u00B4\\x0013\u00C0\u00A3\u0088\\x0010W\\x0008a2\u0084\u00F3j\\x000c\u0092f\\x0008-e\u00E1#\u0088\\x0016\u00F9d\u0086f4C\u00A8#\u00B3\\x0010Z\u00B2\u00B1\u0080%s\u0089\u00D8,\u00A2\u00E1ngo\u00EC\u00D3l\\x0010\\x0017<\\x0001\u009A\u00CA,\\x0001\u008D*\\x0005\\\u00D3\u00DEu\u0099t\\x0015 a\u00A9\u0099o\\x0006c!\u00FD\u00EC\u0087Nxq\\x0004tBH\u00A5M\u0091A\u00C4\u00EC\u00C5\u00E9m3\u00CA\u00FB\u00CC\u00F1Zs\u008F$\u0096_\u0099=win\u00B2\u00CC\u00AF4xb\\x0000/?kP\u00D6@\u00F2\\x0001q\t^<6Q9\u00E0\u00B7\u00D2\u00B7\u0089c#{\u00AF\\x0013_D?>",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "1411"
-				},
-				{
-					"pluginid": "10099",
-					"alertRef": "10099",
-					"alert": "Source Code Disclosure - Perl",
-					"name": "Source Code Disclosure - Perl",
-					"riskcode": "2",
-					"confidence": "2",
-					"riskdesc": "Medium (Medium)",
-					"desc": "<p>Application Source Code was disclosed by the web server - Perl</p>",
-					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/files/uploads/2023/Itineraires_numeriques_Le_Temps_du_debat_Versionweb.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "$#K3hZ",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
-					"cweid": "540",
-					"wascid": "13",
-					"sourceid": "1333"
-				},
-				{
 					"pluginid": "90003",
 					"alertRef": "90003",
 					"alert": "Sub Resource Integrity Attribute Missing",
@@ -556,6 +502,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://cnnumerique.fr/jeunesse-et-numerique-entre-potentiel-et-rupture-une-journee-arras",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script async=\"\" src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-54-cest-la-rentree",
 							"method": "GET",
 							"param": "",
@@ -564,13 +518,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Provide a valid integrity attribute to the tag.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "435"
+					"sourceid": "449"
 				},
 				{
 					"pluginid": "10044",
@@ -582,14 +536,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/bienvenue-sur-paroles-de",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 57 [http://cnnumerique.fr/paroles-de/bienvenue-sur-paroles-de].\nPredicted response size: 357.\nResponse Body Length: 474."
-						},
 						{
 							"uri": "https://cnnumerique.fr/index.php/filter/tips",
 							"method": "GET",
@@ -615,22 +561,6 @@
 							"otherinfo": "Location header URI length: 28 [http://cnnumerique.fr/search].\nPredicted response size: 328.\nResponse Body Length: 358."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/taxonomy/term/256",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 39 [http://cnnumerique.fr/taxonomy/term/256].\nPredicted response size: 339.\nResponse Body Length: 402."
-						},
-						{
-							"uri": "https://cnnumerique.fr/itineraires-numeriques-le-conseil-lecoute-des-preoccupations-des-francais",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 106 [http://cnnumerique.fr/communique/itineraires-numeriques-le-conseil-lecoute-des-preoccupations-des-francais].\nPredicted response size: 406.\nResponse Body Length: 670."
-						},
-						{
 							"uri": "https://cnnumerique.fr/search/",
 							"method": "GET",
 							"param": "",
@@ -639,13 +569,13 @@
 							"otherinfo": "Location header URI length: 28 [http://cnnumerique.fr/search].\nPredicted response size: 328.\nResponse Body Length: 358."
 						}
 					],
-					"count": "7",
+					"count": "4",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 57 [http://cnnumerique.fr/paroles-de/bienvenue-sur-paroles-de].</p><p>Predicted response size: 357.</p><p>Response Body Length: 474.</p>",
+					"otherinfo": "<p>Location header URI length: 33 [http://cnnumerique.fr/filter/tips].</p><p>Predicted response size: 333.</p><p>Response Body Length: 378.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1329"
+					"sourceid": "231"
 				},
 				{
 					"pluginid": "10017",
@@ -682,6 +612,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://cnnumerique.fr/jeunesse-et-numerique-entre-potentiel-et-rupture-une-journee-arras",
+							"method": "GET",
+							"param": "https://platform.twitter.com/widgets.js",
+							"attack": "",
+							"evidence": "<script async=\"\" src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-54-cest-la-rentree",
 							"method": "GET",
 							"param": "https://platform.twitter.com/widgets.js",
@@ -690,13 +628,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "435"
+					"sourceid": "449"
 				},
 				{
 					"pluginid": "10110",
@@ -708,30 +646,6 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/files/js/js_-5kNve3BEm_FddQsazx-VFgxGljKGsLjma6yxAZb8NM.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://cnnumerique.fr/files/js/js_bwGHqiGRdkIGySpOUux2ZPpvuHaajNRMKcAjThvKF5I.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Eval",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://cnnumerique.fr/files/js/js_LJ3HbIrV_ZPk-ENgicLG0mHfIVNXZTMLhgj6KlgWSuo.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://cnnumerique.fr/files/js/js_nzQazIpoC2K-cacp2Tbv8lEAmjc-lOrDBc_Bi0xZ3Ho.js",
 							"method": "GET",
@@ -749,13 +663,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "2",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1311"
+					"sourceid": "598"
 				},
 				{
 					"pluginid": "10063",
@@ -977,7 +891,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "101"
+					"sourceid": "160"
 				},
 				{
 					"pluginid": "10096",
@@ -998,62 +912,6 @@
 							"otherinfo": "1694000336, which evaluates to: 2023-09-06 11:38:56"
 						},
 						{
-							"uri": "https://cnnumerique.fr/cenum-la-lettre-du-conseil-45-education-aux-medias",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1679403217",
-							"otherinfo": "1679403217, which evaluates to: 2023-03-21 12:53:37"
-						},
-						{
-							"uri": "https://cnnumerique.fr/cenum-la-lettre-du-conseil-45-education-aux-medias",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1679918760",
-							"otherinfo": "1679918760, which evaluates to: 2023-03-27 12:06:00"
-						},
-						{
-							"uri": "https://cnnumerique.fr/cenum-la-lettre-du-conseil-45-education-aux-medias",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1680247991",
-							"otherinfo": "1680247991, which evaluates to: 2023-03-31 07:33:11"
-						},
-						{
-							"uri": "https://cnnumerique.fr/files/uploads/2023/Itineraires_numeriques_Le_Temps_du_debat_Versionweb.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1596876428",
-							"otherinfo": "1596876428, which evaluates to: 2020-08-08 08:47:08"
-						},
-						{
-							"uri": "https://cnnumerique.fr/files/uploads/2023/Itineraires_numeriques_Le_Temps_du_debat_Versionweb.pdf",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1687292877",
-							"otherinfo": "1687292877, which evaluates to: 2023-06-20 20:27:57"
-						},
-						{
-							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-46-chatgpt-repenser-notre-rapport-lia",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1679918760",
-							"otherinfo": "1679918760, which evaluates to: 2023-03-27 12:06:00"
-						},
-						{
-							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-51-recherche-et-manipulation-de-linformation-en",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1687691726",
-							"otherinfo": "1687691726, which evaluates to: 2023-06-25 11:15:26"
-						},
-						{
 							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-54-cest-la-rentree",
 							"method": "GET",
 							"param": "",
@@ -1070,13 +928,13 @@
 							"otherinfo": "1694000336, which evaluates to: 2023-09-06 11:38:56"
 						}
 					],
-					"count": "10",
+					"count": "3",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1694000336, which evaluates to: 2023-09-06 11:38:56</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "465"
+					"sourceid": "570"
 				},
 				{
 					"pluginid": "10094",
@@ -1210,7 +1068,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "183"
+					"sourceid": "185"
 				},
 				{
 					"pluginid": "10027",
@@ -1362,7 +1220,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/comment/reply/",
+							"uri": "https://cnnumerique.fr/index.php/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1453,7 +1311,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/inscription-la-liste-de-diffusion-du-conseil-national-du-numerique",
+							"uri": "https://cnnumerique.fr/le-conseil",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1461,7 +1319,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/le-conseil",
+							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-57-reseaux-sociaux-et-si-cetait-mieux-apres",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1536,14 +1394,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1552,7 +1402,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1579,14 +1429,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1595,7 +1437,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1622,14 +1464,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1638,7 +1472,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1665,14 +1499,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1681,7 +1507,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1772,6 +1598,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://cnnumerique.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1788,104 +1622,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10031",
-					"alertRef": "10031",
-					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
-					"name": "User Controllable HTML Element Attribute (Potential XSS)",
-					"riskcode": "0",
-					"confidence": "1",
-					"riskdesc": "Informational (Low)",
-					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
-					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "date",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\ndate=All\r\n\r\nThe user-controlled value was:\r\nall"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "date",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\ndate=All\r\n\r\nThe user-controlled value was:\r\nall"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "field_mandature_target_id",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_mandature_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "field_mandature_target_id",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_mandature_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "field_tags_target_id[]",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_tags_target_id[]=545\r\n\r\nThe user-controlled value was:\r\n545"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "items_per_page",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [maxlength] attribute \r\n\r\nThe user input found was:\r\nitems_per_page=12\r\n\r\nThe user-controlled value was:\r\n128"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "items_per_page",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nitems_per_page=12\r\n\r\nThe user-controlled value was:\r\n12"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "items_per_page",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nitems_per_page=12\r\n\r\nThe user-controlled value was:\r\n123"
-						},
-						{
-							"uri": "https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc",
-							"method": "GET",
-							"param": "sort_by",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_by=dates_desc\r\n\r\nThe user-controlled value was:\r\ndates_desc"
-						}
-					],
-					"count": "9",
-					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://cnnumerique.fr/nos-travaux-precedents?date=All&field_mandature_target_id=All&field_tags_target_id%5B%5D=545&items_per_page=12&sort_by=dates_desc</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [link] tag [media] attribute </p><p></p><p>The user input found was:</p><p>date=All</p><p></p><p>The user-controlled value was:</p><p>all</p>",
-					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
-					"cweid": "20",
-					"wascid": "20",
-					"sourceid": "1004"
 				}
 			]
 		}
