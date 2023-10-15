@@ -1,0 +1,659 @@
+[
+  [
+    {
+      "template": "dns/txt-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/txt-fingerprint",
+      "template-id": "txt-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/txt-fingerprint.yaml",
+      "info": {
+        "name": "DNS TXT Record Detected",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "txt"
+        ],
+        "description": "A DNS TXT record was detected. The TXT record lets a domain admin leave notes on a DNS server.",
+        "reference": [
+          "https://www.netspi.com/blog/technical/network-penetration-testing/analyzing-dns-txt-records-to-fingerprint-service-providers/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "www.economie.gouv.fr.",
+      "matched-at": "www.economie.gouv.fr",
+      "extracted-results": [
+        "\"google-site-verification=XWEo-slGE076bbc_Gfn-qHL7KfiY67ct9Fs6j8DFjhU\"",
+        "\"v=spf1 redirect=_spf.prd.finances.gouv.fr\""
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 17237\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 17237\n;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\nwww.economie.gouv.fr.\t300\tIN\tCNAME\teconomie.gouv.fr.\neconomie.gouv.fr.\t600\tIN\tTXT\t\"google-site-verification=XWEo-slGE076bbc_Gfn-qHL7KfiY67ct9Fs6j8DFjhU\"\neconomie.gouv.fr.\t600\tIN\tTXT\t\"v=spf1 redirect=_spf.prd.finances.gouv.fr\"\n",
+      "timestamp": "2023-10-15T01:15:45.608129437Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/dns-saas-service-detection.yaml",
+      "template-url": "https://templates.nuclei.sh/public/dns-saas-service-detection",
+      "template-id": "dns-saas-service-detection",
+      "template-path": "/home/runner/nuclei-templates/dns/dns-saas-service-detection.yaml",
+      "info": {
+        "name": "DNS SaaS Service Detection",
+        "author": [
+          "noah @thesubtlety",
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "service"
+        ],
+        "description": "A CNAME DNS record was discovered",
+        "reference": [
+          "https://ns1.com/resources/cname",
+          "https://www.theregister.com/2021/02/24/dns_cname_tracking/",
+          "https://www.ionos.com/digitalguide/hosting/technical-matters/cname-record/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "dns",
+      "host": "www.economie.gouv.fr.",
+      "matched-at": "www.economie.gouv.fr",
+      "extracted-results": [
+        "economie.gouv.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 51598\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t CNAME\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 51598\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t CNAME\n\n;; ANSWER SECTION:\nwww.economie.gouv.fr.\t300\tIN\tCNAME\teconomie.gouv.fr.\n",
+      "timestamp": "2023-10-15T01:15:45.688040782Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/mx-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/mx-fingerprint",
+      "template-id": "mx-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/mx-fingerprint.yaml",
+      "info": {
+        "name": "MX Record Detection",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "mx"
+        ],
+        "description": "An MX record was detected. MX records direct emails to a mail exchange server.",
+        "reference": [
+          "https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/",
+          "https://mxtoolbox.com/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "www.economie.gouv.fr.",
+      "matched-at": "www.economie.gouv.fr",
+      "extracted-results": [
+        "10 relaismsg.finances.gouv.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 41325\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t MX\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 41325\n;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t MX\n\n;; ANSWER SECTION:\nwww.economie.gouv.fr.\t300\tIN\tCNAME\teconomie.gouv.fr.\neconomie.gouv.fr.\t600\tIN\tMX\t10 relaismsg.finances.gouv.fr.\n",
+      "timestamp": "2023-10-15T01:15:45.735784407Z",
+      "matcher-status": true
+    },
+    {
+      "template": "dns/nameserver-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/nameserver-fingerprint",
+      "template-id": "nameserver-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/nameserver-fingerprint.yaml",
+      "info": {
+        "name": "NS Record Detection",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "ns"
+        ],
+        "description": "An NS record was detected. An NS record delegates a subdomain to a set of name servers.",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "www.economie.gouv.fr.",
+      "matched-at": "www.economie.gouv.fr",
+      "extracted-results": [
+        "dns3.finances.gouv.fr.",
+        "dns2.impots.gouv.fr.",
+        "dns1.finances.gouv.fr.",
+        "dns1.impots.gouv.fr.",
+        "dns2.finances.gouv.fr."
+      ],
+      "request": ";; opcode: QUERY, status: NOERROR, id: 53621\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t NS\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 53621\n;; flags: qr rd ra; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;www.economie.gouv.fr.\tIN\t NS\n\n;; ANSWER SECTION:\nwww.economie.gouv.fr.\t300\tIN\tCNAME\teconomie.gouv.fr.\neconomie.gouv.fr.\t3600\tIN\tNS\tdns3.finances.gouv.fr.\neconomie.gouv.fr.\t3600\tIN\tNS\tdns2.impots.gouv.fr.\neconomie.gouv.fr.\t3600\tIN\tNS\tdns1.finances.gouv.fr.\neconomie.gouv.fr.\t3600\tIN\tNS\tdns1.impots.gouv.fr.\neconomie.gouv.fr.\t3600\tIN\tNS\tdns2.finances.gouv.fr.\n",
+      "timestamp": "2023-10-15T01:15:45.874306419Z",
+      "matcher-status": true
+    },
+    {
+      "template": "http/miscellaneous/google-floc-disabled.yaml",
+      "template-url": "https://templates.nuclei.sh/public/google-floc-disabled",
+      "template-id": "google-floc-disabled",
+      "template-path": "/home/runner/nuclei-templates/http/miscellaneous/google-floc-disabled.yaml",
+      "info": {
+        "name": "Google FLoC Disabled",
+        "author": [
+          "geeknik"
+        ],
+        "tags": [
+          "google",
+          "floc",
+          "misc"
+        ],
+        "description": "The detected website has decided to explicitly exclude itself from Google FLoC tracking.",
+        "reference": [
+          "https://www.bleepingcomputer.com/news/security/github-disables-google-floc-user-tracking-on-its-website/"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816436e7be27d38f-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:03 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=Vj4h025F.1CZ1y_4JxdDQ8KhDI4gf8YjOWEG0IsaoV0-1697332563-0-AQgEFDtOQrGBYBYnaCSoBKfjmoPfEVcpf2H80X9J1GPRYMWnsWyDca9V/1emDfsA1WMpSfenf4H0AvW27NcMfjo=; path=/; expires=Sun, 15-Oct-23 01:46:03 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '5126',cRay: '816436e7be27d38f',cHash: 'c97ceb9d7c62727',cUPMDTk: \"\\/?__cf_chl_tk=ePVWsyCd6oLUZGsm6AIl6na9UfL8nqzSKXN5UB3z9Jg-1697332563-0-gaNycGzNCfs\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=ePVWsyCd6oLUZGsm6AIl6na9UfL8nqzSKXN5UB3z9Jg-1697332563-0-gaNycGzNCfs\",md: \"kIFg01WWJgw0NAdZv1Rm_yCipFXqAyYAVxqejvcnVjQ-1697332563-0-AReqbW60mUPt__zgP0LZQ2Vpl6AWonc0Y2PHZP9MeBJs-0XZhuwZGUwonJnPmHI2_HH1gLLBb-IK3wU5qI8oHT_C__lwffo3QPmtTjGBXJ_EOM6cexJOQvKT2UaeC3nzetl_KPc5WLJchE342wEdLtALSE0YoCAuJnjwNGvJv0qslP1fxBrL5YfxcoUwiTnztLfPg11HpN_g9yfA-U-O50eRNWcYQ7vEPz-1sUcAPKypALYoGW0jKhS1MsZ3cYcnZOGytbNejhL-WmJzMiVJxV5repsTNS4hiOqgoxggkVWEWtjgiMA7XlZbgu9vHimA6kKZkOruTl23M3h51OXW01HXMUZsAh12mOj43sOXLhUjh4pMWMKV0Q8LXpBZPdobaBPqvrmoHwtpT5VTzVskBks7keFGyLtxtj8DJMYv4eZRwgItYytIVw7K2M-7IesTr4Nqj9n7j2Fr8Zpx-6k1R8SKjENcjKzqxGI0CNmv_SrOCfQTulNR-UB_DA-7GRoa9iXlZwGBjjmbvSMUpuVYUFsJZzdVflt6s0LQZMJcm3RS3P9L6q1fapP4dlfoOvrs_SKqmhx7R0guMB974nFPLMH8fBVWOYlG1X3Ce_58Bpnu7JOkEZdgHovkQG7F0rAS390zffYDFj93dNtE2uBYbn8-56p67UaWBUrVoqrvuL_gTxihzPzTIZvzWJf9RdY3GNRGOrrcS2eyrsxXu7FeN3jKGTvcc4klIvFYrrwA3y_lORIDjRFaCwRZccnQbYY6wtDBXl20lbwIP4etSnbQISV6Wlxu7Xrq6JTobIMuBa3wd2vs1CE6DslnJHhvE8csnPrN2rrDlzFA1q-jqDyec_6zUAz5oyJlErH6v_WrKsl0hw-G1CmZc5edsNWkmjDJBBVl_F0p7FESzYfpG6oI4e4obQI-pvzT9DbdmJTiUnLGE-70aUGVvTHLImQFukmHrpLuxEG6GBWt_aa0TUz8hDXbp8qQFYxui9sfd9A21Uel5Obv8MhHjLbPBsh7zBVcRk6K-SfaxBBk9MCJi4wOI8pXFP-K13uR_ujAgTSxzlekYQgStCQbqDnZquh5Ybqjq6bODYtuagnHemyxHhfnbBCRk_FoxN7fSQNdnZXviOaVoCkt2pHGRtF8MDNtMbXIuH2UsRUC-05bLim8vgRB8KD_e_0fszBGATiePRcb7m27Tmrsad-47y8R6VS6HqG8u_GNBt07GaPUOHQRSAkJXnhb1pvtQRSrufmAOxKE5Vqz570iJmb_R5yE4Z7uzr-HugOm5yKGK5klHVLkbiEo2D0I6ohQg8CQs-QUiD52wiyFMvcbvw8159L7BTrvyw9L6ZLKqZWQFuCptJsNin7f0ldNDu5GRr4DVLLn4bTHWbsBNZiXkEhFViLpZ5iDrmhmI02ifo_QVLF9_dQfS75DiGWL7KV0V3pTLeafUpMglxDQirSeazkHM92ZU-5UID4XkFh1-YWt00VTDJxcOzlmTxgm45R5jAu7Ek7sXxaKRlFsjEdxw-YrlLwcDbVuyw21EGy9KsNvl_jurhtWwa8QcS-glHLtmZ3l-SDdZyTpVC2KfjsRFBqrISf-sAh1CchCh9aqLG4ETTvi2toNWZRYhr3AXYP73SYFaTjpmp40ujKBNMdkl90M0GZAxX9qpeqglkXrKTkUBtXqeF2oAzhsgTYDUDPzRhcZdrhvIqh8Ie03M3NVYb0fpI7RuuIMuzjaCtGc3YM7QT9wEIA10UsxoyHf85pwMHaazfmawQx-flXrE0hqvPVkFBQgo20wUqbwSXnQDy_VVpq8zlR8sneveG-qGpMd_jZA3hxJPeWv-6YTYtAj1Tt4-I9dQEsvTvq1jxRmFEA8_8x1pWEE1sqSom0L7Bhdqh1GUeGX6oyM0e7nQJpfPn_MUsIQ2ljGRR91-16Ehkwq34ismft4fUQuLPYj_h6l3gDODJqCchUyVcupYxCrGsa5gFwUtKkNj99jRAQKH8w-Knf63xmK_g2fGjjfuZy6Uaa9EiRxpZQ_g0H2JQhU_eqYj8ig_LkZk08zC_E8aSCb18NV9iDC6f4Cswd0mOz-M1sgJ5iW1YqCHy_M8zHfLDI9r6TNZE15Oix86xl_-spXh9bJtXAIqJXgncl1go7lIkRlnHWN2XQycrPYy2UYLQ29b-cUvCP5uHRwRRdcFkwoANLzdpTWprZ6Kr5aOXLbNR3HFn00BgejBWUXMN7-QERpiEakVws-4rc-pV_a1jhonJPY0AJVMnOkO0GEICrZylEEJehjdoukGQ2Bq4Q4y4ln_TUhM-sBoa3XvnbABQNxe5JCQeJ7auTqfR8H4ghSduA_faW9-9-9vBNTlp24l8EHV8ocbcHPTebBKk8wjxjqKzYAMTBQ6KaP6J0yASd-IPsIsewO64NxEhl3zMeY1B-u_A9rBmqdWTzbXq3GBESqvuUM0wOopcIPfI10XgCpewl2y-Q_OVeu4nxeKjawkwA5UO0OilovNEHs-g\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: 'P1erhYiJ91lzVUJAX042MN4k4GwPz84CLFJzHNZ8j2yHZzIxoX3Gc1RhNv2ttJmz4f3FOSctf+DI+CJ7kuCw1GkcDTBKWbR9vW91nstCrUcKeuQDoVAxQAzvnqIwEwDPcx9+uDYkFUJIA69GvffrR+FXLKXtmV+QAT6Cj1nBSQy/2V4f6OwIG5ZuQyMxq8mGOD8j8wOfdV5O1tbAwPGl4HpvcTH9Rbi4cVUOzljaHHAimRX7kLHOnSco4TkDgd9A9+P93j4V1u9JYCoAElSH0IpKZkzY3+99dHN4FQya0r6MXh7h0LxAsyG85p/EoQQgOzv/iJOeG4e3yGbfE+J6OlhN3B52v0zx7ExOX5Ym7F7tBYJ5S/4BQoKM/iYRk6zcLt7Kn3boX8m4ZIioTFf//suGISxzJSfg9cMaCaSILCFbzUnHwTU4vUEd5uCgmGjG+riqsbq60jJlYAgB5u2r+mqUi1izG/q62eSyWJC/GdtQ2COlDOUIvV7OCl7f9I69JRfDfOQA/G+E3RbInh9HjMe1S0pTTiUHWjiePfyru0IzS96oTXEC00qStYmUX+5c',t: 'MTY5NzMzMjU2My4xNTkwMDA=',cT: Math.floor(Date.now() / 1000),m: 'jhsse+ZRUFDahRFBMhcrj6EA4WQ0kMwOw0zmhosMv0E=',i1: '5DztouM0pJqnBIDsiPPcPQ==',i2: 'uGu+ZBWO6ryObyd1nr9W6Q==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816436e7be27d38f';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=ePVWsyCd6oLUZGsm6AIl6na9UfL8nqzSKXN5UB3z9Jg-1697332563-0-gaNycGzNCfs\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:03.249797454Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/httponly-cookie-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/httponly-cookie-detect",
+      "template-id": "httponly-cookie-detect",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/httponly-cookie-detect.yaml",
+      "info": {
+        "name": "HttpOnly Cookie - Detect",
+        "author": [
+          "mr. bobo hp"
+        ],
+        "tags": [
+          "misconfig",
+          "http",
+          "cookie",
+          "generic"
+        ],
+        "description": "Checks whether cookies in the HTTP response contain the HttpOnly attribute. If the HttpOnly flag is set, it means that the cookie is HTTP-only\n",
+        "reference": [
+          "https://stackoverflow.com/questions/4316539/how-do-i-test-httponly-cookie-flag"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1,
+          "verified": true
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": null,
+          "cvss-metrics": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N"
+        }
+      },
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816436e7be27d38f-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:03 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=Vj4h025F.1CZ1y_4JxdDQ8KhDI4gf8YjOWEG0IsaoV0-1697332563-0-AQgEFDtOQrGBYBYnaCSoBKfjmoPfEVcpf2H80X9J1GPRYMWnsWyDca9V/1emDfsA1WMpSfenf4H0AvW27NcMfjo=; path=/; expires=Sun, 15-Oct-23 01:46:03 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '5126',cRay: '816436e7be27d38f',cHash: 'c97ceb9d7c62727',cUPMDTk: \"\\/?__cf_chl_tk=ePVWsyCd6oLUZGsm6AIl6na9UfL8nqzSKXN5UB3z9Jg-1697332563-0-gaNycGzNCfs\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=ePVWsyCd6oLUZGsm6AIl6na9UfL8nqzSKXN5UB3z9Jg-1697332563-0-gaNycGzNCfs\",md: \"kIFg01WWJgw0NAdZv1Rm_yCipFXqAyYAVxqejvcnVjQ-1697332563-0-AReqbW60mUPt__zgP0LZQ2Vpl6AWonc0Y2PHZP9MeBJs-0XZhuwZGUwonJnPmHI2_HH1gLLBb-IK3wU5qI8oHT_C__lwffo3QPmtTjGBXJ_EOM6cexJOQvKT2UaeC3nzetl_KPc5WLJchE342wEdLtALSE0YoCAuJnjwNGvJv0qslP1fxBrL5YfxcoUwiTnztLfPg11HpN_g9yfA-U-O50eRNWcYQ7vEPz-1sUcAPKypALYoGW0jKhS1MsZ3cYcnZOGytbNejhL-WmJzMiVJxV5repsTNS4hiOqgoxggkVWEWtjgiMA7XlZbgu9vHimA6kKZkOruTl23M3h51OXW01HXMUZsAh12mOj43sOXLhUjh4pMWMKV0Q8LXpBZPdobaBPqvrmoHwtpT5VTzVskBks7keFGyLtxtj8DJMYv4eZRwgItYytIVw7K2M-7IesTr4Nqj9n7j2Fr8Zpx-6k1R8SKjENcjKzqxGI0CNmv_SrOCfQTulNR-UB_DA-7GRoa9iXlZwGBjjmbvSMUpuVYUFsJZzdVflt6s0LQZMJcm3RS3P9L6q1fapP4dlfoOvrs_SKqmhx7R0guMB974nFPLMH8fBVWOYlG1X3Ce_58Bpnu7JOkEZdgHovkQG7F0rAS390zffYDFj93dNtE2uBYbn8-56p67UaWBUrVoqrvuL_gTxihzPzTIZvzWJf9RdY3GNRGOrrcS2eyrsxXu7FeN3jKGTvcc4klIvFYrrwA3y_lORIDjRFaCwRZccnQbYY6wtDBXl20lbwIP4etSnbQISV6Wlxu7Xrq6JTobIMuBa3wd2vs1CE6DslnJHhvE8csnPrN2rrDlzFA1q-jqDyec_6zUAz5oyJlErH6v_WrKsl0hw-G1CmZc5edsNWkmjDJBBVl_F0p7FESzYfpG6oI4e4obQI-pvzT9DbdmJTiUnLGE-70aUGVvTHLImQFukmHrpLuxEG6GBWt_aa0TUz8hDXbp8qQFYxui9sfd9A21Uel5Obv8MhHjLbPBsh7zBVcRk6K-SfaxBBk9MCJi4wOI8pXFP-K13uR_ujAgTSxzlekYQgStCQbqDnZquh5Ybqjq6bODYtuagnHemyxHhfnbBCRk_FoxN7fSQNdnZXviOaVoCkt2pHGRtF8MDNtMbXIuH2UsRUC-05bLim8vgRB8KD_e_0fszBGATiePRcb7m27Tmrsad-47y8R6VS6HqG8u_GNBt07GaPUOHQRSAkJXnhb1pvtQRSrufmAOxKE5Vqz570iJmb_R5yE4Z7uzr-HugOm5yKGK5klHVLkbiEo2D0I6ohQg8CQs-QUiD52wiyFMvcbvw8159L7BTrvyw9L6ZLKqZWQFuCptJsNin7f0ldNDu5GRr4DVLLn4bTHWbsBNZiXkEhFViLpZ5iDrmhmI02ifo_QVLF9_dQfS75DiGWL7KV0V3pTLeafUpMglxDQirSeazkHM92ZU-5UID4XkFh1-YWt00VTDJxcOzlmTxgm45R5jAu7Ek7sXxaKRlFsjEdxw-YrlLwcDbVuyw21EGy9KsNvl_jurhtWwa8QcS-glHLtmZ3l-SDdZyTpVC2KfjsRFBqrISf-sAh1CchCh9aqLG4ETTvi2toNWZRYhr3AXYP73SYFaTjpmp40ujKBNMdkl90M0GZAxX9qpeqglkXrKTkUBtXqeF2oAzhsgTYDUDPzRhcZdrhvIqh8Ie03M3NVYb0fpI7RuuIMuzjaCtGc3YM7QT9wEIA10UsxoyHf85pwMHaazfmawQx-flXrE0hqvPVkFBQgo20wUqbwSXnQDy_VVpq8zlR8sneveG-qGpMd_jZA3hxJPeWv-6YTYtAj1Tt4-I9dQEsvTvq1jxRmFEA8_8x1pWEE1sqSom0L7Bhdqh1GUeGX6oyM0e7nQJpfPn_MUsIQ2ljGRR91-16Ehkwq34ismft4fUQuLPYj_h6l3gDODJqCchUyVcupYxCrGsa5gFwUtKkNj99jRAQKH8w-Knf63xmK_g2fGjjfuZy6Uaa9EiRxpZQ_g0H2JQhU_eqYj8ig_LkZk08zC_E8aSCb18NV9iDC6f4Cswd0mOz-M1sgJ5iW1YqCHy_M8zHfLDI9r6TNZE15Oix86xl_-spXh9bJtXAIqJXgncl1go7lIkRlnHWN2XQycrPYy2UYLQ29b-cUvCP5uHRwRRdcFkwoANLzdpTWprZ6Kr5aOXLbNR3HFn00BgejBWUXMN7-QERpiEakVws-4rc-pV_a1jhonJPY0AJVMnOkO0GEICrZylEEJehjdoukGQ2Bq4Q4y4ln_TUhM-sBoa3XvnbABQNxe5JCQeJ7auTqfR8H4ghSduA_faW9-9-9vBNTlp24l8EHV8ocbcHPTebBKk8wjxjqKzYAMTBQ6KaP6J0yASd-IPsIsewO64NxEhl3zMeY1B-u_A9rBmqdWTzbXq3GBESqvuUM0wOopcIPfI10XgCpewl2y-Q_OVeu4nxeKjawkwA5UO0OilovNEHs-g\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: 'P1erhYiJ91lzVUJAX042MN4k4GwPz84CLFJzHNZ8j2yHZzIxoX3Gc1RhNv2ttJmz4f3FOSctf+DI+CJ7kuCw1GkcDTBKWbR9vW91nstCrUcKeuQDoVAxQAzvnqIwEwDPcx9+uDYkFUJIA69GvffrR+FXLKXtmV+QAT6Cj1nBSQy/2V4f6OwIG5ZuQyMxq8mGOD8j8wOfdV5O1tbAwPGl4HpvcTH9Rbi4cVUOzljaHHAimRX7kLHOnSco4TkDgd9A9+P93j4V1u9JYCoAElSH0IpKZkzY3+99dHN4FQya0r6MXh7h0LxAsyG85p/EoQQgOzv/iJOeG4e3yGbfE+J6OlhN3B52v0zx7ExOX5Ym7F7tBYJ5S/4BQoKM/iYRk6zcLt7Kn3boX8m4ZIioTFf//suGISxzJSfg9cMaCaSILCFbzUnHwTU4vUEd5uCgmGjG+riqsbq60jJlYAgB5u2r+mqUi1izG/q62eSyWJC/GdtQ2COlDOUIvV7OCl7f9I69JRfDfOQA/G+E3RbInh9HjMe1S0pTTiUHWjiePfyru0IzS96oTXEC00qStYmUX+5c',t: 'MTY5NzMzMjU2My4xNTkwMDA=',cT: Math.floor(Date.now() / 1000),m: 'jhsse+ZRUFDahRFBMhcrj6EA4WQ0kMwOw0zmhosMv0E=',i1: '5DztouM0pJqnBIDsiPPcPQ==',i2: 'uGu+ZBWO6ryObyd1nr9W6Q==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816436e7be27d38f';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=ePVWsyCd6oLUZGsm6AIl6na9UfL8nqzSKXN5UB3z9Jg-1697332563-0-gaNycGzNCfs\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:03.250755472Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/tech-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tech-detect",
+      "template-id": "tech-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/tech-detect.yaml",
+      "info": {
+        "name": "Wappalyzer Technology Detection",
+        "author": [
+          "hakluke"
+        ],
+        "tags": [
+          "tech"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "cloudflare",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816437917c6ad3fc-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:30 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=XlmQf6EFFGV4lAYOAja2fiMHWpjf22q8efqKReCVvGA-1697332590-0-Ad4xIgjs0dVD1SmrSzujNLNxvBFckXrNJeTX8KdJnLN3Yv7UDgZrcIVWD/pxKePOz8BpOGnDeGDKeOj9bWLU+H0=; path=/; expires=Sun, 15-Oct-23 01:46:30 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '22550',cRay: '816437917c6ad3fc',cHash: '6c2b77f39432783',cUPMDTk: \"\\/?__cf_chl_tk=pCnzUAvnKKA3PB7iqVqxlBX8vz_ebSCEEc67BVR1e1A-1697332590-0-gaNycGzNChA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=pCnzUAvnKKA3PB7iqVqxlBX8vz_ebSCEEc67BVR1e1A-1697332590-0-gaNycGzNChA\",md: \"6VLjnJwk60rFdn4MtgLWkIecxy4k2qHcnTfdYmb0Zrg-1697332590-0-ASVjP1dBX70NceSkLOJyYigtz9ycxGLu2dEmW-FKWSWBJGkFXYvORJeZ6AvfYlAARbiKw3D56PsfZpWnL38bQyI9e2oMVkqYPXeKgPDHv26L0qt98i6qlHIjR2wFCvdk1MSIFByvHt-mHK9PLc7kC5_QN5cnFFvPyO_nTu0CwnS7uQGfRa_QKpf_YvgRvAuN5oh4KbXQBt7_j2EmftBxluxyiHsxeoWkApclmI5AZjxJ5R4t1YZC-lwepux_JClyf_jfwkEsD6vbxRlhXYOp_EDtzXS0K5770jf2BCPi7jfSGuCe7Tk1sLuLOhzp-ca_oM4K_pZvdyuX4XV9ZxUtSRWEb6cscSrl0KOe6KmifFfSyfj1fojw47cgDOvKCuGJ1whom6n6bDW28KC8WY869GAbYaZ45iV4Hn1OaIkGx_7bl8wq5pOwaMAEvY_j5RkQ9tDxiwTfV__yTSSDujFSQVgs_LqbTBxKn2fmVnhlHH3ySiKCY3KN5MTJeF40iNMBnkSKNIcRy2_6W7C__fVUehvkt7XLH2_n8FtvPFxivJIx-vYvMiwkFXoOcE4-h4RPPJWKubcSFNwrjpFd03ZvSWOgvcA-k6dudMDqTdeEFXAe9iwKlWbPxB7IxYQD3GJ-bZV6qVmVJgPXnfGDGcCK0X-EJIUzZ4m4HUmJSx4ADwfbdNlzZGBXMTLKFpu-fGyTWgZv1fZgh8NALCEIPn0_JxoI_jsmard0xsJnK_7qKBhyIA7hkJ-o4Juo4ImfTf9Tg4gBsnRS7JX-gGUPBclXS1qpl56JhS3RjuUwtyvJ0gVJ2TISRhf91g3D8GZvPYS9haKfoObaTc2TOWxqRiWYsU51w8WQQmkbkbX6sg9w_uU9gsiBMHc_iKolSW7Ze01Z_NQJaVF-18RSxEhVX24eUbuGtpnK2QBkoFF6GFIcgv3RihvrKViSZ_lgh6z19bmmNjtkdyCU-GzHnrp3didD6JMng1aobcliF5N748YAp1kHva32cFEi6kDsNfcWRgorbmsrAHn_H3HAwNGl97gaaU9OCoGoAwYh670GGXjHYLt4NhQo9L3O5_j3MVmqbFl4b3h5n2sfjy0SQHdC5lX1XHgT_zfJvLzzFOalGj3epiDxBAUUKLNc5CNzv7ZzD9DTHAAQNvOFyfylvFJejYxRSVpP8i7WeKYaxf-F-k7kbQClqQo4npGj6_NlphUNwN-8EdeaG4soFpt9eNsWpUyUdkD61RwcyzeoZaXYf-bCH1C287_0xOOE8dlvfLf9PCm2yE8BN8FoAntp2I-pTXOK4sdEIXLDR0lqmaPQzvW-x1giZ1VGt05ziKdsS9Rl765qgVFDOUPzsXo86NU4qeJqB62QMTfjzwhcTPAPgs5mKC4oL8JSAFkhJ7kU9TS47mq2ho-ldKqBFnBHDwQOKe5jIZCV2FkS20NWD2dJRmDIKn2IGo2-N0fOu7cUxueJmkw2-NCMgllQpFvtYpJ3cEC2Ln1YrYuqPkubZunr-cyUrBEoNoa_C72JzwNK7iWXZYUX1E6ZXqVbpL9WswAvs2bsks02fOYYDzNQgO6bTc7M35ptwRrI2SiiEpCcxGG4gF8CAaDuR7mg2_r3D9HOyNLs1OvtVbD8IzRDL3HKfhs3HMmFcxOCuyRqDhPKVQa_EgU5ALGfyQjo0TVSLd5IFbDZoCf1Qaz8ESD7HfmwTkuyt9yz_1H9uogzmK9rmWO3InwSszWB5wgva7sshtFWN-T1aVjhIQYcmGQCGE6NJIrcPMjikPUar__W1f4QBNT5TdJnCqiROyVOJvEleDLDfZJSBqfWnxPxW8fsaoWpBGUV4fFoa2F0tj-iEbUpcpzQ7PMTgjuL1NaBntrBEtANsT3QdeUXDbbVpqcOCvg0Z4wjFOEtPy6XbjN56CoTKc8_QmGw9LkNyMMBtk_UECwzJ-CdaMxf2rx6Uyt409uXydLTRvII5hnjWxIIzwhMXOxm36CUgYzAYy_DU3SsFs3BzXiYOYsg1nlI-dO6J6DBkASPzQbRfaDjRjwJC9Tnmwh9drzw6nKxbE7KUSrWGAYqipVfXSfDJ2M0AlBjhK0tTXEWxShrgR5CaPDRhG0nmKcT7J8AINp8PkA_7XLFqVvOMwdKl2fa8SSDM1sVuZi7xVFDjLuFjG2b3U4pgxXSKM3GtjDgj4i-Qvgf73Jm1AzC3b5EVtXR_VHIY5ogisi4Bk68fqgon2CueBNH9pdoCJ3k845rV_Mqmy5T-sEZfXgAUdgUmc_ccDNFg3Kr4JRsScmzxzZpWuMBLcGjsnMF1DfsI8zcNSSTo97I4TR7Z6Q3Wv2f6UJalnOM9D_WLpOyVGmMmViCeUBWvdGlasrgApXh5Ek351eKhD4fVSTlVt8p5ziLfOPNr9Q7VNFoc0rqwgJybdjGW0s6Hr7sKNprkUQ4MHcUUWKijhkZQUZZPTL2CID5R5RXdiV-wasrGJv3-46MFadLuZYiNc4d_eXyd_GAWiguiIunvNjO8mYg5c1fyxzpi4o\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: 'v59aQr7J832jYchUprj5GmONie/i0JZpdM1O+061pM4qyfAK0YhOA6cTxleObDEaHnK+iu3iiRiEaL4ycm8tO/dSzRFJzWQcgLu9XujFhnhdomuYWe9Y0sIY72Dma/SGhwX9y8hl0jCAceYHaF2L8otYxXb36RpMMSCQW+gJKx+JdOfl/HiwZx7PAruex1AwtCyvrcj4T07xSklLCOvv5Y/daFrEOjs+r8678sorCOEZhM72NO4juZUCIrnoQG9yY9rIDftAIS2vmcC62a5mXXN1YyoNHc6nFQp6AWS6qi8ulEIOZwDw2UqQkkoPBySbHFul80Pe7HHGFS8LE+S+69jkeUwUD20aBVyGeW/EVj9U7Artofjsutr9DcNlTV/ST0jtLmaIcLqoq5EFMHT7NVQa1u9B21NQoK4h8tCRWkVHerlWB7zlcg3bVjXAIxDbK55i/WFtveQi9H0hvxA+F65gMBdauEXyHQw51CRrKyK/hYvVAIFHIEcc7+y4/WObjqBKcqaUh7bhcQz7a8aeIMifGADoxnDIu37OkgMXFnPMrHdnqwP/vGhp2WNtx7Vn',t: 'MTY5NzMzMjU5MC4zMTMwMDA=',cT: Math.floor(Date.now() / 1000),m: 'YjTGtSe2uUf6AFAMXGz3v6jjXCjQ5fMHSD2/4mDZRTM=',i1: 'ijdMEzR6XO27G50gSWXL+w==',i2: 'C6YaebxXUsClEeeIojQTWg==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816437917c6ad3fc';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=pCnzUAvnKKA3PB7iqVqxlBX8vz_ebSCEEc67BVR1e1A-1697332590-0-gaNycGzNChA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:30.712328865Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "strict-transport-security",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816438292946d52a-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:54 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=BR50U0e_JWWB1oU34DfjZA.AkjTx20EZk9UUznvh_Wk-1697332614-0-AaMY7hDpyTghTcGQG2xj7+wjEdOVp8xunkAg9+/nAQ7SVmBPKwxxQpg44++SW+Ww13zK6gtFYws9BdxKQZxMXAc=; path=/; expires=Sun, 15-Oct-23 01:46:54 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '30298',cRay: '816438292946d52a',cHash: 'd3bee4f284bec5f',cUPMDTk: \"\\/?__cf_chl_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",md: \"_7JDoMML.drwC7cafkHLytwk_FMQG2DQ2qUtDNddphc-1697332614-0-AYUu-VaNSbkxf07yQhw6tVZE1iBq_GeBFPx3WFCKQMYutonEXSKqBFR-3OKpZGhBq6S26Y-aI7zPHPOjg48RG0KPc3PmBqyjcC9nzzgEFHh-6GAvz8pADEZhlF2b-NhBcTgZFmeb63MurAMKRNRWVWgJ3YfPXfGPVAkrPAfGdtc0Vc8s2EoXVUP65r0awZAtNJgmiEY0jRFyaQDdFby8Oxmb0MBmT8G2lLIyW-sknp3NjQVgSXfB5S2zfsdNyNMFzbB2MTCEdsx1Q9I-ooNvHHWVq4rXp2BBkinRjGoVHhSN6FCv0Y0D30lELYgu9HejDc4NAElf89X4qRu7NhjkThb_57BKIJNQTbnNAS0i9l8zNLhAdhT-o1Jh9OZZwUlQYOXLfn0_UgBnrvpLSoAnItA2d41grNMMctfMo6Cwgegmr38KRmr07BWy7kTQm0QPRy6mfxnk8eZA2Z4PvRFjUSoMZR533Pft4ogYkDP0EAqIrGHA1rBOp8n-Rpz5Tn6M8nNID9eo0af6JTYzuYr0IZba-_bc-r3RE5UD8zUq0HzX0SMCfdl0to6OVt71d7rWd6D_OyyWk8D9E17INz1EuhIFXTJ7KRzeE91Guwgmy5oftVv-QsCFaFK9kXAxcLcPf_6iKrVG9SJI6ownRjHNiQJh7Y9uQ0wWGNa_Q87SjgifZrAKJKFoSXuRdpfplvPOSGywyaJyu4EHFE5hfdsfSv_7BRjivw_RVEiKE0NhAFkQ3-Qb8oep4PEqPirI_hx4IRz6-K-yjR2-3WlT_KADl2NhUR89Ymi5js3w3zaV1YBfu9uQWiMf4xhSNVBN-EvxZRm2Gx_2WB7TzvPVi-9ovRn97iatffN0XAsU5-mkv3V1iapzwMbMzspNouVycpvHm9mqCuUbSnrjI2RvaXCvTDwwawTqxlEHyybDWqN3otY35xcDdRmoUHuyhhjlX3t85zBIhxZpJ2K8I593nBrFk_imYcvo8lrQ4LCBIiThsNch9nBIN78Vjocn0aXdrCjcIZ4v1zWQQqWjxPrjSoTP6kpzvKvISNPv1hnz09knRNw2F6teGlbIBUgQKHETOEsl-UPBppid2eJeemULO9TXNkNMX6arKJNiZy4s7vUVudvYREDeGYEszVI0gErfrOoABLi04-tUTLp1hie1lhWe3G13q-eJN_sxo2wC4NNnhCgCxRYkrSXL4m9UNk_Wuiwaa8Yxpu2yFCiNhEtozKlU68IOoD7q1qCbiK5e0FiIH2kOZUIpuK2ullAz17kRL_vs2GS-4gzv5J0WZK3YbjWrwgabcHYRxa5hOydnMgd9AmuDdQZjnK5-pywxxa7YuNCWPuRKf3awDR0VU-xv3L3tr-uIKhyF-Oj_S5NweVNRiAHeu-VxPxnLWqYqb8nYtzW4_13YYTD3LFOnjyhw3AhOR2sYwhKv2_7_V-t1H9G-UMSMauRD1cNR0ARCHthfVWRuSsIgrC1ZwZ5CLJrAqpt_a1XzsC7OIbfvrS1TQVgzHuXS8VFet5lgwdsGwyQhOs5W5xgS_gUiwtAIx460oFHo2xXecaqx96RCkSqy55hFho9bH5nyTiFZMxbFKqWFl8F8zc-Oa-MUccemm3LROtl1zdPJDzROJ7wweFE1d66B3IEuc7vZIKeSncWHo04WxE9gg1FjOcT7OfXbQQtlNPWunOpyHfCB_DwXnJOJC4YPaQzi5N4vR_Zjfx6OnAsv3XL5AterjGCC1cRy2r6KQqeVsB3u3YS9CPoX0qfdHYylr0h7CVSVwL9n32jBiQd2Tu2dXw7WY-SpMB2s4IIOTEGy11B_EB2Yr044bvkZr7Fk5fhVX6xX4O7BI7V7AMzQPJ5ekt2MJVbQds6aO8_d4-hrunoxJUC8Oe6BnETJxShvqamh4tP-m3CrqJ4_zVStp7mgcEMN-60Awp1pEoalcPcgaT5QqFGHuQK6DsHENtxZVRyN4BRdv0quwI1GdSa3bNdvLqznKCyh9va6DWxhdVghOLhSgVLD3crf2h4iAIdgBj-T7ZLdjvMo9-jjSzwERaRRb41Aek6O_rVEJYLwEdgpM5DAkK9o5d9HauOwYLrU8fYagemYduu1wLNhLeTmreWFtYmWtN3D8Htq4HzSuMfRTH3WkmJqukvz-7ip5vEqRV-d7LeG0ZlWId9uZ-E2nOiO5RypPvEITW8rvG3B8c0vsy6z-iXh_X4wHI1SD4J9iNS8NyDJArtzgdQ2suC-5ILvkMk_e8eOyQ1KOElmT_56zTBO_JPY5H6UVFjZQ5hM5RbY1vll0LByapc3kbT_V75dzPxyhMLqD0wTL7I2ewwW2FJVZxjvnVUe6u2PswDzASCuVjNV8HFwcPFTQZn9ceUuNjI-xU0_LMC6WUTrODFshF1AH767BMIFOTzMR7WqFHGZa78ZZzUO30Wat9Dc6dUAznTuQXwZCIPLyOdZGAknLVnfFOAodJ_yaFEPTkAFSV0P6HCQ42qw6yiRvdBWEyD7XRWDk_8qjONFC0RVHBbkRCM\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: '4MWwUbuUtYCkyow/mAIyak8ZIGHuNTZ0FwZop+IjOzC/UmVgnBc5HGFXU4XGp+kIuFZSCWgxeQeEmpz4XzBv3uw4ElNE/reDytXZQqStH7VPZLYSv6ZGFbaOy4Z0mXyMDmOdTHzfRb7oVWUd8E2+NBcIfu58bOvLt3t7vmOAOcvLMtFuhZAHlgEcgo+QvFSVVfas6KCkmrmkBD+iOGOctG67yXY9P33KFnF+u/8PnVyHbafhITT6wTdJBy8gUM0uTsUEHNvQTfNz6/a8rGSP48I3fTGi/kD2yjsT9h50H4WLTwze6UNgpsQuSYSg9Ymuzn4dWYOR2FOqWsy5/Bi7yue0ZLM9Vqc/mBFQ6nB+FdSCdJWmrK2WEnMwpEPmHNjU0c9tWa/OHkqPdZRHGhWHZhJUqoypshpZda5yzl4TdlYCINF9WS5+uRsHrSz2bWzmK2UqndfMIZG5WsJahj7Vd+MO2wbiq7MnTzbtOkj2W0vIUJT6n6BI/5bCSNi96jI0EunDzq7eNOHUXYbzA51Rc0uthr6BEP+Pm3+DTZjrgepABr5ztbQpF1aowwmEyf/6',t: 'MTY5NzMzMjYxNC41OTAwMDA=',cT: Math.floor(Date.now() / 1000),m: 'aCY4WTLNztGVpDTxLnT+hXHXoXTTDP1iwhQGaFUx3I8=',i1: 'KbXJYxHAbPTnv7Vg2WFJCg==',i2: 'J9xsiSLRwOj3sMO0hZq++g==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816438292946d52a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:54.641900452Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "content-security-policy",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816438292946d52a-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:54 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=BR50U0e_JWWB1oU34DfjZA.AkjTx20EZk9UUznvh_Wk-1697332614-0-AaMY7hDpyTghTcGQG2xj7+wjEdOVp8xunkAg9+/nAQ7SVmBPKwxxQpg44++SW+Ww13zK6gtFYws9BdxKQZxMXAc=; path=/; expires=Sun, 15-Oct-23 01:46:54 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '30298',cRay: '816438292946d52a',cHash: 'd3bee4f284bec5f',cUPMDTk: \"\\/?__cf_chl_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",md: \"_7JDoMML.drwC7cafkHLytwk_FMQG2DQ2qUtDNddphc-1697332614-0-AYUu-VaNSbkxf07yQhw6tVZE1iBq_GeBFPx3WFCKQMYutonEXSKqBFR-3OKpZGhBq6S26Y-aI7zPHPOjg48RG0KPc3PmBqyjcC9nzzgEFHh-6GAvz8pADEZhlF2b-NhBcTgZFmeb63MurAMKRNRWVWgJ3YfPXfGPVAkrPAfGdtc0Vc8s2EoXVUP65r0awZAtNJgmiEY0jRFyaQDdFby8Oxmb0MBmT8G2lLIyW-sknp3NjQVgSXfB5S2zfsdNyNMFzbB2MTCEdsx1Q9I-ooNvHHWVq4rXp2BBkinRjGoVHhSN6FCv0Y0D30lELYgu9HejDc4NAElf89X4qRu7NhjkThb_57BKIJNQTbnNAS0i9l8zNLhAdhT-o1Jh9OZZwUlQYOXLfn0_UgBnrvpLSoAnItA2d41grNMMctfMo6Cwgegmr38KRmr07BWy7kTQm0QPRy6mfxnk8eZA2Z4PvRFjUSoMZR533Pft4ogYkDP0EAqIrGHA1rBOp8n-Rpz5Tn6M8nNID9eo0af6JTYzuYr0IZba-_bc-r3RE5UD8zUq0HzX0SMCfdl0to6OVt71d7rWd6D_OyyWk8D9E17INz1EuhIFXTJ7KRzeE91Guwgmy5oftVv-QsCFaFK9kXAxcLcPf_6iKrVG9SJI6ownRjHNiQJh7Y9uQ0wWGNa_Q87SjgifZrAKJKFoSXuRdpfplvPOSGywyaJyu4EHFE5hfdsfSv_7BRjivw_RVEiKE0NhAFkQ3-Qb8oep4PEqPirI_hx4IRz6-K-yjR2-3WlT_KADl2NhUR89Ymi5js3w3zaV1YBfu9uQWiMf4xhSNVBN-EvxZRm2Gx_2WB7TzvPVi-9ovRn97iatffN0XAsU5-mkv3V1iapzwMbMzspNouVycpvHm9mqCuUbSnrjI2RvaXCvTDwwawTqxlEHyybDWqN3otY35xcDdRmoUHuyhhjlX3t85zBIhxZpJ2K8I593nBrFk_imYcvo8lrQ4LCBIiThsNch9nBIN78Vjocn0aXdrCjcIZ4v1zWQQqWjxPrjSoTP6kpzvKvISNPv1hnz09knRNw2F6teGlbIBUgQKHETOEsl-UPBppid2eJeemULO9TXNkNMX6arKJNiZy4s7vUVudvYREDeGYEszVI0gErfrOoABLi04-tUTLp1hie1lhWe3G13q-eJN_sxo2wC4NNnhCgCxRYkrSXL4m9UNk_Wuiwaa8Yxpu2yFCiNhEtozKlU68IOoD7q1qCbiK5e0FiIH2kOZUIpuK2ullAz17kRL_vs2GS-4gzv5J0WZK3YbjWrwgabcHYRxa5hOydnMgd9AmuDdQZjnK5-pywxxa7YuNCWPuRKf3awDR0VU-xv3L3tr-uIKhyF-Oj_S5NweVNRiAHeu-VxPxnLWqYqb8nYtzW4_13YYTD3LFOnjyhw3AhOR2sYwhKv2_7_V-t1H9G-UMSMauRD1cNR0ARCHthfVWRuSsIgrC1ZwZ5CLJrAqpt_a1XzsC7OIbfvrS1TQVgzHuXS8VFet5lgwdsGwyQhOs5W5xgS_gUiwtAIx460oFHo2xXecaqx96RCkSqy55hFho9bH5nyTiFZMxbFKqWFl8F8zc-Oa-MUccemm3LROtl1zdPJDzROJ7wweFE1d66B3IEuc7vZIKeSncWHo04WxE9gg1FjOcT7OfXbQQtlNPWunOpyHfCB_DwXnJOJC4YPaQzi5N4vR_Zjfx6OnAsv3XL5AterjGCC1cRy2r6KQqeVsB3u3YS9CPoX0qfdHYylr0h7CVSVwL9n32jBiQd2Tu2dXw7WY-SpMB2s4IIOTEGy11B_EB2Yr044bvkZr7Fk5fhVX6xX4O7BI7V7AMzQPJ5ekt2MJVbQds6aO8_d4-hrunoxJUC8Oe6BnETJxShvqamh4tP-m3CrqJ4_zVStp7mgcEMN-60Awp1pEoalcPcgaT5QqFGHuQK6DsHENtxZVRyN4BRdv0quwI1GdSa3bNdvLqznKCyh9va6DWxhdVghOLhSgVLD3crf2h4iAIdgBj-T7ZLdjvMo9-jjSzwERaRRb41Aek6O_rVEJYLwEdgpM5DAkK9o5d9HauOwYLrU8fYagemYduu1wLNhLeTmreWFtYmWtN3D8Htq4HzSuMfRTH3WkmJqukvz-7ip5vEqRV-d7LeG0ZlWId9uZ-E2nOiO5RypPvEITW8rvG3B8c0vsy6z-iXh_X4wHI1SD4J9iNS8NyDJArtzgdQ2suC-5ILvkMk_e8eOyQ1KOElmT_56zTBO_JPY5H6UVFjZQ5hM5RbY1vll0LByapc3kbT_V75dzPxyhMLqD0wTL7I2ewwW2FJVZxjvnVUe6u2PswDzASCuVjNV8HFwcPFTQZn9ceUuNjI-xU0_LMC6WUTrODFshF1AH767BMIFOTzMR7WqFHGZa78ZZzUO30Wat9Dc6dUAznTuQXwZCIPLyOdZGAknLVnfFOAodJ_yaFEPTkAFSV0P6HCQ42qw6yiRvdBWEyD7XRWDk_8qjONFC0RVHBbkRCM\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: '4MWwUbuUtYCkyow/mAIyak8ZIGHuNTZ0FwZop+IjOzC/UmVgnBc5HGFXU4XGp+kIuFZSCWgxeQeEmpz4XzBv3uw4ElNE/reDytXZQqStH7VPZLYSv6ZGFbaOy4Z0mXyMDmOdTHzfRb7oVWUd8E2+NBcIfu58bOvLt3t7vmOAOcvLMtFuhZAHlgEcgo+QvFSVVfas6KCkmrmkBD+iOGOctG67yXY9P33KFnF+u/8PnVyHbafhITT6wTdJBy8gUM0uTsUEHNvQTfNz6/a8rGSP48I3fTGi/kD2yjsT9h50H4WLTwze6UNgpsQuSYSg9Ymuzn4dWYOR2FOqWsy5/Bi7yue0ZLM9Vqc/mBFQ6nB+FdSCdJWmrK2WEnMwpEPmHNjU0c9tWa/OHkqPdZRHGhWHZhJUqoypshpZda5yzl4TdlYCINF9WS5+uRsHrSz2bWzmK2UqndfMIZG5WsJahj7Vd+MO2wbiq7MnTzbtOkj2W0vIUJT6n6BI/5bCSNi96jI0EunDzq7eNOHUXYbzA51Rc0uthr6BEP+Pm3+DTZjrgepABr5ztbQpF1aowwmEyf/6',t: 'MTY5NzMzMjYxNC41OTAwMDA=',cT: Math.floor(Date.now() / 1000),m: 'aCY4WTLNztGVpDTxLnT+hXHXoXTTDP1iwhQGaFUx3I8=',i1: 'KbXJYxHAbPTnv7Vg2WFJCg==',i2: 'J9xsiSLRwOj3sMO0hZq++g==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816438292946d52a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:54.642569783Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-content-type-options",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816438292946d52a-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:54 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=BR50U0e_JWWB1oU34DfjZA.AkjTx20EZk9UUznvh_Wk-1697332614-0-AaMY7hDpyTghTcGQG2xj7+wjEdOVp8xunkAg9+/nAQ7SVmBPKwxxQpg44++SW+Ww13zK6gtFYws9BdxKQZxMXAc=; path=/; expires=Sun, 15-Oct-23 01:46:54 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '30298',cRay: '816438292946d52a',cHash: 'd3bee4f284bec5f',cUPMDTk: \"\\/?__cf_chl_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",md: \"_7JDoMML.drwC7cafkHLytwk_FMQG2DQ2qUtDNddphc-1697332614-0-AYUu-VaNSbkxf07yQhw6tVZE1iBq_GeBFPx3WFCKQMYutonEXSKqBFR-3OKpZGhBq6S26Y-aI7zPHPOjg48RG0KPc3PmBqyjcC9nzzgEFHh-6GAvz8pADEZhlF2b-NhBcTgZFmeb63MurAMKRNRWVWgJ3YfPXfGPVAkrPAfGdtc0Vc8s2EoXVUP65r0awZAtNJgmiEY0jRFyaQDdFby8Oxmb0MBmT8G2lLIyW-sknp3NjQVgSXfB5S2zfsdNyNMFzbB2MTCEdsx1Q9I-ooNvHHWVq4rXp2BBkinRjGoVHhSN6FCv0Y0D30lELYgu9HejDc4NAElf89X4qRu7NhjkThb_57BKIJNQTbnNAS0i9l8zNLhAdhT-o1Jh9OZZwUlQYOXLfn0_UgBnrvpLSoAnItA2d41grNMMctfMo6Cwgegmr38KRmr07BWy7kTQm0QPRy6mfxnk8eZA2Z4PvRFjUSoMZR533Pft4ogYkDP0EAqIrGHA1rBOp8n-Rpz5Tn6M8nNID9eo0af6JTYzuYr0IZba-_bc-r3RE5UD8zUq0HzX0SMCfdl0to6OVt71d7rWd6D_OyyWk8D9E17INz1EuhIFXTJ7KRzeE91Guwgmy5oftVv-QsCFaFK9kXAxcLcPf_6iKrVG9SJI6ownRjHNiQJh7Y9uQ0wWGNa_Q87SjgifZrAKJKFoSXuRdpfplvPOSGywyaJyu4EHFE5hfdsfSv_7BRjivw_RVEiKE0NhAFkQ3-Qb8oep4PEqPirI_hx4IRz6-K-yjR2-3WlT_KADl2NhUR89Ymi5js3w3zaV1YBfu9uQWiMf4xhSNVBN-EvxZRm2Gx_2WB7TzvPVi-9ovRn97iatffN0XAsU5-mkv3V1iapzwMbMzspNouVycpvHm9mqCuUbSnrjI2RvaXCvTDwwawTqxlEHyybDWqN3otY35xcDdRmoUHuyhhjlX3t85zBIhxZpJ2K8I593nBrFk_imYcvo8lrQ4LCBIiThsNch9nBIN78Vjocn0aXdrCjcIZ4v1zWQQqWjxPrjSoTP6kpzvKvISNPv1hnz09knRNw2F6teGlbIBUgQKHETOEsl-UPBppid2eJeemULO9TXNkNMX6arKJNiZy4s7vUVudvYREDeGYEszVI0gErfrOoABLi04-tUTLp1hie1lhWe3G13q-eJN_sxo2wC4NNnhCgCxRYkrSXL4m9UNk_Wuiwaa8Yxpu2yFCiNhEtozKlU68IOoD7q1qCbiK5e0FiIH2kOZUIpuK2ullAz17kRL_vs2GS-4gzv5J0WZK3YbjWrwgabcHYRxa5hOydnMgd9AmuDdQZjnK5-pywxxa7YuNCWPuRKf3awDR0VU-xv3L3tr-uIKhyF-Oj_S5NweVNRiAHeu-VxPxnLWqYqb8nYtzW4_13YYTD3LFOnjyhw3AhOR2sYwhKv2_7_V-t1H9G-UMSMauRD1cNR0ARCHthfVWRuSsIgrC1ZwZ5CLJrAqpt_a1XzsC7OIbfvrS1TQVgzHuXS8VFet5lgwdsGwyQhOs5W5xgS_gUiwtAIx460oFHo2xXecaqx96RCkSqy55hFho9bH5nyTiFZMxbFKqWFl8F8zc-Oa-MUccemm3LROtl1zdPJDzROJ7wweFE1d66B3IEuc7vZIKeSncWHo04WxE9gg1FjOcT7OfXbQQtlNPWunOpyHfCB_DwXnJOJC4YPaQzi5N4vR_Zjfx6OnAsv3XL5AterjGCC1cRy2r6KQqeVsB3u3YS9CPoX0qfdHYylr0h7CVSVwL9n32jBiQd2Tu2dXw7WY-SpMB2s4IIOTEGy11B_EB2Yr044bvkZr7Fk5fhVX6xX4O7BI7V7AMzQPJ5ekt2MJVbQds6aO8_d4-hrunoxJUC8Oe6BnETJxShvqamh4tP-m3CrqJ4_zVStp7mgcEMN-60Awp1pEoalcPcgaT5QqFGHuQK6DsHENtxZVRyN4BRdv0quwI1GdSa3bNdvLqznKCyh9va6DWxhdVghOLhSgVLD3crf2h4iAIdgBj-T7ZLdjvMo9-jjSzwERaRRb41Aek6O_rVEJYLwEdgpM5DAkK9o5d9HauOwYLrU8fYagemYduu1wLNhLeTmreWFtYmWtN3D8Htq4HzSuMfRTH3WkmJqukvz-7ip5vEqRV-d7LeG0ZlWId9uZ-E2nOiO5RypPvEITW8rvG3B8c0vsy6z-iXh_X4wHI1SD4J9iNS8NyDJArtzgdQ2suC-5ILvkMk_e8eOyQ1KOElmT_56zTBO_JPY5H6UVFjZQ5hM5RbY1vll0LByapc3kbT_V75dzPxyhMLqD0wTL7I2ewwW2FJVZxjvnVUe6u2PswDzASCuVjNV8HFwcPFTQZn9ceUuNjI-xU0_LMC6WUTrODFshF1AH767BMIFOTzMR7WqFHGZa78ZZzUO30Wat9Dc6dUAznTuQXwZCIPLyOdZGAknLVnfFOAodJ_yaFEPTkAFSV0P6HCQ42qw6yiRvdBWEyD7XRWDk_8qjONFC0RVHBbkRCM\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: '4MWwUbuUtYCkyow/mAIyak8ZIGHuNTZ0FwZop+IjOzC/UmVgnBc5HGFXU4XGp+kIuFZSCWgxeQeEmpz4XzBv3uw4ElNE/reDytXZQqStH7VPZLYSv6ZGFbaOy4Z0mXyMDmOdTHzfRb7oVWUd8E2+NBcIfu58bOvLt3t7vmOAOcvLMtFuhZAHlgEcgo+QvFSVVfas6KCkmrmkBD+iOGOctG67yXY9P33KFnF+u/8PnVyHbafhITT6wTdJBy8gUM0uTsUEHNvQTfNz6/a8rGSP48I3fTGi/kD2yjsT9h50H4WLTwze6UNgpsQuSYSg9Ymuzn4dWYOR2FOqWsy5/Bi7yue0ZLM9Vqc/mBFQ6nB+FdSCdJWmrK2WEnMwpEPmHNjU0c9tWa/OHkqPdZRHGhWHZhJUqoypshpZda5yzl4TdlYCINF9WS5+uRsHrSz2bWzmK2UqndfMIZG5WsJahj7Vd+MO2wbiq7MnTzbtOkj2W0vIUJT6n6BI/5bCSNi96jI0EunDzq7eNOHUXYbzA51Rc0uthr6BEP+Pm3+DTZjrgepABr5ztbQpF1aowwmEyf/6',t: 'MTY5NzMzMjYxNC41OTAwMDA=',cT: Math.floor(Date.now() / 1000),m: 'aCY4WTLNztGVpDTxLnT+hXHXoXTTDP1iwhQGaFUx3I8=',i1: 'KbXJYxHAbPTnv7Vg2WFJCg==',i2: 'J9xsiSLRwOj3sMO0hZq++g==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816438292946d52a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:54.642650486Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "x-permitted-cross-domain-policies",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816438292946d52a-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:54 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=BR50U0e_JWWB1oU34DfjZA.AkjTx20EZk9UUznvh_Wk-1697332614-0-AaMY7hDpyTghTcGQG2xj7+wjEdOVp8xunkAg9+/nAQ7SVmBPKwxxQpg44++SW+Ww13zK6gtFYws9BdxKQZxMXAc=; path=/; expires=Sun, 15-Oct-23 01:46:54 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '30298',cRay: '816438292946d52a',cHash: 'd3bee4f284bec5f',cUPMDTk: \"\\/?__cf_chl_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",md: \"_7JDoMML.drwC7cafkHLytwk_FMQG2DQ2qUtDNddphc-1697332614-0-AYUu-VaNSbkxf07yQhw6tVZE1iBq_GeBFPx3WFCKQMYutonEXSKqBFR-3OKpZGhBq6S26Y-aI7zPHPOjg48RG0KPc3PmBqyjcC9nzzgEFHh-6GAvz8pADEZhlF2b-NhBcTgZFmeb63MurAMKRNRWVWgJ3YfPXfGPVAkrPAfGdtc0Vc8s2EoXVUP65r0awZAtNJgmiEY0jRFyaQDdFby8Oxmb0MBmT8G2lLIyW-sknp3NjQVgSXfB5S2zfsdNyNMFzbB2MTCEdsx1Q9I-ooNvHHWVq4rXp2BBkinRjGoVHhSN6FCv0Y0D30lELYgu9HejDc4NAElf89X4qRu7NhjkThb_57BKIJNQTbnNAS0i9l8zNLhAdhT-o1Jh9OZZwUlQYOXLfn0_UgBnrvpLSoAnItA2d41grNMMctfMo6Cwgegmr38KRmr07BWy7kTQm0QPRy6mfxnk8eZA2Z4PvRFjUSoMZR533Pft4ogYkDP0EAqIrGHA1rBOp8n-Rpz5Tn6M8nNID9eo0af6JTYzuYr0IZba-_bc-r3RE5UD8zUq0HzX0SMCfdl0to6OVt71d7rWd6D_OyyWk8D9E17INz1EuhIFXTJ7KRzeE91Guwgmy5oftVv-QsCFaFK9kXAxcLcPf_6iKrVG9SJI6ownRjHNiQJh7Y9uQ0wWGNa_Q87SjgifZrAKJKFoSXuRdpfplvPOSGywyaJyu4EHFE5hfdsfSv_7BRjivw_RVEiKE0NhAFkQ3-Qb8oep4PEqPirI_hx4IRz6-K-yjR2-3WlT_KADl2NhUR89Ymi5js3w3zaV1YBfu9uQWiMf4xhSNVBN-EvxZRm2Gx_2WB7TzvPVi-9ovRn97iatffN0XAsU5-mkv3V1iapzwMbMzspNouVycpvHm9mqCuUbSnrjI2RvaXCvTDwwawTqxlEHyybDWqN3otY35xcDdRmoUHuyhhjlX3t85zBIhxZpJ2K8I593nBrFk_imYcvo8lrQ4LCBIiThsNch9nBIN78Vjocn0aXdrCjcIZ4v1zWQQqWjxPrjSoTP6kpzvKvISNPv1hnz09knRNw2F6teGlbIBUgQKHETOEsl-UPBppid2eJeemULO9TXNkNMX6arKJNiZy4s7vUVudvYREDeGYEszVI0gErfrOoABLi04-tUTLp1hie1lhWe3G13q-eJN_sxo2wC4NNnhCgCxRYkrSXL4m9UNk_Wuiwaa8Yxpu2yFCiNhEtozKlU68IOoD7q1qCbiK5e0FiIH2kOZUIpuK2ullAz17kRL_vs2GS-4gzv5J0WZK3YbjWrwgabcHYRxa5hOydnMgd9AmuDdQZjnK5-pywxxa7YuNCWPuRKf3awDR0VU-xv3L3tr-uIKhyF-Oj_S5NweVNRiAHeu-VxPxnLWqYqb8nYtzW4_13YYTD3LFOnjyhw3AhOR2sYwhKv2_7_V-t1H9G-UMSMauRD1cNR0ARCHthfVWRuSsIgrC1ZwZ5CLJrAqpt_a1XzsC7OIbfvrS1TQVgzHuXS8VFet5lgwdsGwyQhOs5W5xgS_gUiwtAIx460oFHo2xXecaqx96RCkSqy55hFho9bH5nyTiFZMxbFKqWFl8F8zc-Oa-MUccemm3LROtl1zdPJDzROJ7wweFE1d66B3IEuc7vZIKeSncWHo04WxE9gg1FjOcT7OfXbQQtlNPWunOpyHfCB_DwXnJOJC4YPaQzi5N4vR_Zjfx6OnAsv3XL5AterjGCC1cRy2r6KQqeVsB3u3YS9CPoX0qfdHYylr0h7CVSVwL9n32jBiQd2Tu2dXw7WY-SpMB2s4IIOTEGy11B_EB2Yr044bvkZr7Fk5fhVX6xX4O7BI7V7AMzQPJ5ekt2MJVbQds6aO8_d4-hrunoxJUC8Oe6BnETJxShvqamh4tP-m3CrqJ4_zVStp7mgcEMN-60Awp1pEoalcPcgaT5QqFGHuQK6DsHENtxZVRyN4BRdv0quwI1GdSa3bNdvLqznKCyh9va6DWxhdVghOLhSgVLD3crf2h4iAIdgBj-T7ZLdjvMo9-jjSzwERaRRb41Aek6O_rVEJYLwEdgpM5DAkK9o5d9HauOwYLrU8fYagemYduu1wLNhLeTmreWFtYmWtN3D8Htq4HzSuMfRTH3WkmJqukvz-7ip5vEqRV-d7LeG0ZlWId9uZ-E2nOiO5RypPvEITW8rvG3B8c0vsy6z-iXh_X4wHI1SD4J9iNS8NyDJArtzgdQ2suC-5ILvkMk_e8eOyQ1KOElmT_56zTBO_JPY5H6UVFjZQ5hM5RbY1vll0LByapc3kbT_V75dzPxyhMLqD0wTL7I2ewwW2FJVZxjvnVUe6u2PswDzASCuVjNV8HFwcPFTQZn9ceUuNjI-xU0_LMC6WUTrODFshF1AH767BMIFOTzMR7WqFHGZa78ZZzUO30Wat9Dc6dUAznTuQXwZCIPLyOdZGAknLVnfFOAodJ_yaFEPTkAFSV0P6HCQ42qw6yiRvdBWEyD7XRWDk_8qjONFC0RVHBbkRCM\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: '4MWwUbuUtYCkyow/mAIyak8ZIGHuNTZ0FwZop+IjOzC/UmVgnBc5HGFXU4XGp+kIuFZSCWgxeQeEmpz4XzBv3uw4ElNE/reDytXZQqStH7VPZLYSv6ZGFbaOy4Z0mXyMDmOdTHzfRb7oVWUd8E2+NBcIfu58bOvLt3t7vmOAOcvLMtFuhZAHlgEcgo+QvFSVVfas6KCkmrmkBD+iOGOctG67yXY9P33KFnF+u/8PnVyHbafhITT6wTdJBy8gUM0uTsUEHNvQTfNz6/a8rGSP48I3fTGi/kD2yjsT9h50H4WLTwze6UNgpsQuSYSg9Ymuzn4dWYOR2FOqWsy5/Bi7yue0ZLM9Vqc/mBFQ6nB+FdSCdJWmrK2WEnMwpEPmHNjU0c9tWa/OHkqPdZRHGhWHZhJUqoypshpZda5yzl4TdlYCINF9WS5+uRsHrSz2bWzmK2UqndfMIZG5WsJahj7Vd+MO2wbiq7MnTzbtOkj2W0vIUJT6n6BI/5bCSNi96jI0EunDzq7eNOHUXYbzA51Rc0uthr6BEP+Pm3+DTZjrgepABr5ztbQpF1aowwmEyf/6',t: 'MTY5NzMzMjYxNC41OTAwMDA=',cT: Math.floor(Date.now() / 1000),m: 'aCY4WTLNztGVpDTxLnT+hXHXoXTTDP1iwhQGaFUx3I8=',i1: 'KbXJYxHAbPTnv7Vg2WFJCg==',i2: 'J9xsiSLRwOj3sMO0hZq++g==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816438292946d52a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:54.642671187Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/misconfiguration/http-missing-security-headers.yaml",
+      "template-url": "https://templates.nuclei.sh/public/http-missing-security-headers",
+      "template-id": "http-missing-security-headers",
+      "template-path": "/home/runner/nuclei-templates/http/misconfiguration/http-missing-security-headers.yaml",
+      "info": {
+        "name": "HTTP Missing Security Headers",
+        "author": [
+          "socketz",
+          "geeknik",
+          "g4l1t0",
+          "convisoappsec",
+          "kurohost",
+          "dawid-czarnecki",
+          "forgedhallpass",
+          "jub0bs"
+        ],
+        "tags": [
+          "misconfig",
+          "headers",
+          "generic"
+        ],
+        "description": "This template searches for missing HTTP security headers. The impact of these missing headers can vary.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "matcher-name": "clear-site-data",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr",
+      "request": "GET / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 816438292946d52a-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:16:54 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=BR50U0e_JWWB1oU34DfjZA.AkjTx20EZk9UUznvh_Wk-1697332614-0-AaMY7hDpyTghTcGQG2xj7+wjEdOVp8xunkAg9+/nAQ7SVmBPKwxxQpg44++SW+Ww13zK6gtFYws9BdxKQZxMXAc=; path=/; expires=Sun, 15-Oct-23 01:46:54 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '30298',cRay: '816438292946d52a',cHash: 'd3bee4f284bec5f',cUPMDTk: \"\\/?__cf_chl_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\",md: \"_7JDoMML.drwC7cafkHLytwk_FMQG2DQ2qUtDNddphc-1697332614-0-AYUu-VaNSbkxf07yQhw6tVZE1iBq_GeBFPx3WFCKQMYutonEXSKqBFR-3OKpZGhBq6S26Y-aI7zPHPOjg48RG0KPc3PmBqyjcC9nzzgEFHh-6GAvz8pADEZhlF2b-NhBcTgZFmeb63MurAMKRNRWVWgJ3YfPXfGPVAkrPAfGdtc0Vc8s2EoXVUP65r0awZAtNJgmiEY0jRFyaQDdFby8Oxmb0MBmT8G2lLIyW-sknp3NjQVgSXfB5S2zfsdNyNMFzbB2MTCEdsx1Q9I-ooNvHHWVq4rXp2BBkinRjGoVHhSN6FCv0Y0D30lELYgu9HejDc4NAElf89X4qRu7NhjkThb_57BKIJNQTbnNAS0i9l8zNLhAdhT-o1Jh9OZZwUlQYOXLfn0_UgBnrvpLSoAnItA2d41grNMMctfMo6Cwgegmr38KRmr07BWy7kTQm0QPRy6mfxnk8eZA2Z4PvRFjUSoMZR533Pft4ogYkDP0EAqIrGHA1rBOp8n-Rpz5Tn6M8nNID9eo0af6JTYzuYr0IZba-_bc-r3RE5UD8zUq0HzX0SMCfdl0to6OVt71d7rWd6D_OyyWk8D9E17INz1EuhIFXTJ7KRzeE91Guwgmy5oftVv-QsCFaFK9kXAxcLcPf_6iKrVG9SJI6ownRjHNiQJh7Y9uQ0wWGNa_Q87SjgifZrAKJKFoSXuRdpfplvPOSGywyaJyu4EHFE5hfdsfSv_7BRjivw_RVEiKE0NhAFkQ3-Qb8oep4PEqPirI_hx4IRz6-K-yjR2-3WlT_KADl2NhUR89Ymi5js3w3zaV1YBfu9uQWiMf4xhSNVBN-EvxZRm2Gx_2WB7TzvPVi-9ovRn97iatffN0XAsU5-mkv3V1iapzwMbMzspNouVycpvHm9mqCuUbSnrjI2RvaXCvTDwwawTqxlEHyybDWqN3otY35xcDdRmoUHuyhhjlX3t85zBIhxZpJ2K8I593nBrFk_imYcvo8lrQ4LCBIiThsNch9nBIN78Vjocn0aXdrCjcIZ4v1zWQQqWjxPrjSoTP6kpzvKvISNPv1hnz09knRNw2F6teGlbIBUgQKHETOEsl-UPBppid2eJeemULO9TXNkNMX6arKJNiZy4s7vUVudvYREDeGYEszVI0gErfrOoABLi04-tUTLp1hie1lhWe3G13q-eJN_sxo2wC4NNnhCgCxRYkrSXL4m9UNk_Wuiwaa8Yxpu2yFCiNhEtozKlU68IOoD7q1qCbiK5e0FiIH2kOZUIpuK2ullAz17kRL_vs2GS-4gzv5J0WZK3YbjWrwgabcHYRxa5hOydnMgd9AmuDdQZjnK5-pywxxa7YuNCWPuRKf3awDR0VU-xv3L3tr-uIKhyF-Oj_S5NweVNRiAHeu-VxPxnLWqYqb8nYtzW4_13YYTD3LFOnjyhw3AhOR2sYwhKv2_7_V-t1H9G-UMSMauRD1cNR0ARCHthfVWRuSsIgrC1ZwZ5CLJrAqpt_a1XzsC7OIbfvrS1TQVgzHuXS8VFet5lgwdsGwyQhOs5W5xgS_gUiwtAIx460oFHo2xXecaqx96RCkSqy55hFho9bH5nyTiFZMxbFKqWFl8F8zc-Oa-MUccemm3LROtl1zdPJDzROJ7wweFE1d66B3IEuc7vZIKeSncWHo04WxE9gg1FjOcT7OfXbQQtlNPWunOpyHfCB_DwXnJOJC4YPaQzi5N4vR_Zjfx6OnAsv3XL5AterjGCC1cRy2r6KQqeVsB3u3YS9CPoX0qfdHYylr0h7CVSVwL9n32jBiQd2Tu2dXw7WY-SpMB2s4IIOTEGy11B_EB2Yr044bvkZr7Fk5fhVX6xX4O7BI7V7AMzQPJ5ekt2MJVbQds6aO8_d4-hrunoxJUC8Oe6BnETJxShvqamh4tP-m3CrqJ4_zVStp7mgcEMN-60Awp1pEoalcPcgaT5QqFGHuQK6DsHENtxZVRyN4BRdv0quwI1GdSa3bNdvLqznKCyh9va6DWxhdVghOLhSgVLD3crf2h4iAIdgBj-T7ZLdjvMo9-jjSzwERaRRb41Aek6O_rVEJYLwEdgpM5DAkK9o5d9HauOwYLrU8fYagemYduu1wLNhLeTmreWFtYmWtN3D8Htq4HzSuMfRTH3WkmJqukvz-7ip5vEqRV-d7LeG0ZlWId9uZ-E2nOiO5RypPvEITW8rvG3B8c0vsy6z-iXh_X4wHI1SD4J9iNS8NyDJArtzgdQ2suC-5ILvkMk_e8eOyQ1KOElmT_56zTBO_JPY5H6UVFjZQ5hM5RbY1vll0LByapc3kbT_V75dzPxyhMLqD0wTL7I2ewwW2FJVZxjvnVUe6u2PswDzASCuVjNV8HFwcPFTQZn9ceUuNjI-xU0_LMC6WUTrODFshF1AH767BMIFOTzMR7WqFHGZa78ZZzUO30Wat9Dc6dUAznTuQXwZCIPLyOdZGAknLVnfFOAodJ_yaFEPTkAFSV0P6HCQ42qw6yiRvdBWEyD7XRWDk_8qjONFC0RVHBbkRCM\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'R0VU',d: '4MWwUbuUtYCkyow/mAIyak8ZIGHuNTZ0FwZop+IjOzC/UmVgnBc5HGFXU4XGp+kIuFZSCWgxeQeEmpz4XzBv3uw4ElNE/reDytXZQqStH7VPZLYSv6ZGFbaOy4Z0mXyMDmOdTHzfRb7oVWUd8E2+NBcIfu58bOvLt3t7vmOAOcvLMtFuhZAHlgEcgo+QvFSVVfas6KCkmrmkBD+iOGOctG67yXY9P33KFnF+u/8PnVyHbafhITT6wTdJBy8gUM0uTsUEHNvQTfNz6/a8rGSP48I3fTGi/kD2yjsT9h50H4WLTwze6UNgpsQuSYSg9Ymuzn4dWYOR2FOqWsy5/Bi7yue0ZLM9Vqc/mBFQ6nB+FdSCdJWmrK2WEnMwpEPmHNjU0c9tWa/OHkqPdZRHGhWHZhJUqoypshpZda5yzl4TdlYCINF9WS5+uRsHrSz2bWzmK2UqndfMIZG5WsJahj7Vd+MO2wbiq7MnTzbtOkj2W0vIUJT6n6BI/5bCSNi96jI0EunDzq7eNOHUXYbzA51Rc0uthr6BEP+Pm3+DTZjrgepABr5ztbQpF1aowwmEyf/6',t: 'MTY5NzMzMjYxNC41OTAwMDA=',cT: Math.floor(Date.now() / 1000),m: 'aCY4WTLNztGVpDTxLnT+hXHXoXTTDP1iwhQGaFUx3I8=',i1: 'KbXJYxHAbPTnv7Vg2WFJCg==',i2: 'J9xsiSLRwOj3sMO0hZq++g==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=816438292946d52a';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=605UMvpM1qFWIOMZEvpo7voo2cfgKD9Bvg_pBrva41k-1697332614-0-gaNycGzNChA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:16:54.642684488Z",
+      "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr'",
+      "matcher-status": true
+    },
+    {
+      "template": "http/technologies/waf-detect.yaml",
+      "template-url": "https://templates.nuclei.sh/public/waf-detect",
+      "template-id": "waf-detect",
+      "template-path": "/home/runner/nuclei-templates/http/technologies/waf-detect.yaml",
+      "info": {
+        "name": "WAF Detection",
+        "author": [
+          "dwisiswant0",
+          "lu4nx"
+        ],
+        "tags": [
+          "waf",
+          "tech",
+          "misc"
+        ],
+        "description": "A web application firewall was detected.",
+        "reference": [
+          "https://github.com/ekultek/whatwaf"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "matcher-name": "cloudflare",
+      "type": "http",
+      "host": "https://www.economie.gouv.fr",
+      "matched-at": "https://www.economie.gouv.fr/",
+      "request": "POST / HTTP/1.1\r\nHost: www.economie.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
+      "response": "HTTP/1.1 403 Forbidden\r\nConnection: close\r\nTransfer-Encoding: chunked\r\nAlt-Svc: h3=\":443\"; ma=86400\r\nCache-Control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0\r\nCf-Mitigated: challenge\r\nCf-Ray: 81643891097d026f-CDG\r\nContent-Type: text/html; charset=UTF-8\r\nCross-Origin-Embedder-Policy: require-corp\r\nCross-Origin-Opener-Policy: same-origin\r\nCross-Origin-Resource-Policy: same-origin\r\nDate: Sun, 15 Oct 2023 01:17:11 GMT\r\nExpires: Thu, 01 Jan 1970 00:00:01 GMT\r\nOrigin-Agent-Cluster: ?1\r\nPermissions-Policy: accelerometer=(),autoplay=(),browsing-topics=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(),hid=(),interest-cohort=(),magnetometer=(),microphone=(),payment=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),sync-xhr=(),usb=()\r\nReferrer-Policy: same-origin\r\nServer: cloudflare\r\nSet-Cookie: __cf_bm=jOp6WDQEdDy_UL6lwfWo6UaHfxHDYA8oxGS41g0vdX0-1697332631-0-AUBRts4oANHqBHpIMis1J66CDanc/3ZIb9+r+d5gGSOUFvNdt98yAKxSmoXAVxrF/UYspc4sJGeZf6cHgRB8Qgg=; path=/; expires=Sun, 15-Oct-23 01:47:11 GMT; domain=.economie.gouv.fr; HttpOnly; Secure; SameSite=None\r\nVary: Accept-Encoding\r\nX-Frame-Options: SAMEORIGIN\r\n\r\n<!DOCTYPE html><html lang=\"en-US\"><head><title>Just a moment...</title><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"><meta name=\"robots\" content=\"noindex,nofollow\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><link href=\"/cdn-cgi/styles/challenges.css\" rel=\"stylesheet\"></head><body class=\"no-js\"><div class=\"main-wrapper\" role=\"main\"><div class=\"main-content\"><noscript><div id=\"challenge-error-title\"><div class=\"h2\"><span class=\"icon-wrapper\"><div class=\"heading-icon warning-icon\"></div></span><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div></div></noscript></div></div><script>(function(){window._cf_chl_opt={cvId: '2',cZone: \"www.economie.gouv.fr\",cType: 'managed',cNounce: '5048',cRay: '81643891097d026f',cHash: '0b1b872f0dfb6b9',cUPMDTk: \"\\/?__cf_chl_tk=pnT6qf8YE_d0dg7inDyhEbLwgigCyFPjG4.AexTrkRQ-1697332631-0-gaNycGzNClA\",cFPWv: 'g',cTTimeMs: '1000',cMTimeMs: '0',cTplV: 5,cTplB: 'cf',cK: \"visitor-time\",fa: \"\\/?__cf_chl_f_tk=pnT6qf8YE_d0dg7inDyhEbLwgigCyFPjG4.AexTrkRQ-1697332631-0-gaNycGzNClA\",md: \"WIm5KfKekIzHaXCBzXB1i9sx0kIrbpRJnVIbvf6gxcI-1697332631-0-AfCjH8alEJxvMa0xZISFDM1W6KT77FiZY5Oh876-zv9QagHumynzE1S86aCUvMklKPt00iOAW7LJvzif_o4YyZTYfDh4YY_bUsIsxrf1FSm8Ve0h_fpks03DkNOrZVkMLJczSZN2LdJxJ7mg3PUT5XmiZAPFu5kd4uRnEgrFnjEVRJ9-iIS2YcnDzb8WsGP9Lk1E-qtLWQHKeogq-8ZdUf0Iau4tnCKnM5fVuHknDSjNO8bDKnQs7HqEp_Y1RdJ94YZcxa5RIBrdIF-AIAhhIABE7vp2NCqbAh9cg1nx_zArjmnZM2pY3Ipl7L9W_dREBFITXRLL63-eEwSlld12xDviY42dEwbOH4J5wFqY3fZQDZ5M9hrhMXFi-XG_CDQAUuArE_VT39gK-jc_7K5N1ZzNEHIEObSWHylt_jF1rm_fR-tWqy5JDoNR2xg8VZLqNj30ij62qiJBz1oZM1CJ5grBDnSk5S4uAysPuhKHymfK748YW5k8OYYXCKf4V6DWGYQ_KL9DhVZ6MLS6ikrMYUXAi6jyn24DRDGs9U8_eoN6Q-FmEOzfx9bFbzGnMMZrkbw-rZG0YVP3W4MDDDcQTAe0mi5-h_HguPbK331g7agmhw_WTnE0G6B-ci4kT3KcnkL8Ly_ePi0MdSpTcMfCQFPbzetoY0qpW0CsMI0rYivn5kGXi6q_u1UxNES6aSwGUuoMy--35zN6qSHdfM_v0gR0kDZJjfxz1nYcEiObRGKWp9fzdhItBUlesAmywFfHRXTaEhZvo7iFns8QEEoDYWWNIo2cAKCeJ8gc6LJHlGJDp3IuyZQPDj9iUdYOb_QbhvYIw5QG2kpedX3jJcelkxcmgUH8sAV5jdAlILlQxlwc73jkoaoMipqWPTR3E1pAWxU3EmRVZ47i0QgdkrV1rtDGxEcNA_rP8uIBR2xdd-OfxiKALR91wFFfFK_MjeEk2Eu6UJBhmfDT8__b-P80Ejx81lCPqzjR1CcyS_PsvOudmjvKg388TyGw1cB316q86CKXMpiZNXQ9WesIqJhiQnmzu7QZh4Lga_YOrJ-mzGNrH0X7HDssrpJGLwqHJEiMTY2EO5IBWYAuEegqrW2XxSAsKIK1tu1gEqP3cDWUFOQ24lN9rU3im3YzKckbkO-lmaEhxHt_-y-SYL5y_unlcIs4A25lPP0FcNXlxyGGvk3tXFtw1KIhvm1uc5QKVZtKfzrf3SXfQ2LUDbQ6txjJVaicLFnbCJ6wQ5xtz4Q6SuiFj-3uHuNldkE6cjWyJT8RRE3gsSoMEMibOZ4Dlj4XzGhadyOgxKG_4fSt7oypCNb-YTfQ3rkvDL8IGvqQMQEJenaPpqEHshz05ZKDyLcKzjaX0VKt_6XhtuV4QymPSwQA52tBqE-jVfeLVgpGNlMb1QkfTX8NF7ozGAzCfp1e6IrjNImvDtcFKwjuYUuSHaXh8qI0ZaXe_lVxg6fd7l1w4frT4LKDOczdHWxe7YbCcHfQZvSM8z102T5-Fgd0vstSAZTuHRrKA5pw-i8W8pbUBrbp4i3Bs-OLTqjo3AGm6uuWJwm-MBQQKI_2qnYx4uVN9IWo5KoAWp07KvbyAlkqJkSdx2-jxSFB4tRozIkz_oUmy43fhOPAXIhpAPGZO_hwub5lfjs3c7RDq1f38hwtVCy7EqBDqo0DG3rmhofYbGVZhQEM0JlZnvMTncR5qqjsbqnBD6_2SEvdYJqM1mL9A6WuLBSO3UPwhaWbtJOJLr516RBME3821Pc5t7DMnrxuoeXhfslxgzBk9_bRgNzCDEBJJehVdF1p_yiNH74laugWwKVsPK6EDt0gRv0TPKwoxT-2BDNi0SPoNNnXaW_L9syCZVM05qYT2w1Dn_fNYDEP-HxKzkJ0HuIxzHrODr6RyTmfO-qhb1JUwsndwasTW09ZeC_6sM_BxvQMZ3QbjsqErif6uhiaMTY3XRToQLmK-03IB-Xl_Am2hRDqyy83XYby89vZcDXjroeJVcKw8wHELiAoGd9YR27ANgpBOFQrngJHsE9Wtes7jmvMDezdcGzEVjKTn7_c15RH4TD9g8_c2RZ3EO0qWc696ebrnHzPmjETj6cFOhrr7Mep2Ut0jn-pw3A8yiwxBWaFl5nkJooQxjuR4p63Ggt_QNZPfHYL18zC6aNiMs1LqTsts2CszEU3M-ndiRjcl7F3kxpVw2vJiZwsTOtSiDRPSl9DxSnaLsA8VV5iaslsuuuQ_8UloSAgmG6lJl-dpno4Eb-AV_DkL7j7aZ1JgCdzAlqT0DX_6XLRuxM0DcQOAflfEHRuuHVSuNUbCoDtqLMbcEikVYRaG4NKkUfJZ7gwTj-JrSor1ooPCGvGS95AProvyzvQ64xBA-P5g-zQVf9z8VsNEiaeg7mKBXfeRSA93QUkQZYvihSRalYX3XJ1D5kXAvbH57e23DILhoyS8TUg9eNXw0nkScThGsmFeiibXkJ7O0aj31iFZnZYgA4_lgEi7tKgsCKDzJ1Rf-SP--95B_I701HPXnynNVY2N1FElU2UFL-VcSROlrty7QJ5mpbM3xEQbavT9LUEiWXSP53MBT8i_GU\",cRq: {ru: 'aHR0cHM6Ly93d3cuZWNvbm9taWUuZ291di5mci8=',ra: 'TnVjbGVpIC0gT3Blbi1zb3VyY2UgcHJvamVjdCAoZ2l0aHViLmNvbS9wcm9qZWN0ZGlzY292ZXJ5L251Y2xlaSk=',rm: 'UE9TVA==',d: 'raJ6oE+WvvCWFQa29AVu0ECdaf7FpONsiERQJ4JZuIJiC5PSc3YregZzV8cIyR31+Y2f4tP5aZuYO7BDaY2Yk1nkY/iGwCRDG4nRdUAXl5VN/DtIAxtxhA/FiyaKaxLjnx7CZ/uDBLVDYwU9UOEsN5EgcfUiTQ523LoCleH8x+MiSrGiKu0fsJm5hUCVM1qQaicqs2UXfkb0QjYSvmuhHBd6T2IrmLv6OtTgLIgj7JgK4pCpXCgenIIgVHzXZkfksKmubE2oPnjStzdiiClXnujOqbuML8tZbrEIMYlgX5W4fgOGz+6c0tBsCo2u4qoJPmPIBGUJHSrDNfdQQ10flWyle0VqOMfs7bha+kMuvker2dsClhe3RjEVRGJV2BAWBRYbHb7lNhuH8hZB6n5U8F6wNpc9oq+7ur2K9qsr7YUbIqO39ANMA5NlPGSXwFN93Z2kUlLihA8syRtF9u225NXMgwdOFxyFOO1q34VD2EUC6DJJv48FAduoYRYrboW5r10LJVR5dp5tesvXgd+fycXpFOjNAYHNAyPFFtSPJAJiSJfOxBjQ5xSBlPu7Ahxx',t: 'MTY5NzMzMjYzMS4yMDkwMDA=',cT: Math.floor(Date.now() / 1000),m: '2InluoqCd2ayuCgzDTvY1qHiFjIVjoTYVaLni/EtTNs=',i1: '75zBGySpKSQumgyslkm7gA==',i2: 'Z5cA9zO5V1gLrnf5jeyLhA==',zh: 'KCcaq6Qe4hu4t1LqLr7SSP5zgigeB/PhfSF1nO2AxMM=',uh: 'iMmAO4Q3VWlxw7mIbHqZvaeBOOczHhiE21SZ0CNGcJg=',hh: 'OHrWIBOUbpWlk/QMVzyAIG5g2TF1Ycx2IA+BVUqbPCI=',}};var cpo = document.createElement('script');cpo.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=81643891097d026f';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null, \"\\/?__cf_chl_rt_tk=pnT6qf8YE_d0dg7inDyhEbLwgigCyFPjG4.AexTrkRQ-1697332631-0-gaNycGzNClA\" + window._cf_chl_opt.cOgUHash);cpo.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(cpo);}());</script></body></html>",
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:17:11.319075708Z",
+      "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: www.economie.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://www.economie.gouv.fr/'",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/detect-ssl-issuer.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-issuer",
+      "template-id": "ssl-issuer",
+      "template-path": "/home/runner/nuclei-templates/ssl/detect-ssl-issuer.yaml",
+      "info": {
+        "name": "Detect SSL Certificate Issuer",
+        "author": [
+          "lingtren"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the issuer's organization from the target's certificate. Issuers are entities which sign and distribute certificates.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.economie.gouv.fr",
+      "matched-at": "www.economie.gouv.fr:443",
+      "extracted-results": [
+        "Let's Encrypt"
+      ],
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:18:29.363178149Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/ssl-dns-names.yaml",
+      "template-url": "https://templates.nuclei.sh/public/ssl-dns-names",
+      "template-id": "ssl-dns-names",
+      "template-path": "/home/runner/nuclei-templates/ssl/ssl-dns-names.yaml",
+      "info": {
+        "name": "SSL DNS Names",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "Extract the Subject Alternative Name (SAN) from the target's certificate. SAN facilitates the usage of additional hostnames with the same certificate.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.economie.gouv.fr",
+      "matched-at": "www.economie.gouv.fr:443",
+      "extracted-results": [
+        "economie.gouv.fr",
+        "*.economie.gouv.fr"
+      ],
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:18:29.363369855Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/wildcard-tls.yaml",
+      "template-url": "https://templates.nuclei.sh/public/wildcard-tls",
+      "template-id": "wildcard-tls",
+      "template-path": "/home/runner/nuclei-templates/ssl/wildcard-tls.yaml",
+      "info": {
+        "name": "Wildcard TLS Certificate",
+        "author": [
+          "lucky0x0d"
+        ],
+        "tags": [
+          "ssl",
+          "wildcard",
+          "tls"
+        ],
+        "description": "Checks a sites certificate to see if there are wildcard CN or SAN entries.\n",
+        "reference": [
+          "https://cheatsheetseries.owasp.org/cheatsheets/transport_layer_protection_cheat_sheet.html#carefully-consider-the-use-of-wildcard-certificates"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        }
+      },
+      "type": "ssl",
+      "host": "www.economie.gouv.fr",
+      "matched-at": "www.economie.gouv.fr:443",
+      "extracted-results": [
+        "CN: *.economie.gouv.fr",
+        " SAN: [*.economie.gouv.fr economie.gouv.fr]"
+      ],
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:18:29.36350936Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.economie.gouv.fr",
+      "matched-at": "www.economie.gouv.fr:443",
+      "extracted-results": [
+        "tls12"
+      ],
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:18:49.382488321Z",
+      "matcher-status": true
+    },
+    {
+      "template": "ssl/tls-version.yaml",
+      "template-url": "https://templates.nuclei.sh/public/tls-version",
+      "template-id": "tls-version",
+      "template-path": "/home/runner/nuclei-templates/ssl/tls-version.yaml",
+      "info": {
+        "name": "TLS Version - Detect",
+        "author": [
+          "pdteam",
+          "pussycat0x"
+        ],
+        "tags": [
+          "ssl"
+        ],
+        "description": "TLS version detection is a security process used to determine the version of the Transport Layer Security (TLS) protocol used by a computer or server.\nIt is important to detect the TLS version in order to ensure secure communication between two computers or servers.\n",
+        "severity": "info",
+        "metadata": {
+          "max-request": 4
+        }
+      },
+      "type": "ssl",
+      "host": "www.economie.gouv.fr",
+      "matched-at": "www.economie.gouv.fr:443",
+      "extracted-results": [
+        "tls13"
+      ],
+      "ip": "141.101.90.97",
+      "timestamp": "2023-10-15T01:18:49.665524616Z",
+      "matcher-status": true
+    }
+  ]
+]
