@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 15 Oct 2023 02:36:40",
+	"@generated": "Sun, 22 Oct 2023 02:33:32",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -135,7 +135,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nstyle-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -178,7 +178,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -221,7 +221,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -350,7 +350,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "97"
+					"sourceid": "147"
 				},
 				{
 					"pluginid": "10044",
@@ -409,7 +409,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1240"
+					"sourceid": "1244"
 				},
 				{
 					"pluginid": "10110",
@@ -460,7 +460,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2103"
+					"sourceid": "2332"
 				},
 				{
 					"pluginid": "10063",
@@ -545,7 +545,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -553,7 +553,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -668,7 +668,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.js",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -682,7 +682,34 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "97"
+					"sourceid": "147"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.modernisation.gouv.fr/actualites/un-appel-projets-participation-citoyenne-pour-les-territoires",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1589546272",
+							"otherinfo": "1589546272, which evaluates to: 2020-05-15 12:37:52"
+						}
+					],
+					"count": "1",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1589546272, which evaluates to: 2020-05-15 12:37:52</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "2898"
 				},
 				{
 					"pluginid": "10094",
@@ -707,8 +734,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "form-xKpbiEZyqVbNVbpp8AgHIAhlXH95no7Y7awoSKwztec",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD\\x0012\uFFFDn!\\x0019\u02A5[5V\uFFFD\uFFFD \\x001c\uFFFD!\uFFFDq\uFFFD\uFFFDz;c\uFFFD\uFFFD\uFFFD\"\uFFFD\uFFFD\u05DC"
+							"evidence": "form-AxpJD3wV-EVwzHFqe3h7grWek_Tn5yaWKhaDLv0sZkU",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD\\x000ci$=\uFFFDW\uFFFD\\x0015\uFFFD1\u0169\uFFFD\uFFFD\uFFFD\n\uFFFDzO\u04DF\uFFFD\uFFFDX\uFFFDZ\\x000c\uFFFD\uFFFD\uFFFD\uFFFD\\x0014"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
@@ -751,14 +778,6 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -776,6 +795,14 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -816,7 +843,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1193"
+					"sourceid": "1197"
 				},
 				{
 					"pluginid": "10027",
@@ -885,14 +912,6 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "admin",
-							"otherinfo": "The following pattern was used: \\bADMIN\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -910,6 +929,14 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -992,14 +1019,6 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1017,6 +1036,14 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1057,7 +1084,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "186"
+					"sourceid": "179"
 				},
 				{
 					"pluginid": "10015",
