@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 22 Oct 2023 02:06:00",
+	"@generated": "Sun, 29 Oct 2023 02:07:52",
 	"site":[ 
 		{
 			"@name": "https://www.entreprises.gouv.fr",
@@ -33,7 +33,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-keys--3\" \"edit-submit\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-keys\" \"edit-submit\" ]."
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/core/*.css$",
@@ -73,7 +73,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-keys--3\" \"edit-submit\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-keys\" \"edit-submit\" ]."
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/profiles/*.css$",
@@ -97,7 +97,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/fr/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys--3\" \"edit-submit\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
 						}
 					],
 					"count": "10",
@@ -288,7 +288,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/profiles/*.css",
+							"uri": "https://www.entreprises.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -296,7 +296,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/profiles/*.css$",
+							"uri": "https://www.entreprises.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -326,7 +326,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "549"
+					"sourceid": "220"
 				},
 				{
 					"pluginid": "10098",
@@ -428,6 +428,33 @@
 					"sourceid": "3"
 				},
 				{
+					"pluginid": "90022",
+					"alertRef": "90022",
+					"alert": "Application Error Disclosure",
+					"name": "Application Error Disclosure",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.entreprises.gouv.fr/fr/node/1691796",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "HTTP/1.1 500 Internal Server Error",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "984"
+				},
+				{
 					"pluginid": "10044",
 					"alertRef": "10044",
 					"alert": "Big Redirect Detected (Potential Sensitive Information Leak)",
@@ -470,12 +497,12 @@
 							"otherinfo": "Location header URI length: 41 [https://www.entreprises.gouv.fr/fr/search].\nPredicted response size: 341.\nResponse Body Length: 410."
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/index.php/user/logout/",
+							"uri": "https://www.entreprises.gouv.fr/index.php/user/login/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "Location header URI length: 44 [https://www.entreprises.gouv.fr/index.php/fr].\nPredicted response size: 344.\nResponse Body Length: 422."
+							"otherinfo": "Location header URI length: 45 [https://www.entreprises.gouv.fr/fr/user/login].\nPredicted response size: 345.\nResponse Body Length: 426."
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/index.php/user/password/",
@@ -540,7 +567,34 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "49"
+					"sourceid": "8"
+				},
+				{
+					"pluginid": "10017",
+					"alertRef": "10017",
+					"alert": "Cross-Domain JavaScript Source File Inclusion",
+					"name": "Cross-Domain JavaScript Source File Inclusion",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.entreprises.gouv.fr/fr/node/1691796",
+							"method": "GET",
+							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
+							"attack": "",
+							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
+							"otherinfo": ""
+						}
+					],
+					"count": "1",
+					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
+					"otherinfo": "",
+					"reference": "",
+					"cweid": "829",
+					"wascid": "15",
+					"sourceid": "984"
 				},
 				{
 					"pluginid": "10063",
@@ -724,7 +778,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/profiles/*.css",
+							"uri": "https://www.entreprises.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -732,7 +786,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/profiles/*.css$",
+							"uri": "https://www.entreprises.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -762,7 +816,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "549"
+					"sourceid": "220"
 				},
 				{
 					"pluginid": "10096",
@@ -787,24 +841,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1414358328",
-							"otherinfo": "1414358328, which evaluates to: 2014-10-26 21:18:48"
-						},
-						{
-							"uri": "https://www.entreprises.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1414916304",
-							"otherinfo": "1414916304, which evaluates to: 2014-11-02 08:18:24"
-						},
-						{
-							"uri": "https://www.entreprises.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1414924646",
-							"otherinfo": "1414924646, which evaluates to: 2014-11-02 10:37:26"
+							"evidence": "1414040077",
+							"otherinfo": "1414040077, which evaluates to: 2014-10-23 04:54:37"
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/",
@@ -813,6 +851,14 @@
 							"attack": "",
 							"evidence": "1450272068",
 							"otherinfo": "1450272068, which evaluates to: 2015-12-16 13:21:08"
+						},
+						{
+							"uri": "https://www.entreprises.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1487333902",
+							"otherinfo": "1487333902, which evaluates to: 2017-02-17 12:18:22"
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/",
@@ -835,24 +881,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1414358328",
-							"otherinfo": "1414358328, which evaluates to: 2014-10-26 21:18:48"
-						},
-						{
-							"uri": "https://www.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1414916304",
-							"otherinfo": "1414916304, which evaluates to: 2014-11-02 08:18:24"
-						},
-						{
-							"uri": "https://www.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1414924646",
-							"otherinfo": "1414924646, which evaluates to: 2014-11-02 10:37:26"
+							"evidence": "1414040077",
+							"otherinfo": "1414040077, which evaluates to: 2014-10-23 04:54:37"
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/fr",
@@ -867,11 +897,19 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
+							"evidence": "1487333902",
+							"otherinfo": "1487333902, which evaluates to: 2017-02-17 12:18:22"
+						},
+						{
+							"uri": "https://www.entreprises.gouv.fr/fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
 							"evidence": "1669107900",
 							"otherinfo": "1669107900, which evaluates to: 2022-11-22 09:05:00"
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1385199062, which evaluates to: 2013-11-23 09:31:02</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
@@ -1011,7 +1049,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "574"
+					"sourceid": "536"
 				},
 				{
 					"pluginid": "10027",
@@ -1367,7 +1405,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1410,7 +1448,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1453,7 +1491,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "90005",
@@ -1496,7 +1534,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "3"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10049",
@@ -1549,14 +1587,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.entreprises.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=300",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.entreprises.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -1566,6 +1596,14 @@
 						},
 						{
 							"uri": "https://www.entreprises.gouv.fr/core/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=300",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.entreprises.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
