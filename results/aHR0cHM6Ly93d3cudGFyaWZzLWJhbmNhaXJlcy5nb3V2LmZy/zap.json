@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 29 Oct 2023 01:18:30",
+	"@generated": "Sun, 5 Nov 2023 01:23:31",
 	"site":[ 
 		{
 			"@name": "https://www.tarifs-bancaires.gouv.fr",
@@ -114,7 +114,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10055",
@@ -143,6 +143,14 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -151,7 +159,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -186,6 +194,14 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "script-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -194,13 +210,13 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10055",
@@ -229,6 +245,14 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/user/login/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -237,13 +261,13 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10038",
@@ -328,7 +352,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css$",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -465,7 +489,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10020",
@@ -492,7 +516,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "280"
+					"sourceid": "275"
 				},
 				{
 					"pluginid": "90003",
@@ -577,7 +601,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -599,7 +623,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10003",
@@ -626,7 +650,7 @@
 					"reference": "<p>https://github.com/jquery/jquery/issues/2432</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p>https://github.com/jquery/jquery.com/issues/162</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "250"
+					"sourceid": "243"
 				},
 				{
 					"pluginid": "10017",
@@ -733,7 +757,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10110",
@@ -776,7 +800,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "253"
+					"sourceid": "245"
 				},
 				{
 					"pluginid": "10063",
@@ -861,7 +885,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -883,7 +907,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10035",
@@ -960,7 +984,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -968,7 +992,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css$",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1035,23 +1059,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_BG3wSdRj97zl3k-bgsJgsHfdY6uwUA-57dgCjoZoKo8.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_MRdvkC2u4oGsp5wVxBG1pGV5NrCPW3mssHxIn6G9tGE.js",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/files/js/js_mU9FH0Xz6-RQW4-2LXMomS4NKdzgapjHC90Jxgw65Rk.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1099,6 +1107,22 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sites/all/themes/comparateur/images/croix.png",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sites/all/themes/comparateur/images/logo_CCSF-transp.png",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/sites/all/themes/comparateur/logo.png",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -1113,7 +1137,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "249"
+					"sourceid": "238"
 				},
 				{
 					"pluginid": "10094",
@@ -1198,7 +1222,7 @@
 							"otherinfo": "~\uFFFD\u07CAW\uFFFD\uFFFD\uFFFD,\uFFFD\uFFFD,\uFFFDT\\x001ae\uFFFD\u0567\\x0003\uFFFD\uFFFDcjv\u0542J\uFFFDS\uFFFDC*]\uFFFD\"S\uFFFD\\x001e\uFFFD\uFFFD\uFFFDBw8"
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1220,7 +1244,7 @@
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10027",
@@ -1319,7 +1343,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10109",
@@ -1404,7 +1428,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1426,7 +1450,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10015",
@@ -1440,14 +1464,6 @@
 					"instances":[ 
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1472,6 +1488,14 @@
 						},
 						{
 							"uri": "https://www.tarifs-bancaires.gouv.fr/?q=user/password/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/contactez-nous",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1546,7 +1570,15 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1560,15 +1592,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "108"
 				},
 				{
 					"pluginid": "90005",
@@ -1581,7 +1621,15 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1595,15 +1643,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "108"
 				},
 				{
 					"pluginid": "90005",
@@ -1616,7 +1672,15 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1630,15 +1694,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "108"
 				},
 				{
 					"pluginid": "90005",
@@ -1651,7 +1723,15 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.css",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1665,15 +1745,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.tarifs-bancaires.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "108"
 				},
 				{
 					"pluginid": "10112",
@@ -1690,7 +1778,7 @@
 							"method": "POST",
 							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
 							"attack": "",
-							"evidence": "0SWdeGjNQkUYbnlHjnr5-KK3VEmg06CJdqtg586U-0o",
+							"evidence": "GUgnefnD1oVkakB8z6aSRD0V3o-7fLvldhzDEFoC5HQ",
 							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
 						},
 						{
@@ -1698,7 +1786,7 @@
 							"method": "POST",
 							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
 							"attack": "",
-							"evidence": "Fm7rwD1Ye1Gc7FPgqy95kT-VwOtS9-0yLvZ3pAp0ch0",
+							"evidence": "phMpBfWjh5FlPL5IVQajf-Qk4wGh5g7vGEQ4O04GmRU",
 							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
 						},
 						{
@@ -1706,15 +1794,7 @@
 							"method": "POST",
 							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
 							"attack": "",
-							"evidence": "Udqf6hneecsPAxh6w5BCKqYfPw1iwhxjBh65ICgk_K8",
-							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password?name=ZAP",
-							"method": "POST",
-							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
-							"attack": "",
-							"evidence": "AjdmQ6aeReZQyqmLT2rSk6LiuUK8f5JlOJR0Ku0zyto",
+							"evidence": "CUQxyyKz_KbOR-fQ3N4SMftDNUg9USAN94hQvrT9xUo",
 							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
 						},
 						{
@@ -1722,7 +1802,7 @@
 							"method": "POST",
 							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
 							"attack": "",
-							"evidence": "0SWdeGjNQkUYbnlHjnr5-KK3VEmg06CJdqtg586U-0o",
+							"evidence": "GUgnefnD1oVkakB8z6aSRD0V3o-7fLvldhzDEFoC5HQ",
 							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
 						},
 						{
@@ -1730,7 +1810,7 @@
 							"method": "POST",
 							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
 							"attack": "",
-							"evidence": "Fm7rwD1Ye1Gc7FPgqy95kT-VwOtS9-0yLvZ3pAp0ch0",
+							"evidence": "phMpBfWjh5FlPL5IVQajf-Qk4wGh5g7vGEQ4O04GmRU",
 							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
 						},
 						{
@@ -1738,25 +1818,17 @@
 							"method": "POST",
 							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
 							"attack": "",
-							"evidence": "Udqf6hneecsPAxh6w5BCKqYfPw1iwhxjBh65ICgk_K8",
-							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
-						},
-						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/user/password?name=ZAP",
-							"method": "POST",
-							"param": "SESS50abf2ec8eea02be0eab9cac4eb1f4c7",
-							"attack": "",
-							"evidence": "AjdmQ6aeReZQyqmLT2rSk6LiuUK8f5JlOJR0Ku0zyto",
+							"evidence": "CUQxyyKz_KbOR-fQ3N4SMftDNUg9USAN94hQvrT9xUo",
 							"otherinfo": "\ncookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7"
 						}
 					],
-					"count": "8",
+					"count": "6",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SESS50abf2ec8eea02be0eab9cac4eb1f4c7</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "288"
+					"sourceid": "291"
 				},
 				{
 					"pluginid": "10049",
@@ -1791,7 +1863,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "95"
 				},
 				{
 					"pluginid": "10049",
@@ -1860,7 +1932,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.tarifs-bancaires.gouv.fr/modules/*.css",
+							"uri": "https://www.tarifs-bancaires.gouv.fr/misc/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2045,7 +2117,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "266"
+					"sourceid": "270"
 				}
 			]
 		}
