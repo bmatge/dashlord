@@ -1,6 +1,43 @@
 [
   [
     {
+      "template": "dns/caa-fingerprint.yaml",
+      "template-url": "https://templates.nuclei.sh/public/caa-fingerprint",
+      "template-id": "caa-fingerprint",
+      "template-path": "/home/runner/nuclei-templates/dns/caa-fingerprint.yaml",
+      "info": {
+        "name": "CAA Record",
+        "author": [
+          "pdteam"
+        ],
+        "tags": [
+          "dns",
+          "caa"
+        ],
+        "description": "A CAA record was discovered. A CAA record is used to specify which certificate authorities (CAs) are allowed to issue certificates for a domain.",
+        "reference": [
+          "https://support.dnsimple.com/articles/caa-record/#whats-a-caa-record"
+        ],
+        "severity": "info",
+        "metadata": {
+          "max-request": 1
+        },
+        "classification": {
+          "cve-id": null,
+          "cwe-id": [
+            "cwe-200"
+          ]
+        }
+      },
+      "type": "dns",
+      "host": "precurseurschimiques.entreprises.gouv.fr.",
+      "matched-at": "precurseurschimiques.entreprises.gouv.fr",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 32019\n;; flags: rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;precurseurschimiques.entreprises.gouv.fr.\tIN\t CAA\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 32019\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 512\n\n;; QUESTION SECTION:\n;precurseurschimiques.entreprises.gouv.fr.\tIN\t CAA\n\n;; AUTHORITY SECTION:\nentreprises.gouv.fr.\t1800\tIN\tSOA\tdns1.finances.gouv.fr. dnsmaster.finances.gouv.fr. 490 1200 300 1209600 3600\n",
+      "timestamp": "2023-11-05T02:21:40.677514491Z",
+      "matcher-status": true
+    },
+    {
       "template": "dns/txt-fingerprint.yaml",
       "template-url": "https://templates.nuclei.sh/public/txt-fingerprint",
       "template-id": "txt-fingerprint",
@@ -35,9 +72,9 @@
       "extracted-results": [
         "\"google-site-verification=qr8GbPACSb7KPwC_1lgN6Dib6Ua0Z7AhS-hQhyUsju8\""
       ],
-      "request": ";; opcode: QUERY, status: NOERROR, id: 26352\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;precurseurschimiques.entreprises.gouv.fr.\tIN\t TXT\n",
-      "response": ";; opcode: QUERY, status: NOERROR, id: 26352\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;precurseurschimiques.entreprises.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\nprecurseurschimiques.entreprises.gouv.fr.\t600\tIN\tTXT\t\"google-site-verification=qr8GbPACSb7KPwC_1lgN6Dib6Ua0Z7AhS-hQhyUsju8\"\n",
-      "timestamp": "2023-10-29T02:16:35.49499197Z",
+      "request": ";; opcode: QUERY, status: NOERROR, id: 3317\n;; flags: rd ad; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 4096\n\n;; QUESTION SECTION:\n;precurseurschimiques.entreprises.gouv.fr.\tIN\t TXT\n",
+      "response": ";; opcode: QUERY, status: NOERROR, id: 3317\n;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version 0; flags:; udp: 1232\n\n;; QUESTION SECTION:\n;precurseurschimiques.entreprises.gouv.fr.\tIN\t TXT\n\n;; ANSWER SECTION:\nprecurseurschimiques.entreprises.gouv.fr.\t600\tIN\tTXT\t\"google-site-verification=qr8GbPACSb7KPwC_1lgN6Dib6Ua0Z7AhS-hQhyUsju8\"\n",
+      "timestamp": "2023-11-05T02:21:41.638291238Z",
       "matcher-status": true
     },
     {
@@ -63,9 +100,9 @@
       "host": "https://precurseurschimiques.entreprises.gouv.fr/fr",
       "matched-at": "https://precurseurschimiques.entreprises.gouv.fr/fr",
       "request": "GET /fr HTTP/1.1\r\nHost: precurseurschimiques.entreprises.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nAccept: */*\r\nAccept-Language: en\r\nAccept-Encoding: gzip\r\n\r\n",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 162\r\nContent-Type: text/html\r\nDate: Sun, 29 Oct 2023 02:17:27 GMT\r\nLocation: https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\r\nServer: nginx\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 162\r\nContent-Type: text/html\r\nDate: Sun, 05 Nov 2023 02:22:28 GMT\r\nLocation: https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\r\nServer: nginx\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "80.87.236.17",
-      "timestamp": "2023-10-29T02:17:27.776779129Z",
+      "timestamp": "2023-11-05T02:22:28.610343793Z",
       "curl-command": "curl -X 'GET' -H 'Accept: */*' -H 'Accept-Language: en' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://precurseurschimiques.entreprises.gouv.fr/fr'",
       "matcher-status": true
     },
@@ -105,9 +142,9 @@
       "host": "https://precurseurschimiques.entreprises.gouv.fr/fr",
       "matched-at": "https://precurseurschimiques.entreprises.gouv.fr/fr/",
       "request": "POST /fr/ HTTP/1.1\r\nHost: precurseurschimiques.entreprises.gouv.fr\r\nUser-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)\r\nConnection: close\r\nContent-Length: 27\r\nContent-Type: application/x-www-form-urlencoded\r\nAccept-Encoding: gzip\r\n\r\n_=<script>alert(1)</script>",
-      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 162\r\nContent-Type: text/html\r\nDate: Sun, 29 Oct 2023 02:18:13 GMT\r\nLocation: https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\r\nServer: nginx\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
+      "response": "HTTP/1.1 301 Moved Permanently\r\nConnection: close\r\nContent-Length: 162\r\nContent-Type: text/html\r\nDate: Sun, 05 Nov 2023 02:23:11 GMT\r\nLocation: https://www.entreprises.gouv.fr/fr/echanges-commerciaux-et-reglementation/precurseurs-chimiques-de-drogues/la-mncpc-missions-et-organisation\r\nServer: nginx\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\n\r\n<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body>\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n",
       "ip": "80.87.236.17",
-      "timestamp": "2023-10-29T02:18:13.542949959Z",
+      "timestamp": "2023-11-05T02:23:11.76457505Z",
       "curl-command": "curl -X 'POST' -d '_=<script>alert(1)</script>' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Host: precurseurschimiques.entreprises.gouv.fr' -H 'User-Agent: Nuclei - Open-source project (github.com/projectdiscovery/nuclei)' 'https://precurseurschimiques.entreprises.gouv.fr/fr/'",
       "matcher-status": true
     },
@@ -137,7 +174,7 @@
         "Gandi"
       ],
       "ip": "80.87.236.17",
-      "timestamp": "2023-10-29T02:19:51.569015072Z",
+      "timestamp": "2023-11-05T02:24:47.49552338Z",
       "matcher-status": true
     },
     {
@@ -163,29 +200,29 @@
       "host": "precurseurschimiques.entreprises.gouv.fr",
       "matched-at": "precurseurschimiques.entreprises.gouv.fr:443",
       "extracted-results": [
-        "www.telecom.gouv.fr",
-        "conseil-national-industrie.gouv.fr",
-        "rapport-activite.entreprises.gouv.fr",
+        "cnac2.entreprises.gouv.fr",
+        "entreprises.gouv.fr",
         "sbdu.entreprises.gouv.fr",
-        "sisse.entreprises.gouv.fr",
         "wikiprec.entreprises.gouv.fr",
         "www.entreprises.gouv.fr",
-        "entreprises.gouv.fr",
+        "conseil-national-industrie.gouv.fr",
         "outils.entreprises.gouv.fr",
-        "www.conseil-national-industrie.gouv.fr",
-        "www.servicesalapersonne.gouv.fr",
         "servicesalapersonne.gouv.fr",
+        "sisse.entreprises.gouv.fr",
         "www.sisse.entreprises.gouv.fr",
-        "www.precurseurschimiques.entreprises.gouv.fr",
-        "www.sbdu.entreprises.gouv.fr",
-        "cnac.entreprises.gouv.fr",
-        "cnac2.entreprises.gouv.fr",
+        "www.telecom.gouv.fr",
         "precurseurschimiques.entreprises.gouv.fr",
+        "rapport-activite.entreprises.gouv.fr",
+        "www.metrologie.entreprises.gouv.fr",
+        "www.sbdu.entreprises.gouv.fr",
+        "www.servicesalapersonne.gouv.fr",
+        "cnac.entreprises.gouv.fr",
         "www.cnac.entreprises.gouv.fr",
-        "www.metrologie.entreprises.gouv.fr"
+        "www.conseil-national-industrie.gouv.fr",
+        "www.precurseurschimiques.entreprises.gouv.fr"
       ],
       "ip": "80.87.236.17",
-      "timestamp": "2023-10-29T02:19:51.569178973Z",
+      "timestamp": "2023-11-05T02:24:47.495667468Z",
       "matcher-status": true
     },
     {
@@ -215,7 +252,7 @@
         "tls12"
       ],
       "ip": "80.87.236.17",
-      "timestamp": "2023-10-29T02:19:55.752342746Z",
+      "timestamp": "2023-11-05T02:24:51.129073454Z",
       "matcher-status": true
     },
     {
@@ -245,7 +282,7 @@
         "tls13"
       ],
       "ip": "80.87.236.17",
-      "timestamp": "2023-10-29T02:19:56.353906043Z",
+      "timestamp": "2023-11-05T02:24:51.443297271Z",
       "matcher-status": true
     }
   ]
