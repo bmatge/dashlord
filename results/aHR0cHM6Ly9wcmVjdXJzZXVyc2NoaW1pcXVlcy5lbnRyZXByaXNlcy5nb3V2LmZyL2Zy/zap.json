@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 26 Nov 2023 02:19:08",
+	"@generated": "Sun, 3 Dec 2023 02:15:21",
 	"site":[ 
 		{
 			"@name": "https://precurseurschimiques.entreprises.gouv.fr",
@@ -271,6 +271,41 @@
 					"sourceid": "3"
 				},
 				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1445345092",
+							"otherinfo": "1445345092, which evaluates to: 2015-10-20 12:44:52"
+						},
+						{
+							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1445345092",
+							"otherinfo": "1445345092, which evaluates to: 2015-10-20 12:44:52"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1445345092, which evaluates to: 2015-10-20 12:44:52</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "3"
+				},
+				{
 					"pluginid": "10094",
 					"alertRef": "10094-3",
 					"alert": "Base64 Disclosure",
@@ -445,14 +480,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -469,7 +496,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -496,14 +523,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -520,7 +539,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -547,14 +566,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -571,7 +582,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -598,14 +609,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://precurseurschimiques.entreprises.gouv.fr/fr",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://precurseurschimiques.entreprises.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -622,7 +625,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
