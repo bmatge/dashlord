@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 3 Dec 2023 03:01:54",
+	"@generated": "Sun, 10 Dec 2023 03:00:34",
 	"site":[ 
 		{
 			"@name": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr",
@@ -20,6 +20,22 @@
 					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-toutes-les-initiatives-page-1\" action=\"/toutes-les-initiatives\" method=\"get\" id=\"views-exposed-form-toutes-les-initiatives-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-submit-toutes-les-initiatives\" ]."
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-toutes-les-initiatives-page-1\" action=\"/toutes-les-initiatives\" method=\"get\" id=\"views-exposed-form-toutes-les-initiatives-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-sort-bef-combine-created-asc\" \"edit-sort-bef-combine-created-desc\" \"edit-sort-bef-combine-title-asc\" \"edit-sort-bef-combine-title-desc\" ]."
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=1",
 							"method": "GET",
 							"param": "",
@@ -61,22 +77,6 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=3",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-toutes-les-initiatives-page-1\" action=\"/toutes-les-initiatives\" method=\"get\" id=\"views-exposed-form-toutes-les-initiatives-page-1\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-sort-bef-combine-created-asc\" \"edit-sort-bef-combine-created-desc\" \"edit-sort-bef-combine-title-asc\" \"edit-sort-bef-combine-title-desc\" ]."
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=4",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-toutes-les-initiatives-page-1\" action=\"/toutes-les-initiatives\" method=\"get\" id=\"views-exposed-form-toutes-les-initiatives-page-1\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-submit-toutes-les-initiatives\" ]."
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=4",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -130,7 +130,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "349"
+					"sourceid": "290"
 				},
 				{
 					"pluginid": "10055",
@@ -151,7 +151,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/search/",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -173,7 +173,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10055",
@@ -194,7 +194,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/search/",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -216,7 +216,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10055",
@@ -237,7 +237,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/search/",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -259,7 +259,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10038",
@@ -344,14 +344,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -360,23 +352,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -392,13 +368,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "15",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "111"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "10098",
@@ -505,7 +481,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10099",
@@ -524,15 +500,23 @@
 							"attack": "",
 							"evidence": "<?=q?hQ0\n_AN:8gH<u]g.c=\\=2`DM&_D01P:jMOU8\"BVia:_+!6jnX4T~>\rendstream\rendobj\r1639 0 obj\r<</BitsPerComponent 8/ColorSpace 1310 0 R/Filter[/ASCII85Decode/FlateDecode]/Height 105/Length 2123/Width 74>>stream\r\n8;Z]\"5AoO?'ZOD^ETJZKm0RA:^ge>:_,bo7<0j#I)u11PR;0f\"HO7UEk]%!YGE=:_\n*?ZQ0POFY11QDo;)Q*iV+i2QN`qni<ml`j4>&1*_'Z1L\"\\:/-+(tZ[8*_,p#2\\?2.\nj#-J4s0j)H<V=,#dSrrk'#2.TkH:u#/<,jZl8t)qK6`&m'Zd3?%coH'3?n$kj]CaU\nDs/=CWfaek#O<fuE-Y71g8\\:F'1.+k0CM'oUl7*Li4UFDf$tDB^dIk[A6n]]\"m8%O\n/DK0qJ?,\\]0G+(Q'S#!CcN?KTPBCF$\\O&pad*d,[:QPF1`rI.4!_:\\Io;M)AVUu<s\n,<[BR6jDQI2qTMD)7`cG7A9AC2WbUqp-.?o+rQUHEl7`f.V'-/OTmQP_!&_27-&BU\nStbHT2PHpW/u4TgGgEieT%N!9;UnJhl!:@-@r(mi+lO&483G9O&##;[19XWE-BJRk\na6[f!iRN;@@,hrb#o.K:F.'.%B(s'2%-Ja8Y>H5cR1qCeG!\"tu2H#6nTX`oA2hT3h\n:f3P\\Tr1L,nM<Z];)s9Nq_hJ\"mtX^5hm)i&$8\\&WG06Nr[kOnpQq?Wc>i[ffA2qs&\nP4'FV7pL?7(K:N5YGW^8bajepWH6)h6tnWb1/M\\'VjUf6DsR@n4*s!5NQBCQWZ4O-\nG:$'4?F`8=o`qfqb\\eWFnR[n(8ZR:c8j(KgT;q(m&dD:m\"JF\\.RcI@Aq:(7<CqZ:B\nm\\1AI2c#jO@X<sgVH%es.9&4e[dtYq]r7cr&>t70a\\O^40\"EZVV%0ibn<j*Oj1]os\nVjL8G*<.p8QdHs@G)EmdVj!iXq:%j497l6O,<@,#CT&h'bN[[<QX.(NA\"E7pO'/q\"\nPHk*fI\\()%'K4ZE_2\"\"a:Wf#i/Co&%Yp&%Ll8%L#Lp8_1#ZiSt3N+b[mh'%c`=t,N\nGr+$&/uR`1%a.MV04i6l;bX'erOC=q;Th-V2B0st.$rRj+>c`kEC2d`K*?pkh6q,O\nT;&3[(8VF<<OGJ`EgH=[H`WAY--AhaeT[lEj.>il'dD;K)?oHAZQPlEW5K\">UoGl@\nV`\"ksi,X5HM=!KM8JQ_6B6&?.:#$`@UXXZ_Z=0G06r0aT<O4Vk4!N?YFg4HDJ1>Rs\na_mV/WTT\\8coLrDY2iDZG7I>;:$EWXP\\\\fBoj[jCdYoq[9aR>$*(a/a>abNsR\\E@@\nN'+;b.38<gT8ZCu\\s!'/27.(QEa<(LHi)a.<in[hb4j[0AYt,;*7EF*XMPi#OS0<,\n!bKtWR%.(3KZpfbl65?=7YR./=f_-HB?V$g=64HO1g2%\"Y<r3(REd;R-03M`:Rf`u\n9CrepI%]uR3NKg0H!BURc^+u;P@0!@j6CKH,`Sr:@*6FT9p)[oc7+S7N-N&mfD@aq\ne:l0JFisiDH193I9X)1^AUcrK5Z4Y7V2OG!@G+8/a\\)Ug)`J8C_UrkhKt*@FE0H_(\n6@;6tBq^hKAN[XWb9E,qWDbl(T<?f*Z=(5d_uugjB=ZM>',6fhOmV4)Fq.gKP!M65\n.](a+PJO%g.\"SU2%2M9O?_1$p\\)fq,'a(A@^*XS_(,kq5/d2[0$C6>`H_o5(Gs5Y_\n]/@W)SoVnqQm<l$F+B?$oEVW52e\"?Ao)*O;N\\2&6nMfXO^]'0HIA?jCc?[MFbH>a%\n(Z)75?0(eY#(MOn5<k`*Ab)BOh>E9El:im1DFU@1-G0rdDg!^nc_m`NIT:4Z-6uST\nmVD\"+k8`+HkrQgcb`OAsY-rrL*m[=<>_pj6XZ&T-pl7KsR5%.m;YnL!HQb.42365H\nE<E>$.AbuCYdZoi5XoR6/-39uPn.>EJhQM,-[?EY@AkHim:9,ZR2!9?AIaN4oCO*a\nA9#bD.@H]uZ2dZT^<U,4`d!WCZU+;'`7p[M&+OfdH]P=_\\3>T1A='#:2TViHcc\"u+\n@6S\\)iHDdI$Y&jhBuNJEoUb6)s#PgI'cFHNl\"BPbp+WB#*UZ.7fBqi7VO5tJL`\"/.\n$<LhC*Pc37l%uPshKSE!@58onBCqH[;?nNL<o@`#kLC/h<i]]o0%c#KeYd7#[E\\TD\n:TM$%;(kb6in]KKNfM[\\Ws'#E02WJB>&D(Hkm]Bg'm%&mn>,juQ[-c]SoW)'h\"Up)\nhZEihSD\"D~>\rendstream\rendobj\r1640 0 obj\r<</BitsPerComponent 8/ColorSpace 1310 0 R/Filter[/ASCII85Decode/FlateDecode]/Height 105/Length 917/Width 74>>stream\r\n8;Z\\74dMQk&C..-gYaoY6?4;0js$hL'iOE\"Q8IA>SSu;E>Im>8_-A?4JNt@J/)`V*\nm&)d3?l4=?N+PO^Q<gh#/kXQ`YZapNWK_HSEI-,tTYQcOK#08I$m:6\\\"unsO:Htm5\n(l0;lS#1N,,R3(+:D[f`%o=Hu\"mGeTG+?MbTemYn5@(298U#)lq]c7I?5om@M`@9q\n'L)$_iQLI!3CRQplrQB.9)+FQ)d=\\a4*:7N$t\"^aM8gqq-YBCt>l!m&+Y6BX@BU@/\npR!ZaAl#X`Ql8GB8>k=3jKoXgNG[@JcXgih/M'X,lOZR)KMrF]h)J)h\\nEi77,)3d\n[AYfC$4]k(i\"QMbO(sYG-gk4Flq\\N?Y=j;c<bScu'mXdNAEAR]*la+4oK7-bq7)IC\n[@ejd]3uW1WY&/1.@\"=)j1&n6?391L\"&;U6Cue!q7D3uVoA_feO,[gJm1/H/3mk_7\n_>>i!*l(@L$_@aeC>sQbT+CYU1`D-]F5IH^'A>0f3R:QKb]'jo@hX&2S3gYo:1O*C\n4pMGh@q,@Z]5CO&^-99<@d7H!:0fD[bro91gPu&.Mk8X&S@5.Ia5'iXeI]Go>.ACX\nVQT,*ba\\A)RU*/%Lc;=(6\"s:&a@TA8-sKZ!jo>X3\"j^AK\"O;;b64]3.?'+[U5U.b(\nFgeW)C\"BnBoog2i\"AbMH=T65q)rbE#W,kT[LgZZ$kn7Q1r^-/(,c%;UAM0H*Va1CD\n\"3^5k^QY0E>iBfk&iVeP_0[nCOU3Ei-A@7H+oU[#M@C$Y0&Dqi!`\\gPQ1Nd4P5q\"V\nSb^gLM'k9:Jq/uBO*pF6HX34W6?5DnrP#>pV[6j!cL3W<3Pic@2-,dR!__rddm5--\nKU)3r@,(X-CRU;2ANNl^VSnOZ_O1!epE0?8[d0LO[TN#,rser;!;^=oFT~>\rendstream\rendobj\r1641 0 obj\r<</BitsPerComponent 8/ColorSpace 1310 0 R/Filter[/ASCII85Decode/FlateDecode]/Height 105/Length 523/Width 74>>stream\r\n8;Z]!c#nXm%\"LE*Elo)8;D2Sn:9[B4@L>#,:>$fU#$Rq5EJt>2gDJYW5(._9-R%KU\n&;I@R5!'W`'9.k\"(KV3NM:MgC1^u</>cm8$FSQIK/J&In<1Sj%ksFRjp10Qj_jC$>\ngb!A=rHF;iCiHu!.Hm)`FJg;2?#2`G&rHI`6t;dFV*cn(@W#*&rV9E`F_!NnTY7,V\nb\"\\;2'A09\"#93,rKs+7o$04.d&bf09:?*3nc4/`+B^ZY![FgAONX,6@(dqMWmO).X\n88*gSSBQ]=Hd]']NY-0Oags7q?W+HUK1Ejhf?\"q77/orsB+dLEk(;%LW-O^5SasSH\n?W..hFd`a?L2VuXg3';-`*?,WRj4ih/m0IG3Xrd`Ylfk74RT%V3DHaul^0aF\\(hh$\n:ALPdNjH.MndHj%UO/MG[=m%B0d[pS`l\"4.MN%,$fd_E889fJAE.2gLm\\W.b<pojK\nP7lZha\\J<ClXZPLjWSM,B5^h15C5%c^=Q98c\\Z'IL1(pR@2S-\\p_a)'nFU,~>\rendstream\rendobj\r1642 0 obj\r<</BitsPerComponent 8/ColorSpace 1310 0 R/Filter[/ASCII85Decode/FlateDecode]/Height 105/Length 628/Width 74>>stream\r\n8;YPlD3i$]$p;D`7K;#PX>f3A%R[G+mM=&+e@-\\_5)$H?TYi#gme;J)f&$CT[n\"(#\ncZ[uZg\\&s#2uJ-`B5`=6[U'\\U\";lR>,>gjepW)mKs83DXRB=(!=D#iF1IhImoFB<;\n%TYDBnm;6OMD9lu`k!6$*Hh5T5aK,<d`N2'%S#C,kKeG]L8MFb+>Z:RQcrMC];K]a\n&E^dQ@Jp/1.(cAt3s4R-XGYR5eR4F+NNpW;I&:p.c=2T!*qctim_rr*CmNZ4k3q7@\nAb>Bc4?<i.`DW;)/?b8`ELcCr1LX8`L%P>K&a2_%Z@OQU7`G1V?aFBq<g;8P_#++\"\na%*FGT1WXb'H_$Qq\"c[?`G;BLQX1HR4h:K\"jF&=s:\"ALO($+I)@%*d*8Pc/6d?40>\nFa^&]0l*f4d^3L?U\"PA,Fo3uV=.I6D8*buTj>&77Ho5@UbB_FY6aQW:QDA\\KNHC,q\nBA2[kCq^FJ?[A;E*\"C/R4HGbMQ\"2Q:G\\lnn2SdO(gro2oWO549cWsV%QTjZP6G7;C\n25&?,,ff()J@/EP*`8:$D`cBM'N=p/HU]el>nm[LcK=p0]ajq?ZmGB%hV20]7]t7$\n_\\nD9S#$Gg]I-df_@st2cIUFi!&3dmiW~>\rendstream\rendobj\r1643 0 obj\r<</BitsPerComponent 8/ColorSpace 1310 0 R/Filter[/ASCII85Decode/FlateDecode]/Height 105/Length 412/Width 74>>stream\r\n8;Z]\";%A4$%#3T%h?A;t0\"]GiY^>m#lg@WQ1DrYbgG!aU,ka$kV-q8,UnG-[JAiI!\n)u\"XDiZj?D_^lQ=hZLs^K2X#01-Ar;.,p&^K%7u>(8h;5:q3sZ;ieXM*\\W:7^1$#6\nEb#o?C8P&D.tA?IYR36ga8-?Y[SU=bXHBaX`>!nE@g,0.0)^PG%l@#@%F&Ej:Qd.d\n?/?S\\h0.71BCbP5)Z!l_K<Wcrc^>j'V*!ME4.]#>RC`2t1F^ia.Q/[FfmZ\\E2gfLL\n)@D[!&;7+bo!b-EY'FU\\92CW((r7r\\n,L!OrcQ%liBA4F(M]Z!J#1g9cO$L?krSX@\nI_u]Xda'\"JN4jdHB;oNsGIfZHRG4E%B!FVt;A#sZ8,N8hJhLI_<ecWcYBDA'loJi7\nCsK=Jg3WfSjV^J~>\rendstream\rendobj\r1644 0 obj\r<</Names[(18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21619:784)[86 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21625:785)[97 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21629:786)[153 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21633:787)[153 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21637:788)[261 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21641:789)[284 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21645:790)[386 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21649:791)[386 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21653:792)[405 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21657:793)[494 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21661:794)[560 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21665:795)[560 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21669:796)[568 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21674:797)[594 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21678:798)[615 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21682:799)[707 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21686:800)[707 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21690:801)[716 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21694:802)[728 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21698:803)[730 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21702:804)[865 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21706:805)[918 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21710:806)[991 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21715:807)[1079 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21719:808)[1113 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21723:809)[1120 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21727:810)[1163 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21731:811)[1200 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21735:812)[1200 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21739:813)[1202 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.21743:814)[1234 0 R/Fit](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.462:1)[86 0 R/XYZ 70 769 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.512:8)[153 0 R/XYZ 70 724 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.515:9)[175 0 R/XYZ 140 434 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.518:10)[175 0 R/XYZ 70 209 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.544:13)[261 0 R/XYZ 140 722 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.604:385)[357 0 R/XYZ 116 639 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.607:386)[357 0 R/XYZ 116 600 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.760:35)[615 0 R/XYZ 100 765 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.828:38)[851 0 R/XYZ 140 767 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:.989:57)[1202 0 R/XYZ 70 606 null](18799-PG-FR-Ebook-Transition-ecologique-RH-2023_230419.indd:Anchor 1:477)[1163 0 R/XYZ 87 744 null]]>>\rendobj\r1645 0 obj\r<</Count 68/Kids[1646 0 R 1652 0 R]/Type/Pages>>\rendobj\r1646 0 obj\r<</Count 25/Kids[1647 0 R 1648 0 R 1649 0 R 1650 0 R 1651 0 R]/Parent 1645 0 R/Type/Pages>>\rendobj\r1647 0 obj\r<</Count 5/Kids[1666 0 R 1 0 R 45 0 R 82 0 R 86 0 R]/Parent 1646 0 R/Type/Pages>>\rendobj\r1648 0 obj\r<</Count 5/Kids[97 0 R 104 0 R 115 0 R 126 0 R 153 0 R]/Parent 1646 0 R/Type/Pages>>\rendobj\r1649 0 obj\r<</Count 5/Kids[175 0 R 196 0 R 224 0 R 261 0 R 277 0 R]/Parent 1646 0 R/Type/Pages>>\rendobj\r1650 0 obj\r<</Count 5/Kids[284 0 R 294 0 R 330 0 R 357 0 R 370 0 R]/Parent 1646 0 R/Type/Pages>>\rendobj\r1651 0 obj\r<</Count 5/Kids[372 0 R 386 0 R 398 0 R 405 0 R 420 0 R]/Parent 1646 0 R/Type/Pages>>\rendobj\r1652 0 obj\r<</Count 43/Kids[1653 0 R 1654 0 R 1655 0 R 1656 0 R 1657 0 R 1658 0 R 1659 0 R 1660 0 R]/Parent 1645 0 R/Type/Pages>>\rendobj\r1653 0 obj\r<</Count 5/Kids[443 0 R 494 0 R 519 0 R 529 0 R 548 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1654 0 obj\r<</Count 5/Kids[560 0 R 564 0 R 568 0 R 585 0 R 594 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1655 0 obj\r<</Count 5/Kids[613 0 R 615 0 R 636 0 R 660 0 R 707 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1656 0 obj\r<</Count 5/Kids[711 0 R 716 0 R 728 0 R 730 0 R 750 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1657 0 obj\r<</Count 5/Kids[839 0 R 851 0 R 865 0 R 897 0 R 918 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1658 0 obj\r<</Count 5/Kids[920 0 R 930 0 R 991 0 R 1072 0 R 1079 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1659 0 obj\r<</Count 5/Kids[1096 0 R 1113 0 R 1120 0 R 1131 0 R 1163 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1660 0 obj\r<</Count 8/Kids[1181 0 R 1200 0 R 1202 0 R 1204 0 R 1234 0 R 1276 0 R 1283 0 R 1290 0 R]/Parent 1652 0 R/Type/Pages>>\rendobj\r1661 0 obj\r<</Length 2483/Subtype/XML/Type/Metadata>>stream\r\n<?xpacket begin=\"\u00EF\u00BB\u00BF\" id=\"W5M0MpCehiHzreSzNTczkc9d\"?>",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/print/pdf/node/182",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<?={\u00F1\u00EE\u00BD`\\x000e_@\u0096\u00C8|\u00EF\u00FC\u00F4\u00D5{\u00F7b\n\u00DE\u0087\u00A1\u0080\u009A\\x0010t\u00C8l\u00F9)\u00F6\u00BB\u00B7U\u0093q\u009E#\u00E62{\"\u00D5\u00C2\u00C4\u00C0\u00CDC\u0096\u00BF\u00C2\u00C0\u00D4Xx[\u0094\\x0003 \"\u00F1G?\u00FC\u00E1\\x001f\u00BE\u00F3\u00CE8\u008D\\\\x0014\u00B3\u00DC\\x0006\\x0016\u00D2k\u00E0\u00FA\u00C84\u00D8\u00F0\u009C\u00E5\u009E\u00C0\u00DAA\\x0003\u00AB\\x0004Q:\u00B6bcG\u0080\\x0006\u00C0:\\x001f\\x0000\u00D4\u00B0\u00CD\\x0005\u00E39\u00D5U\u00A3mu\u008E\\x0000 ,~[\u00A9\n\u0081\u00E3T\u00FF\u0096\u009B\u00E2\u00EC]n\u00A6\u00E6!\u00C7K\u00E5q\u00F6\u00F1H1\u00B1\u0080\"\u00BA\\x0017\u0082\u0096Ho\u0084\u00C8\u00E6\u00F7\\x0007#Av}WXD\u008A\u00D6\u00CF\u00E3\u0082R\u0088dH\u00F1\u00E1\u00A7\u009F\u00AA\\x0014S{@\\x000c\u00D8w\u00A9\u00EBR\\x000c$P\u00E6<e\u00CE\u00D9L\u00D9\u008B\u00F8\u00AD\u00E37\u009BI#\\x0019o\\x0003\u00B5\u0085\u00BA\u00E5\u00F8-W&\u00EC\u00AB\\x0008F\\x000c\u00DC^y\u00CBB\u00B3 M\u00FBs\u0091\u00D9\u00C7ww\u0081 \u00F5[\\x0008\u008DK]7\u00B3\u00B27\u00D3_\\x0011\u008B5:\\x0014\u00CDIu&\u00A6\u00BBb\u00B1Eu\u00B2\u00D34\u00CE\u00F3\u008C\u00BEq\u00EA\u0091E3A\u00A9\u00FAkOg\\x0011`\u00C6\u00C2\u00E38\\x0006/\u00E9\u00AC\u008E\\x001b\u0093\u009D\u0084\\x0000\u00A0\u00EE\t\\x0000AL\u00CA\\x001c\u00D1-\u0097X\u0091\u00B7>\u0085\\x0010\u0090B\\x00081E\u008A\u0091E\n\\x0000\u008A)\\\\x0008\u0098\u00A5 L(\u0092\u00D5\\x0018\u00C8\\D\u00CB,0Ku \u0083\u0080L\u00D3\u00DC\u00A5\\)\u00D16\\x000b\\x0000\\x0004\u00B9H\u00DF\u00AD_{\u00ED\u008D\u00F3\\x0017^`\u0088\u0088\u00C4R@\u00A6\u0093\u00B3\u00E1\u00F2f\u00BC\u0093N_|\u00FD\u00AB\u00BC\u00DB\u00F2\u00FEz\u00BF}\"7W\u00B1\\x001bK)\u00CC9\u00E7Y\u00BDf\u00A5\u00CCs.\u00F3LQ\\x0010 q@\\x0000F\u0080\"\\x0010\u00E3\u00D0\\x000f\\x0003\u00C6\\x001eq\\x001d\u00E30\\x000c}\tQVg\u00A7/}^\u00D6/\\\\x001e\u0098\u00E7\"\u00D5\u00A3\u00AA$l\u00E1\\x0000:L>\u00A6\u0085:\u00FA\u00A3\u00BF\u00D0\u00CDJ\u008E\u00E7j\u008A\u00EE1RXLP\u00FA\u00C7\u00B1\u00A9\u00DE\u00AF\\x0017?\u00CF\u00A6\u00E8\\x0012\u00A2\u00B1\\x0005\\\\x001e\u00FB\u00FF\u00F2\u00F6\u00AEO\u0092$\u00C7}\u00A0\u00BBGDfUu\u00F7<v\u00F6\u00BDX\u00808\u0089\\x000b\u0090\u00D0\u009DN\\x0002E\u008A\\x000f3\u00CAD\u008A2\u009D(\u00E3Cw\u00FF5\u00CD\u00EE\\x0016\\x0000A\\x0012\\x000f\\x0002 @\\x0010\u008B\u00C5\u00EE\u00CELWWefD\u00B8\u00EB\u0083\u00BBGFV\u00F7\\x0000\u008B/\u0097\u0080\u00CDVgeeFFx\u00B8\u00FF\u00FC\u00AD\u00C4\u00D7A\u008Fn<\u0084\\x0001\u00D6\u00C4;\u00BD@-\\x0005\u00EES\u00C3\\x0011\u00D4\\x0017%\rD){\\x0007\u0093\u00B6\u00E8\u00D66\u00D0\\x0008\\x0008%6\\x0014\\x0010\\x000c\u00E21\\x001e\\x0002d\u00BADw\u00BD?\\x0015;\\x001c\u00D8\u00BC$\u009A\u0085\u00DD\u00CF\u00CC\u00D6\u0080f|\u00A4\u009F\u00B1\r\u00E4u\u00DA\u00E9\u00B8\u00994\u00E7\u00E0j\u00D8XY\u00BD\u00F4\u008Ba\u008E\u00B3US\\x0015\u00E7\u00B1\u00AC\u00B2N\u00A4P/2\u00EE\u00DFS\u00BAK@\u00E3\u00A2\u00B8\\x00023s\\x0015\u00ABX\u00C7Z\u008AH4Y\u008A-\u00ED\u00B4\u00B0&\u0092V\u00B0 *@\n?\u00F8\u00E1\\x000f\u008F\u00C7\u00A3\u00B1\u00D0\u00CA\u00CC\\x0012(\\x000ei \u00A2%Ke\\x000f:$\\x001c\u00C7q\u00BF\u00DF\u008F\u00E3\\x0018\u00E3\u0090R\\x001c\u00D20\u008C\u00C30FB`\u00CE\u00E7\u00F3\u00E9x\u00F7\u00F2tw;Mw%O\u00F3\u00F9\u00EE\u00B0\u00DF\u00FF\u00F9\u00FF\u00BF\u00FE\u00DB\u00FB\u00AFo\u00BE\u00F9&\u00A1\u0080p$L\u00E3\u0080 P\u00F3t\u00BEC\u0094\u00AB\u00AB\u00ABa\u00BF\u00C7\u0094 &H\t0\u00AE\u00E5\u00D6<\u00BFlk\\x0008\u00B7\u00BC%ad\\x0016\\x0006N\u00C30<\u00B9\u0089WWH\\x0004\u00C2\\\u0096\u009Cgf)\u00A5\n\u00CB\u008F\u00FF\u00E9'\\x001f~\u00F8\u00CD\u008F?\u00FEE\u00CEU\u00D3\u00FEt\u00DA\u00D05'\\x0010\u00B8\u0088\u0091G\u00A7#%j\\x0013\\x000e[\\x0007\\x0019\\x000b\u0097\\r\u00CE\\\\x001b\u0088D\u00C5[1$\\x0004j\u00B61\u00DB\\x0017^x\u00B9\u0085/\u00DB\\x001e$D\u008D\u0091\u00D5\u00F6\u00F6\\x0002\u0088\u00A1j=\\x0011KEB\u00D0\\\u008D\\x0014cJZ\u00A9\u00AB2K\u00A9\u00B9\\x0014\u00AD\u00E1\u00B0\u00C2L'\\x0012\\x0004\u008C\u0081\u00C6q\u00DC\u00ED\u00F71%\\x0011.\u00A5V\\x0016\\x0010\u00B2&\u00B9\\x0004\"\u00C8\\x000c\u00B5\\x0002\\x0003\u0096\u00C2!\u00A4\\x0010\u00D2</E\u0098\\x000c\u00FC\u00D9L\\x0011\u0092t}\u00E4\u00D44\\x0007\\x0000\\x0008V'\u00EE2j\u00ED\u00D2\u009A\\x0001\u00CE{\u00B6\u00E9\u00FE\\x001aw\u00A4\u00FA\u00A1j\u00DF\u00C0h\u0099\u0096j\u00C5\u0097\u009E;! 2S\u0095\u0091\u00C2k77\u00BB\\x0018\u00FD\u00DB\u00FEy\u008C\\x0008\u00A7\u00BB\u00A3\u00CC'H\u00BB\u00C3a}8\u00A0\u0088U\u00E5\u00A95\u0089<\u00DE\u00EF\u00DFx\u00FA\\x0008\u0087\\x00088[\u00C8`\u00DB\u00F3\u00E2\\x000bl\u00E6Xg\\x0007\u0088\\J\\x00164\u00AC\u00DF\u00A2\u00E3|k\u0080\u00A5'l\u00D2U_u\u00C4\u00BF\u00F9\u009B\u00BF\u00A9\u00B5\u00E4\u009C[\u00DE\\x0011\u00B7\u009C=\u00B6\u0090^\u00DD\u00C9\\x0008\u00D62\u008BY\u0088\u00B0YS\\x0000@\u0084\u00DD6+\u00AA\u00F0i\u00E7\u008C\u009E\\x000e\u00AA\\x0001\u00FE\u00C6\u00DC\u00A5\u00D7\\x0010@\u00BA\u0098`\\x0000\u00BD\u00D2\u0083;;VdNJ\u00D0,\u00B8\u008E\u0087\\x0019'\\m\u008A\u008E\u0096\\x001c/\u008A\u0085p\u00AAF\u00EE\u00FE\u00F1u\u00FD\u00FD)\u00FA\u00FAVr\u009DUB\u00AD\\x000c\\x000f\u008C\u00D5b\u00DBH~\\x0003iW\u0088\u00B6E\u0097\n\\\u0086@o>{\u00FA\u00D9'\u009F\u00F8\u009Ee\"\u008C)\u00A6\u0094R\\x0008\u0081\u0090\u00B9j\u00CF\\x000f\u009B\u0096\u008B\u00F7\u00DD*1\u00EDq=\u00C6kk,\u00DD\u009F\u009B+\u00FC7:J\u00D5\u00B7\u0099\u0095\u0093\u00E9|\u00AC?_?\\h\u00F9\u00DD\\x001d\u00FD\u0083G\u00CD\u0082\nr\\x0007;\\x0017=\u00E0\u00CD\\x001c\u00E1\\x0003@\\x0014\u0091%\u00E7\u00A2\\x0005\u008AT\u00D2\\x0012I\u00ED\u00AA\u00D3\u00F9\u00C3\\x0019`^\u0096eY\\x0010\u00B4b<)\u00AAj\u00CB\u00A7\u00E4\u00D64\n\\x0013g\u00D6`\u00A3J\u008C,L.\u00B6\u00DB$8\u008D\u00E9, \u00E8T\u00F8@\u00C4\u00EC\u00EB\ng\\x0004\u0091R\\x001a\u00C6q\u00B8\u00BB\u00B3;\u00A8\u00B9\u0082\\x0000%\u0084\u00F5\u00BD\u0084s)\u0099+\u008Bhb)\\x0011U\u00E6y^\u0084yH\u00A9\u00E8\u00E1\u00F3.\u008A\u00DB\u00B8\ns\u00CEu\\x001cvo\u00BE\u00F9\u00CER@\u0080@*\u00C8\\x0002\u00B0\u00DC\u009D\u00CA\u00B3\u00B7\u00DFx\u00FD\u00BDU^\u00FC\u00F4\u00FC\u00F1O)\u00C4\u00E1p\u0098\u00A6\u00F34OK\u00CE\\x0001 \u00A5\\x0004\u0080\u00BB\u00A5\u00E4\\uG\u00D4Z\\x0010$E\u00E2Z\u0096%\u00878\u008C\u0087=\u00A5]\\x001a\u00AEv\u00BBk\u00C48\\x000b\\x000cW\u00CF^{\u00FD\u009D\\x001c\u00F7/\u00A6ODX\u0089\u00C0VW\u00D1\u00EF\u00C6&\u00D7[wz\u008Ei\u00C0\u00A4\u00B7Tt\u00DC\\x0006{\u00E6\u00B3\u00A5\u00C6\u00DE\u00AA\\x0001J9\u009DKaKx\u00EEA6v\u00E8\u0088\u00B5_\u00F5\u0084\u00DB1_\u00E5\\x0004\u00B5\\x0003v\u00BDK\u0084\u00CD\u00C8\\x000c,\\x0016n\\x0000\\x0000\\x0016\u00D8\u0081\\x0002\u00AD\u00F4\u00A0\u00BBSL!\u00D0\\x0000sQ\u0098d\u0096H\u00CF\u00D7lQ[\\x000e\u00C96\u00C2\u00A5\u009B\u00C7\u00EE\u00A4M `SVE\u00C3\\x0006\u00940V\u0094\u00E5\u008Fe\u00EE\u0089\\x001c\u00EC]\\x001acb\\x0003n\\x000b\u00D7Q\u00B1\u00AB\u00ADbN\u00B9\u00F6\u0085H\u008B6\\x0013Wn\\x001b\\x0010t\u00C5S\u0099\u00E0\u00AA|\u008B\\x0008\u00885j\u00D0Z\u00F5\u00DD\u00FF\u0084\u00ABX\u00CA\u00B9\u00FA\u00D2\u00B4\u0084\u0095\u00C5\u00EBk\u00ED9\u00D1\u009A\u00C6v\\x000eE\u00A02\u00A7a<\u009F\u00CF\u00CB2\u00B3\u00C3\u008DR\n%\\x000c14\\x0015]\u009BS\u0084\\x0010\u00C6q7\\x000e\u00BB\u0094\u0086`\u00F9\u00BDq\\x0018S\u008A\u00B1\u00E4\u00F9\u00EE\u00EE\u00F8\u00E2\u00F9g/_>?O\u00C7Zr\u00ADY\u00A0\u00FE\u00D1\\x001f\u00FD\u00FE\u009F\u00FF\u008F?\u00FF\u00C2{\u00EF\\x0011\u0091p\\x0016\u00E6qH\\x0014\u00A3\u0094\u00B9N\u00E7\u00BB\u00E31\u00C6\u00B0\u00DB\u00EF)%\u00D1J\u00CE\n/\u00D0ThVd\u00DD\u00BA\u00EC\u00E9\u00EA\u009AbUk\\x0005\u008C\u00C3\\x0010\u00AF\u00AE\u00E9p\r!\\x0008\u00807ZS3\\x0002\u00DE\u009D\u00CE\u00DF\u00F8\u00C67\u00BF\u00FF\u00FD\\x001f\u009CO\u0093\u00885\\x0019[\u00E9B\u00B9\u0098\u00A9\u00BCn\\x0014w\\x0012\\x0012\u00D3\u00D9\u008D)5\u00C24\u009Fi\u00C9\u00B9,\u0096\u0099\u00BD\u009A\u00C7\u00AC\u00C7\\x001dt\u00D5s\r\\n<\u0083b\u00F2\u00D4\u00FA\u00B9\\x0001\u00A8`E\\x0004\u00C4Zr-E+\u0090\u00E9N\\x0018\u0086!\u00C48\u00A4\u0084\u0081J\u00CD9g\u00B5\\x001d\\x0016\u00AB*\u00B8\u00EA\\x0004:\u0092@4\\x000c\u00E3~\u00B7\\x001f\u00C6\\x0011\\x0008K)J5\u00A2\u00CB\u00AE\u00C4f\u008DG\u0091\\x0005j\u00A9\\x0019 \u00ED\u0086\u009B\u00EB\u009BRJ\u00C93\\x0000\\x0000\\x0010\u0080\u0090\u00D7 \u00EC\u0099\t\u0091\u00D5C\u00EC\\x0014.5wH\u00E3?\u008A\\x0010\u00F4{\u0097\\x001a*YV{\u00A7\u0083\\x0007\u00FD\u008FM\\x000f\u0081\u00B4f\\x0016\u00BD\u00A3\\x0012A\\x0008 \\x0000D\u0080\u00C7\u0087\u00C3\\x0017\u00DF|+\\x0002\u00B6}\u00BF\u00E6\u00CB\u008A\\x0008@\u00CE\u00B9>\u00FF\u008C\\x000eO(\u00D0\u00E3'\u008F\u00B5\u00B2m\\x0010\tRG\u00AE\u00BF\u00F1\u00C6\u00B3gW{\u00F1\u00DCP\u0097\n\u00BE\u00D8\u008E\u00FD\u008D\\x0012TD\u0089\\x0008@\\x0015\u00E6\u00B5\u00EC\u00CEV\u00D0\u00BB`\\x0004wk\u00B5\\x000c\u00C5\u0086\u0093\u008C\\x001cD\u00E2\u00F7\u00BE\u00F7\u00BD\u008F?\u00FE9sG$^=b\u00E5T\\x0002\\x001e\u00FEc\u008C\u009E\\x0002\u00E9\u00F0\u00DAz4\u0093\\x0015\"\\x0010\\x0008j%[\u00EAz\u00FC\u0089\u00FF^\u00C1\u0097vu1\\x0018\u00AE\\x0017Yc\u00C6@\\x0001\\x00004\u00C9\\x001c\u009D?\u00B6$>\u00D5\u00C5\t\u00A9\u00A1x\\x0001+l\u00A6-\u00BC\u0094A\\x0004\u00AF\u00EB\\x0001\u0086\u008B\u00C5\u00EFB\u00BE\\x0007L\u00E1i\u00AF\u00C9\\x001a\u008FV+\u008B\\x0014\u0096*-\u0082ee\u00D3d\u0086\\x0000\\x001df W\"pM'\\x0001\u00C0\u00A0|\\x0010\u00A5\\x0012\u00F0r:\u00FE\u00E8;\u00DF\u00C9\u00B9p)!\u0084@\\x0018c\\x0008\u0081R\u008C1\u00C6\u009C\\x0017M\u00D1\u00E2\u0096\u00B8\u00D7\\x0004a\u00A3uU\u00ED;\u00B7W\u00FB\u00B6[#\u00E9ObW\u00D4\u00D9I\\x0001\u00DC\u0084\u00BA\u00BA\u0085Ll\u00AF\\x000ep\u00BF[\u00A3$\\x0017Z\u00D2\u009D\u00BE\u0090\u00D4-\u00B4\u00C9\\x0008\u00C0\u00C1\u00A0x\\x0008\u0083\u0086N\u00B0\\x000e\u0084P\u00AA,\u00A5,K\u00CE\u00BB\u009A\u00CC\u00AB\\x0002\u0084\u0096Q$N#z\u00DBeY\u00CE\u00E7\u00B3\u00FB\u00C1L\nk}\u0088Z\u008D#\u00BA\u00D0\u00B5\u00E9B\u00B4Z\\x0019\u00F6\u008E`\\x000b\u00C7J\u00B9!\u00C4\u0094\u0084\u00AB\u00BFS\u0083\\x0017\u00F6f\u00EDW:#\\x0014p\\x0018\u0086\u0094<=\u00B95\\x0006D\\x0008D\u0091B\u0088\u00B1.K\u00CE\u00B9\u0094\\x0002\u00A8\\x0017\u00C7H\\x0008*\u00C0\u0088\\x0000\u0092\\x0016\\x0017\u00E0\u00CA\u00C2\u00E2\u00F4gJ\u008E\\x0000\u009D\u00CF\u00A7\u00F3y\\x001a\u00D2P\u0085\u0099\\x0001\t\\x0008\u0093\u00CA\u00EB%\u0083@\u00D4\u0086Q\u00E7i\u00AE\u00CB2-\u00E5n.\u00A5\u00F0\u00B0\u00DB\u00C7\u00F1*\u00C4\\x0014F\u00E1\u00B9\\x000c1\u0082\u00F0t>\\x00030\u00C6 \u00CB\\x000cR0\r\u00E7\\x000c\u00F9|\\x0017\u00D2\u00BC_f\u0096\u0094k\u00DA\u00971^\u00BD(\u00C3\u0092\u0097\u00C5MHND\u00DC\u0081c[Pt(\u00B5\u00D1Cz2t6z\u00A9o\\x0018il\u00B5\u00B3N\u009Fi\u00CA\u0094tc0<'n\u00D9ry\u00D2\u0088TL\\x000fu\u00D4\u00D3p\u008E\u00AB\\x0000~\\x000fE2\\x001e\u00CB\u00D3\u009E\u00A8\u00BB\u00BC\u00DDYX4$\u00DE\u0091\u0093[t\u00A4\u00DD\n}\u00D3h\u00F7\u00C5\u00AA\\x0017\u00B6\u00A0\u00AD\\x0015\u00FAI7\\x0006\u00FF\u00B1#$\u0098\u008D\\x0007\u00DC.\u00E8;LA\\x0015\u00B3Vi+\\]\u00E8HgH\u00B5eh\u0096\u00FB\\x000e\u00FC\u00E9S\u00AAoq\u009B\u009EK;\u009F\u008EA\u00A4\u009D\u00F29\\x0017aw\u00BC\u00AFS\u00BDNh\u00BF\u00F4\u00DDo\u00DB\u00FA\u00B9\u00CC\\x0004M\\x0008\u00D0\u00AE\u0080\\x000e7U\u00C6\u009Bv\u00AFa\u00B8\u00ED\u00B0\\x0004\u00C4\u00B4\u00DB\\x0011Q\u00C9\u00A5\u00D4\"\\x0006\r1\rc\u0088!\u009F\u00E7\u00C2\\x000c\\x0018\\x0004\u00890\u00A48\u00ECv\u00FB\u0094\u00C6\\x0010\u00A3\u00E6y\u008C\u00BB!\u00A5(\\\u00E7\u00F9|\u00BC}\u00F1\u00E2\u00C5\u00A7\u00A7\u00BB\u00979/\u0095\u00F3<\u009F\u00BF\u00F2\u0095\\x000f\u00FE\u00FA\u00AF\u00FE\u00E2\u00AB\\x001f\u00FC\u00A6f\\x0007\u00D7\u0092A8\u00C6\u00A8U\\x0000N\u00B7/\u00A7\u00F3i\u00B7\u00DB\u00ED\u00F7{\u008C\\x0003\u0084\\x0008\\x0014L\\x001fYK\u00FF:\u00F3S,\u00B86\u00AE\u0080* !\u00C4a\\x0017\\x000e\u00D74^AH6\u0083\u00AC\u00CDoQ\\x0000J\u00E1\\x001f\u00FC\u00F0G\u00DF\u00FE\u00DB\u00BF\u00FE\u00D9Ku\u00A2\u0082\u00E8\u008B\u00B3\u00E2~\u0097\u0088\u00E8u\u0096ac\u00C2R\\x0016g\u00A95n\u00E4!*\u00B5\u00A8\u00CDO\u0083\u00ED\u00C4\\\u00C2\\x0006hR\n!\\x0006\u00C7\u008CfR@\u00D7A\u00FA5%$p\u00AF\\x0014v\u0095Q--\\x000f\\x000c\\x000eR\u00A0\u0094\u0092\\x001ab\u00B5\\x0016P)\u0085\u00CD\u0088\u00C9\u00D0l\u00E5\u00BA\u00E0\u0088)\u00C6\u00DD~\u00B7\u00DB\u00EDS\\x001cX$\u00E7\u009A\u00CB\u00D2X\u00B2p\u00F5\\x000e\u00EDz\u00F3\\x0000\\x0002\u00B5\n\\x0013p\u00C54\u00ECc\u00BC[\u00E6\\x0005;\u00B7\u00CDf-\u009C\u00E8\u00B7\u00C6\u00F3\u009B\u0082\u00A5\u00E2\u00C7?5\u008E\u00D1\u00BE6U\u00CE\u00A5X\u00AF\u00AA5\t\u00D7\u00DB\u00CDZ\u0096\u00A9\u00E2\u0088\\x0000\\x0018\\x0004\u00A2\u00C8\u00A3\u00DD\u00EE\u00CD'O#h\\x001e\u00A5\u00AB\u008C\\x0006\u00E0\\x0000\\x0001\u00A1r=\u009D\u0093\\x0000 <{\u00E3Y\\x001cb\u00C9K\\x0010\\x0019\u00B8>I\u00F1K\u00CF\u009E]\u00A5\u0088\\\\x0000\u00AB\\x0016\u00B5\\x0004\u0087\u009B\\x0006%\\x001b36`N\\x0000\u00C2\u0084\u00B9\u0094yYl{\u00B7\\x001a,z\u0083\u00F5X\\x001dz\u008DW\u0088\u00B8\\x001f\\x0016\\x0000\\x0000\u00E2\u00FB_\u00F8\u00C2\u00CD\u00F5u\u008C\u00B1\u00A9\\x0006k\u00CB\u00DE\\x00159\u00A1\u009AO\u00AC W\\x0008\u00ED\u00A4\u00F3/\\x001b3\u0092f\u00EFk\u00E9\\x0010\u00AB\u00AE\u00E1\u00ADL\u00DDV\u00E6'\\x0015\u009C\\x0005\u00FB\u00D3\u00DA\u00B5\u00FAy\u00D0Z\\\u00E8\u00BE\u0094\u00E6\u0087Q\u00C5\u009B\u0080\u00D6F\\x0006^\u00C2M\u00A3v\u0094\u00A0\\x0015\u009F\u0081\\x0017\u00FB\u00F0\u00C4?p\u008E\u00DB\u00C5\u00ED8!\u0099T`f\u0081\"R\u008D\u008F\\x0019\u0082v\u009D\u00A9\t\u00C7n\u009A\u00CD\u00AE\u00E0!\u00AEVF\u0088I*p\u00F9\u00E8\u00A7?\\x0011`\u00E6\u0082(\u0081(\\x0011\u00A5\\x0010\"\u00854$D*\u00A5h\u00CAe)\u00A5Z\u009F\u00A8\u0095\u00BA\\x001bE\u00AE\u00D8\\x0004\u009A\u00F6\u00E2\u00D8\u00F7\\x0002\u00FBo\\x000fDda`@D5f\u00AE\u00E0\\x0006\\x001c\\x001b\u00B5\\x0015DO\u00AF\u00BE0T\u00BC\u00EA\u00E6\u00A0Z\u00928hBne\\x001d\\x0005m\u00F2,J\\x001c\\x0001\t\u00B0\\x0002\u00A0\u00FA\u0082\u00CF\u00CB\u009C\u00A6t\u00B5\\x001b\u00A2\\x0005A!Y\\x0001wg\u00B5\\x0008 \u00B2,\u00CB\u00CB\u0097\u00B7\u00B5V\"\\x0010EO \u00B6\r\u00C58l\u0083\u00F2\u00E0\u00E8\\x0010\u00C1\u00F3\u00B3\u0098\u0091\\x0002Z\u0094\u0091h\u00EB\\x000e\u00E1P\u00B4\u00CC\\x0002k\u00F3 \u00F1\u00F4\"\u00DBr\u0096\u00EA\u00A4\r\u00A6\u0090\u00D4\u00BA\u00A0<\u0084\u008D-R \\x0012\u00AF;Sk\\x0015\u0086!\raHB\\x0006M\\x0010\u00A0\u0096R\u0089d\\x0010\u00B1\u00F4$\u00AE\u00B5\\x0008(\"`\u0088V\u00A3k\u009E\u00A7\u00E7\u009F}z:\\x001ds\u0081*\"\\\\x0011j\u00A0Z\u00E6\u00BBOx9\u00C8t\u00F7\u00E9\u00CF\u008F\u00CF?\u0099o?\u00AD\u00F9\u00BC\u00E4r\u009Ar\\x0005\u00A4\u00E1\\x0000q\\x0017\\x000f\u00D7X\u0080q\\x001ev;\u00C9y\u00CA\\x0000R*\u00C0\\\u00F20^\u00BF\u00F6\u00FA\u00EB\u00B7\u00B7/N\u009F\u009E\u00E6|,\u00F9$\u00B2[r,\u0095 \u00EC\u008E\\x0015?>",
+							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Ensure that application Source Code is not available with alternative extensions, and ensure that source code is not present within other files or data deployed to the web server, or served by the web server. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1906"
+					"sourceid": "1893"
 				},
 				{
 					"pluginid": "90003",
@@ -593,7 +577,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -601,7 +585,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -746,7 +730,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "179"
+					"sourceid": "182"
 				},
 				{
 					"pluginid": "10017",
@@ -759,6 +743,30 @@
 					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives",
+							"method": "GET",
+							"param": "https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js",
+							"attack": "",
+							"evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives",
+							"method": "GET",
+							"param": "https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js",
+							"attack": "",
+							"evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives",
+							"method": "GET",
+							"param": "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver",
+							"attack": "",
+							"evidence": "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver\"></script>",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=2",
 							"method": "GET",
 							"param": "https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js",
@@ -824,30 +832,6 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
-							"method": "GET",
-							"param": "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver",
-							"attack": "",
-							"evidence": "<script src=\"https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
-							"method": "GET",
-							"param": "https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js",
-							"attack": "",
-							"evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
-							"method": "GET",
-							"param": "https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js",
-							"attack": "",
-							"evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
 							"method": "GET",
 							"param": "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver",
 							"attack": "",
@@ -861,7 +845,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "218"
+					"sourceid": "290"
 				},
 				{
 					"pluginid": "10110",
@@ -883,6 +867,14 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/js/js_dci4L-8e8_owuTyZCUJTAFAAmnU9gzYfEldgV2XOYg4.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/js/js_eb1UX4W2M5yEbcjzNNqCKFrbnau-D6J08XS2F6LkTpk.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -922,6 +914,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/js/js_QJJcrZSciB25piioVlhg9VPbRfkDNmOx1TQWPT0uUXs.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/js/js_qTQmWZYJn7oCZhSVty9aa3GVIiKQXs0MXeVOo8j9J0Q.js",
 							"method": "GET",
 							"param": "",
@@ -938,6 +938,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/js/js_Ssj1hBUMblYoP_aidvK4VH72ieVUcUQzksjdSoYWwms.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Eval",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/js/js_yYkqS3ctJTIHpCnLRUcBxlC-dlEEqwqmmL5BHuip5zc.js",
 							"method": "GET",
 							"param": "",
@@ -946,13 +954,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "9",
+					"count": "12",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "819"
+					"sourceid": "838"
 				},
 				{
 					"pluginid": "10063",
@@ -1037,15 +1045,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1061,7 +1061,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "11",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
@@ -1144,6 +1144,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -1152,7 +1160,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.jpg",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1160,7 +1168,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1176,13 +1184,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "111"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "10096",
@@ -1326,6 +1334,14 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\u03ED\\x0003r\\x0010\uFFFD\u1534\\x0018M6T\uFFFDL\\x001e\n\uFFFD\uFFFD\uFFFDO\\x0013\uFFFDE\uFFFDl\uFFFD\\x000e}"
 						},
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/index.php/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_9m8-tA3IQf8ThlLQYTTZUyEweCvyR908Tg0XCbKYOfY",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\u03ED\\x0003r\\x0010\uFFFD\u1534\\x0018M6T\uFFFDL\\x001e\n\uFFFD\uFFFD\uFFFDO\\x0013\uFFFDE\uFFFDl\uFFFD\\x000e}"
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -1366,13 +1382,13 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\u03ED\\x0003r\\x0010\uFFFD\u1534\\x0018M6T\uFFFDL\\x001e\n\uFFFD\uFFFD\uFFFDO\\x0013\uFFFDE\uFFFDl\uFFFD\\x000e}"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD|\uFFFD4\uFFFD1?\uFFFD\uFFFD*d\\x0012k\uFFFD1x\uFFFD#\uFFFDF\uFFFD\uFFFD\\x001bx\\x0016J\uF247\uFFFD</p><p>\t</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10019",
@@ -1399,7 +1415,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "130"
+					"sourceid": "131"
 				},
 				{
 					"pluginid": "10027",
@@ -1506,7 +1522,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10109",
@@ -1613,7 +1629,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "47"
 				},
 				{
 					"pluginid": "10015",
@@ -1666,6 +1682,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=1",
 							"method": "GET",
 							"param": "cache-control",
@@ -1691,14 +1715,6 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1733,14 +1749,6 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1750,6 +1758,14 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1763,7 +1779,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "90005",
@@ -1776,14 +1792,6 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1793,6 +1801,14 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1806,7 +1822,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "90005",
@@ -1819,14 +1835,6 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1836,6 +1844,14 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1849,7 +1865,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "90005",
@@ -1861,14 +1877,6 @@
 					"riskdesc": "Informational (High)",
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css",
 							"method": "GET",
@@ -1884,6 +1892,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
 					"count": "3",
@@ -1892,7 +1908,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "105"
 				},
 				{
 					"pluginid": "10112",
@@ -1905,45 +1921,29 @@
 					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=1&field_type_de_structure_target_id=All",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=5&field_type_de_structure_target_id=All",
 							"method": "GET",
 							"param": "SSESS45a11a12261650538569594258b47965",
 							"attack": "",
-							"evidence": "HDGjqxy-Gkrik-rww0VnujzSxUuIO5KnxQoHZqqZgNcqpcdE",
+							"evidence": "BqQaOWHRXhVHQAY1hGFsAUzDImW%2CoLxPBNS4EuS7g46rbnuj",
 							"otherinfo": "\ncookie:SSESS45a11a12261650538569594258b47965"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=4&field_type_de_structure_target_id=All",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=5&field_type_de_structure_target_id=All",
 							"method": "GET",
 							"param": "SSESS45a11a12261650538569594258b47965",
 							"attack": "",
-							"evidence": "PoChqfXepwdcRL1YEqF62Q2yKoV8GnA-maLtRAQS0QYbVlQq",
-							"otherinfo": "\ncookie:SSESS45a11a12261650538569594258b47965"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=1&field_type_de_structure_target_id=All",
-							"method": "GET",
-							"param": "SSESS45a11a12261650538569594258b47965",
-							"attack": "",
-							"evidence": "HDGjqxy-Gkrik-rww0VnujzSxUuIO5KnxQoHZqqZgNcqpcdE",
-							"otherinfo": "\ncookie:SSESS45a11a12261650538569594258b47965"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_fonction_publique_target_id=All&field_region_target_id=All&field_thematique_principale_target_id=4&field_type_de_structure_target_id=All",
-							"method": "GET",
-							"param": "SSESS45a11a12261650538569594258b47965",
-							"attack": "",
-							"evidence": "PoChqfXepwdcRL1YEqF62Q2yKoV8GnA-maLtRAQS0QYbVlQq",
+							"evidence": "BqQaOWHRXhVHQAY1hGFsAUzDImW%2CoLxPBNS4EuS7g46rbnuj",
 							"otherinfo": "\ncookie:SSESS45a11a12261650538569594258b47965"
 						}
 					],
-					"count": "4",
+					"count": "2",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
 					"otherinfo": "<p></p><p>cookie:SSESS45a11a12261650538569594258b47965</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1581"
+					"sourceid": "1142"
 				},
 				{
 					"pluginid": "10049",
@@ -2181,7 +2181,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "816"
+					"sourceid": "817"
 				}
 			]
 		}
