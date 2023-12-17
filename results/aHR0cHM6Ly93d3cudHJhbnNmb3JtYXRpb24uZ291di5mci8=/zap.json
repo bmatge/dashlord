@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Dec 2023 02:42:13",
+	"@generated": "Sun, 17 Dec 2023 02:39:15",
 	"site":[ 
 		{
 			"@name": "https://www.transformation.gouv.fr",
@@ -21,6 +21,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.transformation.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form block=\"block-formulairederecherche\" action=\"/search/resultat\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -60,23 +68,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/index.php/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form block=\"block-formulairederecherche\" action=\"/search/resultat\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/ministre/biographie",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form block=\"block-formulairederecherche\" action=\"/search/resultat\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/node/add/",
+							"uri": "https://www.transformation.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -93,6 +85,14 @@
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form block=\"block-formulairederecherche\" action=\"/search/resultat\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -135,6 +135,14 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
+							"uri": "https://www.transformation.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
 							"uri": "https://www.transformation.gouv.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -143,7 +151,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/search/",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -151,13 +159,13 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -178,6 +186,14 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://www.transformation.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "script-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://www.transformation.gouv.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -186,7 +202,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/search/",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -194,13 +210,13 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -221,6 +237,14 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
+							"uri": "https://www.transformation.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
 							"uri": "https://www.transformation.gouv.fr/index.php/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
@@ -229,7 +253,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/search/",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -237,13 +261,13 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10038",
@@ -320,7 +344,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/profiles/*.css",
+							"uri": "https://www.transformation.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -358,7 +382,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "98"
+					"sourceid": "102"
 				},
 				{
 					"pluginid": "10098",
@@ -387,7 +411,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/index.php/admin/",
+							"uri": "https://www.transformation.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -395,7 +419,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.transformation.gouv.fr/index.php/admin/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -465,7 +489,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10099",
@@ -492,7 +516,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "611"
+					"sourceid": "644"
 				},
 				{
 					"pluginid": "10099",
@@ -519,7 +543,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "598"
+					"sourceid": "592"
 				},
 				{
 					"pluginid": "10003",
@@ -546,7 +570,7 @@
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2012-6708</p><p>https://github.com/jquery/jquery/issues/2432</p><p>http://research.insecurelabs.org/jquery/test/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2019-11358</p><p>https://github.com/advisories/GHSA-rmxg-73gg-4p98</p><p>https://bugs.jquery.com/ticket/11974</p><p>https://github.com/jquery/jquery.com/issues/162</p><p>https://nvd.nist.gov/vuln/detail/CVE-2020-7656</p><p>http://blog.jquery.com/2016/01/08/jquery-2-2-and-1-12-released/</p><p>http://bugs.jquery.com/ticket/11290</p><p>https://blog.jquery.com/2019/04/10/jquery-3-4-0-released/</p><p>https://nvd.nist.gov/vuln/detail/CVE-2015-9251</p><p>https://github.com/advisories/GHSA-q4m3-2j7h-f7xw</p><p>https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b</p><p>https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/</p><p></p>",
 					"cweid": "829",
 					"wascid": "-1",
-					"sourceid": "531"
+					"sourceid": "568"
 				},
 				{
 					"pluginid": "10044",
@@ -621,7 +645,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "279"
+					"sourceid": "256"
 				},
 				{
 					"pluginid": "10110",
@@ -696,7 +720,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "531"
+					"sourceid": "568"
 				},
 				{
 					"pluginid": "10063",
@@ -710,6 +734,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.transformation.gouv.fr/core/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/files/js/js_2xVm38yf8Z5dCcKfepQTAGoMaoBZ5BRc7hSS2__Sd9c.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -741,14 +773,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/files/js/js_KkfZYE73zOu41DCOLXG9hgm6HrTljMbXDxtzQnd9wgo.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.transformation.gouv.fr/files/js/js_KMf4R54mjaOuQp1g2OvUQWRlKi3hcdW15vl1l3KhJuc.js",
 							"method": "GET",
 							"param": "",
@@ -757,7 +781,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/files/js/js_n7nmOIpz98XGVle1N1LR1lrIAuwqlP1hjv6h5aCW9IQ.js",
+							"uri": "https://www.transformation.gouv.fr/files/js/js_SucSia7jD0FqCzEPwXaBw5pQHyLK7q9UX7f9smJ2dNk.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -765,7 +789,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/files/js/js_SucSia7jD0FqCzEPwXaBw5pQHyLK7q9UX7f9smJ2dNk.js",
+							"uri": "https://www.transformation.gouv.fr/files/js/js_tOpR3lkoaOZvU5I6bGXHrAdrafwJ4MeOy1oE71oOlRk.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -811,7 +835,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "112"
+					"sourceid": "113"
 				},
 				{
 					"pluginid": "10035",
@@ -824,7 +848,7 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.transformation.gouv.fr/core/*.css",
+							"uri": "https://www.transformation.gouv.fr/core/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -832,7 +856,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/core/*.css$",
+							"uri": "https://www.transformation.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -888,14 +912,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -905,6 +921,14 @@
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -926,7 +950,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "98"
+					"sourceid": "113"
 				},
 				{
 					"pluginid": "10096",
@@ -969,7 +993,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "180"
+					"sourceid": "163"
 				},
 				{
 					"pluginid": "10094",
@@ -988,6 +1012,14 @@
 							"attack": "",
 							"evidence": "/files/css/css_xYPwQlpmW8cdHQ1sRYAxNoAA36hSe9qHx-NmUGF9yZ0",
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD`\uFFFD\\x0010\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDGC[\\x0011`\\x000cM\uFFFD\\x00007\uFFFD\\x0014\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\u0654\\x0018_rg"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_NJ132APSKu1y7Ysca2AWj3kV7ScxWg1ZLA5PDPUSB40",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD']\uFFFD\\x0000\uFFFD\\\uFFFDb\uFFFD\\x001a\uFFFD\\x0005\uFFFD\uFFFDE{I\uFFFDV\uFFFDVK\\x0003\uFFFD\uFFFD=D\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/core/*.css$",
@@ -1022,23 +1054,7 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD']\uFFFD\\x0000\uFFFD\\\uFFFDb\uFFFD\\x001a\uFFFD\\x0005\uFFFD\uFFFDE{I\uFFFDV\uFFFDVK\\x0003\uFFFD\uFFFD=D\uFFFD\uFFFD"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/index.php/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_NJ132APSKu1y7Ysca2AWj3kV7ScxWg1ZLA5PDPUSB40",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD']\uFFFD\\x0000\uFFFD\\\uFFFDb\uFFFD\\x001a\uFFFD\\x0005\uFFFD\uFFFDE{I\uFFFDV\uFFFDVK\\x0003\uFFFD\uFFFD=D\uFFFD\uFFFD"
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/ministre/biographie",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_iEDeQFRF1HGU97WcYxSm66_4qtCpIfc9DVNIJGbd5Ss",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\\x00107\uFFFD\\x0015\\x0011u\\x001ce=\uFFFDg\\x0018\uFFFD)\uFFFD\uFFFD\uFFFD*\uFFFD*H}\uFFFDCT\uFFFD\t\\x0019\uFFFDyJ"
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/node/add/",
+							"uri": "https://www.transformation.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1055,6 +1071,14 @@
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_NJ132APSKu1y7Ysca2AWj3kV7ScxWg1ZLA5PDPUSB40",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD']\uFFFD\\x0000\uFFFD\\\uFFFDb\uFFFD\\x001a\uFFFD\\x0005\uFFFD\uFFFDE{I\uFFFDV\uFFFDVK\\x0003\uFFFD\uFFFD=D\uFFFD\uFFFD"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1103,7 +1127,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "117"
+					"sourceid": "120"
 				},
 				{
 					"pluginid": "10027",
@@ -1117,6 +1141,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.transformation.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1156,28 +1188,12 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/index.php/node/add/",
+							"uri": "https://www.transformation.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "user",
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/index.php\\/\",\"scriptPath\":null\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/ministre/biographie",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.css$",
@@ -1189,6 +1205,14 @@
 						},
 						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1210,7 +1234,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -1224,6 +1248,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.transformation.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1263,23 +1295,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/index.php/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/ministre/biographie",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/node/add/",
+							"uri": "https://www.transformation.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1303,6 +1319,14 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
+							"uri": "https://www.transformation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://www.transformation.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
@@ -1317,7 +1341,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1378,14 +1402,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.transformation.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
@@ -1394,13 +1410,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "7",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "98"
+					"sourceid": "102"
 				},
 				{
 					"pluginid": "10015",
@@ -1417,7 +1433,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1425,7 +1441,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1433,7 +1449,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1441,15 +1457,15 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/les-france-services",
+							"uri": "https://www.transformation.gouv.fr/le-ministere/directions",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1457,7 +1473,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1465,15 +1481,23 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite/remettre-des-voix-et-des-visages-dans-les-services-publics",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite/ouverture-96-nouveaux-espaces-france-services",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite/remise-gouvernement-rapport-fonds-de-prevention-de-lusure-professionnelle",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1481,15 +1505,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.transformation.gouv.fr/reforme-de-l-encadrement-superieur-de-l-etat",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1497,7 +1513,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						}
 					],
@@ -1542,7 +1558,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1577,7 +1593,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1647,7 +1663,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "47"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10049",
@@ -1682,9 +1698,17 @@
 							"attack": "",
 							"evidence": "max-age=600",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -1703,93 +1727,205 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
-							"param": "field_type_de_presse_target_id[17]",
+							"param": "field_thematique_target_id[10]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_presse_target_id[17]=17\r\n\r\nThe user-controlled value was:\r\n17"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [img] tag [height] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[10]=10\r\n\r\nThe user-controlled value was:\r\n109"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
-							"param": "field_type_de_presse_target_id[17]",
+							"param": "field_thematique_target_id[10]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19\r\n\r\nappears to include user input in: \r\n\r\na(n) [svg] tag [height] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_presse_target_id[17]=17\r\n\r\nThe user-controlled value was:\r\n17"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[10]=10\r\n\r\nThe user-controlled value was:\r\n10"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
-							"param": "field_type_de_presse_target_id[18]",
+							"param": "field_thematique_target_id[15]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_presse_target_id[18]=18\r\n\r\nThe user-controlled value was:\r\n18"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[15]=15\r\n\r\nThe user-controlled value was:\r\n15"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
-							"param": "field_type_de_presse_target_id[19]",
+							"param": "field_thematique_target_id[20]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_de_presse_target_id[19]=19\r\n\r\nThe user-controlled value was:\r\n19"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[20]=20\r\n\r\nThe user-controlled value was:\r\n20"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
+							"method": "GET",
+							"param": "field_thematique_target_id[21]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[21]=21\r\n\r\nThe user-controlled value was:\r\n21"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
+							"method": "GET",
+							"param": "field_thematique_target_id[22]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[22]=22\r\n\r\nThe user-controlled value was:\r\n22"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
+							"method": "GET",
+							"param": "field_thematique_target_id[23]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[23]=23\r\n\r\nThe user-controlled value was:\r\n23"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
+							"method": "GET",
+							"param": "field_thematique_target_id[63]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_thematique_target_id[63]=63\r\n\r\nThe user-controlled value was:\r\n63"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 1"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 2"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 3"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 3"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
 						},
 						{
-							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1",
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
 							"method": "GET",
 							"param": "field_type_d_actualite_target_id",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 2"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 3"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=0\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 2"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page 4"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2",
+							"method": "GET",
+							"param": "field_type_d_actualite_target_id",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.transformation.gouv.fr/ministre/actualite?field_type_d_actualite_target_id=All&page=2\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_type_d_actualite_target_id=All\r\n\r\nThe user-controlled value was:\r\nall"
 						}
 					],
-					"count": "10",
+					"count": "24",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.transformation.gouv.fr/espace-presse?field_type_de_presse_target_id%5B17%5D=17&field_type_de_presse_target_id%5B18%5D=18&field_type_de_presse_target_id%5B19%5D=19</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>field_type_de_presse_target_id[17]=17</p><p></p><p>The user-controlled value was:</p><p>17</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.transformation.gouv.fr/ministre/actualite?field_thematique_target_id%5B10%5D=10&field_thematique_target_id%5B15%5D=15&field_thematique_target_id%5B20%5D=20&field_thematique_target_id%5B21%5D=21&field_thematique_target_id%5B22%5D=22&field_thematique_target_id%5B23%5D=23&field_thematique_target_id%5B63%5D=63&field_type_d_actualite_target_id=All</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [img] tag [height] attribute </p><p></p><p>The user input found was:</p><p>field_thematique_target_id[10]=10</p><p></p><p>The user-controlled value was:</p><p>109</p>",
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "550"
+					"sourceid": "397"
 				}
 			]
 		}
