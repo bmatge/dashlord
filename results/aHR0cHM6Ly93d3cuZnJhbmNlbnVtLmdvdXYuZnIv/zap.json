@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Dec 2023 02:32:02",
+	"@generated": "Sun, 31 Dec 2023 02:28:10",
 	"site":[ 
 		{
 			"@name": "https://www.francenum.gouv.fr",
@@ -21,6 +21,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.francenum.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/*/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -68,14 +76,6 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/media/oembed",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
-						},
-						{
 							"uri": "https://www.francenum.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -114,7 +114,7 @@
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "56"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -328,7 +328,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.gif",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -344,7 +344,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -358,7 +358,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "141"
+					"sourceid": "147"
 				},
 				{
 					"pluginid": "10098",
@@ -387,7 +387,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/index.php/admin/",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -492,7 +492,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "1220"
+					"sourceid": "1209"
 				},
 				{
 					"pluginid": "90022",
@@ -527,7 +527,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1968"
+					"sourceid": "2239"
 				},
 				{
 					"pluginid": "10044",
@@ -610,7 +610,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1954"
+					"sourceid": "1725"
 				},
 				{
 					"pluginid": "10017",
@@ -645,7 +645,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1968"
+					"sourceid": "2239"
 				},
 				{
 					"pluginid": "10110",
@@ -672,7 +672,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1177"
+					"sourceid": "1144"
 				},
 				{
 					"pluginid": "10063",
@@ -694,6 +694,14 @@
 						},
 						{
 							"uri": "https://www.francenum.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -757,15 +765,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.js",
+							"uri": "https://www.francenum.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -894,7 +894,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "141"
+					"sourceid": "147"
 				},
 				{
 					"pluginid": "10096",
@@ -1057,7 +1057,7 @@
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1204"
+					"sourceid": "1158"
 				},
 				{
 					"pluginid": "10021",
@@ -1084,7 +1084,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1220"
+					"sourceid": "1209"
 				},
 				{
 					"pluginid": "10094",
@@ -1137,7 +1137,7 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\uFFFD\u04C3%\uFFFD*\uFFFDq\\x0011\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDt\uFFFD8\uFFFD\uFFFDd\uFFFD\uFFFD8\u051C\\x0011a0"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/index.php/comment/reply/",
+							"uri": "https://www.francenum.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1145,7 +1145,7 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD\uFFFD\u04C3%\uFFFD*\uFFFDq\\x0011\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDt\uFFFD8\uFFFD\uFFFDd\uFFFD\uFFFD8\u051C\\x0011a0"
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/media/oembed",
+							"uri": "https://www.francenum.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1386,6 +1386,14 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/index.php/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Page non trouv\u00E9e</a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/media/oembed",
 							"method": "GET",
 							"param": "",
@@ -1426,7 +1434,7 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>This is an informational alert and so no changes are required.</p>",
 					"otherinfo": "<p>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</p>",
 					"reference": "",
@@ -1496,14 +1504,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/ma-priorite/comment-demarrer",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.francenum.gouv.fr/ma-priorite/developper-mes-ventes",
 							"method": "GET",
 							"param": "cache-control",
@@ -1544,6 +1544,30 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi/auvergne-rhone-alpes",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi/bourgogne-franche-comte",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/pres-de-chez-moi/centre-val-de-loire",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "cache-control",
@@ -1560,13 +1584,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "13",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "56"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1579,7 +1603,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1609,7 +1633,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "56"
+					"sourceid": "141"
 				},
 				{
 					"pluginid": "90005",
@@ -1622,7 +1646,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1652,7 +1676,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "56"
+					"sourceid": "141"
 				},
 				{
 					"pluginid": "90005",
@@ -1665,7 +1689,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1695,7 +1719,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "56"
+					"sourceid": "141"
 				},
 				{
 					"pluginid": "90005",
@@ -1708,7 +1732,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.francenum.gouv.fr/",
+							"uri": "https://www.francenum.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1738,7 +1762,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "56"
+					"sourceid": "141"
 				},
 				{
 					"pluginid": "10112",
@@ -1755,15 +1779,7 @@
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "WQxXT68GUpGWAFtViylkoFpWh-22uADM1DBovH0DFpwg8LL-",
-							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/aides-financieres/guides-et-conseils-financiers/quelles-sont-les-aides-financieres-pour-la-1",
-							"method": "GET",
-							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
-							"attack": "",
-							"evidence": "WQxXT68GUpGWAFtViylkoFpWh-22uADM1DBovH0DFpwg8LL-",
+							"evidence": "ae4%2CnO%2CFShtewRgUavSLEVAxPUM843GK1FqvJYKKl5H1507h",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						},
 						{
@@ -1771,7 +1787,15 @@
 							"method": "GET",
 							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
 							"attack": "",
-							"evidence": "WQxXT68GUpGWAFtViylkoFpWh-22uADM1DBovH0DFpwg8LL-",
+							"evidence": "ae4%2CnO%2CFShtewRgUavSLEVAxPUM843GK1FqvJYKKl5H1507h",
+							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/tous-les-guides-et-conseils?field_localisation=231161&field_secteurs_activite=All&field_taille_entreprise=All&items_per_page=10&search_api_fulltext&sort_by=search_api_relevance&type_1%5Btemoignage%5D=temoignage",
+							"method": "GET",
+							"param": "SSESS9074c3441d8d2a1acfdcaae274616c14",
+							"attack": "",
+							"evidence": "ae4%2CnO%2CFShtewRgUavSLEVAxPUM843GK1FqvJYKKl5H1507h",
 							"otherinfo": "\ncookie:SSESS9074c3441d8d2a1acfdcaae274616c14"
 						}
 					],
@@ -1781,7 +1805,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "2829"
+					"sourceid": "2905"
 				},
 				{
 					"pluginid": "10049",
@@ -1842,22 +1866,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=3600",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.francenum.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=3600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.francenum.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1866,7 +1874,7 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "9",
+					"count": "7",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -1885,7 +1893,23 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
 					"instances":[ 
 						{
+							"uri": "https://www.francenum.gouv.fr/core/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.francenum.gouv.fr/core/*.jpeg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.francenum.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1893,13 +1917,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "3",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "144"
+					"sourceid": "143"
 				},
 				{
 					"pluginid": "10031",
@@ -2006,7 +2030,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "444"
+					"sourceid": "477"
 				}
 			]
 		}
