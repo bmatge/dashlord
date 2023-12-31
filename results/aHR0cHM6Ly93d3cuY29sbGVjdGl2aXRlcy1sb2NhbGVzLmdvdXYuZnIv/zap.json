@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Dec 2023 01:48:46",
+	"@generated": "Sun, 31 Dec 2023 01:44:30",
 	"site":[ 
 		{
 			"@name": "https://www.collectivites-locales.gouv.fr",
@@ -26,9 +26,25 @@
 							"attack": "",
 							"evidence": "<form action=\"/recherche\" method=\"GET\" id=\"search-form-block\" accept-charset=\"UTF-8\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ]."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/lettres-information",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"mailto:sympa@listes.dgfip.finances.gouv.fr?subject=SUB collectivites.locales&amp;body=Cliquez sur le bouton ENVOYER de votre client de messagerie sans rien changer \u00E0 ce mail pour vous abonner. Merci\" enctype=\"text/plain\" method=\"POST\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"\" ]."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/recherche",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-recherche-page-1\" action=\"/recherche\" method=\"get\" id=\"views-exposed-form-recherche-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-display-excerpt-field-0\" \"edit-display-excerpt-field-1\" \"edit-field-tags\" \"edit-fulltext-bool-field\" \"edit-search-api-fulltext\" \"edit-sort-by-created\" \"edit-sort-by-search-api-relevance\" \"edit-submit-recherche\" ]."
 						}
 					],
-					"count": "1",
+					"count": "3",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-search\" \"edit-valider\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
@@ -176,6 +192,14 @@
 					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
@@ -262,14 +286,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -278,7 +294,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "57"
+					"sourceid": "476"
 				},
 				{
 					"pluginid": "10098",
@@ -470,6 +486,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -486,40 +510,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Permissions-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "1"
-				},
-				{
-					"pluginid": "10040",
-					"alertRef": "10040",
-					"alert": "Secure Pages Include Mixed Content",
-					"name": "Secure Pages Include Mixed Content",
-					"riskcode": "1",
-					"confidence": "2",
-					"riskdesc": "Low (Medium)",
-					"desc": "<p>The page includes mixed content, that is content accessed via HTTP instead of HTTPS.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/les-ratios-obligatoires-2004-budgets-primitifs",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "http://www.dgcl.interieur.gouv.fr/page.gif",
-							"otherinfo": "tag=img src=http://www.dgcl.interieur.gouv.fr/page.gif\ntag=img src=http://www.dgcl.interieur.gouv.fr/txt.png\ntag=img src=http://www.dgcl.interieur.gouv.fr/xls.png\n"
-						}
-					],
-					"count": "1",
-					"solution": "<p>A page that is available over SSL/TLS must be comprised completely of content which is transmitted over SSL/TLS.</p><p>The page must not contain any content that is transmitted over unencrypted HTTP.</p><p> This includes content from third party sites.</p>",
-					"otherinfo": "<p>tag=img src=http://www.dgcl.interieur.gouv.fr/page.gif</p><p>tag=img src=http://www.dgcl.interieur.gouv.fr/txt.png</p><p>tag=img src=http://www.dgcl.interieur.gouv.fr/xls.png</p><p></p>",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p>",
-					"cweid": "311",
-					"wascid": "4",
-					"sourceid": "2197"
 				},
 				{
 					"pluginid": "10035",
@@ -634,7 +631,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "51"
+					"sourceid": "476"
 				},
 				{
 					"pluginid": "10096",
@@ -647,221 +644,77 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/competences/action-sociale-et-sante",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/conseil-national-de-la-formation-des-elus-locaux-cnfel",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1582938477",
-							"otherinfo": "1582938477, which evaluates to: 2020-02-29 01:07:57"
+							"evidence": "2003022022",
+							"otherinfo": "2003022022, which evaluates to: 2033-06-22 03:00:22"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/le-conseil-municipal",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1420694243",
-							"otherinfo": "1420694243, which evaluates to: 2015-01-08 05:17:23"
+							"evidence": "1575768631",
+							"otherinfo": "1575768631, which evaluates to: 2019-12-08 01:30:31"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1439774872",
-							"otherinfo": "1439774872, which evaluates to: 2015-08-17 01:27:52"
+							"evidence": "1395230941",
+							"otherinfo": "1395230941, which evaluates to: 2014-03-19 12:09:01"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1454249245",
-							"otherinfo": "1454249245, which evaluates to: 2016-01-31 14:07:25"
+							"evidence": "1410282127",
+							"otherinfo": "1410282127, which evaluates to: 2014-09-09 17:02:07"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1463704545",
-							"otherinfo": "1463704545, which evaluates to: 2016-05-20 00:35:45"
+							"evidence": "1642786715",
+							"otherinfo": "1642786715, which evaluates to: 2022-01-21 17:38:35"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1477516698",
-							"otherinfo": "1477516698, which evaluates to: 2016-10-26 21:18:18"
+							"evidence": "1649541027",
+							"otherinfo": "1649541027, which evaluates to: 2022-04-09 21:50:27"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1533199593",
-							"otherinfo": "1533199593, which evaluates to: 2018-08-02 08:46:33"
+							"evidence": "1717921831",
+							"otherinfo": "1717921831, which evaluates to: 2024-06-09 08:30:31"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1565239092",
-							"otherinfo": "1565239092, which evaluates to: 2019-08-08 04:38:12"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1632940567",
-							"otherinfo": "1632940567, which evaluates to: 2021-09-29 18:36:07"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1634646013",
-							"otherinfo": "1634646013, which evaluates to: 2021-10-19 12:20:13"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1655304305",
-							"otherinfo": "1655304305, which evaluates to: 2022-06-15 14:45:05"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1723853506",
-							"otherinfo": "1723853506, which evaluates to: 2024-08-17 00:11:46"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1816367849",
-							"otherinfo": "1816367849, which evaluates to: 2027-07-23 18:37:29"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1853526411",
-							"otherinfo": "1853526411, which evaluates to: 2028-09-25 20:26:51"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1911084343",
-							"otherinfo": "1911084343, which evaluates to: 2030-07-24 00:45:43"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2007543079",
-							"otherinfo": "2007543079, which evaluates to: 2033-08-13 10:51:19"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/filieres-et-cadres-demplois",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2013979628",
-							"otherinfo": "2013979628, which evaluates to: 2033-10-26 22:47:08"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/obligations-des-fonctionnaires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1498209846",
-							"otherinfo": "1498209846, which evaluates to: 2017-06-23 09:24:06"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/obligations-des-fonctionnaires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1669214086",
-							"otherinfo": "1669214086, which evaluates to: 2022-11-23 14:34:46"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/fonction-publique-territoriale/obligations-des-fonctionnaires",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1669214869",
-							"otherinfo": "1669214869, which evaluates to: 2022-11-23 14:47:49"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1393470590",
-							"otherinfo": "1393470590, which evaluates to: 2014-02-27 03:09:50"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1554031557",
-							"otherinfo": "1554031557, which evaluates to: 2019-03-31 11:25:57"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1757720243",
-							"otherinfo": "1757720243, which evaluates to: 2025-09-12 23:37:23"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1916340480",
-							"otherinfo": "1916340480, which evaluates to: 2030-09-22 20:48:00"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1942304509",
-							"otherinfo": "1942304509, which evaluates to: 2031-07-20 09:01:49"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1956152018",
-							"otherinfo": "1956152018, which evaluates to: 2031-12-27 15:33:38"
+							"evidence": "1854823499",
+							"otherinfo": "1854823499, which evaluates to: 2028-10-10 20:44:59"
 						}
 					],
-					"count": "26",
+					"count": "8",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1582938477, which evaluates to: 2020-02-29 01:07:57</p>",
+					"otherinfo": "<p>2003022022, which evaluates to: 2033-06-22 03:00:22</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1831"
+					"sourceid": "1930"
 				},
 				{
 					"pluginid": "10094",
@@ -995,7 +848,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1360"
+					"sourceid": "1746"
 				},
 				{
 					"pluginid": "10027",
@@ -1230,23 +1083,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/actualites-du-21-septembre-2020",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/html",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1262,7 +1099,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/collectivites-doutre-mer",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1270,7 +1107,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-reforme-territoriale",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/cadre-institutionnel",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1278,7 +1115,31 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/la-responsabilite-penale-des-elus",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/historique-de-la-decentralisation",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/lettres-information",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/organisation-administrative",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/recherche",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1295,14 +1156,6 @@
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/texte-pa",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1329,7 +1182,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1337,7 +1190,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1345,7 +1198,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1372,7 +1225,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1380,7 +1233,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1388,7 +1241,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1415,7 +1268,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1423,7 +1276,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1431,7 +1284,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1458,7 +1311,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1466,7 +1319,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1474,7 +1327,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1557,7 +1410,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js$",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1565,7 +1418,23 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1579,17 +1448,9 @@
 							"attack": "",
 							"evidence": "max-age=600",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
