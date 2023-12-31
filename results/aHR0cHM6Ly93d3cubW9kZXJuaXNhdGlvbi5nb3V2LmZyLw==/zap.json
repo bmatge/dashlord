@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Dec 2023 02:35:19",
+	"@generated": "Sun, 31 Dec 2023 02:30:24",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -98,15 +98,31 @@
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.css$\" method=\"post\" id=\"hubscore-newsletter-form\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.js$\" method=\"post\" id=\"hubscore-newsletter-form\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -127,7 +143,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -135,7 +151,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -149,7 +165,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "7"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10055",
@@ -170,7 +186,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -178,7 +194,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -192,7 +208,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "7"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10055",
@@ -213,7 +229,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -221,7 +237,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -235,7 +251,7 @@
 					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "7"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10038",
@@ -342,15 +358,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "714"
+					"sourceid": "448"
 				},
 				{
 					"pluginid": "10098",
@@ -457,7 +481,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "7"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10044",
@@ -516,9 +540,17 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 41 [https://www.modernisation.gouv.fr/accueil].\nPredicted response size: 341.\nResponse Body Length: 410."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 44 [https://www.modernisation.gouv.fr/system/404].\nPredicted response size: 344.\nResponse Body Length: 422."
 						}
 					],
-					"count": "6",
+					"count": "7",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 45 [https://www.modernisation.gouv.fr/filter/tips].</p><p>Predicted response size: 345.</p><p>Response Body Length: 426.</p>",
 					"reference": "",
@@ -575,7 +607,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2108"
+					"sourceid": "2106"
 				},
 				{
 					"pluginid": "10063",
@@ -759,14 +791,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -775,7 +799,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -797,7 +829,42 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "714"
+					"sourceid": "448"
+				},
+				{
+					"pluginid": "10096",
+					"alertRef": "10096",
+					"alert": "Timestamp Disclosure - Unix",
+					"name": "Timestamp Disclosure - Unix",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.modernisation.gouv.fr/actualites/lacousinade-le-rendez-vous-des-communautes-de-la-transformation-publique-est-de-retour",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1548686285",
+							"otherinfo": "1548686285, which evaluates to: 2019-01-28 14:38:05"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/actualites/un-appel-projets-participation-citoyenne-pour-les-territoires",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1589546272",
+							"otherinfo": "1589546272, which evaluates to: 2020-05-15 12:37:52"
+						}
+					],
+					"count": "2",
+					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
+					"otherinfo": "<p>1548686285, which evaluates to: 2019-01-28 14:38:05</p>",
+					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
+					"cweid": "200",
+					"wascid": "13",
+					"sourceid": "4430"
 				},
 				{
 					"pluginid": "10094",
@@ -811,14 +878,6 @@
 					"instances":[ 
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -843,6 +902,14 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -882,7 +949,7 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -952,14 +1019,6 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
@@ -977,6 +1036,14 @@
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1016,7 +1083,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1059,14 +1126,6 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1088,6 +1147,14 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<a id=\"contenu\" tabindex=\"-1\"></a>",
+							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Astuces de r\u00E9daction</a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
@@ -1123,11 +1190,11 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">Se connecter</a>",
+							"evidence": "<a class=\"fr-breadcrumb__link\" aria-current=\"page\">R\u00E9initialiser votre mot de passe</a>",
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
@@ -1222,7 +1289,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique/le-barometre-des-resultats-de-laction-publique",
+							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique/le-comite-interministeriel-de-la-transformation-publique-citp",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1252,7 +1319,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "90005",
@@ -1265,7 +1332,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1273,7 +1340,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1295,7 +1362,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "714"
+					"sourceid": "257"
 				},
 				{
 					"pluginid": "90005",
@@ -1308,7 +1375,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1316,7 +1383,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1338,7 +1405,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "714"
+					"sourceid": "257"
 				},
 				{
 					"pluginid": "90005",
@@ -1351,7 +1418,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1359,7 +1426,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1381,7 +1448,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "714"
+					"sourceid": "257"
 				},
 				{
 					"pluginid": "90005",
@@ -1394,7 +1461,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1402,7 +1469,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1424,7 +1491,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "714"
+					"sourceid": "257"
 				},
 				{
 					"pluginid": "10049",
@@ -1445,7 +1512,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/robots.txt",
+							"uri": "https://www.modernisation.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1453,38 +1520,11 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
+							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "max-age=600",
-							"otherinfo": ""
-						}
-					],
-					"count": "3",
-					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
-					"otherinfo": "",
-					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
-					"cweid": "524",
-					"wascid": "13",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10049",
-					"alertRef": "10049",
-					"alert": "Storable but Non-Cacheable Content",
-					"name": "Storable but Non-Cacheable Content",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users. </p>",
-					"instances":[ 
-						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache",
 							"otherinfo": ""
 						},
 						{
@@ -1492,7 +1532,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1500,7 +1540,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1508,7 +1548,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1516,7 +1556,15 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1524,7 +1572,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
@@ -1532,25 +1580,25 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.js",
+							"uri": "https://www.modernisation.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "no-cache",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
-					"solution": "",
+					"count": "11",
+					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "714"
+					"sourceid": "1"
 				}
 			]
 		}
