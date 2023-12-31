@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Dec 2023 02:07:43",
+	"@generated": "Sun, 31 Dec 2023 02:01:00",
 	"site":[ 
 		{
 			"@name": "https://www.budget.gouv.fr",
@@ -33,7 +33,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/download_csv/timeline/donn\u00E9es_.csv\" method=\"POST\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-658791c4455db\" \"url\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-6590c9e159a4e\" \"url\" ]."
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
@@ -42,14 +42,6 @@
 							"attack": "",
 							"evidence": "<form action=\"/download_csv/piechart_extended/donn\u00E9es_depense_admin_pie.csv\" method=\"POST\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 3: \"colors\" \"data\" \"download-e4377306-e82f-4cf1-8bff-696fb189d125\" \"url\" ]."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-rechercher-es-page-1\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-tags-target-id\" \"edit-query\" \"edit-submit-rechercher-es\" \"f[0]\" ]."
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/core/*.css$",
@@ -85,6 +77,14 @@
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form action=\"/rechercher\" method=\"get\" id=\"views-exposed-form-rechercher-es-page-1\" accept-charset=\"UTF-8\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-field-tags-target-id\" \"edit-query\" \"edit-submit-rechercher-es\" \"f[0]\" ]."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -320,7 +320,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.js",
+							"uri": "https://www.budget.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -328,7 +328,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
+							"uri": "https://www.budget.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -484,7 +484,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "2061"
+					"sourceid": "1839"
 				},
 				{
 					"pluginid": "90003",
@@ -511,7 +511,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "2061"
+					"sourceid": "1839"
 				},
 				{
 					"pluginid": "90022",
@@ -523,14 +523,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.budget.gouv.fr/download_csv/carto/donn%C3%A9es_depense_publique_carto.csv",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "HTTP/1.1 500 Internal Server Error",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://www.budget.gouv.fr/download_csv/histogram-stacked/donn%C3%A9es_depense_fonction.csv",
 							"method": "POST",
@@ -548,13 +540,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "2058"
+					"sourceid": "1596"
 				},
 				{
 					"pluginid": "10044",
@@ -653,7 +645,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "928"
+					"sourceid": "1402"
 				},
 				{
 					"pluginid": "10017",
@@ -668,14 +660,6 @@
 						{
 							"uri": "https://www.budget.gouv.fr/documents-budgetaires/",
 							"method": "GET",
-							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
-							"attack": "",
-							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/download_csv/carto/donn%C3%A9es_depense_publique_carto.csv",
-							"method": "POST",
 							"param": "//html5shiv.googlecode.com/svn/trunk/html5.js",
 							"attack": "",
 							"evidence": "<script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\"></script>",
@@ -698,13 +682,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.</p>",
 					"otherinfo": "",
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "2061"
+					"sourceid": "1839"
 				},
 				{
 					"pluginid": "10110",
@@ -716,14 +700,6 @@
 					"riskdesc": "Low (Low)",
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
-						{
-							"uri": "https://www.budget.gouv.fr/files/js/js_dEjCOUMxgqq9tQ6lnlBiltRlQ_Og97RjkmiZ87-kTns.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "eval",
-							"otherinfo": ""
-						},
 						{
 							"uri": "https://www.budget.gouv.fr/files/js/js_gQekqfFnDaR9Cw3LaAZxfOEusUjLUqz0J8rdZg4sFjo.js",
 							"method": "GET",
@@ -749,13 +725,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2105"
+					"sourceid": "1494"
 				},
 				{
 					"pluginid": "10063",
@@ -816,14 +792,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -841,6 +809,14 @@
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -874,6 +850,14 @@
 					"riskdesc": "Low (High)",
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.budget.gouv.fr/core/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
 						{
 							"uri": "https://www.budget.gouv.fr/core/*.css",
 							"method": "GET",
@@ -947,7 +931,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.jpeg",
+							"uri": "https://www.budget.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -961,14 +945,6 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -977,7 +953,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "122"
+					"sourceid": "137"
 				},
 				{
 					"pluginid": "10096",
@@ -990,20 +966,20 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2021/programme-de-stabilite-2021-2027",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1618491612",
-							"otherinfo": "1618491612, which evaluates to: 2021-04-15 13:00:12"
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2024/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2024",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "1689163582",
 							"otherinfo": "1689163582, which evaluates to: 2023-07-12 12:06:22"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2024/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2024/budget-general-2024",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1696356271",
+							"otherinfo": "1696356271, which evaluates to: 2023-10-03 18:04:31"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2024/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2024/budgets-annexes-2024",
@@ -1088,11 +1064,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1618491612, which evaluates to: 2021-04-15 13:00:12</p>",
+					"otherinfo": "<p>1689163582, which evaluates to: 2023-07-12 12:06:22</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "932"
+					"sourceid": "1084"
 				},
 				{
 					"pluginid": "10021",
@@ -1119,7 +1095,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1964"
+					"sourceid": "1566"
 				},
 				{
 					"pluginid": "10094",
@@ -1188,6 +1164,14 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD[N\uFFFD\uFFFD9N\u03BD\uFFFD\uFFFD\uFFFD\uFFFDzu#\uFFFDk\uFFFDR\uFFFDV\uFFFD\\x0013=MY\\x0018:"
 						},
 						{
+							"uri": "https://www.budget.gouv.fr/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_D46VbTtDBOU7OvYHlrtvQenUj2GubUq9W4xM9TVkYOg",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD[N\uFFFD\uFFFD9N\u03BD\uFFFD\uFFFD\uFFFD\uFFFDzu#\uFFFDk\uFFFDR\uFFFDV\uFFFD\\x0013=MY\\x0018:"
+						},
+						{
 							"uri": "https://www.budget.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -1220,13 +1204,13 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD[N\uFFFD\uFFFD9N\u03BD\uFFFD\uFFFD\uFFFD\uFFFDzu#\uFFFDk\uFFFDR\uFFFDV\uFFFD\\x0013=MY\\x0018:"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
 					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\\x0011\uFFFD\uFFFDl\\x0004t\uFFFDb\uFFFD\uFFFD\uFFFD\uFFFD\\x0016\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDr\uFFFD</p><p>\uFFFDPy\\x0004\uFFFD\uFFFD\uFFFD\uFFFD1z</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "53"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10019",
@@ -1496,14 +1480,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/calendrier-budgetaire",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "cache-control",
@@ -1520,7 +1496,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/comparaison-europeenne",
+							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-publiques-locales-apul",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1552,6 +1528,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.budget.gouv.fr/reperes",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.budget.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "cache-control",
@@ -1574,7 +1558,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "43"
 				},
 				{
 					"pluginid": "90005",
@@ -1595,7 +1579,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.gif",
+							"uri": "https://www.budget.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1603,7 +1587,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1611,7 +1603,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1638,7 +1630,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.gif",
+							"uri": "https://www.budget.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1646,7 +1638,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1654,7 +1654,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1681,7 +1681,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.gif",
+							"uri": "https://www.budget.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1689,7 +1689,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1697,7 +1705,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1724,7 +1732,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.gif",
+							"uri": "https://www.budget.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1732,7 +1740,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1740,7 +1756,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1842,14 +1858,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -1864,9 +1872,25 @@
 							"attack": "",
 							"evidence": "no-cache",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "no-cache",
+							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "9",
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -1923,7 +1947,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1394"
+					"sourceid": "1552"
 				}
 			]
 		}
