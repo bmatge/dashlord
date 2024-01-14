@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 7 Jan 2024 02:00:12",
+	"@generated": "Sun, 14 Jan 2024 02:00:35",
 	"site":[ 
 		{
 			"@name": "https://cnnumerique.fr",
@@ -9,33 +9,6 @@
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
-				{
-					"pluginid": "10062",
-					"alertRef": "10062",
-					"alert": "PII Disclosure",
-					"name": "PII Disclosure",
-					"riskcode": "3",
-					"confidence": "3",
-					"riskdesc": "High (High)",
-					"desc": "<p>The response contains Personally Identifiable Information, such as CC number, SSN and similar sensitive data.</p>",
-					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/communique/itineraires-numeriques-le-conseil-lecoute-des-preoccupations-des-francais",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "4372946220729",
-							"otherinfo": "Credit Card Type detected: Visa\nBank Identification Number: 437294\nBrand: VISA\nCategory: \nIssuer: VISA AUSTRIA"
-						}
-					],
-					"count": "1",
-					"solution": "<p>Check the response for the potential presence of personally identifiable information (PII), ensure nothing sensitive is leaked by the application.</p>",
-					"otherinfo": "<p>Credit Card Type detected: Visa</p><p>Bank Identification Number: 437294</p><p>Brand: VISA</p><p>Category: </p><p>Issuer: VISA AUSTRIA</p>",
-					"reference": "",
-					"cweid": "359",
-					"wascid": "13",
-					"sourceid": "1024"
-				},
 				{
 					"pluginid": "10202",
 					"alertRef": "10202",
@@ -52,7 +25,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
 						},
 						{
 							"uri": "https://cnnumerique.fr/",
@@ -125,27 +98,11 @@
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.css$\" method=\"post\" id=\"hubscore-newsletter-form\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"form_build_id\" \"form_id\" \"newsletter-submit\" ]."
-						},
-						{
-							"uri": "https://cnnumerique.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form action=\"/recherche\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ]."
-						},
-						{
-							"uri": "https://cnnumerique.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.js$\" method=\"post\" id=\"hubscore-newsletter-form\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"form_build_id\" \"form_id\" \"newsletter-submit\" ]."
 						}
 					],
-					"count": "12",
+					"count": "10",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
-					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit--2\" ].</p>",
+					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-keys\" \"edit-submit\" ].</p>",
 					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
@@ -170,7 +127,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/filter/tips",
+							"uri": "https://cnnumerique.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -213,7 +170,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/filter/tips",
+							"uri": "https://cnnumerique.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -256,7 +213,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://cnnumerique.fr/index.php/filter/tips",
+							"uri": "https://cnnumerique.fr/filter/tips",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -355,7 +312,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://cnnumerique.fr/core/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://cnnumerique.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cnnumerique.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -371,14 +344,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/profiles/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://cnnumerique.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
@@ -387,13 +352,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "12",
+					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "162"
+					"sourceid": "165"
 				},
 				{
 					"pluginid": "10098",
@@ -422,6 +387,14 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://cnnumerique.fr/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://cnnumerique.fr/index.php/admin/",
 							"method": "GET",
 							"param": "",
@@ -431,14 +404,6 @@
 						},
 						{
 							"uri": "https://cnnumerique.fr/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://cnnumerique.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -527,7 +492,7 @@
 					"reference": "<p>https://www.wsj.com/articles/BL-CIOB-2999</p>",
 					"cweid": "540",
 					"wascid": "13",
-					"sourceid": "1558"
+					"sourceid": "1483"
 				},
 				{
 					"pluginid": "90003",
@@ -562,7 +527,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "654"
+					"sourceid": "653"
 				},
 				{
 					"pluginid": "10044",
@@ -574,14 +539,6 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
-						{
-							"uri": "https://cnnumerique.fr/index.php/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Location header URI length: 22 [http://cnnumerique.fr/].\nPredicted response size: 322.\nResponse Body Length: 334."
-						},
 						{
 							"uri": "https://cnnumerique.fr/index.php/filter/tips",
 							"method": "GET",
@@ -669,15 +626,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 32 [http://cnnumerique.fr/system/404].\nPredicted response size: 332.\nResponse Body Length: 374."
+						},
+						{
+							"uri": "https://cnnumerique.fr/profiles/*.svg",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 32 [http://cnnumerique.fr/system/404].\nPredicted response size: 332.\nResponse Body Length: 374."
 						}
 					],
 					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 22 [http://cnnumerique.fr/].</p><p>Predicted response size: 322.</p><p>Response Body Length: 334.</p>",
+					"otherinfo": "<p>Location header URI length: 33 [http://cnnumerique.fr/filter/tips].</p><p>Predicted response size: 333.</p><p>Response Body Length: 378.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "848"
+					"sourceid": "236"
 				},
 				{
 					"pluginid": "10017",
@@ -712,7 +677,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "654"
+					"sourceid": "653"
 				},
 				{
 					"pluginid": "10110",
@@ -779,7 +744,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1281"
+					"sourceid": "1291"
 				},
 				{
 					"pluginid": "10063",
@@ -848,6 +813,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://cnnumerique.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://cnnumerique.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -857,14 +830,6 @@
 						},
 						{
 							"uri": "https://cnnumerique.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://cnnumerique.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -979,7 +944,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/profiles/*.jpg",
+							"uri": "https://cnnumerique.fr/profiles/*.jpeg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1001,7 +966,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "162"
+					"sourceid": "165"
 				},
 				{
 					"pluginid": "10096",
@@ -1028,14 +993,6 @@
 							"attack": "",
 							"evidence": "1687292877",
 							"otherinfo": "1687292877, which evaluates to: 2023-06-20 20:27:57"
-						},
-						{
-							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-55-penser-la-force-du-collectif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1694000336",
-							"otherinfo": "1694000336, which evaluates to: 2023-09-06 11:38:56"
 						},
 						{
 							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-59-nec-plus-ultra",
@@ -1086,13 +1043,13 @@
 							"otherinfo": "1702638754, which evaluates to: 2023-12-15 11:12:34"
 						}
 					],
-					"count": "9",
+					"count": "8",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1596876428, which evaluates to: 2020-08-08 08:47:08</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1558"
+					"sourceid": "1483"
 				},
 				{
 					"pluginid": "10094",
@@ -1161,14 +1118,6 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD^\uFFFD\uFFFD\\x0019\uFFFD\uFFFDY\uFFFD\t!F>\uFFFD\uFFFDg\\x00050o\uFFFD:\uF9CA\uFFFDz\u0563\\x0005qP"
 						},
 						{
-							"uri": "https://cnnumerique.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_cXquSGY3vtlnKCSFGPvDAZwUwb8o676eK9HrVowVxUM",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD^\uFFFD\uFFFD\\x0019\uFFFD\uFFFDY\uFFFD\t!F>\uFFFD\uFFFDg\\x00050o\uFFFD:\uF9CA\uFFFDz\u0563\\x0005qP"
-						},
-						{
 							"uri": "https://cnnumerique.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
@@ -1191,6 +1140,14 @@
 							"attack": "",
 							"evidence": "/files/css/css_cXquSGY3vtlnKCSFGPvDAZwUwb8o676eK9HrVowVxUM",
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD^\uFFFD\uFFFD\\x0019\uFFFD\uFFFDY\uFFFD\t!F>\uFFFD\uFFFDg\\x00050o\uFFFD:\uF9CA\uFFFDz\u0563\\x0005qP"
+						},
+						{
+							"uri": "https://cnnumerique.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "fr/keynote-de-benoit-thieulin-IGF-2015",
+							"otherinfo": "~\uFFFD\uFFFD{)\uFFFD\uFFFD{\uFFFD\u079E\uFFFD\uFFFD\uFFFD\uFFFDbz\uFFFDb\uFFFD\uFFFD\\x0006\\x0017\uFFFD\uFFFD"
 						}
 					],
 					"count": "11",
@@ -1226,7 +1183,7 @@
 					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "192"
+					"sourceid": "199"
 				},
 				{
 					"pluginid": "10027",
@@ -1477,7 +1434,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-64-parler-du-numerique-au-sein-de-lentreprise",
+							"uri": "https://cnnumerique.fr/lettre-dinformation/cenum-la-lettre-du-conseil-67-les-souhaits-de-6-personnalites-pour-2024",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1552,7 +1509,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css",
+							"uri": "https://cnnumerique.fr/core/*.gif",
+							"method": "GET",
+							"param": "Sec-Fetch-Dest",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cnnumerique.fr/core/*.jpg",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1576,7 +1541,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1603,7 +1568,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css",
+							"uri": "https://cnnumerique.fr/core/*.gif",
+							"method": "GET",
+							"param": "Sec-Fetch-Mode",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cnnumerique.fr/core/*.jpg",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1627,7 +1600,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1654,7 +1627,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css",
+							"uri": "https://cnnumerique.fr/core/*.gif",
+							"method": "GET",
+							"param": "Sec-Fetch-Site",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cnnumerique.fr/core/*.jpg",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1678,7 +1659,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1705,7 +1686,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/core/*.css",
+							"uri": "https://cnnumerique.fr/core/*.gif",
+							"method": "GET",
+							"param": "Sec-Fetch-User",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://cnnumerique.fr/core/*.jpg",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1729,7 +1718,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "5",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1757,14 +1746,6 @@
 						},
 						{
 							"uri": "https://cnnumerique.fr/core/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://cnnumerique.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1804,6 +1785,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://cnnumerique.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://cnnumerique.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -1820,7 +1809,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/robots.txt",
+							"uri": "https://cnnumerique.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1828,7 +1817,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://cnnumerique.fr/sitemap.xml",
+							"uri": "https://cnnumerique.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1989,7 +1978,7 @@
 					"reference": "<p>http://websecuritytool.codeplex.com/wikipage?title=Checks#user-controlled-html-attribute</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "1285"
+					"sourceid": "1288"
 				}
 			]
 		}
