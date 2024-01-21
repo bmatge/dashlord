@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 14 Jan 2024 01:43:07",
+	"@generated": "Sun, 21 Jan 2024 01:42:57",
 	"site":[ 
 		{
 			"@name": "https://www.bercynumerique.finances.gouv.fr",
@@ -111,10 +111,10 @@
 					"count": "11",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
-					"reference": "<p>http://projects.webappsec.org/Cross-Site-Request-Forgery</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "56"
 				},
 				{
 					"pluginid": "10055",
@@ -154,7 +154,7 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, font-src, media-src, object-src, manifest-src, worker-src, form-action</p><p></p><p>The directive(s): form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
-					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "56"
@@ -197,7 +197,7 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
-					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "56"
@@ -240,7 +240,7 @@
 					"count": "3",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
-					"reference": "<p>http://www.w3.org/TR/CSP2/</p><p>http://www.w3.org/TR/CSP/</p><p>http://caniuse.com/#search=content+security+policy</p><p>http://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
+					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/shapesecurity/salvation</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
 					"sourceid": "56"
@@ -280,14 +280,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -320,7 +312,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.svg",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -336,7 +328,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css$",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -355,10 +355,10 @@
 					"count": "12",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>http://www.w3.org/TR/CSP/</p><p>http://w3c.github.io/webappsec/specs/content-security-policy/csp-specification.dev.html</p><p>http://www.html5rocks.com/en/tutorials/security/content-security-policy/</p><p>http://caniuse.com/#feat=contentsecuritypolicy</p><p>http://content-security-policy.com/</p>",
+					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "100"
+					"sourceid": "99"
 				},
 				{
 					"pluginid": "10098",
@@ -395,6 +395,14 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/admin/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -404,14 +412,6 @@
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -469,7 +469,7 @@
 				},
 				{
 					"pluginid": "10044",
-					"alertRef": "10044",
+					"alertRef": "10044-1",
 					"alert": "Big Redirect Detected (Potential Sensitive Information Leak)",
 					"name": "Big Redirect Detected (Potential Sensitive Information Leak)",
 					"riskcode": "1",
@@ -477,6 +477,14 @@
 					"riskdesc": "Low (Medium)",
 					"desc": "<p>The server has responded with a redirect that seems to provide a large response. This may indicate that although the server sent a redirect it also responded with body content (which may include sensitive details, PII, etc.).</p>",
 					"instances":[ 
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 44 [https://www.bercynumerique.finances.gouv.fr/].\nPredicted response size: 344.\nResponse Body Length: 422."
+						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/index.php/filter/tips",
 							"method": "GET",
@@ -494,12 +502,68 @@
 							"otherinfo": "Location header URI length: 50 [https://www.bercynumerique.finances.gouv.fr/search].\nPredicted response size: 350.\nResponse Body Length: 446."
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/node/11",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 55 [https://www.bercynumerique.finances.gouv.fr/pac-num/pix].\nPredicted response size: 355.\nResponse Body Length: 466."
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/node/302",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 56 [https://www.bercynumerique.finances.gouv.fr/liens-utiles].\nPredicted response size: 356.\nResponse Body Length: 470."
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/node/7",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 77 [https://www.bercynumerique.finances.gouv.fr/quest-ce-que-le-sac-dos-numerique].\nPredicted response size: 377.\nResponse Body Length: 554."
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/node/9",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 67 [https://www.bercynumerique.finances.gouv.fr/presentation-du-pac-num].\nPredicted response size: 367.\nResponse Body Length: 514."
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/node/9312",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 85 [https://www.bercynumerique.finances.gouv.fr/faites-fleurir-vos-competences-numeriques].\nPredicted response size: 385.\nResponse Body Length: 586."
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/node/9471",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 129 [https://www.bercynumerique.finances.gouv.fr/lue-planche-sur-un-cadre-juridique-pour-reglementer-les-services-de-streaming-musical].\nPredicted response size: 429.\nResponse Body Length: 762."
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/recherche/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 53 [https://www.bercynumerique.finances.gouv.fr/recherche].\nPredicted response size: 353.\nResponse Body Length: 458."
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/search",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 55 [https://www.bercynumerique.finances.gouv.fr/search/node].\nPredicted response size: 355.\nResponse Body Length: 466."
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/search/",
@@ -510,13 +574,13 @@
 							"otherinfo": "Location header URI length: 50 [https://www.bercynumerique.finances.gouv.fr/search].\nPredicted response size: 350.\nResponse Body Length: 446."
 						}
 					],
-					"count": "4",
+					"count": "12",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
-					"otherinfo": "<p>Location header URI length: 55 [https://www.bercynumerique.finances.gouv.fr/filter/tips].</p><p>Predicted response size: 355.</p><p>Response Body Length: 466.</p>",
+					"otherinfo": "<p>Location header URI length: 44 [https://www.bercynumerique.finances.gouv.fr/].</p><p>Predicted response size: 344.</p><p>Response Body Length: 422.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1219"
+					"sourceid": "424"
 				},
 				{
 					"pluginid": "10110",
@@ -543,7 +607,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "1406"
+					"sourceid": "377"
 				},
 				{
 					"pluginid": "10063",
@@ -588,14 +652,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -628,7 +684,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.svg",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -636,7 +692,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -654,7 +718,7 @@
 				},
 				{
 					"pluginid": "10035",
-					"alertRef": "10035",
+					"alertRef": "10035-1",
 					"alert": "Strict-Transport-Security Header Not Set",
 					"name": "Strict-Transport-Security Header Not Set",
 					"riskcode": "1",
@@ -687,14 +751,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -727,7 +783,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.svg",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -743,7 +799,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.css$",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -765,15 +821,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/README.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
 					"count": "13",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
 					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>http://caniuse.com/stricttransportsecurity</p><p>http://tools.ietf.org/html/rfc6797</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "100"
+					"sourceid": "99"
 				},
 				{
 					"pluginid": "10096",
@@ -786,77 +850,29 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/comment-jai-sauve-mon-entreprise-grace-sa-communaute",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/conference-data-de-quoi-parle-t-parole-dexpert",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1636953805",
-							"otherinfo": "1636953805, which evaluates to: 2021-11-15 05:23:25"
+							"evidence": "1680011528",
+							"otherinfo": "1680011528, which evaluates to: 2023-03-28 13:52:08"
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/la-commission-europeenne-est-accusee-de-ne-pas-verifier-la-bonne-application-du-rgpd",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/conference-datavisualisation-saison-2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1452046257",
-							"otherinfo": "1452046257, which evaluates to: 2016-01-06 02:10:57"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/la-commission-europeenne-est-accusee-de-ne-pas-verifier-la-bonne-application-du-rgpd",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1630669066",
-							"otherinfo": "1630669066, which evaluates to: 2021-09-03 11:37:46"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/la-commission-europeenne-est-accusee-de-ne-pas-verifier-la-bonne-application-du-rgpd",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1638362042",
-							"otherinfo": "1638362042, which evaluates to: 2021-12-01 12:34:02"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/le-web3-designe-un-palier-de-maturite-des-usages-numeriques",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1848437476",
-							"otherinfo": "1848437476, which evaluates to: 2028-07-28 22:51:16"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/les-services-publics-de-demain-remettre-de-lhumain-contre-letat-excel",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1620660822",
-							"otherinfo": "1620660822, which evaluates to: 2021-05-10 15:33:42"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/linnovation-publique-selon-la-mission-transformation-numerique-de-letat",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1634713931",
-							"otherinfo": "1634713931, which evaluates to: 2021-10-20 07:12:11"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/penser-la-souverainete-numerique-pour-une-autonomie-strategique",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1607592780",
-							"otherinfo": "1607592780, which evaluates to: 2020-12-10 09:33:00"
+							"evidence": "1680513412",
+							"otherinfo": "1680513412, which evaluates to: 2023-04-03 09:16:52"
 						}
 					],
-					"count": "8",
+					"count": "2",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1636953805, which evaluates to: 2021-11-15 05:23:25</p>",
+					"otherinfo": "<p>1680011528, which evaluates to: 2023-03-28 13:52:08</p>",
 					"reference": "<p>http://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "3413"
+					"sourceid": "1296"
 				},
 				{
 					"pluginid": "10094",
@@ -875,6 +891,14 @@
 							"attack": "",
 							"evidence": "/files/css/css_YRaIWk36vB7251che7pozDfGtQOSmDtOu7LskcnCYPo",
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFDE\uFFFD\\x0016\uFFFD~\uFFFD\\x0007\uFFFD\uFFFD\uFFFD\uFFFD^\uFFFD3\r\uFFFD@\uFFFD\\x000e\u04EE\uFFFD$rp\uFFFD>"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/*/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_wtV3by3rHXLVJRtsxwPSxI9lRwvU29YEFmvrgsyH070",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD]\uFFFD\uFFFDz\uFFFD\\\uFFFDIF\uFFFD1\uFFFD\uFFFD\uFFFD#\uFFFDQ\uFFFD\uFFFD6\uFFFD\uFFFD\\x0005\uFFFD\uFFFD\uFFFD!\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/comment/reply/",
@@ -910,14 +934,6 @@
 						},
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/filter/tips",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_wtV3by3rHXLVJRtsxwPSxI9lRwvU29YEFmvrgsyH070",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD]\uFFFD\uFFFDz\uFFFD\\\uFFFDIF\uFFFD1\uFFFD\uFFFD\uFFFD#\uFFFDQ\uFFFD\uFFFD6\uFFFD\uFFFD\\x0005\uFFFD\uFFFD\uFFFD!\uFFFD\uFFFD"
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -967,7 +983,7 @@
 				},
 				{
 					"pluginid": "10019",
-					"alertRef": "10019",
+					"alertRef": "10019-1",
 					"alert": "Content-Type Header Missing",
 					"name": "Content-Type Header Missing",
 					"riskcode": "0",
@@ -978,7 +994,7 @@
 						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/web.config",
 							"method": "GET",
-							"param": "",
+							"param": "content-type",
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
@@ -987,10 +1003,10 @@
 					"count": "1",
 					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
 					"otherinfo": "",
-					"reference": "<p>http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx</p>",
+					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p>",
 					"cweid": "345",
 					"wascid": "12",
-					"sourceid": "1182"
+					"sourceid": "121"
 				},
 				{
 					"pluginid": "10027",
@@ -1097,7 +1113,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "56"
 				},
 				{
 					"pluginid": "10109",
@@ -1204,7 +1220,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "56"
 				},
 				{
 					"pluginid": "10015",
@@ -1225,7 +1241,23 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/faites-fleurir-vos-competences-numeriques",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1241,15 +1273,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/pac-num/formation",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/pac-num/la-ressourcerie-numerique-pac-num",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/lue-planche-sur-un-cadre-juridique-pour-reglementer-les-services-de-streaming-musical",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1273,14 +1297,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/protection-des-mineurs-sur-internet-quelles-avancees",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=600, public",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/quest-ce-que-le-sac-dos-numerique",
 							"method": "GET",
 							"param": "cache-control",
@@ -1289,7 +1305,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/sitemap.xml",
+							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=600, public",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/thematique/ressources-humaines",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1297,13 +1321,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "10",
+					"count": "11",
 					"solution": "<p>For secure content, ensure the cache-control HTTP header is set with \"no-cache, no-store, must-revalidate\". If an asset should be cached consider setting the directives \"public, max-age, immutable\".</p>",
 					"otherinfo": "",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "56"
 				},
 				{
 					"pluginid": "90005",
@@ -1324,14 +1348,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1340,7 +1356,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
@@ -1367,14 +1383,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1383,7 +1391,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
@@ -1410,14 +1418,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1426,7 +1426,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
@@ -1453,14 +1453,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1469,7 +1461,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "2",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
@@ -1520,14 +1512,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -1568,6 +1552,22 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.bercynumerique.finances.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
@@ -1576,13 +1576,176 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "56"
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10031",
+					"alertRef": "10031",
+					"alert": "User Controllable HTML Element Attribute (Potential XSS)",
+					"name": "User Controllable HTML Element Attribute (Potential XSS)",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [aria-label] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la derni\u00E8re page"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "field_rubrique",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nfield_rubrique=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "items_per_page",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nitems_per_page=10\r\n\r\nThe user-controlled value was:\r\n10"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "sort_bef_combine",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nsort_bef_combine=created_DESC\r\n\r\nThe user-controlled value was:\r\ncreated_desc"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [aria-label] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la derni\u00E8re page"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page pr\u00E9c\u00E9dente"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la page suivante"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [a] tag [title] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\naller \u00E0 la premi\u00E8re page"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [input] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [link] tag [media] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\nall"
+						},
+						{
+							"uri": "https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1",
+							"method": "GET",
+							"param": "thematiques",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\r\n\r\nhttps://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1\r\n\r\nappears to include user input in: \r\n\r\na(n) [option] tag [value] attribute \r\n\r\nThe user input found was:\r\nthematiques=All\r\n\r\nThe user-controlled value was:\r\nall"
+						}
+					],
+					"count": "18",
+					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.bercynumerique.finances.gouv.fr/information-en-continu?field_rubrique=All&items_per_page=10&sort_bef_combine=created_DESC&thematiques=All&type_1=1</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [a] tag [aria-label] attribute </p><p></p><p>The user input found was:</p><p>field_rubrique=All</p><p></p><p>The user-controlled value was:</p><p>aller \u00E0 la premi\u00E8re page</p>",
+					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
+					"cweid": "20",
+					"wascid": "20",
+					"sourceid": "632"
 				}
 			]
 		}
