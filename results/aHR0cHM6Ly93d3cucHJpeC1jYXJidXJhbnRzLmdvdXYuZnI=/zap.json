@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 3 Mar 2024 01:02:01",
+	"@generated": "Sun, 10 Mar 2024 01:02:48",
 	"site":[ 
 		{
 			"@name": "https://www.prix-carburants.gouv.fr",
@@ -28,7 +28,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -36,7 +36,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/copyright/",
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -71,7 +71,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -79,7 +79,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/copyright/",
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -114,7 +114,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -122,7 +122,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/copyright/",
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -150,6 +150,14 @@
 					"instances":[ 
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -189,7 +197,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "5",
+					"count": "6",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
@@ -315,6 +323,14 @@
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
 						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/",
 							"method": "GET",
 							"param": "x-frame-options",
@@ -323,13 +339,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "1",
+					"count": "2",
 					"solution": "<p>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</p><p>If you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy's \"frame-ancestors\" directive.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "21"
+					"sourceid": "62"
 				},
 				{
 					"pluginid": "90003",
@@ -350,14 +366,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://tag.aticdn.net/495337/smarttag.js\"></script>",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
 							"method": "GET",
 							"param": "",
@@ -367,6 +375,14 @@
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://tag.aticdn.net/495337/smarttag.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/demander-mdp",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -463,7 +479,7 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "289"
+					"sourceid": "258"
 				},
 				{
 					"pluginid": "10044",
@@ -514,7 +530,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "146"
+					"sourceid": "114"
 				},
 				{
 					"pluginid": "10010",
@@ -529,25 +545,25 @@
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1351_3031704",
+							"evidence": "Set-Cookie: incap_ses_885_3031704",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1351_3031704",
+							"evidence": "Set-Cookie: incap_ses_885_3031704",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1351_3031704",
+							"evidence": "Set-Cookie: incap_ses_885_3031704",
 							"otherinfo": ""
 						}
 					],
@@ -572,9 +588,9 @@
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1351_3031704",
+							"evidence": "Set-Cookie: incap_ses_885_3031704",
 							"otherinfo": ""
 						},
 						{
@@ -588,9 +604,9 @@
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1351_3031704",
+							"evidence": "Set-Cookie: incap_ses_885_3031704",
 							"otherinfo": ""
 						},
 						{
@@ -604,9 +620,9 @@
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1351_3031704",
+							"evidence": "Set-Cookie: incap_ses_885_3031704",
 							"otherinfo": ""
 						},
 						{
@@ -744,7 +760,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1399981905&ns=3",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1068522594&ns=7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -752,7 +768,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1434199537&ns=3",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1385617313&ns=4",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -760,7 +776,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=170555012&ns=1",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1457545557&ns=6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -768,7 +784,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1777021935&ns=5",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1606544957&ns=5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -776,7 +792,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1879083058&ns=2",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1691242895&ns=2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -784,7 +800,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=409402085&ns=1",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1971735808&ns=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -792,7 +808,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=590646564&ns=5",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=254988341&ns=3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -800,7 +816,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=659011455&ns=6",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=279418244&ns=8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -808,7 +824,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=711035658&ns=4",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=598897700&ns=7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -816,7 +832,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=829162496&ns=7",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=643317956&ns=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -824,7 +840,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=931577796&ns=2",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=746754216&ns=9",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -846,7 +862,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "147"
+					"sourceid": "150"
 				},
 				{
 					"pluginid": "110009",
@@ -1009,20 +1025,12 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1777021935",
-							"otherinfo": "1777021935, which evaluates to: 2026-04-24 09:12:15"
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1434199537",
-							"otherinfo": "1434199537, which evaluates to: 2015-06-13 12:45:37"
+							"evidence": "1885840063",
+							"otherinfo": "1885840063, which evaluates to: 2029-10-04 20:27:43"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.js",
@@ -1033,61 +1041,69 @@
 							"otherinfo": "1431655765, which evaluates to: 2015-05-15 02:09:25"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact/?rubrique=faq",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1579273587",
-							"otherinfo": "1579273587, which evaluates to: 2020-01-17 15:06:27"
+							"evidence": "1606544957",
+							"otherinfo": "1606544957, which evaluates to: 2020-11-28 06:29:17"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/rubrique/copyright/",
+							"uri": "https://www.prix-carburants.gouv.fr/opendata/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1399981905",
-							"otherinfo": "1399981905, which evaluates to: 2014-05-13 11:51:45"
+							"evidence": "1971735808",
+							"otherinfo": "1971735808, which evaluates to: 2032-06-25 00:23:28"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/aide-stations/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1694768767",
+							"otherinfo": "1694768767, which evaluates to: 2023-09-15 09:06:07"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/faq/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1879083058",
-							"otherinfo": "1879083058, which evaluates to: 2029-07-18 15:30:58"
+							"evidence": "1691242895",
+							"otherinfo": "1691242895, which evaluates to: 2023-08-05 13:41:35"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/sitemap",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/opendata/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1565519053",
-							"otherinfo": "1565519053, which evaluates to: 2019-08-11 10:24:13"
+							"evidence": "1457545557",
+							"otherinfo": "1457545557, which evaluates to: 2016-03-09 17:45:57"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/personal_data/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1951839091",
+							"otherinfo": "1951839091, which evaluates to: 2031-11-07 17:31:31"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
 							"method": "POST",
 							"param": "",
 							"attack": "",
-							"evidence": "1444401111",
-							"otherinfo": "1444401111, which evaluates to: 2015-10-09 14:31:51"
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
-							"method": "POST",
-							"param": "",
-							"attack": "",
-							"evidence": "1556007471",
-							"otherinfo": "1556007471, which evaluates to: 2019-04-23 08:17:51"
+							"evidence": "1638001433",
+							"otherinfo": "1638001433, which evaluates to: 2021-11-27 08:23:53"
 						}
 					],
 					"count": "9",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1777021935, which evaluates to: 2026-04-24 09:12:15</p>",
+					"otherinfo": "<p>1885840063, which evaluates to: 2029-10-04 20:27:43</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "59"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10021",
@@ -1100,7 +1116,7 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=170555012&ns=1",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1385617313&ns=4",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1108,15 +1124,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=711035658&ns=4",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.css",
+							"uri": "https://www.prix-carburants.gouv.fr/bundles/dsfr/css/extensions.css",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1148,7 +1156,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/dsfr/css/favicon/apple-touch-icon.png",
+							"uri": "https://www.prix-carburants.gouv.fr/dsfr/css/favicon/favicon.ico",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1188,6 +1196,14 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/",
 							"method": "GET",
 							"param": "x-content-type-options",
@@ -1202,7 +1218,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "109"
+					"sourceid": "111"
 				},
 				{
 					"pluginid": "10111",
@@ -1229,7 +1245,7 @@
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "213"
+					"sourceid": "187"
 				},
 				{
 					"pluginid": "10094",
@@ -1246,40 +1262,40 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "N6v+rONKRlGgs8gqahE1i/jL42UAAAAAQUIPAAAAAAAMpDlBuYBWAUnZdhLH5xVy",
-							"otherinfo": "7\uFFFD\uFFFD\uFFFD\uFFFDJFQ\uFFFD\uFFFD\uFFFD*j\\x00115\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x000c\uFFFD9A\uFFFD\uFFFDV\\x0001I\uFFFDv\\x0012\uFFFD\uFFFD\\x0015r"
+							"evidence": "WJcmW4NaQsy8E+kgEMRAxawG7WUAAAAAQUIPAAAAAAC4tBj/MQtd1m+c0wLrI2W7",
+							"otherinfo": "X\uFFFD&[\uFFFDZB\u033C\\x0013\uFFFD \\x0010\uFFFD@\u016C\\x0006\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\\x0018\uFFFD1\\x000b]\uFFFDo\uFFFD\uFFFD\\x0002\uFFFD#e\uFFFD"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "fJ1KjB6yTBCeI7ECl8t/Y/nL42UAAAAAQUIPAAAAAAAgSQyMAOe2K18XaELUPylf",
-							"otherinfo": "|\uFFFDJ\uFFFD\\x001e\uFFFDL\\x0010\uFFFD#\uFFFD\\x0002\uFFFD\uFFFDc\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000 I\\x000c\uFFFD\\x0000\uFFFD+_\\x0017hB\uFFFD?)_"
+							"evidence": "eQwhCcUuT8agHoBeneaGU6wG7WUAAAAAQUIPAAAAAAD4kTMzG+kj090KuGESqkqz",
+							"otherinfo": "y\\x000c!\t\uFFFD.O\u01A0\\x001e\uFFFD^\uFFFD\uFFFDS\uFFFD\\x0006\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD33\\x001b\uFFFD#\uFFFD\uFFFD\n\uFFFDa\\x0012\uFFFDJ\uFFFD"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "QACSXKPKei-04jvMF-IevcnkCJLPZAR7bITeq7FXGSk",
-							"otherinfo": "@\\x0000\uFFFD\\\uFFFD\uFFFDz/\uFFFD\uFFFD;\uFFFD\\x0017\uFFFD\\x001e\uFFFD\uFFFD\uFFFD\\x0008\uFFFD\uFFFDd\\x0004{l\uFFFD\u07AB\uFFFDW\\x0019)"
+							"evidence": "pxgWUkD-Z8Pr5lAVzEal5mq1ceaY9rkkwkeEPUi4xZI",
+							"otherinfo": "\uFFFD\\x0018\\x0016R@\uFFFDg\uFFFD\uFFFD\uFFFDP\\x0015\uFFFDF\uFFFD\uFFFDj\uFFFDq\uFFFD\uFFFD\uFFFD$\uFFFDG\uFFFD=H\uFFFD\u0152"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "kdqeOEAetrINdsj5maZPDYKUuLz1L-sxVZsec29hILs",
-							"otherinfo": "\uFFFD\u069E8@\\x001e\uFFFD\uFFFD\rv\uFFFD\uFFFD\uFFFD\uFFFDO\r\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD/\uFFFD1U\uFFFD\\x001esoa \uFFFD"
+							"evidence": "zHFSM2hQk0-sHJKUX3kjoq3SnH_4CxUlBqqCVDWaU_Y",
+							"otherinfo": "\uFFFDqR3hP\uFFFDO\uFFFD\\x001c\uFFFD\uFFFD_y#\uFFFD\uFFFD\u049C\uFFFD\\x000b\\x0015%\\x0006\uFFFD\uFFFDT5\uFFFDS\uFFFD"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "Uz37KIdoX0gQr29b7BnW8lTLusgbBOWvUkNaggRD6gI",
-							"otherinfo": "S=\uFFFD(\uFFFDh_H\\x0010\uFFFDo[\uFFFD\\x0019\uFFFD\uFFFDT\u02FA\uFFFD\\x001b\\x0004\uFFFDRCZ\uFFFD\\x0004C\uFFFD\\x0002"
+							"evidence": "lMWJWfR_OgIVIgZFU-wyT9FU5CE_bU5Ndb6BgZVXevo",
+							"otherinfo": "\uFFFD\u0149Y\uFFFD:\\x0002\\x0015\"\\x0006ES\uFFFD2O\uFFFDT\uFFFD!?mNMu\uFFFD\uFFFD\uFFFD\uFFFDWz\uFFFD"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/css/jquery-ui.min.css",
@@ -1310,16 +1326,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2shIWwjWcFAIwErQWyeG5nx2pbP-_en4ytf619UzaPY",
-							"otherinfo": "\uFFFD\uFFFDH[\\x0008\uFFFDpP\\x0008\uFFFDJ\uFFFD['\uFFFD\uFFFD|v\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD3h\uFFFD"
+							"evidence": "o1_zwpqTq2LE_muvhGIv3MTIIMdbozwKxBiI32b0Uiw",
+							"otherinfo": "\uFFFD_\uFFFD\u009A\uFFFD\uFFFDb\uFFFD\uFFFDk\uFFFD\uFFFDb/\uFFFD\uFFFD\uFFFD \uFFFD[\uFFFD<\n\uFFFD\\x0018\uFFFD\uFFFDf\uFFFDR,"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "YIvKywP1QxGjG9DNwqRgqvnL42UAAAAAQUIPAAAAAABkClCyVmHoLcGWwFXBV3vt",
-							"otherinfo": "`\uFFFD\uFFFD\uFFFD\\x0003\uFFFDC\\x0011\uFFFD\\x001b\uFFFD\uFFFD\u00A4`\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000d\nP\uFFFDVa\uFFFD-\uFFFD\uFFFD\uFFFDU\uFFFDW{\uFFFD"
+							"evidence": "DJuy9en9QC2IMgApBSQVeawG7WUAAAAAQUIPAAAAAABOwwyafHSWfrz+aBQYbBBp",
+							"otherinfo": "\\x000c\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD@-\uFFFD2\\x0000)\\x0005$\\x0015y\uFFFD\\x0006\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000N\uFFFD\\x000c\uFFFD|t\uFFFD~\uFFFD\uFFFDh\\x0014\\x0018l\\x0010i"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/guide/",
@@ -1334,13 +1350,13 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2ItcO1ecRjaYhfrJ08nqUvnL42UAAAAAQUIPAAAAAADu6/QnYsbAiLW5aBEIXhx9",
-							"otherinfo": "\u060B\\;W\uFFFDF6\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDR\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD'b\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDh\\x0011\\x0008^\\x001c}"
+							"evidence": "hC2PKaMrQJyuaFywbjamV6wG7WUAAAAAQUIPAAAAAAA+3yW7XrdYxTvd+ACw7HDf",
+							"otherinfo": "\uFFFD-\uFFFD)\uFFFD+@\uFFFD\uFFFDh\\\uFFFDn6\uFFFDW\uFFFD\\x0006\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000>\uFFFD%\uFFFD^\uFFFDX\uFFFD;\uFFFD\uFFFD\\x0000\uFFFD\uFFFDp\uFFFD"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>7\uFFFD\uFFFD\uFFFD\uFFFDJFQ\uFFFD\uFFFD\uFFFD*j\\x00115\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x000c\uFFFD9A\uFFFD\uFFFDV\\x0001I\uFFFDv\\x0012\uFFFD\uFFFD\\x0015r</p>",
+					"otherinfo": "<p>X\uFFFD&[\uFFFDZB\u033C\\x0013\uFFFD \\x0010\uFFFD@\u016C\\x0006\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\\x0018\uFFFD1\\x000b]\uFFFDo\uFFFD\uFFFD\\x0002\uFFFD#e\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
@@ -1469,7 +1485,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=fJ1KjB6yTBCeI7ECl8t/Y/nL42UAAAAAQUIPAAAAAAAgSQyMAOe2K18XaELUPylf\nincap_ses_1351_3031704=2AqFV4K56Qb1qutuVbi/EvnL42UAAAAAymJX2u72QnS86kRK0mNGEg==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=eQwhCcUuT8agHoBeneaGU6wG7WUAAAAAQUIPAAAAAAD4kTMzG+kj090KuGESqkqz\nincap_ses_885_3031704=plgXGUvSwzFysJD6FyhIDKwG7WUAAAAAEcVW+c63RjPzLhYsgswAcg==\n"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
@@ -1477,7 +1493,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=N6v+rONKRlGgs8gqahE1i/jL42UAAAAAQUIPAAAAAAAMpDlBuYBWAUnZdhLH5xVy\nincap_ses_1351_3031704=S/u/WidkXQ+cqetuVbi/EvjL42UAAAAAfYgirspXVnidmYl2VkR5ug==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=WJcmW4NaQsy8E+kgEMRAxawG7WUAAAAAQUIPAAAAAAC4tBj/MQtd1m+c0wLrI2W7\nincap_ses_885_3031704=fz82Or1/cC7+r5D6FyhIDKwG7WUAAAAApgkkFPtrR1Mg9n4fkLeEDQ==\n"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
@@ -1485,7 +1501,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=YIvKywP1QxGjG9DNwqRgqvnL42UAAAAAQUIPAAAAAABkClCyVmHoLcGWwFXBV3vt\nincap_ses_1351_3031704=n+M1f9xzU1nSqutuVbi/EvnL42UAAAAAyrDXKVyTS3AGpAPBUDBq5g==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=DJuy9en9QC2IMgApBSQVeawG7WUAAAAAQUIPAAAAAABOwwyafHSWfrz+aBQYbBBp\nincap_ses_885_3031704=A6JqB07GvA1nsJD6FyhIDKwG7WUAAAAAvRI1HMnSIa7TRLt4uSxZUA==\n"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/sitemap.xml",
@@ -1493,16 +1509,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=2ItcO1ecRjaYhfrJ08nqUvnL42UAAAAAQUIPAAAAAADu6/QnYsbAiLW5aBEIXhx9\nincap_ses_1351_3031704=FDNjOgrV2y7UqutuVbi/EvnL42UAAAAAhHMjNZdicuGqI/R/6AvmRg==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.prix-carburants.gouv.fr\nvisid_incap_3031704=hC2PKaMrQJyuaFywbjamV6wG7WUAAAAAQUIPAAAAAAA+3yW7XrdYxTvd+ACw7HDf\nincap_ses_885_3031704=BFRNV0Uk8FRpsJD6FyhIDKwG7WUAAAAAkFqlrbRgjqgREHL9gnfVmg==\n"
 						}
 					],
 					"count": "4",
 					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
-					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.prix-carburants.gouv.fr</p><p>visid_incap_3031704=fJ1KjB6yTBCeI7ECl8t/Y/nL42UAAAAAQUIPAAAAAAAgSQyMAOe2K18XaELUPylf</p><p>incap_ses_1351_3031704=2AqFV4K56Qb1qutuVbi/EvnL42UAAAAAymJX2u72QnS86kRK0mNGEg==</p><p></p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.prix-carburants.gouv.fr</p><p>visid_incap_3031704=eQwhCcUuT8agHoBeneaGU6wG7WUAAAAAQUIPAAAAAAD4kTMzG+kj090KuGESqkqz</p><p>incap_ses_885_3031704=plgXGUvSwzFysJD6FyhIDKwG7WUAAAAAEcVW+c63RjPzLhYsgswAcg==</p><p></p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
 					"cweid": "565",
 					"wascid": "15",
-					"sourceid": "41"
+					"sourceid": "39"
 				},
 				{
 					"pluginid": "10109",
@@ -1630,23 +1646,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/actualites/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "private",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "private",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1686,7 +1694,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "8",
+					"count": "7",
 					"solution": "<p>The content may be marked as storable by ensuring that the following conditions are satisfied:</p><p>The request method must be understood by the cache and defined as being cacheable (\"GET\", \"HEAD\", and \"POST\" are currently defined as cacheable)</p><p>The response status code must be understood by the cache (one of the 1XX, 2XX, 3XX, 4XX, or 5XX response classes are generally understood)</p><p>The \"no-store\" cache directive must not appear in the request or response header fields</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"private\" response directive must not appear in the response</p><p>For caching by \"shared\" caches such as \"proxy\" caches, the \"Authorization\" header field must not appear in the request, unless the response explicitly allows it (using one of the \"must-revalidate\", \"public\", or \"s-maxage\" Cache-Control response directives)</p><p>In addition to the conditions above, at least one of the following conditions must also be satisfied by the response:</p><p>It must contain an \"Expires\" header field</p><p>It must contain a \"max-age\" response directive</p><p>For \"shared\" caches such as \"proxy\" caches, it must contain a \"s-maxage\" response directive</p><p>It must contain a \"Cache Control Extension\" that allows it to be cached</p><p>It must have a status code that is defined as cacheable by default (200, 203, 204, 206, 300, 301, 404, 405, 410, 414, 501).   </p>",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -1706,14 +1714,6 @@
 					"instances":[ 
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
-							"method": "GET",
-							"param": "cache-control",
-							"attack": "",
-							"evidence": "max-age=0, must-revalidate, private",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1742,6 +1742,14 @@
 							"param": "cache-control",
 							"attack": "",
 							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
+							"method": "GET",
+							"param": "cache-control",
+							"attack": "",
+							"evidence": "max-age=86400, public, must-revalidate",
 							"otherinfo": ""
 						},
 						{
@@ -1812,14 +1820,6 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1844,13 +1844,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1863,14 +1863,6 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1895,13 +1887,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1914,14 +1906,6 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1946,13 +1930,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "90005",
@@ -1965,14 +1949,6 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1997,13 +1973,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "6"
 				},
 				{
 					"pluginid": "10112",
@@ -2020,65 +1996,113 @@
 							"method": "GET",
 							"param": "public",
 							"attack": "",
-							"evidence": "l6a8bfhgt29adnrl3q9ulc8g0k",
-							"otherinfo": "\ncookie:public\ncookie:incap_ses_1351_3031704\ncookie:visid_incap_3031704"
+							"evidence": "a6dvvrj9f1noja5igr35vs1b48",
+							"otherinfo": "\ncookie:public\ncookie:incap_ses_885_3031704\ncookie:visid_incap_3031704"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr",
 							"method": "GET",
 							"param": "public",
 							"attack": "",
-							"evidence": "n4ra9uv4kqsj82b8h8rurgj4fh",
-							"otherinfo": "\ncookie:public\ncookie:incap_ses_1351_3031704\ncookie:visid_incap_3031704"
-						},
-						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
-							"method": "GET",
-							"param": "public",
-							"attack": "",
-							"evidence": "l9off2ea3imut15m2p0u5js8vv",
-							"otherinfo": "\ncookie:public"
+							"evidence": "kj1lpkfn0fbjp70b582nnfpb5c",
+							"otherinfo": "\ncookie:public\ncookie:incap_ses_885_3031704\ncookie:visid_incap_3031704"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "n+M1f9xzU1nSqutuVbi/EvnL42UAAAAAyrDXKVyTS3AGpAPBUDBq5g==",
-							"otherinfo": "\ncookie:incap_ses_1351_3031704\ncookie:visid_incap_3031704"
+							"evidence": "A6JqB07GvA1nsJD6FyhIDKwG7WUAAAAAvRI1HMnSIa7TRLt4uSxZUA==",
+							"otherinfo": "\ncookie:incap_ses_885_3031704\ncookie:visid_incap_3031704"
 						},
 						{
 							"uri": "https://www.prix-carburants.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "FDNjOgrV2y7UqutuVbi/EvnL42UAAAAAhHMjNZdicuGqI/R/6AvmRg==",
-							"otherinfo": "\ncookie:incap_ses_1351_3031704\ncookie:visid_incap_3031704"
+							"evidence": "BFRNV0Uk8FRpsJD6FyhIDKwG7WUAAAAAkFqlrbRgjqgREHL9gnfVmg==",
+							"otherinfo": "\ncookie:incap_ses_885_3031704\ncookie:visid_incap_3031704"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1068522594&ns=7",
 							"method": "GET",
-							"param": "incap_ses_1351_3031704",
+							"param": "incap_ses_885_3031704",
 							"attack": "",
-							"evidence": "FDNjOgrV2y7UqutuVbi/EvnL42UAAAAAhHMjNZdicuGqI/R/6AvmRg==",
-							"otherinfo": "\ncookie:incap_ses_1351_3031704"
+							"evidence": "plgXGUvSwzFysJD6FyhIDKwG7WUAAAAAEcVW+c63RjPzLhYsgswAcg==",
+							"otherinfo": "\ncookie:incap_ses_885_3031704"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/contact",
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1068522594&ns=7",
+							"method": "GET",
+							"param": "public",
+							"attack": "",
+							"evidence": "a6dvvrj9f1noja5igr35vs1b48",
+							"otherinfo": "\ncookie:public"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=279418244&ns=8",
 							"method": "GET",
 							"param": "visid_incap_3031704",
 							"attack": "",
-							"evidence": "2ItcO1ecRjaYhfrJ08nqUvnL42UAAAAAQUIPAAAAAADu6/QnYsbAiLW5aBEIXhx9",
+							"evidence": "eQwhCcUuT8agHoBeneaGU6wG7WUAAAAAQUIPAAAAAAD4kTMzG+kj090KuGESqkqz",
+							"otherinfo": "\ncookie:visid_incap_3031704"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
+							"method": "POST",
+							"param": "incap_ses_885_3031704",
+							"attack": "",
+							"evidence": "plgXGUvSwzFysJD6FyhIDKwG7WUAAAAAEcVW+c63RjPzLhYsgswAcg==",
+							"otherinfo": "\ncookie:incap_ses_885_3031704"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
+							"method": "POST",
+							"param": "public",
+							"attack": "",
+							"evidence": "a6dvvrj9f1noja5igr35vs1b48",
+							"otherinfo": "\ncookie:public"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/webmestre",
+							"method": "POST",
+							"param": "visid_incap_3031704",
+							"attack": "",
+							"evidence": "eQwhCcUuT8agHoBeneaGU6wG7WUAAAAAQUIPAAAAAAD4kTMzG+kj090KuGESqkqz",
+							"otherinfo": "\ncookie:visid_incap_3031704"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/demander-mdp",
+							"method": "POST",
+							"param": "incap_ses_885_3031704",
+							"attack": "",
+							"evidence": "plgXGUvSwzFysJD6FyhIDKwG7WUAAAAAEcVW+c63RjPzLhYsgswAcg==",
+							"otherinfo": "\ncookie:incap_ses_885_3031704"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/demander-mdp",
+							"method": "POST",
+							"param": "public",
+							"attack": "",
+							"evidence": "a6dvvrj9f1noja5igr35vs1b48",
+							"otherinfo": "\ncookie:public"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/internaute/demander-mdp",
+							"method": "POST",
+							"param": "visid_incap_3031704",
+							"attack": "",
+							"evidence": "eQwhCcUuT8agHoBeneaGU6wG7WUAAAAAQUIPAAAAAAD4kTMzG+kj090KuGESqkqz",
 							"otherinfo": "\ncookie:visid_incap_3031704"
 						}
 					],
-					"count": "7",
+					"count": "13",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
-					"otherinfo": "<p></p><p>cookie:public</p><p>cookie:incap_ses_1351_3031704</p><p>cookie:visid_incap_3031704</p>",
+					"otherinfo": "<p></p><p>cookie:public</p><p>cookie:incap_ses_885_3031704</p><p>cookie:visid_incap_3031704</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "41"
+					"sourceid": "39"
 				},
 				{
 					"pluginid": "10049",
@@ -2099,6 +2123,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
+							"uri": "https://www.prix-carburants.gouv.fr/rubrique/accessibilite/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=86400",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/",
 							"method": "GET",
 							"param": "",
@@ -2115,7 +2147,7 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information.  If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request. </p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
@@ -2134,77 +2166,141 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "itineraire[city1]",
+							"param": "contact[commune]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nitineraire[city1]=ZAP\n\nThe user-controlled value was:\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[commune]=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "itineraire[city2]",
+							"param": "contact[date_constat]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nitineraire[city2]=ZAP\n\nThe user-controlled value was:\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[date_constat]=2024-03-10\n\nThe user-controlled value was:\n2024-03-10"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "itineraire[fuel][]",
+							"param": "contact[departement]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [meta] tag [content] attribute \n\nThe user input found was:\nitineraire[fuel][]=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\ncontact[departement]=01\n\nThe user-controlled value was:\n01"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "rechercher[choix_carbu][]",
+							"param": "contact[donnees_personnelles]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [meta] tag [content] attribute \n\nThe user input found was:\nrechercher[choix_carbu][]=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [meta] tag [content] attribute \n\nThe user input found was:\ncontact[donnees_personnelles]=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1, shrink-to-fit=no"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "rechercher[choix_services][]",
+							"param": "contact[mail]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nrechercher[choix_services][]=21\n\nThe user-controlled value was:\n21"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[mail]=foo-bar@example.com\n\nThe user-controlled value was:\nfoo-bar@example.com"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "rechercher[choix_services][]",
+							"param": "contact[point_vente]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nrechercher[choix_services][]=21\n\nThe user-controlled value was:\n21"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[point_vente]=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "rechercher[departement]",
+							"param": "contact[prix_constate]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [option] tag [value] attribute \n\nThe user input found was:\nrechercher[departement]=01\n\nThe user-controlled value was:\n01"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[prix_constate]=ZAP\n\nThe user-controlled value was:\nzap"
 						},
 						{
-							"uri": "https://www.prix-carburants.gouv.fr/",
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
 							"method": "POST",
-							"param": "rechercher[localisation]",
+							"param": "contact[prix_site]",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\nrechercher[localisation]=ZAP\n\nThe user-controlled value was:\nzap"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[prix_site]=ZAP\n\nThe user-controlled value was:\nzap"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix fr-input"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix fr-upload"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix money fr-input fr-input--error"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix pdv oubli fr-input"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [select] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix fr-select"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [select] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix pdv oubli fr-select"
+						},
+						{
+							"uri": "https://www.prix-carburants.gouv.fr/contact/",
+							"method": "POST",
+							"param": "contact[type]",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.prix-carburants.gouv.fr/contact/\n\nappears to include user input in: \n\na(n) [textarea] tag [class] attribute \n\nThe user input found was:\ncontact[type]=prix\n\nThe user-controlled value was:\nprix pdv oubli fr-input"
 						}
 					],
-					"count": "8",
+					"count": "16",
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.prix-carburants.gouv.fr/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>itineraire[city1]=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>https://www.prix-carburants.gouv.fr/contact/</p><p></p><p>appears to include user input in: </p><p></p><p>a(n) [input] tag [value] attribute </p><p></p><p>The user input found was:</p><p>contact[commune]=ZAP</p><p></p><p>The user-controlled value was:</p><p>zap</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "157"
+					"sourceid": "174"
 				}
 			]
 		}
