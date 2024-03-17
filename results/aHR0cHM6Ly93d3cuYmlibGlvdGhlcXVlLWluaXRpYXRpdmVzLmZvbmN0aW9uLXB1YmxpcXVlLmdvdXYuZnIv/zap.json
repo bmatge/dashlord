@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 10 Mar 2024 03:05:36",
+	"@generated": "Sun, 17 Mar 2024 03:08:33",
 	"site":[ 
 		{
 			"@name": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr",
@@ -20,22 +20,6 @@
 					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=1",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-toutes-les-initiatives-page-1\" action=\"/toutes-les-initiatives\" method=\"get\" id=\"views-exposed-form-toutes-les-initiatives-page-1\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-submit-toutes-les-initiatives\" ]."
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=1",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<form class=\"views-exposed-form bef-exposed-form\" data-drupal-selector=\"views-exposed-form-toutes-les-initiatives-page-1\" action=\"/toutes-les-initiatives\" method=\"get\" id=\"views-exposed-form-toutes-les-initiatives-page-1\" accept-charset=\"UTF-8\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-sort-bef-combine-created-asc\" \"edit-sort-bef-combine-created-desc\" \"edit-sort-bef-combine-title-asc\" \"edit-sort-bef-combine-title-desc\" ]."
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=2",
 							"method": "GET",
 							"param": "",
@@ -100,7 +84,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-sort-bef-combine-created-asc\" \"edit-sort-bef-combine-created-desc\" \"edit-sort-bef-combine-title-asc\" \"edit-sort-bef-combine-title-desc\" ]."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -108,7 +92,7 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-submit-toutes-les-initiatives\" ]."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -132,13 +116,13 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-name\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
 						}
 					],
-					"count": "14",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"edit-submit-toutes-les-initiatives\" ].</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "346"
+					"sourceid": "295"
 				},
 				{
 					"pluginid": "10055",
@@ -167,7 +151,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -181,7 +165,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -210,7 +194,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -224,7 +208,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10055",
@@ -253,7 +237,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -267,7 +251,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10038",
@@ -344,14 +328,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
@@ -361,6 +337,14 @@
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -382,7 +366,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "52"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10098",
@@ -435,15 +419,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/index.php/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/index.php/user/password",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/index.php/user/register",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -481,6 +457,14 @@
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *",
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						}
 					],
 					"count": "11",
@@ -489,7 +473,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10020",
@@ -502,7 +486,7 @@
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?CWUDNSAI=23&cinfo=03000000&edet=15&incident_id=132000310675359186-208801750659106805&mth=GET&rpinfo=0&xinfo=53-37624868-0%200NNN%20RT%281710039865183%208%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B15%283%2c306018%2c0%29%20U18",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?CWUDNSAI=23&cinfo=03000000&edet=15&incident_id=1700000712260631057-369024320328176064&mth=GET&rpinfo=0&xinfo=0-51173969-0%200NNN%20RT%281710644846782%208%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B15%283%2c306018%2c0%29%20U18",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -516,7 +500,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "664"
+					"sourceid": "651"
 				},
 				{
 					"pluginid": "90003",
@@ -615,7 +599,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "60"
 				},
 				{
 					"pluginid": "10044",
@@ -730,7 +714,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "713"
+					"sourceid": "714"
 				},
 				{
 					"pluginid": "10010",
@@ -745,25 +729,25 @@
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_132_3059895",
+							"evidence": "Set-Cookie: incap_ses_1700_3059895",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_132_3059895",
+							"evidence": "Set-Cookie: incap_ses_1700_3059895",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_132_3059895",
+							"evidence": "Set-Cookie: incap_ses_1700_3059895",
 							"otherinfo": ""
 						}
 					],
@@ -773,7 +757,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10054",
@@ -788,9 +772,9 @@
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_132_3059895",
+							"evidence": "Set-Cookie: incap_ses_1700_3059895",
 							"otherinfo": ""
 						},
 						{
@@ -804,9 +788,9 @@
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_132_3059895",
+							"evidence": "Set-Cookie: incap_ses_1700_3059895",
 							"otherinfo": ""
 						},
 						{
@@ -820,9 +804,9 @@
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_132_3059895",
+							"evidence": "Set-Cookie: incap_ses_1700_3059895",
 							"otherinfo": ""
 						},
 						{
@@ -840,7 +824,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10017",
@@ -901,7 +885,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=4",
 							"method": "GET",
 							"param": "https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js",
 							"attack": "",
@@ -909,7 +893,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=4",
 							"method": "GET",
 							"param": "https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js",
 							"attack": "",
@@ -917,7 +901,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=4",
 							"method": "GET",
 							"param": "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver",
 							"attack": "",
@@ -925,7 +909,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
 							"method": "GET",
 							"param": "https://cdnjs.cloudflare.com/ajax/libs/js-marker-clusterer/1.0.0/markerclusterer_compiled.js",
 							"attack": "",
@@ -933,7 +917,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
 							"method": "GET",
 							"param": "https://cdnjs.cloudflare.com/ajax/libs/OverlappingMarkerSpiderfier/1.0.3/oms.min.js",
 							"attack": "",
@@ -941,7 +925,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
 							"method": "GET",
 							"param": "https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver",
 							"attack": "",
@@ -955,7 +939,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "321"
+					"sourceid": "295"
 				},
 				{
 					"pluginid": "10110",
@@ -968,7 +952,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1225069459&ns=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1450954943&ns=3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -976,7 +960,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1336942667&ns=3",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1860407439&ns=7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -984,7 +968,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1338259478&ns=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2098720750&ns=7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -992,7 +976,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1419171316&ns=1",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=409212044&ns=4",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1000,7 +984,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1776228477&ns=6",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=480337905&ns=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1008,7 +992,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1881598255&ns=1",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=515118805&ns=8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1016,7 +1000,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1933951755&ns=4",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=53915710&ns=6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1024,7 +1008,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2104815670&ns=2",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=677179653&ns=3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1032,7 +1016,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=254706234&ns=2",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=71316157&ns=9",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1040,7 +1024,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=363188327&ns=8",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=759641932&ns=2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1048,7 +1032,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=363642957&ns=3",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=991569047&ns=5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1070,7 +1054,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "636"
+					"sourceid": "230"
 				},
 				{
 					"pluginid": "10063",
@@ -1177,7 +1161,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10096",
@@ -1190,109 +1174,109 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1892681678",
-							"otherinfo": "1892681678, which evaluates to: 2029-12-23 00:54:38"
+							"evidence": "1860407439",
+							"otherinfo": "1860407439, which evaluates to: 2028-12-14 11:50:39"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.gif",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1933951755",
-							"otherinfo": "1933951755, which evaluates to: 2031-04-14 16:49:15"
+							"evidence": "2003706157",
+							"otherinfo": "2003706157, which evaluates to: 2033-06-30 01:02:37"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.jpeg",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1881598255",
-							"otherinfo": "1881598255, which evaluates to: 2029-08-16 18:10:55"
+							"evidence": "1450954943",
+							"otherinfo": "1450954943, which evaluates to: 2015-12-24 11:02:23"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.jpg",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1776228477",
-							"otherinfo": "1776228477, which evaluates to: 2026-04-15 04:47:57"
+							"evidence": "1624572910",
+							"otherinfo": "1624572910, which evaluates to: 2021-06-24 22:15:10"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.js$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1419171316",
-							"otherinfo": "1419171316, which evaluates to: 2014-12-21 14:15:16"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/index.php/*/media/oembed",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1591073586",
-							"otherinfo": "1591073586, which evaluates to: 2020-06-02 04:53:06"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/index.php/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1713734100",
-							"otherinfo": "1713734100, which evaluates to: 2024-04-21 21:15:00"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/node/add/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1735556938",
-							"otherinfo": "1735556938, which evaluates to: 2024-12-30 11:08:58"
+							"evidence": "1450831557",
+							"otherinfo": "1450831557, which evaluates to: 2015-12-23 00:45:57"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.jpeg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1668920534",
-							"otherinfo": "1668920534, which evaluates to: 2022-11-20 05:02:14"
+							"evidence": "1593779283",
+							"otherinfo": "1593779283, which evaluates to: 2020-07-03 12:28:03"
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.jpg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1997307172",
+							"otherinfo": "1997307172, which evaluates to: 2033-04-16 23:32:52"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1954880240",
-							"otherinfo": "1954880240, which evaluates to: 2031-12-12 22:17:20"
+							"evidence": "1940648886",
+							"otherinfo": "1940648886, which evaluates to: 2031-07-01 05:08:06"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.png",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1991200642",
-							"otherinfo": "1991200642, which evaluates to: 2033-02-05 07:17:22"
+							"evidence": "1904373756",
+							"otherinfo": "1904373756, which evaluates to: 2030-05-07 08:42:36"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=3",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/README.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2017937196",
-							"otherinfo": "2017937196, which evaluates to: 2033-12-11 18:06:36"
+							"evidence": "1616502450",
+							"otherinfo": "1616502450, which evaluates to: 2021-03-23 12:27:30"
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/login",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1898705044",
+							"otherinfo": "1898705044, which evaluates to: 2030-03-02 18:04:04"
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1547601219",
+							"otherinfo": "1547601219, which evaluates to: 2019-01-16 01:13:39"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1892681678, which evaluates to: 2029-12-23 00:54:38</p>",
+					"otherinfo": "<p>1860407439, which evaluates to: 2028-12-14 11:50:39</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "154"
+					"sourceid": "60"
 				},
 				{
 					"pluginid": "10021",
@@ -1305,7 +1289,7 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1338259478&ns=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1450954943&ns=3",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1313,7 +1297,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1933951755&ns=4",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=409212044&ns=4",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1321,7 +1305,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=363188327&ns=8",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=480337905&ns=1",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1329,15 +1313,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=363642957&ns=3",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/files/2019-03/Banni%C3%A8re%20BI%20330x40-v2.jpg",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=53915710&ns=6",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1399,6 +1375,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/themes/custom/birh/favicon.ico",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
 					"count": "12",
@@ -1407,7 +1391,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "522"
+					"sourceid": "230"
 				},
 				{
 					"pluginid": "10094",
@@ -1424,24 +1408,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "XN3Z6C0BQdSI4HQ9R63UIDcj7WUAAAAAQUIPAAAAAAAQRgCI2zyFk30CV8l5nMT7",
-							"otherinfo": "\\\uFFFD\uFFFD\uFFFD-\\x0001A\u0508\uFFFDt=G\uFFFD\uFFFD 7#\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x0010F\\x0000\uFFFD\uFFFD<\uFFFD\uFFFD}\\x0002W\uFFFDy\uFFFD\uFFFD\uFFFD"
+							"evidence": "ZAIgDuQETHixNjyLvsSi0G1e9mUAAAAAQUIPAAAAAADkcqCcNXpQGcY7C2bztpvh",
+							"otherinfo": "d\\x0002 \\x000e\uFFFD\\x0004Lx\uFFFD6<\uFFFD\uFFFD\u0122\uFFFDm^\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFDr\uFFFD\uFFFD5zP\\x0019\uFFFD;\\x000bf\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "8oflTXWUQU2g4ZTXAL9izjgj7WUAAAAAQUIPAAAAAAAs9kArP5ILdVJUMzLw8An0",
-							"otherinfo": "\uFFFD\uFFFDMu\uFFFDAM\uFFFD\uFFFD\uFFFD\\x0000\uFFFDb\uFFFD8#\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000,\uFFFD@+?\uFFFD\\x000buRT32\uFFFD\uFFFD\t\uFFFD"
-						},
-						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/comment/reply/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_Fs1U_hN4Alu7KqA1qKmYGEWGAZitGZ5gmRFXcTvd9Yw",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\u0173U?\uFFFD\uFFFD\\x0000\uFFFD\uFFFD\u02A8\rj*f\\x0006\\x0011a\uFFFDf+Fg\uFFFD&DU\uFFFDN\uFFFD}c"
+							"evidence": "/hUIqQLiSKOixhU7IV6Uhm1e9mUAAAAAQUIPAAAAAABzOt2V7vSuai6UwqLr84oI",
+							"otherinfo": "\uFFFD\\x0015\\x0008\uFFFD\\x0002\uFFFDH\uFFFD\uFFFD\uFFFD\\x0015;!^\uFFFD\uFFFDm^\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000s:\u0755\uFFFD\uFFFD\uFFFDj.\uFFFD\u00A2\uFFFD\uFFFD\\x0008"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css$",
@@ -1468,7 +1444,7 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\u0173U?\uFFFD\uFFFD\\x0000\uFFFD\uFFFD\u02A8\rj*f\\x0006\\x0011a\uFFFDf+Fg\uFFFD&DU\uFFFDN\uFFFD}c"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1476,7 +1452,15 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\u0173U?\uFFFD\uFFFD\\x0000\uFFFD\uFFFD\u02A8\rj*f\\x0006\\x0011a\uFFFDf+Fg\uFFFD&DU\uFFFDN\uFFFD}c"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/node/add/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_Fs1U_hN4Alu7KqA1qKmYGEWGAZitGZ5gmRFXcTvd9Yw",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\u0173U?\uFFFD\uFFFD\\x0000\uFFFD\uFFFD\u02A8\rj*f\\x0006\\x0011a\uFFFDf+Fg\uFFFD&DU\uFFFDN\uFFFD}c"
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1496,16 +1480,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1Slz8AVQTCeH1OrtoiQLsTcj7WUAAAAAQUIPAAAAAADC4qO9DHjxuiiqBwW1frTk",
-							"otherinfo": "\uFFFD)s\uFFFD\\x0005PL'\uFFFD\uFFFD\uFFFD\uFFFD$\\x000b\uFFFD7#\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\u28FD\\x000cx\uFFFD(\uFFFD\\x0007\\x0005\uFFFD~\uFFFD\uFFFD"
+							"evidence": "XwRTYQKiQpakOf9J7zIIaG1e9mUAAAAAQUIPAAAAAABwxRnyCiOPfiKF6kGNswzg",
+							"otherinfo": "_\\x0004Sa\\x0002\uFFFDB\uFFFD\uFFFD9\uFFFDI\uFFFD2\\x0008hm^\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000p\uFFFD\\x0019\uFFFD\n#\uFFFD~\"\uFFFD\uFFFDA\uFFFD\uFFFD\\x000c\uFFFD"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "r4RN2ZfpTf2XdnFNCpVLqjgj7WUAAAAAQUIPAAAAAAB742hPNY50Qz0q1v5lFbzF",
-							"otherinfo": "\uFFFD\uFFFDM\u0657\uFFFDM\uFFFD\uFFFDvqM\n\uFFFDK\uFFFD8#\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000{\uFFFDhO5\uFFFDtC=*\uFFFD\uFFFDe\\x0015\uFFFD\uFFFD"
+							"evidence": "QVJunnJ4RCOBiSr6qNcJ+G5e9mUAAAAAQUIPAAAAAAC57n1SHJlszEuWq/Fy8T4H",
+							"otherinfo": "ARn\uFFFDrxD#\uFFFD\uFFFD*\uFFFD\uFFFD\uFFFD\t\uFFFDn^\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD}R\\x001c\uFFFDl\uFFFDK\uFFFD\uFFFD\uFFFDr\uFFFD>\\x0007"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/password",
@@ -1518,11 +1502,11 @@
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\\\uFFFD\uFFFD\uFFFD-\\x0001A\u0508\uFFFDt=G\uFFFD\uFFFD 7#\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x0010F\\x0000\uFFFD\uFFFD<\uFFFD\uFFFD}\\x0002W\uFFFDy\uFFFD\uFFFD\uFFFD</p>",
+					"otherinfo": "<p>d\\x0002 \\x000e\uFFFD\\x0004Lx\uFFFD6<\uFFFD\uFFFD\u0122\uFFFDm^\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFDr\uFFFD\uFFFD5zP\\x0019\uFFFD;\\x000bf\uFFFD\uFFFD</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "60"
 				},
 				{
 					"pluginid": "10027",
@@ -1583,7 +1567,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1591,7 +1575,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.js$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1647,7 +1631,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=8oflTXWUQU2g4ZTXAL9izjgj7WUAAAAAQUIPAAAAAAAs9kArP5ILdVJUMzLw8An0\nincap_ses_132_3059895=r3nDKl1SNFWFwAtMlfXUATgj7WUAAAAAy3tZqzBC8jOPLkvnNSNJIQ==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=/hUIqQLiSKOixhU7IV6Uhm1e9mUAAAAAQUIPAAAAAABzOt2V7vSuai6UwqLr84oI\nincap_ses_1700_3059895=Lu6RVuBL3is4sDQMpJ2XF21e9mUAAAAA1qEJ3pPBo7LtFUnXLBqmzQ==\n"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
@@ -1655,7 +1639,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=XN3Z6C0BQdSI4HQ9R63UIDcj7WUAAAAAQUIPAAAAAAAQRgCI2zyFk30CV8l5nMT7\nincap_ses_132_3059895=mXs2SOEYsEYwuwtMlfXUATcj7WUAAAAALM4xQehvYkoWIDPaq2GMiw==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=ZAIgDuQETHixNjyLvsSi0G1e9mUAAAAAQUIPAAAAAADkcqCcNXpQGcY7C2bztpvh\nincap_ses_1700_3059895=KSR2NT6Cvn/JtjQMpJ2XF21e9mUAAAAAkE1m3CFdNDrFhF59op95uQ==\n"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
@@ -1663,7 +1647,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=1Slz8AVQTCeH1OrtoiQLsTcj7WUAAAAAQUIPAAAAAADC4qO9DHjxuiiqBwW1frTk\nincap_ses_132_3059895=ILKWF7qfjxvyuwtMlfXUATcj7WUAAAAA6QkiHXSc7PBz1AhDBvcLcg==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=XwRTYQKiQpakOf9J7zIIaG1e9mUAAAAAQUIPAAAAAABwxRnyCiOPfiKF6kGNswzg\nincap_ses_1700_3059895=HYPiPxha5Dj6sDQMpJ2XF21e9mUAAAAAMjWb0yohraPALRnLh2ZFSg==\n"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
@@ -1671,16 +1655,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=r4RN2ZfpTf2XdnFNCpVLqjgj7WUAAAAAQUIPAAAAAAB742hPNY50Qz0q1v5lFbzF\nincap_ses_132_3059895=jUGcJSnezFTSxQtMlfXUATgj7WUAAAAAvyphcav0x1OA3gS5ZJVfaw==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.bibliotheque-initiatives.fonction-publique.gouv.fr\nvisid_incap_3059895=QVJunnJ4RCOBiSr6qNcJ+G5e9mUAAAAAQUIPAAAAAAC57n1SHJlszEuWq/Fy8T4H\nincap_ses_1700_3059895=FUtGbjBqGiMRujQMpJ2XF25e9mUAAAAAlT9Rn2sDtoVhA/DDVMsmHw==\n"
 						}
 					],
 					"count": "4",
 					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
-					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.bibliotheque-initiatives.fonction-publique.gouv.fr</p><p>visid_incap_3059895=8oflTXWUQU2g4ZTXAL9izjgj7WUAAAAAQUIPAAAAAAAs9kArP5ILdVJUMzLw8An0</p><p>incap_ses_132_3059895=r3nDKl1SNFWFwAtMlfXUATgj7WUAAAAAy3tZqzBC8jOPLkvnNSNJIQ==</p><p></p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.bibliotheque-initiatives.fonction-publique.gouv.fr</p><p>visid_incap_3059895=/hUIqQLiSKOixhU7IV6Uhm1e9mUAAAAAQUIPAAAAAABzOt2V7vSuai6UwqLr84oI</p><p>incap_ses_1700_3059895=Lu6RVuBL3is4sDQMpJ2XF21e9mUAAAAA1qEJ3pPBo7LtFUnXLBqmzQ==</p><p></p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
 					"cweid": "565",
 					"wascid": "15",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10109",
@@ -1705,7 +1689,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=363642957\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=480337905\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1721,7 +1705,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1933951755\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=409212044\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1729,7 +1713,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1881598255\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=2098720750\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1737,7 +1721,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=1776228477\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=53915710\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1745,7 +1729,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1338259478\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=1450954943\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1761,7 +1745,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=2104815670\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=515118805\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1769,7 +1753,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1225069459\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=677179653\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1844,11 +1828,11 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=549, public",
+							"evidence": "max-age=548, public",
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=2",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1856,7 +1840,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=67",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/toutes-les-initiatives?field_thematique_principale_target_id=5",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1894,7 +1878,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "90005",
@@ -1937,7 +1921,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "52"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "90005",
@@ -1980,7 +1964,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "52"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "90005",
@@ -2023,7 +2007,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "52"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "90005",
@@ -2066,7 +2050,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "52"
+					"sourceid": "51"
 				},
 				{
 					"pluginid": "10112",
@@ -2081,51 +2065,51 @@
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "mXs2SOEYsEYwuwtMlfXUATcj7WUAAAAALM4xQehvYkoWIDPaq2GMiw==",
-							"otherinfo": "\ncookie:incap_ses_132_3059895\ncookie:visid_incap_3059895"
+							"evidence": "KSR2NT6Cvn/JtjQMpJ2XF21e9mUAAAAAkE1m3CFdNDrFhF59op95uQ==",
+							"otherinfo": "\ncookie:incap_ses_1700_3059895\ncookie:visid_incap_3059895"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "r3nDKl1SNFWFwAtMlfXUATgj7WUAAAAAy3tZqzBC8jOPLkvnNSNJIQ==",
-							"otherinfo": "\ncookie:incap_ses_132_3059895\ncookie:visid_incap_3059895"
+							"evidence": "Lu6RVuBL3is4sDQMpJ2XF21e9mUAAAAA1qEJ3pPBo7LtFUnXLBqmzQ==",
+							"otherinfo": "\ncookie:incap_ses_1700_3059895\ncookie:visid_incap_3059895"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "ILKWF7qfjxvyuwtMlfXUATcj7WUAAAAA6QkiHXSc7PBz1AhDBvcLcg==",
-							"otherinfo": "\ncookie:incap_ses_132_3059895\ncookie:visid_incap_3059895"
+							"evidence": "HYPiPxha5Dj6sDQMpJ2XF21e9mUAAAAAMjWb0yohraPALRnLh2ZFSg==",
+							"otherinfo": "\ncookie:incap_ses_1700_3059895\ncookie:visid_incap_3059895"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.jpeg",
 							"method": "GET",
-							"param": "incap_ses_132_3059895",
+							"param": "incap_ses_1700_3059895",
 							"attack": "",
-							"evidence": "ILKWF7qfjxvyuwtMlfXUATcj7WUAAAAA6QkiHXSc7PBz1AhDBvcLcg==",
-							"otherinfo": "\ncookie:incap_ses_132_3059895"
+							"evidence": "HYPiPxha5Dj6sDQMpJ2XF21e9mUAAAAAMjWb0yohraPALRnLh2ZFSg==",
+							"otherinfo": "\ncookie:incap_ses_1700_3059895"
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.css$",
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/core/*.jpeg",
 							"method": "GET",
 							"param": "visid_incap_3059895",
 							"attack": "",
-							"evidence": "1Slz8AVQTCeH1OrtoiQLsTcj7WUAAAAAQUIPAAAAAADC4qO9DHjxuiiqBwW1frTk",
+							"evidence": "XwRTYQKiQpakOf9J7zIIaG1e9mUAAAAAQUIPAAAAAABwxRnyCiOPfiKF6kGNswzg",
 							"otherinfo": "\ncookie:visid_incap_3059895"
 						}
 					],
 					"count": "5",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
-					"otherinfo": "<p></p><p>cookie:incap_ses_132_3059895</p><p>cookie:visid_incap_3059895</p>",
+					"otherinfo": "<p></p><p>cookie:incap_ses_1700_3059895</p><p>cookie:visid_incap_3059895</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "60"
 				},
 				{
 					"pluginid": "10049",
@@ -2210,19 +2194,19 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=549",
+							"evidence": "max-age=548",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
 							"otherinfo": ""
 						}
 					],
@@ -2232,7 +2216,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "51"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10031",
@@ -2298,7 +2282,7 @@
 							"param": "captcha_sid",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncaptcha_sid=518361\n\nThe user-controlled value was:\n518361"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncaptcha_sid=519051\n\nThe user-controlled value was:\n519051"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register",
@@ -2306,7 +2290,7 @@
 							"param": "captcha_token",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncaptcha_token=YeVcXswO79TP2cryXt61I76lsL2LNLJvmJ3IC8RFQcs\n\nThe user-controlled value was:\nyevcxswo79tp2cryxt61i76lsl2lnljvmj3ic8rfqcs"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttps://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register\n\nappears to include user input in: \n\na(n) [input] tag [value] attribute \n\nThe user input found was:\ncaptcha_token=Q8oCDL4xREpfASzCpdW1SMgaoLMWYbO4wVBuP1PRTeU\n\nThe user-controlled value was:\nq8ocdl4xrepfaszcpdw1smgaolmwybo4wvbup1prteu"
 						},
 						{
 							"uri": "https://www.bibliotheque-initiatives.fonction-publique.gouv.fr/user/register",
@@ -2387,7 +2371,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "264"
+					"sourceid": "391"
 				}
 			]
 		}
