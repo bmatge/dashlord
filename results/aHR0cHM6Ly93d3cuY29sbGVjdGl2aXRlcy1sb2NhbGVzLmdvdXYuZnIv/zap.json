@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Mar 2024 01:40:24",
+	"@generated": "Sun, 24 Mar 2024 01:43:29",
 	"site":[ 
 		{
 			"@name": "https://www.collectivites-locales.gouv.fr",
@@ -264,7 +264,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -272,7 +272,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.gif",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -339,7 +339,15 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"uri": "https://www.collectivites-locales.gouv.fr/index.php/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "Access-Control-Allow-Origin: *",
+							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/index.php/user/password",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -385,14 +393,6 @@
 							"attack": "",
 							"evidence": "Access-Control-Allow-Origin: *",
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/web.config",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "Access-Control-Allow-Origin: *",
-							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						}
 					],
 					"count": "11",
@@ -402,6 +402,215 @@
 					"cweid": "264",
 					"wascid": "14",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10010",
+					"alertRef": "10010",
+					"alert": "Cookie No HttpOnly Flag",
+					"name": "Cookie No HttpOnly Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: incap_ses_1356_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: incap_ses_1356_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: incap_ses_1356_3074951",
+							"otherinfo": ""
+						}
+					],
+					"count": "3",
+					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
+					"cweid": "1004",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10054",
+					"alertRef": "10054-2",
+					"alert": "Cookie with SameSite Attribute None",
+					"name": "Cookie with SameSite Attribute None",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set with its SameSite attribute set to \"none\", which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: incap_ses_1356_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "visid_incap_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: visid_incap_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: incap_ses_1356_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "visid_incap_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: visid_incap_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: incap_ses_1356_3074951",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "visid_incap_3074951",
+							"attack": "",
+							"evidence": "Set-Cookie: visid_incap_3074951",
+							"otherinfo": ""
+						}
+					],
+					"count": "6",
+					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
+					"cweid": "1275",
+					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "10110",
+					"alertRef": "10110",
+					"alert": "Dangerous JS Functions",
+					"name": "Dangerous JS Functions",
+					"riskcode": "1",
+					"confidence": "1",
+					"riskdesc": "Low (Low)",
+					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1400208001&ns=6",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=157108934&ns=3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1598515679&ns=2",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1606201115&ns=1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1614059312&ns=8",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1955914725&ns=4",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2113312939&ns=1",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2147340689&ns=2",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=550921277&ns=7",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=763735709&ns=5",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						}
+					],
+					"count": "10",
+					"solution": "<p>See the references for security advice on the use of these functions.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://angular.io/guide/security</p>",
+					"cweid": "749",
+					"wascid": "-1",
+					"sourceid": "1022"
 				},
 				{
 					"pluginid": "10063",
@@ -511,121 +720,6 @@
 					"sourceid": "1"
 				},
 				{
-					"pluginid": "10035",
-					"alertRef": "10035-1",
-					"alert": "Strict-Transport-Security Header Not Set",
-					"name": "Strict-Transport-Security Header Not Set",
-					"riskcode": "1",
-					"confidence": "3",
-					"riskdesc": "Low (High)",
-					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "12",
-					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is configured to enforce Strict-Transport-Security.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
-					"cweid": "319",
-					"wascid": "15",
-					"sourceid": "54"
-				},
-				{
 					"pluginid": "10096",
 					"alertRef": "10096",
 					"alert": "Timestamp Disclosure - Unix",
@@ -644,77 +738,200 @@
 							"otherinfo": "1434610269, which evaluates to: 2015-06-18 06:51:09"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/conseil-national-de-la-formation-des-elus-locaux-cnfel",
+							"uri": "https://www.collectivites-locales.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "2003022022",
-							"otherinfo": "2003022022, which evaluates to: 2033-06-22 03:00:22"
+							"evidence": "1713890454",
+							"otherinfo": "1713890454, which evaluates to: 2024-04-23 16:40:54"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/le-conseil-municipal",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1575768631",
-							"otherinfo": "1575768631, which evaluates to: 2019-12-08 01:30:31"
+							"evidence": "1400208001",
+							"otherinfo": "1400208001, which evaluates to: 2014-05-16 02:40:01"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1395230941",
-							"otherinfo": "1395230941, which evaluates to: 2014-03-19 12:09:01"
+							"evidence": "1955914725",
+							"otherinfo": "1955914725, which evaluates to: 2031-12-24 21:38:45"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1410282127",
-							"otherinfo": "1410282127, which evaluates to: 2014-09-09 17:02:07"
+							"evidence": "1895418527",
+							"otherinfo": "1895418527, which evaluates to: 2030-01-23 17:08:47"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1642786715",
-							"otherinfo": "1642786715, which evaluates to: 2022-01-21 17:38:35"
+							"evidence": "1614059312",
+							"otherinfo": "1614059312, which evaluates to: 2021-02-23 05:48:32"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1649541027",
-							"otherinfo": "1649541027, which evaluates to: 2022-04-09 21:50:27"
+							"evidence": "1574408963",
+							"otherinfo": "1574408963, which evaluates to: 2019-11-22 07:49:23"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
+							"uri": "https://www.collectivites-locales.gouv.fr/index.php/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1717921831",
-							"otherinfo": "1717921831, which evaluates to: 2024-06-09 08:30:31"
+							"evidence": "1881058597",
+							"otherinfo": "1881058597, which evaluates to: 2029-08-10 12:16:37"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/les-representants-de-la-commune-dans-divers-organismes",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1854823499",
-							"otherinfo": "1854823499, which evaluates to: 2028-10-10 20:44:59"
+							"evidence": "1606201115",
+							"otherinfo": "1606201115, which evaluates to: 2020-11-24 06:58:35"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1598515679",
+							"otherinfo": "1598515679, which evaluates to: 2020-08-27 08:07:59"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1673566009",
+							"otherinfo": "1673566009, which evaluates to: 2023-01-12 23:26:49"
 						}
 					],
-					"count": "9",
+					"count": "11",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
 					"otherinfo": "<p>1434610269, which evaluates to: 2015-06-18 06:51:09</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
 					"sourceid": "1"
+				},
+				{
+					"pluginid": "10021",
+					"alertRef": "10021",
+					"alert": "X-Content-Type-Options Header Missing",
+					"name": "X-Content-Type-Options Header Missing",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1400208001&ns=6",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=157108934&ns=3",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1598515679&ns=2",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1606201115&ns=1",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1614059312&ns=8",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1955914725&ns=4",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2113312939&ns=1",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2147340689&ns=2",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=550921277&ns=7",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=763735709&ns=5",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						}
+					],
+					"count": "11",
+					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
+					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
+					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
+					"cweid": "693",
+					"wascid": "15",
+					"sourceid": "1022"
 				},
 				{
 					"pluginid": "10094",
@@ -731,8 +948,16 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/files/css/css_BJ4YfkYmuqC7SEtSOHB-ZipVylYv7oaneGWnU-fRHKQ",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD'\uFFFD\\x001f\uFFFD\uFFFD\uFFFD\uFFFD.\uFFFD\\x0012\u050E\\x001c\\x001f\uFFFD\uFFFD\uFFFDr\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0019i\uFFFD\uFFFD\uFFFDG)"
+							"evidence": "fAVV6YWaRcGvIvUVJlNR+qWE/2UAAAAAQUIPAAAAAAA5UqnbMPL1bv2X0Xs73Ls+",
+							"otherinfo": "|\\x0005U\u915AE\uFFFD\uFFFD\"\uFFFD\\x0015&SQ\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x00009R\uFFFD\uFFFD0\uFFFD\uFFFDn\uFFFD\uFFFD\uFFFD{;\u073B>"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "5fbW4DRRRNikVzx7RZIV76OE/2UAAAAAQUIPAAAAAACyqkz7GYWiimfyV76ebrgo",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD4QD\u0624W<{E\uFFFD\\x0015\uF8C4\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFDL\uFFFD\\x0019\uFFFD\uFFFD\uFFFDg\uFFFDW\uFFFD\uFFFDn\uFFFD("
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/comment/reply/",
@@ -760,14 +985,6 @@
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_pDPRsdQbtvBNVXCOKNK82oCUaHDbg9W7S-5yzJxQWMw",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\\x000c\uFFFDlu\\x0006\uFFFD\\x0013U\\#\uFFFD4\uFFFD6\uFFFD%\\x001a\\x001c6\uFFFD\uFFFDn\uFFFD\uFFFD\uFFFD\uFFFD'\\x0014\\x00163"
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/filter/tips",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -807,48 +1024,29 @@
 							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\\x000c\uFFFDlu\\x0006\uFFFD\\x0013U\\#\uFFFD4\uFFFD6\uFFFD%\\x001a\\x001c6\uFFFD\uFFFDn\uFFFD\uFFFD\uFFFD\uFFFD'\\x0014\\x00163"
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/search/",
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "/files/css/css_pDPRsdQbtvBNVXCOKNK82oCUaHDbg9W7S-5yzJxQWMw",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\\x000c\uFFFDlu\\x0006\uFFFD\\x0013U\\#\uFFFD4\uFFFD6\uFFFD%\\x001a\\x001c6\uFFFD\uFFFDn\uFFFD\uFFFD\uFFFD\uFFFD'\\x0014\\x00163"
+							"evidence": "tTv5skgRRiqxFwCKUG9EfKSE/2UAAAAAQUIPAAAAAAD6184I5v4y823IskiO7/UV",
+							"otherinfo": "\uFFFD;\uFFFD\uFFFDH\\x0011F*\uFFFD\\x0017\\x0000\uFFFDPoD|\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD\\x0008\uFFFD\uFFFD2\uFFFDm\u0232H\uFFFD\uFFFD\uFFFD\\x0015"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "d4sVpNgDSqOlLC8T7G5GQaWE/2UAAAAAQUIPAAAAAABoZ7hpWALHY3GsNS5hyKCA",
+							"otherinfo": "w\uFFFD\\x0015\uFFFD\uFFFD\\x0003J\uFFFD\uFFFD,/\\x0013\uFFFDnFA\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000hg\uFFFDiX\\x0002\uFFFDcq\uFFFD5.a\u0220\uFFFD"
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD'\uFFFD\\x001f\uFFFD\uFFFD\uFFFD\uFFFD.\uFFFD\\x0012\u050E\\x001c\\x001f\uFFFD\uFFFD\uFFFDr\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x0019i\uFFFD\uFFFD\uFFFDG)</p>",
+					"otherinfo": "<p>|\\x0005U\u915AE\uFFFD\uFFFD\"\uFFFD\\x0015&SQ\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x00009R\uFFFD\uFFFD0\uFFFD\uFFFDn\uFFFD\uFFFD\uFFFD{;\u073B></p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
-				},
-				{
-					"pluginid": "10019",
-					"alertRef": "10019-1",
-					"alert": "Content-Type Header Missing",
-					"name": "Content-Type Header Missing",
-					"riskcode": "0",
-					"confidence": "2",
-					"riskdesc": "Informational (Medium)",
-					"desc": "<p>The Content-Type header was either missing or empty.</p>",
-					"instances":[ 
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/web.config",
-							"method": "GET",
-							"param": "content-type",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						}
-					],
-					"count": "1",
-					"solution": "<p>Ensure each page is setting the specific and appropriate content-type value for the content being delivered.</p>",
-					"otherinfo": "",
-					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p>",
-					"cweid": "345",
-					"wascid": "12",
-					"sourceid": "539"
+					"sourceid": "69"
 				},
 				{
 					"pluginid": "10027",
@@ -869,6 +1067,14 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/*/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
@@ -939,14 +1145,6 @@
 							"attack": "",
 							"evidence": "user",
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						}
 					],
 					"count": "11",
@@ -955,6 +1153,57 @@
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
+					"sourceid": "1"
+				},
+				{
+					"pluginid": "90033",
+					"alertRef": "90033",
+					"alert": "Loosely Scoped Cookie",
+					"name": "Loosely Scoped Cookie",
+					"riskcode": "0",
+					"confidence": "1",
+					"riskdesc": "Informational (Low)",
+					"desc": "<p>Cookies can be scoped by domain or path. This check is only concerned with domain scope.The domain scope applied to a cookie determines which domains can access it. For example, a cookie can be scoped strictly to a subdomain e.g. www.nottrusted.com, or loosely scoped to a parent domain e.g. nottrusted.com. In the latter case, any subdomain of nottrusted.com can access the cookie. Loosely scoped cookies are common in mega-applications like google.com and live.com. Cookies set from a subdomain like app.foo.bar are transmitted only to that domain by the browser. However, cookies scoped to a parent-level domain may be transmitted to the parent, or any subdomain of the parent.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nwww.collectivites-locales.gouv.fr\nvisid_incap_3074951=5fbW4DRRRNikVzx7RZIV76OE/2UAAAAAQUIPAAAAAACyqkz7GYWiimfyV76ebrgo\nincap_ses_1356_3074951=TKwuJ5RF7UP3Udvu0HvREqOE/2UAAAAAm5BMPpbAYy0eIX5WkorkWw==\n"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nwww.collectivites-locales.gouv.fr\nvisid_incap_3074951=fAVV6YWaRcGvIvUVJlNR+qWE/2UAAAAAQUIPAAAAAAA5UqnbMPL1bv2X0Xs73Ls+\nincap_ses_1356_3074951=rTPLDlwx7lVQU9vu0HvREqWE/2UAAAAAVUW0hvnPPnS0hAsAc8O2kg==\n"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nwww.collectivites-locales.gouv.fr\nvisid_incap_3074951=tTv5skgRRiqxFwCKUG9EfKSE/2UAAAAAQUIPAAAAAAD6184I5v4y823IskiO7/UV\nincap_ses_1356_3074951=naiTL4YNvyiXUtvu0HvREqSE/2UAAAAAo7FoD3oLowj78PXglUv90Q==\n"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "The origin domain used for comparison was: \nwww.collectivites-locales.gouv.fr\nvisid_incap_3074951=d4sVpNgDSqOlLC8T7G5GQaWE/2UAAAAAQUIPAAAAAABoZ7hpWALHY3GsNS5hyKCA\nincap_ses_1356_3074951=jWdsKYJctxN7U9vu0HvREqWE/2UAAAAAfkejsDTcamAvUfOoBnkbgw==\n"
+						}
+					],
+					"count": "4",
+					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.collectivites-locales.gouv.fr</p><p>visid_incap_3074951=5fbW4DRRRNikVzx7RZIV76OE/2UAAAAAQUIPAAAAAACyqkz7GYWiimfyV76ebrgo</p><p>incap_ses_1356_3074951=TKwuJ5RF7UP3Udvu0HvREqOE/2UAAAAAm5BMPpbAYy0eIX5WkorkWw==</p><p></p>",
+					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
+					"cweid": "565",
+					"wascid": "15",
 					"sourceid": "1"
 				},
 				{
@@ -976,12 +1225,12 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/comment/reply/",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=2147340689\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css$",
@@ -992,6 +1241,38 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=763735709\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpeg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=550921277\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.jpg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=1400208001\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1955914725\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
@@ -1000,60 +1281,28 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.svg",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=1614059312\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/filter/tips",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1606201115\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/node/add/",
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"HautDePage\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=2113312939\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
 					"count": "11",
@@ -1123,7 +1372,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/institutions/historique-de-la-decentralisation",
+							"uri": "https://www.collectivites-locales.gouv.fr/institutions/ladministration-territoriale-de-letat",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1151,7 +1400,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=600, public",
+							"evidence": "max-age=458, public",
 							"otherinfo": ""
 						},
 						{
@@ -1182,7 +1431,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1198,14 +1447,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
-							"method": "GET",
-							"param": "Sec-Fetch-Dest",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
@@ -1214,13 +1455,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Dest header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "90005",
@@ -1233,7 +1474,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1249,14 +1490,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
-							"method": "GET",
-							"param": "Sec-Fetch-Mode",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
@@ -1265,13 +1498,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Mode header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "90005",
@@ -1284,7 +1517,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1300,14 +1533,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
-							"method": "GET",
-							"param": "Sec-Fetch-Site",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
@@ -1316,13 +1541,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-Site header is included in request headers.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "54"
 				},
 				{
 					"pluginid": "90005",
@@ -1335,7 +1560,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1351,14 +1576,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
-							"method": "GET",
-							"param": "Sec-Fetch-User",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
@@ -1367,12 +1584,95 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "4",
+					"count": "3",
 					"solution": "<p>Ensure that Sec-Fetch-User header is included in user initiated requests.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
+					"sourceid": "54"
+				},
+				{
+					"pluginid": "10112",
+					"alertRef": "10112",
+					"alert": "Session Management Response Identified",
+					"name": "Session Management Response Identified",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
+					"instances":[ 
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "TKwuJ5RF7UP3Udvu0HvREqOE/2UAAAAAm5BMPpbAYy0eIX5WkorkWw==",
+							"otherinfo": "\ncookie:incap_ses_1356_3074951\ncookie:visid_incap_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "naiTL4YNvyiXUtvu0HvREqSE/2UAAAAAo7FoD3oLowj78PXglUv90Q==",
+							"otherinfo": "\ncookie:incap_ses_1356_3074951\ncookie:visid_incap_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "naiTL4YNvyiXUtvu0HvREqSE/2UAAAAAo7FoD3oLowj78PXglUv90Q==",
+							"otherinfo": "\ncookie:incap_ses_1356_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js",
+							"method": "GET",
+							"param": "visid_incap_3074951",
+							"attack": "",
+							"evidence": "tTv5skgRRiqxFwCKUG9EfKSE/2UAAAAAQUIPAAAAAAD6184I5v4y823IskiO7/UV",
+							"otherinfo": "\ncookie:visid_incap_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "naiTL4YNvyiXUtvu0HvREqSE/2UAAAAAo7FoD3oLowj78PXglUv90Q==",
+							"otherinfo": "\ncookie:incap_ses_1356_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
+							"method": "GET",
+							"param": "visid_incap_3074951",
+							"attack": "",
+							"evidence": "tTv5skgRRiqxFwCKUG9EfKSE/2UAAAAAQUIPAAAAAAD6184I5v4y823IskiO7/UV",
+							"otherinfo": "\ncookie:visid_incap_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "incap_ses_1356_3074951",
+							"attack": "",
+							"evidence": "naiTL4YNvyiXUtvu0HvREqSE/2UAAAAAo7FoD3oLowj78PXglUv90Q==",
+							"otherinfo": "\ncookie:incap_ses_1356_3074951"
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.css$",
+							"method": "GET",
+							"param": "visid_incap_3074951",
+							"attack": "",
+							"evidence": "tTv5skgRRiqxFwCKUG9EfKSE/2UAAAAAQUIPAAAAAAD6184I5v4y823IskiO7/UV",
+							"otherinfo": "\ncookie:visid_incap_3074951"
+						}
+					],
+					"count": "8",
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p></p><p>cookie:incap_ses_1356_3074951</p><p>cookie:visid_incap_3074951</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
+					"cweid": "-1",
+					"wascid": "-1",
 					"sourceid": "1"
 				},
 				{
@@ -1395,6 +1695,14 @@
 						},
 						{
 							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1434,6 +1742,14 @@
 							"otherinfo": ""
 						},
 						{
+							"uri": "https://www.collectivites-locales.gouv.fr/core/*.js$",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=600",
+							"otherinfo": ""
+						},
+						{
 							"uri": "https://www.collectivites-locales.gouv.fr/core/*.png",
 							"method": "GET",
 							"param": "",
@@ -1450,27 +1766,11 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.collectivites-locales.gouv.fr/profiles/*.js",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.collectivites-locales.gouv.fr/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=600",
-							"otherinfo": ""
-						},
-						{
-							"uri": "https://www.collectivites-locales.gouv.fr/sitemap.xml",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=600",
+							"evidence": "max-age=458",
 							"otherinfo": ""
 						}
 					],
