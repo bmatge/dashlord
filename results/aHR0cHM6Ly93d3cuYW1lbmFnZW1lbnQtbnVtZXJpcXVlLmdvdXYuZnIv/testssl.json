@@ -3,8 +3,8 @@
               "id"           : "service",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "HTTP"
+              "severity"     : "DEBUG",
+              "finding"      : "Couldn't determine service, skipping all HTTP checks"
           }
 ,         {
               "id"           : "pre_128cipher",
@@ -121,8 +121,8 @@
               "id"           : "cipherlist_STRONG_FS",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "not offered"
+              "severity"     : "OK",
+              "finding"      : "offered"
           }
 ,         {
               "id"           : "cipher_order-tls1_2",
@@ -185,7 +185,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "ECDHE-ECDSA-AES128-GCM-SHA256"
+              "finding"      : "ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES128-SHA ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-ECDSA-AES256-SHA"
           }
 ,         {
               "id"           : "FS_ECDHE_curves",
@@ -367,7 +367,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "335 >= 60 days"
+              "finding"      : "328 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
@@ -517,70 +517,6 @@
               "finding"      : "intermediate certificate(s) is/are ok"
           }
 ,         {
-              "id"           : "HTTP_status_code",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "301 Moved Permanently ('/')"
-          }
-,         {
-              "id"           : "HTTP_clock_skew",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Got no HTTP time, maybe try different URL?"
-          }
-,         {
-              "id"           : "HSTS",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "LOW",
-              "finding"      : "not offered"
-          }
-,         {
-              "id"           : "HPKP",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No support for HTTP Public Key Pinning"
-          }
-,         {
-              "id"           : "banner_server",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No Server banner line in header, interesting!"
-          }
-,         {
-              "id"           : "banner_application",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "No application banner found"
-          }
-,         {
-              "id"           : "cookie_count",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "0 at '/' (30x detected, better try target URL of 30x)"
-          }
-,         {
-              "id"           : "security_headers",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "--"
-          }
-,         {
-              "id"           : "banner_reverseproxy",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "cwe"          : "CWE-200",
-              "finding"      : "--"
-          }
-,         {
               "id"           : "heartbleed",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
@@ -602,10 +538,10 @@
               "id"           : "ticketbleed",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
-              "severity"     : "OK",
+              "severity"     : "INFO",
               "cve"          : "CVE-2016-9244",
               "cwe"          : "CWE-200",
-              "finding"      : "not vulnerable"
+              "finding"      : "not applicable, not HTTP"
           }
 ,         {
               "id"           : "ROBOT",
@@ -640,16 +576,7 @@
               "severity"     : "OK",
               "cve"          : "CVE-2012-4929",
               "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable"
-          }
-,         {
-              "id"           : "BREACH",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "OK",
-              "cve"          : "CVE-2013-3587",
-              "cwe"          : "CWE-310",
-              "finding"      : "not vulnerable, no gzip/deflate/compress/br HTTP compression  - only supplied '/' tested"
+              "finding"      : "not vulnerable (not using HTTP anyway)"
           }
 ,         {
               "id"           : "POODLE_SSL",
@@ -804,21 +731,21 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
           }
 ,         {
               "id"           : "clientsimulation-chrome_79_win10",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-chrome_101_win10",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-firefox_66_win81",
@@ -867,7 +794,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.2 ECDHE-ECDSA-AES256-GCM-SHA384"
           }
 ,         {
               "id"           : "clientsimulation-ie_11_winphone81",
@@ -937,14 +864,14 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "TLSv1.3 TLS_AES_128_GCM_SHA256"
+              "finding"      : "No connection"
           }
 ,         {
               "id"           : "clientsimulation-java1703",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "No connection"
+              "finding"      : "TLSv1.3 TLS_AES_256_GCM_SHA384"
           }
 ,         {
               "id"           : "clientsimulation-go_1178",
@@ -1070,20 +997,13 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "A"
-          }
-,         {
-              "id"           : "grade_cap_reason_1",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "Grade capped to A. HSTS is not offered"
+              "finding"      : "A+"
           }
 ,         {
               "id"           : "scanTime",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "95"
+              "finding"      : "49"
           }
 ]
