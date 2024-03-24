@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 17 Mar 2024 02:39:21",
+	"@generated": "Sun, 24 Mar 2024 02:39:28",
 	"site":[ 
 		{
 			"@name": "https://www.modernisation.gouv.fr",
@@ -98,15 +98,31 @@
 							"attack": "",
 							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.css$\" method=\"post\" id=\"hubscore-newsletter-form\">",
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar\" data-drupal-selector=\"header-searchbar\" action=\"/recherche\" method=\"GET\" id=\"header-searchbar\" accept-charset=\"UTF-8\" data-drupal-form-fields=\"edit-search,edit-valider\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ]."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<form class=\"header-searchbar subscribeNewsletterForm\" accept-charset=\"UTF-8\" data-drupal-selector=\"hubscore-newsletter-form\" action=\"/profiles/*.svg\" method=\"post\" id=\"hubscore-newsletter-form\">",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"edit-footer-newsletter-input\" \"edit-submit\" \"form_build_id\" \"form_id\" ]."
 						}
 					],
-					"count": "10",
+					"count": "12",
 					"solution": "<p>Phase: Architecture and Design</p><p>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</p><p>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</p><p></p><p>Phase: Implementation</p><p>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</p><p></p><p>Phase: Architecture and Design</p><p>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</p><p>Note that this can be bypassed using XSS.</p><p></p><p>Use the ESAPI Session Management control.</p><p>This control includes a component for CSRF.</p><p></p><p>Do not use the GET method for any request that triggers a state change.</p><p></p><p>Phase: Implementation</p><p>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</p>",
 					"otherinfo": "<p>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 1: \"search-865-input\" ].</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10055",
@@ -127,7 +143,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -135,7 +151,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -170,7 +186,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -178,7 +194,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -192,7 +208,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10055",
@@ -213,7 +229,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/user/login",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -221,7 +237,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/logout",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -235,7 +251,7 @@
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10038",
@@ -320,14 +336,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.gif",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/*.jpeg",
 							"method": "GET",
 							"param": "",
@@ -342,6 +350,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
 						}
 					],
 					"count": "12",
@@ -350,7 +366,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "183"
+					"sourceid": "406"
 				},
 				{
 					"pluginid": "10098",
@@ -457,7 +473,7 @@
 					"reference": "<p>https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.html5_overly_permissive_cors_policy</p>",
 					"cweid": "264",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10020",
@@ -484,7 +500,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "1352"
+					"sourceid": "1344"
 				},
 				{
 					"pluginid": "90003",
@@ -519,7 +535,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1352"
+					"sourceid": "1344"
 				},
 				{
 					"pluginid": "10044",
@@ -570,15 +586,23 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "Location header URI length: 34 [https://www.modernisation.gouv.fr/].\nPredicted response size: 334.\nResponse Body Length: 382."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/",
+							"method": "POST",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "Location header URI length: 41 [https://www.modernisation.gouv.fr/accueil].\nPredicted response size: 341.\nResponse Body Length: 410."
 						}
 					],
-					"count": "5",
+					"count": "6",
 					"solution": "<p>Ensure that no sensitive information is leaked via redirect responses. Redirect responses should have almost no content.</p>",
 					"otherinfo": "<p>Location header URI length: 45 [https://www.modernisation.gouv.fr/filter/tips].</p><p>Predicted response size: 345.</p><p>Response Body Length: 426.</p>",
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "1300"
+					"sourceid": "1296"
 				},
 				{
 					"pluginid": "10010",
@@ -593,25 +617,25 @@
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1542_3064998",
+							"evidence": "Set-Cookie: incap_ses_1346_3064998",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1542_3064998",
+							"evidence": "Set-Cookie: incap_ses_1346_3064998",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1542_3064998",
+							"evidence": "Set-Cookie: incap_ses_1346_3064998",
 							"otherinfo": ""
 						}
 					],
@@ -621,7 +645,7 @@
 					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
 					"cweid": "1004",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10054",
@@ -636,9 +660,9 @@
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1542_3064998",
+							"evidence": "Set-Cookie: incap_ses_1346_3064998",
 							"otherinfo": ""
 						},
 						{
@@ -652,9 +676,9 @@
 						{
 							"uri": "https://www.modernisation.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1542_3064998",
+							"evidence": "Set-Cookie: incap_ses_1346_3064998",
 							"otherinfo": ""
 						},
 						{
@@ -668,9 +692,9 @@
 						{
 							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1542_3064998",
+							"evidence": "Set-Cookie: incap_ses_1346_3064998",
 							"otherinfo": ""
 						},
 						{
@@ -688,7 +712,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10017",
@@ -723,7 +747,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "1352"
+					"sourceid": "1344"
 				},
 				{
 					"pluginid": "10110",
@@ -736,7 +760,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1521075106&ns=1",
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1035668837&ns=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -744,7 +768,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2119201914&ns=2",
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1611582979&ns=7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -752,7 +776,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=226028383&ns=7",
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=331521231&ns=3",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "eval",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=819903216&ns=2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -792,13 +824,13 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "7",
+					"count": "8",
 					"solution": "<p>See the references for security advice on the use of these functions.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "2431"
+					"sourceid": "3088"
 				},
 				{
 					"pluginid": "110009",
@@ -851,7 +883,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/index.php/search/",
+							"uri": "https://www.modernisation.gouv.fr/index.php/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -913,7 +945,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/Full_Path_Disclosure</p>",
 					"cweid": "209",
 					"wascid": "13",
-					"sourceid": "1306"
+					"sourceid": "1302"
 				},
 				{
 					"pluginid": "10063",
@@ -1006,7 +1038,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.gif",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1020,7 +1052,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "52"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10096",
@@ -1033,109 +1065,109 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/",
+							"uri": "https://www.modernisation.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1759415666",
-							"otherinfo": "1759415666, which evaluates to: 2025-10-02 14:34:26"
+							"evidence": "1611582979",
+							"otherinfo": "1611582979, which evaluates to: 2021-01-25 13:56:19"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/*/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1521075106",
-							"otherinfo": "1521075106, which evaluates to: 2018-03-15 00:51:46"
+							"evidence": "1822075849",
+							"otherinfo": "1822075849, which evaluates to: 2027-09-27 20:10:49"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
+							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1754303528",
-							"otherinfo": "1754303528, which evaluates to: 2025-08-04 10:32:08"
+							"evidence": "1452279278",
+							"otherinfo": "1452279278, which evaluates to: 2016-01-08 18:54:38"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
+							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1951526066",
-							"otherinfo": "1951526066, which evaluates to: 2031-11-04 02:34:26"
+							"evidence": "1759887776",
+							"otherinfo": "1759887776, which evaluates to: 2025-10-08 01:42:56"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1866318523",
-							"otherinfo": "1866318523, which evaluates to: 2029-02-20 21:48:43"
+							"evidence": "1893100431",
+							"otherinfo": "1893100431, which evaluates to: 2029-12-27 21:13:51"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.png",
+							"uri": "https://www.modernisation.gouv.fr/index.php/*/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1405816637",
-							"otherinfo": "1405816637, which evaluates to: 2014-07-20 00:37:17"
+							"evidence": "1981895228",
+							"otherinfo": "1981895228, which evaluates to: 2032-10-20 14:27:08"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1983918667",
+							"otherinfo": "1983918667, which evaluates to: 2032-11-13 00:31:07"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/profiles/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1550030176",
-							"otherinfo": "1550030176, which evaluates to: 2019-02-13 03:56:16"
+							"evidence": "1492999682",
+							"otherinfo": "1492999682, which evaluates to: 2017-04-24 02:08:02"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.css",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1667007840",
-							"otherinfo": "1667007840, which evaluates to: 2022-10-29 01:44:00"
+							"evidence": "1564408711",
+							"otherinfo": "1564408711, which evaluates to: 2019-07-29 13:58:31"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.css$",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.png",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1757906089",
-							"otherinfo": "1757906089, which evaluates to: 2025-09-15 03:14:49"
+							"evidence": "1844204225",
+							"otherinfo": "1844204225, which evaluates to: 2028-06-09 22:57:05"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.gif",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1469893782",
-							"otherinfo": "1469893782, which evaluates to: 2016-07-30 15:49:42"
+							"evidence": "1886742549",
+							"otherinfo": "1886742549, which evaluates to: 2029-10-15 07:09:09"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.jpeg",
+							"uri": "https://www.modernisation.gouv.fr/user/password",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1928849622",
-							"otherinfo": "1928849622, which evaluates to: 2031-02-14 15:33:42"
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/search/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1915687294",
-							"otherinfo": "1915687294, which evaluates to: 2030-09-15 07:21:34"
+							"evidence": "1652555123",
+							"otherinfo": "1652555123, which evaluates to: 2022-05-14 19:05:23"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1759415666, which evaluates to: 2025-10-02 14:34:26</p>",
+					"otherinfo": "<p>1611582979, which evaluates to: 2021-01-25 13:56:19</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1240"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "10021",
@@ -1148,7 +1180,7 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1521075106&ns=1",
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1035668837&ns=1",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1156,7 +1188,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2119201914&ns=2",
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1611582979&ns=7",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1164,7 +1196,15 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=226028383&ns=7",
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=331521231&ns=3",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=819903216&ns=2",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1172,13 +1212,13 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.</p><p>If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.</p>",
 					"otherinfo": "<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p><p>At \"High\" threshold this scan rule will not alert on client or server error responses.</p>",
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "2431"
+					"sourceid": "3088"
 				},
 				{
 					"pluginid": "10094",
@@ -1195,16 +1235,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "MnszcmZKTcivHMXfBiFKVZRX9mUAAAAAQUIPAAAAAADo+6xiDZ7toshRlRxsBaUA",
-							"otherinfo": "2{3rfJM\u022F\\x001c\uFFFD\uFFFD\\x0006!JU\uFFFDW\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFDb\r\uFFFD\uFFFD\uFFFDQ\uFFFD\\x001cl\\x0005\uFFFD\\x0000"
+							"evidence": "Ce6a97WFRXiLfpfjgwAzXhuS/2UAAAAAQUIPAAAAAAAGLSe0yDMstt3gVnHsK8h8",
+							"otherinfo": "\t\uFFFD\uFFFD\uFFFD\uFFFDEx\uFFFD~\uFFFD\uFFFD\\x00003^\\x001b\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x0006-'\uFFFD\uFFFD3,\uFFFD\uFFFD\uFFFDVq\uFFFD+\uFFFD|"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "bM0A/O9AS6ydQlvIPV3bJ5RX9mUAAAAAQUIPAAAAAACupabEHOjhEKUmWCYUYuCl",
-							"otherinfo": "l\uFFFD\\x0000\uFFFD\uFFFD@K\uFFFD\uFFFDB[\uFFFD=]\uFFFD'\uFFFDW\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD\uFFFD\\x001c\uFFFD\uFFFD\\x0010\uFFFD&X&\\x0014b\uFFFD"
+							"evidence": "jAsytlkaSiC5N2a2/fn3mByS/2UAAAAAQUIPAAAAAAAdjRHGeipJJ079Bych5FBc",
+							"otherinfo": "\uFFFD\\x000b2\uFFFDY\\x001aJ \uFFFD7f\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001c\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x001d\uFFFD\\x0011\uFFFDz*I'N\uFFFD\\x0007'!\uFFFDP\\"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM",
+							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/core/*.css$",
@@ -1247,7 +1295,7 @@
 							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1259,8 +1307,8 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "SAJPgKETQV+TpIbKjlC4UpRX9mUAAAAAQUIPAAAAAAAFut54kD28k1ZQ51MS1lfS",
-							"otherinfo": "H\\x0002O\uFFFD\uFFFD\\x0013A_\uFFFD\uFFFD\uFFFD\u028EP\uFFFDR\uFFFDW\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x0005\uFFFD\uFFFDx\uFFFD=\uFFFD\uFFFDVP\uFFFDS\\x0012\uFFFDW\uFFFD"
+							"evidence": "Dg75mVK/SxmG12oOY80+gxyS/2UAAAAAQUIPAAAAAABqM6p9Qujlbe5BWVQaTuQA",
+							"otherinfo": "\\x000e\\x000e\uFFFD\uFFFDR\uFFFDK\\x0019\uFFFD\uFFFDj\\x000ec\uFFFD>\uFFFD\\x001c\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000j3\uFFFD}B\uFFFD\uFFFDm\uFFFDAYT\\x001aN\uFFFD\\x0000"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/search/",
@@ -1275,25 +1323,17 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "SurNKdz+SP6AWQ3pcdntppVX9mUAAAAAQUIPAAAAAABySl5RNH84RBJalDfzp8wU",
-							"otherinfo": "J\uFFFD\uFFFD)\uFFFD\uFFFDH\uFFFD\uFFFDY\r\uFFFDq\uFFFD\uFFFDW\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000rJ^Q48D\\x0012Z\uFFFD7\uFFFD\uFFFD\\x0014"
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM",
-							"otherinfo": "~\uFFFD\uFFFD\uFFFD\uFFFD-\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDou\uFFFDTns4_\uFFFD,c\u04FD\uFFFD\uFFFD\t\uFFFD7\uFFFD\u0299a,\\x001c}\uFFFDv\uFFFD3"
+							"evidence": "bXEtSd6bQeimvzs98Zo+0ByS/2UAAAAAQUIPAAAAAACbOxHBimHDSGAw1mjnwnry",
+							"otherinfo": "mq-I\u079BA\u89BF;=\uFFFD>\uFFFD\\x001c\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD;\\x0011\uFFFD\uFFFDa\uFFFDH`0\uFFFDh\uFFFD\uFFFDz\uFFFD"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>2{3rfJM\u022F\\x001c\uFFFD\uFFFD\\x0006!JU\uFFFDW\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFDb\r\uFFFD\uFFFD\uFFFDQ\uFFFD\\x001cl\\x0005\uFFFD\\x0000</p>",
+					"otherinfo": "<p>\t\uFFFD\uFFFD\uFFFD\uFFFDEx\uFFFD~\uFFFD\uFFFD\\x00003^\\x001b\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\\x0006-'\uFFFD\uFFFD3,\uFFFD\uFFFD\uFFFDVq\uFFFD+\uFFFD|</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10027",
@@ -1346,6 +1386,14 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://www.modernisation.gouv.fr/filter/tips",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://www.modernisation.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -1362,7 +1410,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.js$",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.svg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1378,15 +1426,7 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/user/login",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "user",
-							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
-						},
-						{
-							"uri": "https://www.modernisation.gouv.fr/user/password",
+							"uri": "https://www.modernisation.gouv.fr/user/register",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1418,7 +1458,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=bM0A/O9AS6ydQlvIPV3bJ5RX9mUAAAAAQUIPAAAAAACupabEHOjhEKUmWCYUYuCl\nincap_ses_1542_3064998=6CsTc7tkWU9No/PrgElmFZRX9mUAAAAAWVRpdJjPhgKOadDzDuk0sw==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=Ce6a97WFRXiLfpfjgwAzXhuS/2UAAAAAQUIPAAAAAAAGLSe0yDMstt3gVnHsK8h8\nincap_ses_1346_3064998=ectqLnpyyE3pf5yF3vStEhuS/2UAAAAAMEHQdFdJrFhn8BZKiJjv0A==\n"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
@@ -1426,7 +1466,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=MnszcmZKTcivHMXfBiFKVZRX9mUAAAAAQUIPAAAAAADo+6xiDZ7toshRlRxsBaUA\nincap_ses_1542_3064998=GEBSEm0eJG//o/PrgElmFZRX9mUAAAAA7JKEX3/POlJcO2glpMzr4g==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=jAsytlkaSiC5N2a2/fn3mByS/2UAAAAAQUIPAAAAAAAdjRHGeipJJ079Bych5FBc\nincap_ses_1346_3064998=fGbJO0IUiCA8gJyF3vStEhyS/2UAAAAAS0EHAxK+b6hLJKiNWeQqbQ==\n"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/robots.txt",
@@ -1434,7 +1474,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=SAJPgKETQV+TpIbKjlC4UpRX9mUAAAAAQUIPAAAAAAAFut54kD28k1ZQ51MS1lfS\nincap_ses_1542_3064998=XFe7BlHdOiHqo/PrgElmFZRX9mUAAAAAl2O1fe1gQoJ7D3wTq7r7gw==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=Dg75mVK/SxmG12oOY80+gxyS/2UAAAAAQUIPAAAAAABqM6p9Qujlbe5BWVQaTuQA\nincap_ses_1346_3064998=SfQwLJxA1Q0vgJyF3vStEhyS/2UAAAAA/IfxlF0nPHeDA+1dkViW4Q==\n"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
@@ -1442,12 +1482,12 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=SurNKdz+SP6AWQ3pcdntppVX9mUAAAAAQUIPAAAAAABySl5RNH84RBJalDfzp8wU\nincap_ses_1542_3064998=9XKDIjDPWVUupPPrgElmFZVX9mUAAAAATxrYGE3WRnS4hX56aLR8wQ==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.modernisation.gouv.fr\nvisid_incap_3064998=bXEtSd6bQeimvzs98Zo+0ByS/2UAAAAAQUIPAAAAAACbOxHBimHDSGAw1mjnwnry\nincap_ses_1346_3064998=8rWvb8i7ZSh0gJyF3vStEhyS/2UAAAAAv2hra+fuw3VtnnyNmBE+sw==\n"
 						}
 					],
 					"count": "4",
 					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
-					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.modernisation.gouv.fr</p><p>visid_incap_3064998=bM0A/O9AS6ydQlvIPV3bJ5RX9mUAAAAAQUIPAAAAAACupabEHOjhEKUmWCYUYuCl</p><p>incap_ses_1542_3064998=6CsTc7tkWU9No/PrgElmFZRX9mUAAAAAWVRpdJjPhgKOadDzDuk0sw==</p><p></p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.modernisation.gouv.fr</p><p>visid_incap_3064998=Ce6a97WFRXiLfpfjgwAzXhuS/2UAAAAAQUIPAAAAAAAGLSe0yDMstt3gVnHsK8h8</p><p>incap_ses_1346_3064998=ectqLnpyyE3pf5yF3vStEhuS/2UAAAAAMEHQdFdJrFhn8BZKiJjv0A==</p><p></p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
 					"cweid": "565",
 					"wascid": "15",
@@ -1476,7 +1516,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1521075106\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=331521231\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1492,7 +1532,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1951526066\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=819903216\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1500,7 +1540,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1019539727\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=365534125\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1508,7 +1548,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=2119201914\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=1759887776\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1516,7 +1556,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=964502539\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=1035668837\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1532,7 +1572,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=1405816637\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=1080741128\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1540,15 +1580,15 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1667007840\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=933383009\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/profiles/*.gif",
+							"uri": "https://www.modernisation.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=1469893782\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=7&cb=1065342212\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
@@ -1635,7 +1675,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique/assurer-la-mise-en-oeuvre-des-politiques-prioritaires-du-gouvernement",
+							"uri": "https://www.modernisation.gouv.fr/transformer-laction-publique/le-comite-interministeriel-de-la-transformation-publique-citp",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1665,7 +1705,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "52"
 				},
 				{
 					"pluginid": "90005",
@@ -1678,7 +1718,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1686,7 +1726,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1708,7 +1748,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "183"
+					"sourceid": "252"
 				},
 				{
 					"pluginid": "90005",
@@ -1721,7 +1761,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1729,7 +1769,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1751,7 +1791,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "183"
+					"sourceid": "252"
 				},
 				{
 					"pluginid": "90005",
@@ -1764,7 +1804,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1772,7 +1812,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1794,7 +1834,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "183"
+					"sourceid": "252"
 				},
 				{
 					"pluginid": "90005",
@@ -1807,7 +1847,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.css",
+							"uri": "https://www.modernisation.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1815,7 +1855,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/core/*.jpg",
+							"uri": "https://www.modernisation.gouv.fr/core/*.js",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1837,7 +1877,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "183"
+					"sourceid": "252"
 				},
 				{
 					"pluginid": "10112",
@@ -1852,55 +1892,95 @@
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "6CsTc7tkWU9No/PrgElmFZRX9mUAAAAAWVRpdJjPhgKOadDzDuk0sw==",
-							"otherinfo": "\ncookie:incap_ses_1542_3064998\ncookie:visid_incap_3064998"
+							"evidence": "ectqLnpyyE3pf5yF3vStEhuS/2UAAAAAMEHQdFdJrFhn8BZKiJjv0A==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998\ncookie:visid_incap_3064998"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "GEBSEm0eJG//o/PrgElmFZRX9mUAAAAA7JKEX3/POlJcO2glpMzr4g==",
-							"otherinfo": "\ncookie:incap_ses_1542_3064998\ncookie:visid_incap_3064998"
+							"evidence": "fGbJO0IUiCA8gJyF3vStEhyS/2UAAAAAS0EHAxK+b6hLJKiNWeQqbQ==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998\ncookie:visid_incap_3064998"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "XFe7BlHdOiHqo/PrgElmFZRX9mUAAAAAl2O1fe1gQoJ7D3wTq7r7gw==",
-							"otherinfo": "\ncookie:incap_ses_1542_3064998\ncookie:visid_incap_3064998"
+							"evidence": "SfQwLJxA1Q0vgJyF3vStEhyS/2UAAAAA/IfxlF0nPHeDA+1dkViW4Q==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998\ncookie:visid_incap_3064998"
 						},
 						{
 							"uri": "https://www.modernisation.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "9XKDIjDPWVUupPPrgElmFZVX9mUAAAAATxrYGE3WRnS4hX56aLR8wQ==",
-							"otherinfo": "\ncookie:incap_ses_1542_3064998\ncookie:visid_incap_3064998"
+							"evidence": "8rWvb8i7ZSh0gJyF3vStEhyS/2UAAAAAv2hra+fuw3VtnnyNmBE+sw==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998\ncookie:visid_incap_3064998"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/index.php/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/*/media",
 							"method": "GET",
-							"param": "incap_ses_1542_3064998",
+							"param": "incap_ses_1346_3064998",
 							"attack": "",
-							"evidence": "9XKDIjDPWVUupPPrgElmFZVX9mUAAAAATxrYGE3WRnS4hX56aLR8wQ==",
-							"otherinfo": "\ncookie:incap_ses_1542_3064998"
+							"evidence": "8rWvb8i7ZSh0gJyF3vStEhyS/2UAAAAAv2hra+fuw3VtnnyNmBE+sw==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998"
 						},
 						{
-							"uri": "https://www.modernisation.gouv.fr/index.php/user/logout",
+							"uri": "https://www.modernisation.gouv.fr/*/media",
 							"method": "GET",
 							"param": "visid_incap_3064998",
 							"attack": "",
-							"evidence": "SurNKdz+SP6AWQ3pcdntppVX9mUAAAAAQUIPAAAAAABySl5RNH84RBJalDfzp8wU",
+							"evidence": "bXEtSd6bQeimvzs98Zo+0ByS/2UAAAAAQUIPAAAAAACbOxHBimHDSGAw1mjnwnry",
+							"otherinfo": "\ncookie:visid_incap_3064998"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/index.php/comment/reply",
+							"method": "GET",
+							"param": "incap_ses_1346_3064998",
+							"attack": "",
+							"evidence": "8rWvb8i7ZSh0gJyF3vStEhyS/2UAAAAAv2hra+fuw3VtnnyNmBE+sw==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/index.php/comment/reply",
+							"method": "GET",
+							"param": "visid_incap_3064998",
+							"attack": "",
+							"evidence": "bXEtSd6bQeimvzs98Zo+0ByS/2UAAAAAQUIPAAAAAACbOxHBimHDSGAw1mjnwnry",
+							"otherinfo": "\ncookie:visid_incap_3064998"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/index.php/user",
+							"method": "GET",
+							"param": "visid_incap_3064998",
+							"attack": "",
+							"evidence": "bXEtSd6bQeimvzs98Zo+0ByS/2UAAAAAQUIPAAAAAACbOxHBimHDSGAw1mjnwnry",
+							"otherinfo": "\ncookie:visid_incap_3064998"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/media",
+							"method": "GET",
+							"param": "incap_ses_1346_3064998",
+							"attack": "",
+							"evidence": "8rWvb8i7ZSh0gJyF3vStEhyS/2UAAAAAv2hra+fuw3VtnnyNmBE+sw==",
+							"otherinfo": "\ncookie:incap_ses_1346_3064998"
+						},
+						{
+							"uri": "https://www.modernisation.gouv.fr/media",
+							"method": "GET",
+							"param": "visid_incap_3064998",
+							"attack": "",
+							"evidence": "bXEtSd6bQeimvzs98Zo+0ByS/2UAAAAAQUIPAAAAAACbOxHBimHDSGAw1mjnwnry",
 							"otherinfo": "\ncookie:visid_incap_3064998"
 						}
 					],
-					"count": "6",
+					"count": "11",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
-					"otherinfo": "<p></p><p>cookie:incap_ses_1542_3064998</p><p>cookie:visid_incap_3064998</p>",
+					"otherinfo": "<p></p><p>cookie:incap_ses_1346_3064998</p><p>cookie:visid_incap_3064998</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
@@ -2011,7 +2091,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "1"
 				}
 			]
 		}
