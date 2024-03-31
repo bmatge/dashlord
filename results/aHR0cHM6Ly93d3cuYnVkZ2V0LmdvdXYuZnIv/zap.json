@@ -1,7 +1,7 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.14.0",
-	"@generated": "Sun, 24 Mar 2024 02:00:35",
+	"@generated": "Sun, 31 Mar 2024 02:03:01",
 	"site":[ 
 		{
 			"@name": "https://www.budget.gouv.fr",
@@ -33,7 +33,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "<form action=\"/download_csv/timeline/donn\u00E9es_.csv\" method=\"POST\">",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-65ff8729d568d\" \"url\" ]."
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: \"colors\" \"data\" \"download-6608c317ea40d\" \"url\" ]."
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
@@ -127,7 +127,15 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.budget.gouv.fr/index.php/search/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -135,7 +143,7 @@
 							"otherinfo": "The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: \nscript-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action\n\nThe directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: </p><p>script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, worker-src, form-action</p><p></p><p>The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</p>",
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -170,7 +178,15 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.budget.gouv.fr/index.php/search/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "script-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -178,7 +194,7 @@
 							"otherinfo": "script-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>script-src includes unsafe-inline.</p>",
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -213,7 +229,15 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.budget.gouv.fr/index.php/search/",
+							"method": "GET",
+							"param": "Content-Security-Policy",
+							"attack": "",
+							"evidence": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src https: ; child-src https: platform.twitter.com; img-src https: data:;",
+							"otherinfo": "style-src includes unsafe-inline."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/search/",
 							"method": "GET",
 							"param": "Content-Security-Policy",
 							"attack": "",
@@ -221,7 +245,7 @@
 							"otherinfo": "style-src includes unsafe-inline."
 						}
 					],
-					"count": "3",
+					"count": "4",
 					"solution": "<p>Ensure that your web server, application server, load balancer, etc. is properly configured to set the Content-Security-Policy header.</p>",
 					"otherinfo": "<p>style-src includes unsafe-inline.</p>",
 					"reference": "<p>https://www.w3.org/TR/CSP/</p><p>https://caniuse.com/#search=content+security+policy</p><p>https://content-security-policy.com/</p><p>https://github.com/HtmlUnit/htmlunit-csp</p><p>https://developers.google.com/web/fundamentals/security/csp#policy_applies_to_a_wide_variety_of_resources</p>",
@@ -320,7 +344,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.css$",
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -328,7 +352,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.jpg",
+							"uri": "https://www.budget.gouv.fr/profiles/*.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -342,7 +366,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Introducing_Content_Security_Policy</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "59"
+					"sourceid": "131"
 				},
 				{
 					"pluginid": "10098",
@@ -387,7 +411,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/filter/tips",
+							"uri": "https://www.budget.gouv.fr/index.php/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -395,7 +419,7 @@
 							"otherinfo": "The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/index.php/user/password",
+							"uri": "https://www.budget.gouv.fr/search/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -462,7 +486,7 @@
 					"desc": "<p>The response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?CWUDNSAI=23&cinfo=03000000&edet=15&incident_id=1402000960143013533-380201023508715534&mth=GET&rpinfo=0&xinfo=14-66902143-0%200NNN%20RT%281711245564921%208%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B15%283%2c306018%2c0%29%20U18",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?CWUDNSAI=23&cinfo=03000000&edet=15&incident_id=32000040035817231-117086220149850381&mth=GET&rpinfo=0&xinfo=13-22381543-0%200NNN%20RT%281711850515169%2012%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B15%283%2c306018%2c0%29%20U18",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -476,7 +500,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</p>",
 					"cweid": "1021",
 					"wascid": "15",
-					"sourceid": "6262"
+					"sourceid": "6275"
 				},
 				{
 					"pluginid": "90003",
@@ -489,7 +513,7 @@
 					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content. </p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?CWUDNSAI=23&cinfo=03000000&edet=15&incident_id=1402000960143013533-380201023508715534&mth=GET&rpinfo=0&xinfo=14-66902143-0%200NNN%20RT%281711245564921%208%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B15%283%2c306018%2c0%29%20U18",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?CWUDNSAI=23&cinfo=03000000&edet=15&incident_id=32000040035817231-117086220149850381&mth=GET&rpinfo=0&xinfo=13-22381543-0%200NNN%20RT%281711850515169%2012%29%20q%280%20-1%20-1%20-1%29%20r%280%20-1%29%20B15%283%2c306018%2c0%29%20U18",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -503,7 +527,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "6262"
+					"sourceid": "6275"
 				},
 				{
 					"pluginid": "10044",
@@ -586,7 +610,7 @@
 					"reference": "",
 					"cweid": "201",
 					"wascid": "13",
-					"sourceid": "6320"
+					"sourceid": "6323"
 				},
 				{
 					"pluginid": "10010",
@@ -601,25 +625,25 @@
 						{
 							"uri": "https://www.budget.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1402_3058694",
+							"evidence": "Set-Cookie: incap_ses_32_3058694",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1402_3058694",
+							"evidence": "Set-Cookie: incap_ses_32_3058694",
 							"otherinfo": ""
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1402_3058694",
+							"evidence": "Set-Cookie: incap_ses_32_3058694",
 							"otherinfo": ""
 						}
 					],
@@ -644,9 +668,9 @@
 						{
 							"uri": "https://www.budget.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1402_3058694",
+							"evidence": "Set-Cookie: incap_ses_32_3058694",
 							"otherinfo": ""
 						},
 						{
@@ -660,9 +684,9 @@
 						{
 							"uri": "https://www.budget.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1402_3058694",
+							"evidence": "Set-Cookie: incap_ses_32_3058694",
 							"otherinfo": ""
 						},
 						{
@@ -676,9 +700,9 @@
 						{
 							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "Set-Cookie: incap_ses_1402_3058694",
+							"evidence": "Set-Cookie: incap_ses_32_3058694",
 							"otherinfo": ""
 						},
 						{
@@ -717,14 +741,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2024/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2024/budget-general-2024",
-							"method": "GET",
-							"param": "SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
-							"attack": "",
-							"evidence": "Set-Cookie: SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2024/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2024/budgets-annexes-2024",
 							"method": "GET",
 							"param": "SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
@@ -739,6 +755,14 @@
 							"attack": "",
 							"evidence": "Set-Cookie: SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
 							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/documentation/documents-budgetaires/exercice-2024/le-projet-de-loi-de-finances-et-les-documents-annexes-pour-2024/comptes-de-concours-financiers-2024",
+							"method": "GET",
+							"param": "SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
+							"attack": "",
+							"evidence": "Set-Cookie: SSESSd14a8e0a64a3b34ee847b4f13e76a58f",
+							"otherinfo": ""
 						}
 					],
 					"count": "4",
@@ -747,7 +771,7 @@
 					"reference": "<p>https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site</p>",
 					"cweid": "1275",
 					"wascid": "13",
-					"sourceid": "3763"
+					"sourceid": "5738"
 				},
 				{
 					"pluginid": "10110",
@@ -760,7 +784,7 @@
 					"desc": "<p>A dangerous JS function seems to be in use that would leave the site vulnerable.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1054583848&ns=4",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1232917467&ns=4",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -768,7 +792,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=107183268&ns=3",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1433729537&ns=6",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -776,7 +800,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1497843655&ns=2",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=151728401&ns=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -784,7 +808,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1655150730&ns=2",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1911230450&ns=2",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -792,7 +816,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=208431237&ns=5",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1999010281&ns=5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -800,7 +824,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=452730569&ns=3",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=2001442859&ns=8",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -808,7 +832,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=466743198&ns=1",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=240190255&ns=3",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -816,7 +840,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=630347317&ns=1",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=250537808&ns=1",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -824,7 +848,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=850010598&ns=9",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=495869717&ns=7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -832,7 +856,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=967637295&ns=6",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=932848284&ns=5",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -862,7 +886,7 @@
 					"reference": "<p>https://angular.io/guide/security</p>",
 					"cweid": "749",
 					"wascid": "-1",
-					"sourceid": "4125"
+					"sourceid": "6249"
 				},
 				{
 					"pluginid": "10063",
@@ -947,7 +971,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.svg",
+							"uri": "https://www.budget.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -955,7 +979,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.css",
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -969,7 +993,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10096",
@@ -982,109 +1006,109 @@
 					"desc": "<p>A timestamp was disclosed by the application/web server - Unix</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/budget-etat",
+							"uri": "https://www.budget.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1856123210",
-							"otherinfo": "1856123210, which evaluates to: 2028-10-25 21:46:50"
+							"evidence": "1539117824",
+							"otherinfo": "1539117824, which evaluates to: 2018-10-09 20:43:44"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.css",
+							"uri": "https://www.budget.gouv.fr/*/media/oembed",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1655150730",
-							"otherinfo": "1655150730, which evaluates to: 2022-06-13 20:05:30"
+							"evidence": "1439098857",
+							"otherinfo": "1439098857, which evaluates to: 2015-08-09 05:40:57"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.png",
+							"uri": "https://www.budget.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1497843655",
-							"otherinfo": "1497843655, which evaluates to: 2017-06-19 03:40:55"
+							"evidence": "1999010281",
+							"otherinfo": "1999010281, which evaluates to: 2033-05-06 16:38:01"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/direction-budget/missions",
+							"uri": "https://www.budget.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1943118343",
-							"otherinfo": "1943118343, which evaluates to: 2031-07-29 19:05:43"
+							"evidence": "1433729537",
+							"otherinfo": "1433729537, which evaluates to: 2015-06-08 02:12:17"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/administrations-de-securite-sociale-asso",
+							"uri": "https://www.budget.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1567438274",
-							"otherinfo": "1567438274, which evaluates to: 2019-09-02 15:31:14"
+							"evidence": "1911230450",
+							"otherinfo": "1911230450, which evaluates to: 2030-07-25 17:20:50"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/panorama-finances-publique/etat-et-organismes-divers-dadministration-centrale-odac",
+							"uri": "https://www.budget.gouv.fr/direction-budget/ecosysteme",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1567438351",
-							"otherinfo": "1567438351, which evaluates to: 2019-09-02 15:32:31"
+							"evidence": "1957310201",
+							"otherinfo": "1957310201, which evaluates to: 2032-01-10 01:16:41"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/panorama-finances-publiques",
+							"uri": "https://www.budget.gouv.fr/direction-budget/nous-rejoindre",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1567438251",
-							"otherinfo": "1567438251, which evaluates to: 2019-09-02 15:30:51"
+							"evidence": "1624022016",
+							"otherinfo": "1624022016, which evaluates to: 2021-06-18 13:13:36"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/panorama-finances-publiques",
+							"uri": "https://www.budget.gouv.fr/direction-budget/profils-et-carrieres",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1907958049",
-							"otherinfo": "1907958049, which evaluates to: 2030-06-17 20:20:49"
+							"evidence": "1482913117",
+							"otherinfo": "1482913117, which evaluates to: 2016-12-28 08:18:37"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/index.php/node/add/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1851618568",
+							"otherinfo": "1851618568, which evaluates to: 2028-09-03 18:29:28"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/performance-depense",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "1970750512",
+							"otherinfo": "1970750512, which evaluates to: 2032-06-13 14:41:52"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/profiles/*.css$",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1536244160",
-							"otherinfo": "1536244160, which evaluates to: 2018-09-06 14:29:20"
+							"evidence": "1805827672",
+							"otherinfo": "1805827672, which evaluates to: 2027-03-23 18:47:52"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.jpg",
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "1685346961",
-							"otherinfo": "1685346961, which evaluates to: 2023-05-29 07:56:01"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/profiles/*.js$",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "1875569965",
-							"otherinfo": "1875569965, which evaluates to: 2029-06-07 23:39:25"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/sitemap.xml?page=2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "2008014849",
-							"otherinfo": "2008014849, which evaluates to: 2033-08-18 21:54:09"
+							"evidence": "2001442859",
+							"otherinfo": "2001442859, which evaluates to: 2033-06-03 20:20:59"
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the timestamp data is not sensitive, and that the data cannot be aggregated to disclose exploitable patterns.</p>",
-					"otherinfo": "<p>1856123210, which evaluates to: 2028-10-25 21:46:50</p>",
+					"otherinfo": "<p>1539117824, which evaluates to: 2018-10-09 20:43:44</p>",
 					"reference": "<p>https://cwe.mitre.org/data/definitions/200.html</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "993"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10021",
@@ -1097,7 +1121,7 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1054583848&ns=4",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1999010281&ns=5",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1105,39 +1129,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=1655150730&ns=2",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=452730569&ns=3",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=850010598&ns=9",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=967637295&ns=6",
-							"method": "GET",
-							"param": "x-content-type-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/files/2019-04/icon-in-footer.png",
+							"uri": "https://www.budget.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&cb=495869717&ns=7",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1161,7 +1153,7 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/files/files/images/MEFSIN_small.png",
+							"uri": "https://www.budget.gouv.fr/files/js/js_gQekqfFnDaR9Cw3LaAZxfOEusUjLUqz0J8rdZg4sFjo.js",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1169,7 +1161,31 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/files/js/js_gQekqfFnDaR9Cw3LaAZxfOEusUjLUqz0J8rdZg4sFjo.js",
+							"uri": "https://www.budget.gouv.fr/files/js/js_KLKpEDdqr1Wek4X1Cf0zEPSDMsUhyCXu6NHNl6EzgKY.js",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/files/styles/carre/public/files/publications%20direction/SMB/tablette-smb-copyright-Fotolia.com_.png?h=13e61f67&itok=-Tqb9fNs",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/files/styles/max_325x325/public/files/lfi/LFI-2024/LFI2024.png?itok=JIXGg-Wr",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/files/styles/max_325x325/public/files/rep%C3%A8res/budget-vert/le-budget-vert_0.png?itok=t8yP8kB6",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1191,6 +1207,14 @@
 							"attack": "",
 							"evidence": "",
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/themes/custom/budget/images/docu-ouvrir.svg",
+							"method": "GET",
+							"param": "x-content-type-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						}
 					],
 					"count": "12",
@@ -1199,7 +1223,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "4125"
+					"sourceid": "248"
 				},
 				{
 					"pluginid": "10094",
@@ -1216,16 +1240,24 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "argCWeYiTQOaA14ujgzok/uI/2UAAAAAQUIPAAAAAACAlbwqWVnvSzItbN7rJ8E7",
-							"otherinfo": "j\uFFFD\\x0002Y\uFFFD\"M\\x0003\uFFFD\\x0003^.\uFFFD\\x000c\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD*YY\uFFFDK2-l\uFFFD\uFFFD'\uFFFD;"
+							"evidence": "i07GtXi8R/uW2anFZ5BVvxLECGYAAAAAQUIPAAAAAAB4Mr3Ggg2sgXfS5Z4l7oIp",
+							"otherinfo": "\uFFFDN\u01B5x\uFFFDG\uFFFD\uFFFD\u0669\uFFFDg\uFFFDU\uFFFD\\x0012\uFFFD\\x0008f\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000x2\uFFFD\u0182\r\uFFFD\uFFFDw\uFFFD\uFFFD%\uFFFD)"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "uqUvymHlRNCfho5l9KERcPyI/2UAAAAAQUIPAAAAAADZz3174rkjVnUU25DkDPG7",
-							"otherinfo": "\uFFFD\uFFFD/\uFFFDa\uFFFDD\u041F\uFFFD\uFFFDe\uFFFD\uFFFD\\x0011p\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD}{\uFFFD#Vu\\x0014\u06D0\uFFFD\\x000c\uFFFD"
+							"evidence": "ibG5xK59SYytlBpQNTr2EBHECGYAAAAAQUIPAAAAAAB449VmIcYpyk38YqXhXP06",
+							"otherinfo": "\uFFFD\uFFFD\uFFFD\u012E}I\uFFFD\uFFFD\uFFFD\\x001aP5:\uFFFD\\x0010\\x0011\uFFFD\\x0008f\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000x\uFFFD\uFFFDf!\uFFFD)\uFFFDM\uFFFDb\uFFFD\uFFFD\\\uFFFD:"
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/*/media/oembed",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "/files/css/css_D46VbTtDBOU7OvYHlrtvQenUj2GubUq9W4xM9TVkYOg",
+							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD[N\uFFFD\uFFFD9N\u03BD\uFFFD\uFFFD\uFFFD\uFFFDzu#\uFFFDk\uFFFDR\uFFFDV\uFFFD\\x0013=MY\\x0018:"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/comment/reply/",
@@ -1253,14 +1285,6 @@
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "/files/css/css_D46VbTtDBOU7OvYHlrtvQenUj2GubUq9W4xM9TVkYOg",
-							"otherinfo": "\uFFFD\uFFFD\uFFFDz\uFFFD\u0732\uFFFD\u0732\uFFFD\uFFFD\uFFFD[N\uFFFD\uFFFD9N\u03BD\uFFFD\uFFFD\uFFFD\uFFFDzu#\uFFFDk\uFFFDR\uFFFDV\uFFFD\\x0013=MY\\x0018:"
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1296,25 +1320,25 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "wbSlkfIbRXm6PaPqrjFatfuI/2UAAAAAQUIPAAAAAAAu8PQobPgUHQ2TyST9GaOM",
-							"otherinfo": "\uFFFD\uFFFD\uFFFD\uFFFD\uFFFD\\x001bEy\uFFFD=\uFFFD\uFFFD1Z\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000.\uFFFD\uFFFD(l\uFFFD\\x0014\\x001d\r\uFFFD\uFFFD$\uFFFD\\x0019\uFFFD\uFFFD"
+							"evidence": "bJpi0tX/To2b9wL1qGj+XxHECGYAAAAAQUIPAAAAAABu98ThwjXDJ09/Ra/bnome",
+							"otherinfo": "l\uFFFDb\uFFFD\uFFFD\uFFFDN\uFFFD\uFFFD\uFFFD\\x0002\uFFFD\uFFFDh\uFFFD_\\x0011\uFFFD\\x0008f\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000n\uFFFD\uFFFD\uFFFD\uFFFD5\uFFFD'OE\uFFFD\u06DE\uFFFD\uFFFD"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "BkLoe5rwSI+M74BEN0CH/vyI/2UAAAAAQUIPAAAAAABMgHlrI5413J6gVd9t2n5V",
-							"otherinfo": "\\x0006B\uFFFD{\uFFFD\uFFFDH\uFFFD\uFFFD\uFFFDD7@\uFFFD\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000L\uFFFDyk#\uFFFD5\u071E\uFFFDU\uFFFDm\uFFFD~U"
+							"evidence": "7nbC5iPMTXaIh8xVz6KcdRLECGYAAAAAQUIPAAAAAADNu6lSDtKz/si/uPl8Tccg",
+							"otherinfo": "\uFFFDv\uFFFD\uFFFD#\uFFFDMv\uFFFD\uFFFD\uFFFDU\u03E2\uFFFDu\\x0012\uFFFD\\x0008f\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\u037B\uFFFDR\\x000e\u04B3\uFFFD\u023F\uFFFD\uFFFD|M\uFFFD "
 						}
 					],
 					"count": "12",
 					"solution": "<p>Manually confirm that the Base64 data does not leak sensitive information, and that the data cannot be aggregated/used to exploit other vulnerabilities.</p>",
-					"otherinfo": "<p>j\uFFFD\\x0002Y\uFFFD\"M\\x0003\uFFFD\\x0003^.\uFFFD\\x000c\uFFFD\uFFFD\uFFFD\uFFFDe\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000\uFFFD\uFFFD\uFFFD*YY\uFFFDK2-l\uFFFD\uFFFD'\uFFFD;</p>",
+					"otherinfo": "<p>\uFFFDN\u01B5x\uFFFDG\uFFFD\uFFFD\u0669\uFFFDg\uFFFDU\uFFFD\\x0012\uFFFD\\x0008f\\x0000\\x0000\\x0000\\x0000AB\\x000f\\x0000\\x0000\\x0000\\x0000\\x0000x2\uFFFD\u0182\r\uFFFD\uFFFDw\uFFFD\uFFFD%\uFFFD)</p>",
 					"reference": "<p>https://projects.webappsec.org/w/page/13246936/Information%20Leakage</p>",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10027",
@@ -1383,6 +1407,14 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						},
 						{
+							"uri": "https://www.budget.gouv.fr/index.php/comment/reply/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "user",
+							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/index.php\\/\",\"scriptPath\":null\", see evidence field for the suspicious comment/snippet."
+						},
+						{
 							"uri": "https://www.budget.gouv.fr/node/add/",
 							"method": "GET",
 							"param": "",
@@ -1415,13 +1447,13 @@
 							"otherinfo": "The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet."
 						}
 					],
-					"count": "11",
+					"count": "12",
 					"solution": "<p>Remove all comments that return information that may help an attacker and fix any underlying problems they refer to.</p>",
 					"otherinfo": "<p>The following pattern was used: \\bUSER\\b and was detected in the element starting with: \"<script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"scriptPath\":null,\"pathPrefi\", see evidence field for the suspicious comment/snippet.</p>",
 					"reference": "",
 					"cweid": "200",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "90033",
@@ -1439,7 +1471,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=argCWeYiTQOaA14ujgzok/uI/2UAAAAAQUIPAAAAAACAlbwqWVnvSzItbN7rJ8E7\nincap_ses_1402_3058694=ZG60SByvN18othT0ceh0E/uI/2UAAAAA6XCB5fMNlF+zKiwg1RWipA==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=i07GtXi8R/uW2anFZ5BVvxLECGYAAAAAQUIPAAAAAAB4Mr3Ggg2sgXfS5Z4l7oIp\nincap_ses_32_3058694=XlVBbrlDnVfwFiLr3a9xABLECGYAAAAAnDMqmUUHigMafB8zwQ74cA==\n"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
@@ -1447,7 +1479,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=uqUvymHlRNCfho5l9KERcPyI/2UAAAAAQUIPAAAAAADZz3174rkjVnUU25DkDPG7\nincap_ses_1402_3058694=4qgFQa6wIm2dthT0ceh0E/yI/2UAAAAADDhqZaCV0RlEzLKN5Du5wA==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=ibG5xK59SYytlBpQNTr2EBHECGYAAAAAQUIPAAAAAAB449VmIcYpyk38YqXhXP06\nincap_ses_32_3058694=XnX2eoAdvDxyFiLr3a9xABHECGYAAAAAgWb0ndEbrnpQihPqADKvzQ==\n"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/robots.txt",
@@ -1455,7 +1487,7 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=wbSlkfIbRXm6PaPqrjFatfuI/2UAAAAAQUIPAAAAAAAu8PQobPgUHQ2TyST9GaOM\nincap_ses_1402_3058694=p+lEG/8UPz9GthT0ceh0E/uI/2UAAAAA8wRCpECJ5VbFH22MaVrtnA==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=bJpi0tX/To2b9wL1qGj+XxHECGYAAAAAQUIPAAAAAABu98ThwjXDJ09/Ra/bnome\nincap_ses_32_3058694=YO4FGwb5W3XNFiLr3a9xABHECGYAAAAATOZOVzPmDRwvaxwTMKOzUw==\n"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/sitemap.xml",
@@ -1463,16 +1495,16 @@
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=BkLoe5rwSI+M74BEN0CH/vyI/2UAAAAAQUIPAAAAAABMgHlrI5413J6gVd9t2n5V\nincap_ses_1402_3058694=tmNqfQywsiKWthT0ceh0E/yI/2UAAAAAVR9XHj4xHMyPUMUw5U/qNg==\n"
+							"otherinfo": "The origin domain used for comparison was: \nwww.budget.gouv.fr\nvisid_incap_3058694=7nbC5iPMTXaIh8xVz6KcdRLECGYAAAAAQUIPAAAAAADNu6lSDtKz/si/uPl8Tccg\nincap_ses_32_3058694=/5bSO7lvNn4PFyLr3a9xABLECGYAAAAAryUOgNUHzIUDFjlepRT0yA==\n"
 						}
 					],
 					"count": "4",
 					"solution": "<p>Always scope cookies to a FQDN (Fully Qualified Domain Name).</p>",
-					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.budget.gouv.fr</p><p>visid_incap_3058694=argCWeYiTQOaA14ujgzok/uI/2UAAAAAQUIPAAAAAACAlbwqWVnvSzItbN7rJ8E7</p><p>incap_ses_1402_3058694=ZG60SByvN18othT0ceh0E/uI/2UAAAAA6XCB5fMNlF+zKiwg1RWipA==</p><p></p>",
+					"otherinfo": "<p>The origin domain used for comparison was: </p><p>www.budget.gouv.fr</p><p>visid_incap_3058694=i07GtXi8R/uW2anFZ5BVvxLECGYAAAAAQUIPAAAAAAB4Mr3Ggg2sgXfS5Z4l7oIp</p><p>incap_ses_32_3058694=XlVBbrlDnVfwFiLr3a9xABLECGYAAAAAnDMqmUUHigMafB8zwQ74cA==</p><p></p>",
 					"reference": "<p>https://tools.ietf.org/html/rfc6265#section-4.1</p><p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</p><p>https://code.google.com/p/browsersec/wiki/Part2#Same-origin_policy_for_cookies</p>",
 					"cweid": "565",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10109",
@@ -1497,7 +1529,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=1655150730\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=240190255\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1513,7 +1545,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1054583848\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=1999010281\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1521,7 +1553,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=630347317\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=1&cb=250537808\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1529,7 +1561,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=967637295\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=6&cb=1433729537\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1537,7 +1569,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=3&cb=452730569\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=4&cb=1232917467\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						},
 						{
@@ -1553,23 +1585,23 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=1497843655\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=2&cb=402129503\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
-						},
-						{
-							"uri": "https://www.budget.gouv.fr/core/*.svg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<a id=\"main-content\" tabindex=\"-1\"></a>",
-							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/profiles/*.css",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=164262239\" async></script>",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=5&cb=932848284\" async></script>",
+							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script type=\"text/javascript\" src=\"/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&ns=8&cb=2001442859\" async></script>",
 							"otherinfo": "No links have been found while there are scripts, which is an indication that this is a modern web application."
 						}
 					],
@@ -1579,7 +1611,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10015",
@@ -1632,7 +1664,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/direction-budget/organisation",
+							"uri": "https://www.budget.gouv.fr/direction-budget/profils-et-carrieres",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1660,7 +1692,7 @@
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
-							"evidence": "max-age=548, public",
+							"evidence": "max-age=541, public",
 							"otherinfo": ""
 						},
 						{
@@ -1672,7 +1704,7 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/sitemap.xml?page=3",
+							"uri": "https://www.budget.gouv.fr/sitemap.xml?page=1",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -1699,7 +1731,7 @@
 					"desc": "<p>Specifies how and where the data would be used. For instance, if the value is audio, then the requested resource must be audio data and not any other type of resource.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Dest",
 							"attack": "",
@@ -1729,7 +1761,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Dest</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "58"
 				},
 				{
 					"pluginid": "90005",
@@ -1742,7 +1774,7 @@
 					"desc": "<p>Allows to differentiate between requests for navigating between HTML pages and requests for loading resources like images, audio etc.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Mode",
 							"attack": "",
@@ -1772,7 +1804,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Mode</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "58"
 				},
 				{
 					"pluginid": "90005",
@@ -1785,7 +1817,7 @@
 					"desc": "<p>Specifies the relationship between request initiator's origin and target's origin.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-Site",
 							"attack": "",
@@ -1815,7 +1847,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-Site</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "58"
 				},
 				{
 					"pluginid": "90005",
@@ -1828,7 +1860,7 @@
 					"desc": "<p>Specifies if a navigation request was initiated by a user.</p>",
 					"instances":[ 
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.js",
+							"uri": "https://www.budget.gouv.fr/core/*.gif",
 							"method": "GET",
 							"param": "Sec-Fetch-User",
 							"attack": "",
@@ -1858,7 +1890,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Sec-Fetch-User</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "57"
+					"sourceid": "58"
 				},
 				{
 					"pluginid": "10112",
@@ -1873,59 +1905,59 @@
 						{
 							"uri": "https://www.budget.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "4qgFQa6wIm2dthT0ceh0E/yI/2UAAAAADDhqZaCV0RlEzLKN5Du5wA==",
-							"otherinfo": "\ncookie:incap_ses_1402_3058694\ncookie:visid_incap_3058694"
+							"evidence": "XlVBbrlDnVfwFiLr3a9xABLECGYAAAAAnDMqmUUHigMafB8zwQ74cA==",
+							"otherinfo": "\ncookie:incap_ses_32_3058694\ncookie:visid_incap_3058694"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "ZG60SByvN18othT0ceh0E/uI/2UAAAAA6XCB5fMNlF+zKiwg1RWipA==",
-							"otherinfo": "\ncookie:incap_ses_1402_3058694\ncookie:visid_incap_3058694"
+							"evidence": "XnX2eoAdvDxyFiLr3a9xABHECGYAAAAAgWb0ndEbrnpQihPqADKvzQ==",
+							"otherinfo": "\ncookie:incap_ses_32_3058694\ncookie:visid_incap_3058694"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/robots.txt",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "p+lEG/8UPz9GthT0ceh0E/uI/2UAAAAA8wRCpECJ5VbFH22MaVrtnA==",
-							"otherinfo": "\ncookie:incap_ses_1402_3058694\ncookie:visid_incap_3058694"
+							"evidence": "YO4FGwb5W3XNFiLr3a9xABHECGYAAAAATOZOVzPmDRwvaxwTMKOzUw==",
+							"otherinfo": "\ncookie:incap_ses_32_3058694\ncookie:visid_incap_3058694"
 						},
 						{
 							"uri": "https://www.budget.gouv.fr/sitemap.xml",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "tmNqfQywsiKWthT0ceh0E/yI/2UAAAAAVR9XHj4xHMyPUMUw5U/qNg==",
-							"otherinfo": "\ncookie:incap_ses_1402_3058694\ncookie:visid_incap_3058694"
+							"evidence": "/5bSO7lvNn4PFyLr3a9xABLECGYAAAAAryUOgNUHzIUDFjlepRT0yA==",
+							"otherinfo": "\ncookie:incap_ses_32_3058694\ncookie:visid_incap_3058694"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.css$",
+							"uri": "https://www.budget.gouv.fr/core/*.js$",
 							"method": "GET",
-							"param": "incap_ses_1402_3058694",
+							"param": "incap_ses_32_3058694",
 							"attack": "",
-							"evidence": "p+lEG/8UPz9GthT0ceh0E/uI/2UAAAAA8wRCpECJ5VbFH22MaVrtnA==",
-							"otherinfo": "\ncookie:incap_ses_1402_3058694"
+							"evidence": "YO4FGwb5W3XNFiLr3a9xABHECGYAAAAATOZOVzPmDRwvaxwTMKOzUw==",
+							"otherinfo": "\ncookie:incap_ses_32_3058694"
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.css$",
+							"uri": "https://www.budget.gouv.fr/core/*.js$",
 							"method": "GET",
 							"param": "visid_incap_3058694",
 							"attack": "",
-							"evidence": "wbSlkfIbRXm6PaPqrjFatfuI/2UAAAAAQUIPAAAAAAAu8PQobPgUHQ2TyST9GaOM",
+							"evidence": "bJpi0tX/To2b9wL1qGj+XxHECGYAAAAAQUIPAAAAAABu98ThwjXDJ09/Ra/bnome",
 							"otherinfo": "\ncookie:visid_incap_3058694"
 						}
 					],
 					"count": "6",
 					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
-					"otherinfo": "<p></p><p>cookie:incap_ses_1402_3058694</p><p>cookie:visid_incap_3058694</p>",
+					"otherinfo": "<p></p><p>cookie:incap_ses_32_3058694</p><p>cookie:visid_incap_3058694</p>",
 					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id</p>",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "62"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10049",
@@ -1970,14 +2002,6 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.jpeg",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "max-age=900",
-							"otherinfo": ""
-						},
-						{
 							"uri": "https://www.budget.gouv.fr/core/*.jpg",
 							"method": "GET",
 							"param": "",
@@ -2002,7 +2026,15 @@
 							"otherinfo": ""
 						},
 						{
-							"uri": "https://www.budget.gouv.fr/core/*.png",
+							"uri": "https://www.budget.gouv.fr/profiles/*.css",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "max-age=900",
+							"otherinfo": ""
+						},
+						{
+							"uri": "https://www.budget.gouv.fr/profiles/*.gif",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -2014,7 +2046,7 @@
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "max-age=548",
+							"evidence": "max-age=541",
 							"otherinfo": ""
 						},
 						{
@@ -2083,7 +2115,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "6287"
+					"sourceid": "6303"
 				}
 			]
 		}
