@@ -127,7 +127,7 @@ td {
 	</h2>
 
 	<h3>
-		Generated on Sun, 24 Mar 2024 01:05:52
+		Generated on Sun, 31 Mar 2024 01:06:25
 	</h3>
 
 	<h3>
@@ -135,9 +135,8 @@ td {
 	</h3>
 
 	<h4>
-		ZAP is supported by the <a
-			href="https://crashoverride.com/open-source">Crash Override Open
-			Source Fellowship</a>
+		ZAP is supported by the <a href="https://crashoverride.com/?zap=rep">Crash
+			Override Open Source Fellowship</a>
 	</h4>
 
 	
@@ -170,7 +169,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>9</div>
+					<div>10</div>
 				</td>
 			</tr>
 			<tr>
@@ -204,29 +203,24 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
-				<td><a href="#10202">Absence of Anti-CSRF Tokens</a></td>
-				<td align="center" class="risk-2">Medium</td>
-				<td align="center">12</td>
-			</tr>
-			<tr>
 				<td><a href="#10055">CSP: Wildcard Directive</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: script-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10055">CSP: style-src unsafe-inline</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">4</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10038">Content Security Policy (CSP) Header Not Set</a></td>
 				<td align="center" class="risk-2">Medium</td>
-				<td align="center">3</td>
+				<td align="center">8</td>
 			</tr>
 			<tr>
 				<td><a href="#10098">Cross-Domain Misconfiguration</a></td>
@@ -234,9 +228,19 @@ td {
 				<td align="center">11</td>
 			</tr>
 			<tr>
+				<td><a href="#10020">Missing Anti-clickjacking Header</a></td>
+				<td align="center" class="risk-2">Medium</td>
+				<td align="center">4</td>
+			</tr>
+			<tr>
 				<td><a href="#90003">Sub Resource Integrity Attribute Missing</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				<td align="center">11</td>
+			</tr>
+			<tr>
+				<td><a href="#90022">Application Error Disclosure</a></td>
+				<td align="center" class="risk-1">Low</td>
+				<td align="center">1</td>
 			</tr>
 			<tr>
 				<td><a href="#10044">Big Redirect Detected (Potential Sensitive Information Leak)</a></td>
@@ -261,12 +265,12 @@ td {
 			<tr>
 				<td><a href="#10110">Dangerous JS Functions</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">13</td>
+				<td align="center">12</td>
 			</tr>
 			<tr>
 				<td><a href="#110009">Full Path Disclosure</a></td>
 				<td align="center" class="risk-1">Low</td>
-				<td align="center">2</td>
+				<td align="center">3</td>
 			</tr>
 			<tr>
 				<td><a href="#10063">Permissions Policy Header Not Set</a></td>
@@ -311,7 +315,7 @@ td {
 			<tr>
 				<td><a href="#10049">Non-Storable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">10</td>
+				<td align="center">5</td>
 			</tr>
 			<tr>
 				<td><a href="#10015">Re-examine Cache-control Directives</a></td>
@@ -341,12 +345,12 @@ td {
 			<tr>
 				<td><a href="#10112">Session Management Response Identified</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">8</td>
+				<td align="center">9</td>
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
-				<td align="center">2</td>
+				<td align="center">6</td>
 			</tr>
 			<tr>
 				<td><a href="#10031">User Controllable HTML Element Attribute (Potential XSS)</a></td>
@@ -359,494 +363,6 @@ td {
 
 	
 		<h3>Alert Detail</h3>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-2"><a
-						id="10202"></a>
-						<div>Medium</div></th>
-					<th class="risk-2">Absence of Anti-CSRF Tokens</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>No Anti-CSRF tokens were found in a HTML submission form.</div>
-							<br />
-						
-							<div>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</div>
-							<br />
-						
-							<div>CSRF attacks are effective in a number of situations, including:</div>
-							<br />
-						
-							<div>    * The victim has an active session on the target site.</div>
-							<br />
-						
-							<div>    * The victim is authenticated via HTTP auth on the target site.</div>
-							<br />
-						
-							<div>    * The victim is on the same local network as the target site.</div>
-							<br />
-						
-							<div>CSRF has primarily been used to perform an action against a target site using the victim&#39;s privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/">https://www.prix-carburants.gouv.fr/recherche/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;limit=25&amp;page=0&amp;sort=Gazole">https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;limit=25&amp;page=0&amp;sort=Gazole</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;limit=25&amp;page=2&amp;sort=Gazole">https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;limit=25&amp;page=2&amp;sort=Gazole</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;sort=commune">https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;sort=commune</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;sort=dateGazole">https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;sort=dateGazole</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;sort=nom">https://www.prix-carburants.gouv.fr/recherche/?direction=asc&amp;sort=nom</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=commune">https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=commune</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=dateGazole">https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=dateGazole</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=Gazole">https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=Gazole</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=nom">https://www.prix-carburants.gouv.fr/recherche/?direction=desc&amp;sort=nom</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/?limit=25">https://www.prix-carburants.gouv.fr/recherche/?limit=25</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/recherche/">https://www.prix-carburants.gouv.fr/recherche/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form id=&quot;pagination&quot; action=&quot;/recherche/&quot; method=&quot;GET&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token] was found in the following HTML form: [Form 2: &quot;&quot; ].</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					<td width="80%">12</td>
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Phase: Architecture and Design</div>
-							<br />
-						
-							<div>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</div>
-							<br />
-						
-							<div>For example, use anti-CSRF packages such as the OWASP CSRFGuard.</div>
-							<br />
-						
-							<div>Phase: Implementation</div>
-							<br />
-						
-							<div>Ensure that your application is free of cross-site scripting issues, because most CSRF defenses can be bypassed using attacker-controlled script.</div>
-							<br />
-						
-							<div>Phase: Architecture and Design</div>
-							<br />
-						
-							<div>Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330).</div>
-							<br />
-						
-							<div>Note that this can be bypassed using XSS.</div>
-							<br />
-						
-							<div>Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.</div>
-							<br />
-						
-							<div>Note that this can be bypassed using XSS.</div>
-							<br />
-						
-							<div>Use the ESAPI Session Management control.</div>
-							<br />
-						
-							<div>This control includes a component for CSRF.</div>
-							<br />
-						
-							<div>Do not use the GET method for any request that triggers a state change.</div>
-							<br />
-						
-							<div>Phase: Implementation</div>
-							<br />
-						
-							<div>Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for privacy reasons.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</a>
-							<br />
-						
-							<a href="https://cwe.mitre.org/data/definitions/352.html">https://cwe.mitre.org/data/definitions/352.html</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/352.html">352</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">9</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10202/">10202</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -903,7 +419,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/copyright/">https://www.prix-carburants.gouv.fr/rubrique/copyright/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -937,41 +453,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">default-src https: &#39;unsafe-eval&#39; &#39;unsafe-inline&#39;; object-src https: ; child-src https: platform.twitter.com; img-src https: data: ;worker-src blob:;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined: 
-script-src, style-src, img-src, connect-src, frame-src, frame-ancestors, font-src, media-src, object-src, manifest-src, form-action
-
-The directive(s): frame-ancestors, form-action are among the directives that do not fallback to default-src, missing/excluding them is the same as allowing anything.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/internaute/">https://www.prix-carburants.gouv.fr/internaute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1004,7 +486,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1101,7 +583,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/copyright/">https://www.prix-carburants.gouv.fr/rubrique/copyright/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1132,38 +614,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">default-src https: &#39;unsafe-eval&#39; &#39;unsafe-inline&#39;; object-src https: ; child-src https: platform.twitter.com; img-src https: data: ;worker-src blob:;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">script-src includes unsafe-inline.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/internaute/">https://www.prix-carburants.gouv.fr/internaute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1193,7 +644,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1290,7 +741,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/copyright/">https://www.prix-carburants.gouv.fr/rubrique/copyright/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1321,38 +772,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">default-src https: &#39;unsafe-eval&#39; &#39;unsafe-inline&#39;; object-src https: ; child-src https: platform.twitter.com; img-src https: data: ;worker-src blob:;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">style-src includes unsafe-inline.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/internaute/">https://www.prix-carburants.gouv.fr/internaute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1382,7 +802,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">4</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1479,6 +899,130 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/guide/">https://www.prix-carburants.gouv.fr/rubrique/guide/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/personal_data/">https://www.prix-carburants.gouv.fr/rubrique/personal_data/</a></td>
 					</tr>
 					<tr>
@@ -1538,9 +1082,40 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/itineraire/voir">https://www.prix-carburants.gouv.fr/itineraire/voir</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">3</td>
+					<td width="80%">8</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -1674,7 +1249,69 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/actualites/">https://www.prix-carburants.gouv.fr/actualites/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Access-Control-Allow-Origin: *</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Access-Control-Allow-Origin: *</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1767,100 +1404,38 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">Access-Control-Allow-Origin: *</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/copyright/">https://www.prix-carburants.gouv.fr/rubrique/copyright/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Access-Control-Allow-Origin: *</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Access-Control-Allow-Origin: *</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Access-Control-Allow-Origin: *</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1991,6 +1566,186 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-2"><a
+						id="10020"></a>
+						<div>Medium</div></th>
+					<th class="risk-2">Missing Anti-clickjacking Header</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The response does not include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options to protect against &#39;ClickJacking&#39; attacks.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-frame-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-frame-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/guide/">https://www.prix-carburants.gouv.fr/rubrique/guide/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-frame-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-frame-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">4</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Modern Web browsers support the Content-Security-Policy and X-Frame-Options HTTP headers. Ensure one of them is set on all web pages returned by your site/app.</div>
+							<br />
+						
+							<div>If you expect the page to be framed only by pages on your server (e.g. it&#39;s part of a FRAMESET) then you&#39;ll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. Alternatively consider implementing Content Security Policy&#39;s &quot;frame-ancestors&quot; directive.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%">
+							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options</a>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">15</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10020/">10020</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-2"><a
 						id="90003"></a>
 						<div>Medium</div></th>
 					<th class="risk-2">Sub Resource Integrity Attribute Missing</th>
@@ -2071,6 +1826,37 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/actualites/">https://www.prix-carburants.gouv.fr/actualites/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://tag.aticdn.net/495337/smarttag.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
@@ -2102,7 +1888,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2133,7 +1919,7 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2316,37 +2102,6 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://tag.aticdn.net/495337/smarttag.js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					<td width="80%">11</td>
@@ -2378,6 +2133,87 @@ The directive(s): frame-ancestors, form-action are among the directives that do 
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/90003/">90003</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-1"><a
+						id="90022"></a>
+						<div>Low</div></th>
+					<th class="risk-1">Application Error Disclosure</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/itineraire/voir">https://www.prix-carburants.gouv.fr/itineraire/voir</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">HTTP/1.1 500 Internal Server Error</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					<td width="80%">1</td>
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>Review the source code of this page. Implement custom error pages. Consider implementing a mechanism to provide a unique error reference/identifier to the client (browser) while logging the details on the server side and not exposing them to the user.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"><a
+						href="https://cwe.mitre.org/data/definitions/200.html">200</a></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%">13</td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/90022/">90022</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -2595,7 +2431,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2605,7 +2441,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: incap_ses_628_3031704</td>
+						<td width="80%">Set-Cookie: incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2626,7 +2462,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2636,7 +2472,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: incap_ses_628_3031704</td>
+						<td width="80%">Set-Cookie: incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2657,7 +2493,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2667,7 +2503,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: incap_ses_628_3031704</td>
+						<td width="80%">Set-Cookie: incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2741,7 +2577,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2751,7 +2587,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: incap_ses_628_3031704</td>
+						<td width="80%">Set-Cookie: incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2803,7 +2639,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2813,7 +2649,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: incap_ses_628_3031704</td>
+						<td width="80%">Set-Cookie: incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2865,7 +2701,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2875,7 +2711,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: incap_ses_628_3031704</td>
+						<td width="80%">Set-Cookie: incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3032,6 +2868,37 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/actualites/">https://www.prix-carburants.gouv.fr/actualites/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://tag.aticdn.net/495337/smarttag.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://tag.aticdn.net/495337/smarttag.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
@@ -3063,7 +2930,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3094,7 +2961,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3277,37 +3144,6 @@ Response Body Length: 466.</td>
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://tag.aticdn.net/495337/smarttag.js</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://tag.aticdn.net/495337/smarttag.js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					<td width="80%">11</td>
@@ -3361,7 +3197,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1094082575&amp;ns=3">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1094082575&amp;ns=3</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1468620845&amp;ns=4">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1468620845&amp;ns=4</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3392,7 +3228,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1196779813&amp;ns=4">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1196779813&amp;ns=4</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1595177404&amp;ns=3">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1595177404&amp;ns=3</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3423,7 +3259,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1532376737&amp;ns=11">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1532376737&amp;ns=11</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=170708423&amp;ns=7">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=170708423&amp;ns=7</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3454,7 +3290,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1592183645&amp;ns=8">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1592183645&amp;ns=8</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1820723915&amp;ns=2">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1820723915&amp;ns=2</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3485,7 +3321,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1649060265&amp;ns=2">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1649060265&amp;ns=2</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1914160037&amp;ns=2">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1914160037&amp;ns=2</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3516,7 +3352,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1684490442&amp;ns=1">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1684490442&amp;ns=1</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=2116321251&amp;ns=3">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=2116321251&amp;ns=3</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3547,7 +3383,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1686292610&amp;ns=4">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1686292610&amp;ns=4</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=226179003&amp;ns=1">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=226179003&amp;ns=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3578,7 +3414,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=258943809&amp;ns=5">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=258943809&amp;ns=5</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=547202417&amp;ns=5">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=547202417&amp;ns=5</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3609,7 +3445,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=507526859&amp;ns=2">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=507526859&amp;ns=2</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=721834257&amp;ns=6">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=721834257&amp;ns=6</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3640,7 +3476,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=706734847&amp;ns=3">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=706734847&amp;ns=3</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=917216913&amp;ns=5">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=917216913&amp;ns=5</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3671,38 +3507,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=733837362&amp;ns=1">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=733837362&amp;ns=1</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">eval</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=869188580&amp;ns=7">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=869188580&amp;ns=7</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=938076052&amp;ns=1">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=938076052&amp;ns=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3763,7 +3568,7 @@ Response Body Length: 466.</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">13</td>
+					<td width="80%">12</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3876,9 +3681,40 @@ Response Body Length: 466.</td>
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/itineraire/voir">https://www.prix-carburants.gouv.fr/itineraire/voir</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">/system/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">3</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -3994,6 +3830,37 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/actualites/">https://www.prix-carburants.gouv.fr/actualites/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
@@ -4025,7 +3892,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4056,7 +3923,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4239,37 +4106,6 @@ Response Body Length: 466.</td>
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					<td width="80%">11</td>
@@ -4338,6 +4174,37 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/">https://www.prix-carburants.gouv.fr/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1914160037</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1914160037, which evaluates to: 2030-08-28 15:07:17</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.js">https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.js</a></td>
 					</tr>
 					<tr>
@@ -4369,7 +4236,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4389,12 +4256,43 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1592183645</td>
+						<td width="80%">1595177404</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1592183645, which evaluates to: 2020-06-15 01:14:05</td>
+						<td width="80%">1595177404, which evaluates to: 2020-07-19 16:50:04</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/internaute/demander-mdp">https://www.prix-carburants.gouv.fr/internaute/demander-mdp</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">1529918253</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">1529918253, which evaluates to: 2018-06-25 09:17:33</td>
 					</tr>
 				
 					<tr>
@@ -4420,43 +4318,12 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1649060265</td>
+						<td width="80%">1820723915</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1649060265, which evaluates to: 2022-04-04 08:17:45</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1686292610</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1686292610, which evaluates to: 2023-06-09 06:36:50</td>
+						<td width="80%">1820723915, which evaluates to: 2027-09-12 04:38:35</td>
 					</tr>
 				
 					<tr>
@@ -4482,23 +4349,23 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1684490442</td>
+						<td width="80%">1468620845</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1684490442, which evaluates to: 2023-05-19 10:00:42</td>
+						<td width="80%">1468620845, which evaluates to: 2016-07-15 22:14:05</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/personal_data/">https://www.prix-carburants.gouv.fr/rubrique/personal_data/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/">https://www.prix-carburants.gouv.fr/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">GET</td>
+						<td width="80%">POST</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4513,43 +4380,12 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1837565946</td>
+						<td width="80%">1990810961</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1837565946, which evaluates to: 2028-03-25 02:59:06</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">1532376737</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">1532376737, which evaluates to: 2018-07-23 20:12:17</td>
+						<td width="80%">1990810961, which evaluates to: 2033-01-31 19:02:41</td>
 					</tr>
 				
 					<tr>
@@ -4575,12 +4411,12 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1407823999</td>
+						<td width="80%">1738608618</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1407823999, which evaluates to: 2014-08-12 06:13:19</td>
+						<td width="80%">1738608618, which evaluates to: 2025-02-03 18:50:18</td>
 					</tr>
 				
 					<tr>
@@ -4606,12 +4442,12 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">1911485939</td>
+						<td width="80%">1659293371</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">1911485939, which evaluates to: 2030-07-28 16:18:59</td>
+						<td width="80%">1659293371, which evaluates to: 2022-07-31 18:49:31</td>
 					</tr>
 				
 				<tr>
@@ -4670,167 +4506,7 @@ Response Body Length: 466.</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=733837362&amp;ns=1">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=733837362&amp;ns=1</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/bundles/dsfr/css/extensions.css">https://www.prix-carburants.gouv.fr/bundles/dsfr/css/extensions.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/carto/js/mapnew.js">https://www.prix-carburants.gouv.fr/carto/js/mapnew.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.css">https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/css/app_dsfr.css">https://www.prix-carburants.gouv.fr/css/app_dsfr.css</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-content-type-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
-At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/css/jquery-ui.min.css">https://www.prix-carburants.gouv.fr/css/jquery-ui.min.css</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4895,6 +4571,70 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/dsfr/css/favicon/apple-touch-icon.png">https://www.prix-carburants.gouv.fr/dsfr/css/favicon/apple-touch-icon.png</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/dsfr/css/favicon/favicon.ico">https://www.prix-carburants.gouv.fr/dsfr/css/favicon/favicon.ico</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/dsfr/css/favicon/favicon.svg">https://www.prix-carburants.gouv.fr/dsfr/css/favicon/favicon.svg</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5022,7 +4762,103 @@ At &quot;High&quot; threshold this scan rule will not alert on client or server 
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/js/autocompletion.js">https://www.prix-carburants.gouv.fr/js/autocompletion.js</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/guide/">https://www.prix-carburants.gouv.fr/rubrique/guide/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">x-content-type-options</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
+At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5220,12 +5056,13 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">GUAsko/cSISvO9trb8d6Yjd8/2UAAAAAQUIPAAAAAADg/DBkSqfDWUS7CBbWMpcC</td>
+						<td width="80%">G/+uhkHKTVi8Jeksi8BfCgS3CGYAAAAAQUIPAAAAAADBjB5jTlGL/rR8qM1txMoy</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">@,���H��;�ko�zb7|�e    AB     ��0dJ��YD��2�</td>
+						<td width="80%">���A�MX�%�,��_
+�f    AB     ��cNQ���|��m��2</td>
 					</tr>
 				
 					<tr>
@@ -5251,12 +5088,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">SHw/ENWMSHCHWr5NcHm6Njh8/2UAAAAAQUIPAAAAAACEhMxhp+UNWPLCjpqDu9vf</td>
+						<td width="80%">lRWDXrB6SHSgEcrylcz4HQS3CGYAAAAAQUIPAAAAAAA88ubssiYNxR4+9EaG+0i9</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">H|?ՌHp�Z�Mpy�68|�e    AB     ���a��X������</td>
+						<td width="80%">��^�zHt������f    AB     &lt;���&amp;�&gt;�F��H�</td>
 					</tr>
 				
 					<tr>
@@ -5282,12 +5119,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">Ok12CfVP0Z9f-aZA7scy9HlDdMqc0mw_M776NL7ZzLo</td>
+						<td width="80%">SBMQA8kPxiRoROtcANvB1LomQxn167fvaPltEI3K9oM</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">:Mv	�Oџ_��@��2�yCtʜ�l?3��4��̺</td>
+						<td width="80%">H��$hD�\ ��Ժ&amp;C���h�m����</td>
 					</tr>
 				
 					<tr>
@@ -5313,12 +5150,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">xPqaFrM8ZW42GJ9Inr1-9nHZBtIpdRd7CS2RQ1Buu38</td>
+						<td width="80%">YXNExOr3XPPQHwZmPooMtfZHFYPkz97Ll9hB6lX1faQ</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">����&lt;en6�H��~�q��)u{	-�CPn�</td>
+						<td width="80%">asD���\��f&gt;���G����˗�A�U�}�</td>
 					</tr>
 				
 					<tr>
@@ -5344,12 +5181,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">G3sEzAbym7GMH3nHqlDajnW9rhZPsneqwbtQAGCMRWA</td>
+						<td width="80%">dLcdsf7alUSbVL4zAg8CKEXaceE6pIojMba2h229XZs</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">{�򛱌yǪPڎu��O�w���P `�E`</td>
+						<td width="80%">t���ڕD�T�3(E�q�:��#1���m�]�</td>
 					</tr>
 				
 					<tr>
@@ -5375,12 +5212,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">7JCQzb-cLCCNfkZUjXeFuDuobs1HjURCIHhptPrHjR4</td>
+						<td width="80%">2sHtL0O7SWA6pdrTu1Q3SYG281B2PVSJoXfjBCURAE4</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">쐐Ϳ�, �~FT�w��;�n�G�DB xi��Ǎ</td>
+						<td width="80%">���/C�I`:��ӻT7I���Pv=T��w�% N</td>
 					</tr>
 				
 					<tr>
@@ -5468,13 +5305,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">r8pZz7M2uuiUmK9e0OA076Whrcvc95qHAQp7aj8ormE</td>
+						<td width="80%">j5bNBKlMhrvr-xfXu4mtq22EK2WvINnLGIIfsDTRwXU</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��Yϳ6�蔘�^��4率������
-{j?(�a</td>
+						<td width="80%">����L����׻���m�+e� ����4��u</td>
 					</tr>
 				
 					<tr>
@@ -5500,13 +5336,12 @@ csrfToken=_csrf_token</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">CnHUdLdIRHyt2LGAqfcLKzh8/2UAAAAAQUIPAAAAAABeQzQcVf8TXmNaD/Ewfiar</td>
+						<td width="80%">y4uIpOmdTvyeqp/jCAzvkQS3CGYAAAAAQUIPAAAAAACJzmTdovLXsD2egtT61Y+J</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">
-q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
+						<td width="80%">ˋ���N�������f    AB     ��dݢ�װ=����Տ�</td>
 					</tr>
 				
 					<tr>
@@ -5563,12 +5398,12 @@ q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">2OFBeZGmQFGcriP2GjaPIDh8/2UAAAAAQUIPAAAAAAB6Q2iuhEu6QQwbXawaM7Ic</td>
+						<td width="80%">RGdFA0P9SoqhyiMtgdDU6gS3CGYAAAAAQUIPAAAAAADWQeCzXM+UysvapCuEf+W9</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
-						<td width="80%">��Ay��@Q��#�6� 8|�e    AB     zCh��K�A]�3�</td>
+						<td width="80%">DgEC�J���#-�����f    AB     �A�\ϔ��ڤ+��</td>
 					</tr>
 				
 				<tr>
@@ -5693,6 +5528,39 @@ q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/actualites/">https://www.prix-carburants.gouv.fr/actualites/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">TODO</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">The following pattern was used: \bTODO\b and was detected in the element starting with: &quot;&lt;script&gt;
+            // TODO DSFR : mettre eca dans un div avec data au format JSON
+            // pour éviter de script inline &quot;, see evidence field for the suspicious comment/snippet.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
@@ -5726,7 +5594,7 @@ q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5759,7 +5627,7 @@ q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5954,39 +5822,6 @@ q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
             // pour éviter de script inline &quot;, see evidence field for the suspicious comment/snippet.</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">TODO</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">The following pattern was used: \bTODO\b and was detected in the element starting with: &quot;&lt;script&gt;
-            // TODO DSFR : mettre eca dans un div avec data au format JSON
-            // pour éviter de script inline &quot;, see evidence field for the suspicious comment/snippet.</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					<td width="80%">11</td>
@@ -6067,8 +5902,8 @@ q�t�HD|�ر���+8|�e    AB     ^C4U�^cZ�0~&amp;�</td>
 							class="indent2">Other Info</td>
 						<td width="80%">The origin domain used for comparison was: 
 www.prix-carburants.gouv.fr
-visid_incap_3031704=GUAsko/cSISvO9trb8d6Yjd8/2UAAAAAQUIPAAAAAADg/DBkSqfDWUS7CBbWMpcC
-incap_ses_628_3031704=hU6FE/fMDROvlOrcWhu3CDd8/2UAAAAAEi0ZG9fOYl3a4e+HDMJwVA==
+visid_incap_3031704=G/+uhkHKTVi8Jeksi8BfCgS3CGYAAAAAQUIPAAAAAADBjB5jTlGL/rR8qM1txMoy
+incap_ses_237_3031704=nuc7c+c8KEBY25dgQ/9JAwS3CGYAAAAAaPalMThrJVKWQC9WPb1clg==
 </td>
 					</tr>
 				
@@ -6102,8 +5937,8 @@ incap_ses_628_3031704=hU6FE/fMDROvlOrcWhu3CDd8/2UAAAAAEi0ZG9fOYl3a4e+HDMJwVA==
 							class="indent2">Other Info</td>
 						<td width="80%">The origin domain used for comparison was: 
 www.prix-carburants.gouv.fr
-visid_incap_3031704=SHw/ENWMSHCHWr5NcHm6Njh8/2UAAAAAQUIPAAAAAACEhMxhp+UNWPLCjpqDu9vf
-incap_ses_628_3031704=tIPmJZLb/mphlercWhu3CDh8/2UAAAAAy+BIoKNMcCTKGK3XuZvOWQ==
+visid_incap_3031704=lRWDXrB6SHSgEcrylcz4HQS3CGYAAAAAQUIPAAAAAAA88ubssiYNxR4+9EaG+0i9
+incap_ses_237_3031704=tXI6H52oSD5c2pdgQ/9JAwS3CGYAAAAATnxnwI9XbGd2SIsxH5gOYQ==
 </td>
 					</tr>
 				
@@ -6137,8 +5972,8 @@ incap_ses_628_3031704=tIPmJZLb/mphlercWhu3CDh8/2UAAAAAy+BIoKNMcCTKGK3XuZvOWQ==
 							class="indent2">Other Info</td>
 						<td width="80%">The origin domain used for comparison was: 
 www.prix-carburants.gouv.fr
-visid_incap_3031704=CnHUdLdIRHyt2LGAqfcLKzh8/2UAAAAAQUIPAAAAAABeQzQcVf8TXmNaD/Ewfiar
-incap_ses_628_3031704=rs31XxaINSNKlercWhu3CDh8/2UAAAAAxpRxIJ4shyLsX/Moj/loUQ==
+visid_incap_3031704=y4uIpOmdTvyeqp/jCAzvkQS3CGYAAAAAQUIPAAAAAACJzmTdovLXsD2egtT61Y+J
+incap_ses_237_3031704=o9YXJGuDUFZE25dgQ/9JAwS3CGYAAAAAF6Il37VDdKoPLU6tXyDo0A==
 </td>
 					</tr>
 				
@@ -6172,8 +6007,8 @@ incap_ses_628_3031704=rs31XxaINSNKlercWhu3CDh8/2UAAAAAxpRxIJ4shyLsX/Moj/loUQ==
 							class="indent2">Other Info</td>
 						<td width="80%">The origin domain used for comparison was: 
 www.prix-carburants.gouv.fr
-visid_incap_3031704=2OFBeZGmQFGcriP2GjaPIDh8/2UAAAAAQUIPAAAAAAB6Q2iuhEu6QQwbXawaM7Ic
-incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
+visid_incap_3031704=RGdFA0P9SoqhyiMtgdDU6gS3CGYAAAAAQUIPAAAAAADWQeCzXM+UysvapCuEf+W9
+incap_ses_237_3031704=LQJuEcjSYWpL25dgQ/9JAwS3CGYAAAAA0xuTn8kryTK274Z4/4atRQ==
 </td>
 					</tr>
 				
@@ -6305,6 +6140,39 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/actualites/">https://www.prix-carburants.gouv.fr/actualites/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a class=&quot;fr-btn fr-icon-database-fill&quot; href=&quot;/rubrique/opendata/&quot; target=&#39;_self&#39;&gt;
+                                        Données publiques
+                                    &lt;/a&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">Links have been found with a target of &#39;_self&#39; - this is often used by modern frameworks to force a full page reload.</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/">https://www.prix-carburants.gouv.fr/contact/</a></td>
 					</tr>
 					<tr>
@@ -6338,7 +6206,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6371,7 +6239,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6490,9 +6358,9 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;a class=&quot;fr-btn fr-icon-database-fill&quot; href=&quot;/rubrique/opendata/&quot; target=&#39;_self&#39;&gt;
-                                        Données publiques
-                                    &lt;/a&gt;</td>
+						<td width="80%">&lt;a class=&quot;fr-btn fr-icon-database-fill&quot; href=&quot;/rubrique/opendata/&quot; target=_self&gt;
+Données publiques
+&lt;/a&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6523,9 +6391,9 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;a class=&quot;fr-btn fr-icon-database-fill&quot; href=&quot;/rubrique/opendata/&quot; target=&#39;_self&#39;&gt;
-                                        Données publiques
-                                    &lt;/a&gt;</td>
+						<td width="80%">&lt;a class=&quot;fr-btn fr-icon-database-fill&quot; href=&quot;/rubrique/opendata/&quot; target=_self&gt;
+Données publiques
+&lt;/a&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6537,39 +6405,6 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 						<td width="20%"
 							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;a class=&quot;fr-btn fr-icon-database-fill&quot; href=&quot;/rubrique/opendata/&quot; target=&#39;_self&#39;&gt;
-                                        Données publiques
-                                    &lt;/a&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">Links have been found with a target of &#39;_self&#39; - this is often used by modern frameworks to force a full page reload.</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6713,37 +6548,6 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">private</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/internaute/">https://www.prix-carburants.gouv.fr/internaute/</a></td>
 					</tr>
 					<tr>
@@ -6806,131 +6610,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/copyright/">https://www.prix-carburants.gouv.fr/rubrique/copyright/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">private</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">private</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">private</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">private</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6960,7 +6640,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">10</td>
+					<td width="80%">5</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -7146,37 +6826,6 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/webmestre">https://www.prix-carburants.gouv.fr/contact/webmestre</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=0, must-revalidate, private</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
@@ -7198,6 +6847,37 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 						<td width="20%"
 							class="indent2">Evidence</td>
 						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/accessibilite/">https://www.prix-carburants.gouv.fr/rubrique/accessibilite/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=0, must-revalidate, private, public, must-revalidate, s-maxage=3600</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7259,7 +6939,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">max-age=0, must-revalidate, private, public, must-revalidate, s-maxage=3600</td>
+						<td width="80%">max-age=86400, public, must-revalidate</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7290,7 +6970,38 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">max-age=0, must-revalidate, private, public, must-revalidate, s-maxage=3600</td>
+						<td width="80%">max-age=86400, public, must-revalidate</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/guide/">https://www.prix-carburants.gouv.fr/rubrique/guide/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">cache-control</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=86400, public, must-revalidate</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7321,38 +7032,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">max-age=0, must-revalidate, private, public, must-revalidate, s-maxage=3600</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap">https://www.prix-carburants.gouv.fr/sitemap</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">cache-control</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">max-age=0, must-revalidate, private</td>
+						<td width="80%">max-age=86400, public, must-revalidate</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7453,7 +7133,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7484,7 +7164,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7599,7 +7279,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7630,7 +7310,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7745,7 +7425,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7776,7 +7456,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7891,7 +7571,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/opendata/">https://www.prix-carburants.gouv.fr/opendata/</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7922,7 +7602,7 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/robots.txt">https://www.prix-carburants.gouv.fr/robots.txt</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8037,74 +7717,6 @@ incap_ses_628_3031704=gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr">https://www.prix-carburants.gouv.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">public</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">5lvo0nj163opuefitqipnnevgp</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:public
-cookie:incap_ses_628_3031704
-cookie:visid_incap_3031704</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr">https://www.prix-carburants.gouv.fr</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">public</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">sc1sudu4n53c9j63dvgqvodfuu</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-cookie:public
-cookie:incap_ses_628_3031704
-cookie:visid_incap_3031704</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap.xml">https://www.prix-carburants.gouv.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -8115,7 +7727,7 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8125,20 +7737,52 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==</td>
+						<td width="80%">LQJuEcjSYWpL25dgQ/9JAwS3CGYAAAAA0xuTn8kryTK274Z4/4atRQ==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-cookie:incap_ses_628_3031704
+cookie:incap_ses_237_3031704
 cookie:visid_incap_3031704</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1649060265&amp;ns=2">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1649060265&amp;ns=2</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/">https://www.prix-carburants.gouv.fr/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">incap_ses_237_3031704</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">LQJuEcjSYWpL25dgQ/9JAwS3CGYAAAAA0xuTn8kryTK274Z4/4atRQ==</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:incap_ses_237_3031704</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/">https://www.prix-carburants.gouv.fr/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8158,7 +7802,7 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">SHw/ENWMSHCHWr5NcHm6Njh8/2UAAAAAQUIPAAAAAACEhMxhp+UNWPLCjpqDu9vf</td>
+						<td width="80%">RGdFA0P9SoqhyiMtgdDU6gS3CGYAAAAAQUIPAAAAAADWQeCzXM+UysvapCuEf+W9</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8170,7 +7814,7 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1686292610&amp;ns=4">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1686292610&amp;ns=4</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1914160037&amp;ns=2">https://www.prix-carburants.gouv.fr/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;cb=1914160037&amp;ns=2</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8180,7 +7824,7 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">visid_incap_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8190,19 +7834,51 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">tIPmJZLb/mphlercWhu3CDh8/2UAAAAAy+BIoKNMcCTKGK3XuZvOWQ==</td>
+						<td width="80%">G/+uhkHKTVi8Jeksi8BfCgS3CGYAAAAAQUIPAAAAAADBjB5jTlGL/rR8qM1txMoy</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-cookie:incap_ses_628_3031704</td>
+cookie:visid_incap_3031704</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.js">https://www.prix-carburants.gouv.fr/carto/OpenLayers7.4/ol.js</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/contact/?rubrique=faq">https://www.prix-carburants.gouv.fr/contact/?rubrique=faq</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">incap_ses_237_3031704</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">nuc7c+c8KEBY25dgQ/9JAwS3CGYAAAAAaPalMThrJVKWQC9WPb1clg==</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:incap_ses_237_3031704</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/internaute/demander-mdp">https://www.prix-carburants.gouv.fr/internaute/demander-mdp</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8222,7 +7898,7 @@ cookie:incap_ses_628_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">5lvo0nj163opuefitqipnnevgp</td>
+						<td width="80%">f7vavp0hkvc8hd4i131e589gjs</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8234,7 +7910,7 @@ cookie:public</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq">https://www.prix-carburants.gouv.fr/rubrique/faq</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/js/contact.js">https://www.prix-carburants.gouv.fr/js/contact.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8244,7 +7920,7 @@ cookie:public</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">incap_ses_628_3031704</td>
+						<td width="80%">incap_ses_237_3031704</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8254,19 +7930,19 @@ cookie:public</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">gL8dSTSuzypOlercWhu3CDh8/2UAAAAAtOKtQut9cAScXYluSn0v9Q==</td>
+						<td width="80%">nuc7c+c8KEBY25dgQ/9JAwS3CGYAAAAAaPalMThrJVKWQC9WPb1clg==</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-cookie:incap_ses_628_3031704</td>
+cookie:incap_ses_237_3031704</td>
 					</tr>
 				
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq">https://www.prix-carburants.gouv.fr/rubrique/faq</a></td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/js/contact.js">https://www.prix-carburants.gouv.fr/js/contact.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8286,7 +7962,7 @@ cookie:incap_ses_628_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">2OFBeZGmQFGcriP2GjaPIDh8/2UAAAAAQUIPAAAAAAB6Q2iuhEu6QQwbXawaM7Ic</td>
+						<td width="80%">G/+uhkHKTVi8Jeksi8BfCgS3CGYAAAAAQUIPAAAAAADBjB5jTlGL/rR8qM1txMoy</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8295,9 +7971,41 @@ cookie:incap_ses_628_3031704</td>
 cookie:visid_incap_3031704</td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/js/rgaa.js">https://www.prix-carburants.gouv.fr/js/rgaa.js</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">incap_ses_237_3031704</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">nuc7c+c8KEBY25dgQ/9JAwS3CGYAAAAAaPalMThrJVKWQC9WPb1clg==</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+cookie:incap_ses_237_3031704</td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">8</td>
+					<td width="80%">9</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -8381,6 +8089,130 @@ cookie:visid_incap_3031704</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/">https://www.prix-carburants.gouv.fr/rubrique/donnees-personnelles/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=86400</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/faq/">https://www.prix-carburants.gouv.fr/rubrique/faq/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=86400</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/guide/">https://www.prix-carburants.gouv.fr/rubrique/guide/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=86400</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/rubrique/opendata/">https://www.prix-carburants.gouv.fr/rubrique/opendata/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">max-age=86400</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
 						<td width="80%"><a href="https://www.prix-carburants.gouv.fr/sitemap.xml">https://www.prix-carburants.gouv.fr/sitemap.xml</a></td>
 					</tr>
 					<tr>
@@ -8411,7 +8243,7 @@ cookie:visid_incap_3031704</td>
 				
 				<tr>
 					<td width="20%">Instances</td>
-					<td width="80%">2</td>
+					<td width="80%">6</td>
 				</tr>
 				<tr>
 					<td width="20%">Solution</td>
@@ -8560,10 +8392,10 @@ appears to include user input in:
 a(n) [input] tag [value] attribute 
 
 The user input found was:
-contact[date_constat]=2024-03-24
+contact[date_constat]=2024-03-31
 
 The user-controlled value was:
-2024-03-24</td>
+2024-03-31</td>
 					</tr>
 				
 					<tr>
