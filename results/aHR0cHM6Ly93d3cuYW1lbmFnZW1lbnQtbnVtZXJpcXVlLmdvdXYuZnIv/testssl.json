@@ -125,11 +125,11 @@
               "finding"      : "offered"
           }
 ,         {
-              "id"           : "cipher_order-tls1_2",
+              "id"           : "cipher_order",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "NOT a cipher order configured"
+              "severity"     : "WARN",
+              "finding"      : "Could not determine server cipher order, no matching cipher in list found (pls report this): DHE-RSA-SEED-SHA:SEED-SHA:DES-CBC3-SHA:RC4-MD5:DES-CBC-SHA:RC4-SHA:AES128-SHA:AES128-SHA256:AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:ECDH-RSA-DES-CBC3-SHA:ECDH-RSA-AES128-SHA:ECDH-RSA-AES256-SHA:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:DHE-DSS-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:AES256-SHA256:ECDHE-RSA-DES-CBC3-SHA:ECDHE-RSA-AES128-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-SHA256:ADH-AES256-GCM-SHA384:AECDH-AES128-SHA:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-AES128-SHA"
           }
 ,         {
               "id"           : "cipher-tls1_2_xc02c",
@@ -165,13 +165,6 @@
               "port"         : "443",
               "severity"     : "INFO",
               "finding"      : "ECDHE-ECDSA-AES256-GCM-SHA384 ECDHE-ECDSA-AES256-SHA ECDHE-ECDSA-AES128-GCM-SHA256 ECDHE-ECDSA-AES128-SHA"
-          }
-,         {
-              "id"           : "cipher_order",
-              "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
-              "port"         : "443",
-              "severity"     : "INFO",
-              "finding"      : "NOT a cipher order configured"
           }
 ,         {
               "id"           : "FS",
@@ -262,7 +255,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "SHA384 with RSA"
+              "finding"      : "SHA256 with RSA"
           }
 ,         {
               "id"           : "cert_keySize",
@@ -276,7 +269,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "Digital Signature"
+              "finding"      : "Digital Signature, Key Agreement"
           }
 ,         {
               "id"           : "cert_extKeyUsage",
@@ -290,7 +283,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "15A3B6476DFE09D475D5F5F5BC83FC40"
+              "finding"      : "0DC1A3ED89BC71ED6AC3A7EA5A6F657C"
           }
 ,         {
               "id"           : "cert_serialNumberLen",
@@ -304,21 +297,21 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "E5754227ADC530767716AC0D09674991F555A82C"
+              "finding"      : "DE62734DD8CBD45993FCA7AA2FED6545A473F397"
           }
 ,         {
               "id"           : "cert_fingerprintSHA256",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "0E543EB7C8EA99E8B6D083042CB8016BBC6788019E5C0D34EC73FB9E2E63AEAD"
+              "finding"      : "84A3C2AB049F0CF4B40AB724352C88BEA37124BFF2FB350D34B49898DCFB438B"
           }
 ,         {
               "id"           : "cert",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-----BEGIN CERTIFICATE-----\nMIIFxjCCBC6gAwIBAgIQFaO2R23+CdR11fX1vIP8QDANBgkqhkiG9w0BAQwFADBWMQswCQYDVQQGEwJGUjEOMAwGA1UEChMFR2FuZGkxNzA1BgNVBAMTLkdhbmRpIFJTQSBEb21haW4gVmFsaWRhdGlvbiBTZWN1cmUgU2VydmVyIENBIDMwHhcNMjQwMjE1MDAwMDAwWhcNMjUwMjE1MjM1OTU5WjAsMSowKAYDVQQDEyF3d3cuYW1lbmFnZW1lbnQtbnVtZXJpcXVlLmdvdXYuZnIwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARgwCqSumBM4sF1sNFoAYkodOFGB+R8W2XY2p59nvBJwDJB1IC/lcg99o7I3dHOFQRNGi5PztajWzDpniaXyO4Eo4IDAzCCAv8wHwYDVR0jBBgwFoAUgRGS3mYypbBbMz1lQ4X81AQt8a4wHQYDVR0OBBYEFELjzHof1A8N4RJZsBRCRd4lapctMA4GA1UdDwEB/wQEAwIHgDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBJBgNVHSAEQjBAMDQGCysGAQQBsjEBAgIaMCUwIwYIKwYBBQUHAgEWF2h0dHBzOi8vc2VjdGlnby5jb20vQ1BTMAgGBmeBDAECATCBgwYIKwYBBQUHAQEEdzB1ME4GCCsGAQUFBzAChkJodHRwOi8vY3J0LnNlY3RpZ28uY29tL0dhbmRpUlNBRG9tYWluVmFsaWRhdGlvblNlY3VyZVNlcnZlckNBMy5jcnQwIwYIKwYBBQUHMAGGF2h0dHA6Ly9vY3NwLnNlY3RpZ28uY29tMCwGA1UdEQQlMCOCIXd3dy5hbWVuYWdlbWVudC1udW1lcmlxdWUuZ291di5mcjCCAX8GCisGAQQB1nkCBAIEggFvBIIBawFpAHYAzxFW7tUufK/zh1vZaS6b6RpxZ0qwF+ysAdJbd87MOwgAAAGNrFnDzQAABAMARzBFAiEAxCDM8phGQ69T71g4XhGVKEUWMyxyMEJY1WcP9PDBPD4CIBFkdB3hH7rqNDG5/wPpWkhj3cabkT0CkiQVMqO/B37/AHcAouMK5EXvva2bfjjtR2d3U9eCW4SU1yteGyzEuVCkR+cAAAGNrFnEBAAABAMASDBGAiEAuTtx2qn/m2CXAsCncu/jYq4k7J+/9ix1R+EAQRSyo4MCIQCof1WaauOGnIVdJoS5LdEmCZ4y7hXlQGqJV36+VOFW9wB2AE51oydcmhDDOFts1N8/Uusd8OCOG41pwLH6ZLFimjnfAAABjaxZw/cAAAQDAEcwRQIhAJYrEMGbJDk5hmT49wWzEGFWUBCXYsHRuu410ZSoxIfcAiAxyAiOQA1nthKvnxdb7SvBMynFN/NaVUWD8RfW7jma7TANBgkqhkiG9w0BAQwFAAOCAYEAh1mXVRzNbvkScX1H22sTu17UozRZErdqBuyalwghlLfAcFqUthdVuHbtcNGZDsxT+wlykOJFiy0CNK3efQWBsbgXbe4tqBGqso3bYiUQkZAZES/Z8Uh5JjQpSaRikCrh8rILBjLZj7EkKMiOaCRaPjZX7yUfNjBQRbUlFNNrBJKYW6rhc6P7h/TNHetGG8/tnJXC1LeecNoY1iz76tQxqwcdND+VaGddXZ1w9R2buhY4KdJQfaXLNXd3FfoP4O+9BKaqwipu5cm5WXqyfLTRsTv1NfQpcuKnow9vhtem7YqVN7pp0+WV03/mJn5bhTLNF191WiorQWCBh7Ei00GTIK5HbWBOm8574wMtQh0Hxojscj4+cIFd9ht+5+smpYyurwYfRB+TAhx0AA5eglYqALQ44Skz6yu/LaY6Okz8tgIx2AkcuBsGpZM3KhGBuMFMYfE0KM1Zj25jU+CoesFbneQmbGzVX9teISms6OVy/5UaCbPqrli8dbTTgjqnuHY4\n-----END CERTIFICATE-----"
+              "finding"      : "-----BEGIN CERTIFICATE-----\n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\n-----END CERTIFICATE-----"
           }
 ,         {
               "id"           : "cert_commonName",
@@ -366,22 +359,22 @@
               "id"           : "cert_expirationStatus",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "expires < 60 days (55)"
+              "severity"     : "OK",
+              "finding"      : "363 >= 60 days"
           }
 ,         {
               "id"           : "cert_notBefore",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2024-02-15 00:00"
+              "finding"      : "2024-12-27 00:00"
           }
 ,         {
               "id"           : "cert_notAfter",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
-              "severity"     : "MEDIUM",
-              "finding"      : "2025-02-15 23:59"
+              "severity"     : "OK",
+              "finding"      : "2025-12-27 23:59"
           }
 ,         {
               "id"           : "cert_extlifeSpan",
@@ -409,7 +402,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "http://ocsp.sectigo.com"
+              "finding"      : "http://ocsp.digicert.com"
           }
 ,         {
               "id"           : "OCSP_stapling",
@@ -465,35 +458,35 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "Gandi RSA Domain Validation Secure Server CA 3 (Gandi from FR)"
+              "finding"      : "GandiCert (Gandi SAS from FR)"
           }
 ,         {
               "id"           : "intermediate_cert <#1>",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "-----BEGIN CERTIFICATE-----\n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\n-----END CERTIFICATE-----"
+              "finding"      : "-----BEGIN CERTIFICATE-----\nMIIFeDCCBGCgAwIBAgIQC5tef2dzroxkMiFlfO5nwTANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBHMjAeFw0yNDA0MTcwMDAwMDBaFw0zNDA0MTYyMzU5NTlaMDUxCzAJBgNVBAYTAkZSMRIwEAYDVQQKEwlHYW5kaSBTQVMxEjAQBgNVBAMTCUdhbmRpQ2VydDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAK49Qu5ro3pTKXIqtRxyGZaCbX9989lhB3aBDQyWLN99EjYcbuQNKwNrom/lkVOL7CqZMVsxXjCO+Vqho2VI2u87KaEYOrMn0K4gICbUJrho0LpDNeFkZwwOLvEFmfaGPugXdHm1iOHj/ACdVtO4c96jJsBXrPl107MmN/nMbZ8zbW/Lmx/3lrA9f0SpRqQz6FwoOe/BEn+52AzRJeEzUQgzI+nKzR9KxFBWiVRzMhU5c/NEE7QmWynOYMI/dPuUCkMhhmYftkQZCXXMORigQjt+IoO4PRkJrbJFD1JkQpkEIDZkxj5JgUsGqQUZoeiQh73v3ggp3xfUUDyMApI972ewc7S2PG9IKO9QNzjU2aFruEJbPJzfnWy6cZ/JtsASjyjdah6oNdNof/HSqyxcxw1ozD4ifRCAEYf7fId9SAwsut0Q92tECSbRUYMYdX1QqZD7teT40IQ4AaPWiXIru1MsyEKlEOULTBrXf1vl7PGJUoUo9+P5dOtFwo0iHdAONg8mO7/AWyPTTPJZDsxjq4aRcZiBzdwTRxbVhgZc3BrDYaDUg8nT6lnc3tQNMHuLNTLGLyfmWwWMRcjsn5MF0E9UkA8trEoeMIdCutolrVWsG7sagUMEBbZPSs9j+JLZXcfw3gfDLcpl2YKy78JU1/F6erjm1K+mJSY3eVqjp4RJAgMBAAGjggFWMIIBUjASBgNVHRMBAf8ECDAGAQH/AgEAMB0GA1UdDgQWBBS6u0aIRezdWisYxdFO7OM8BlJTrDAfBgNVHSMEGDAWgBROIlQgGJXm427mD/r6uRLtBhePOTAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRHbG9iYWxSb290RzIuY3J0MEIGA1UdHwQ7MDkwN6A1oDOGMWh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbFJvb3RHMi5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBCwUAA4IBAQAqsQTCdbSSfPRpe+H+zWSok/VfzwhXviQwNiWZ9S93IRl47Yt9HGJn4YBBvLbmD2UgQc7snOKVGzStvt9J5/MhZzilji+dUhkdUtDZbUsfqy/Fii5AU/2RRXCRWS+6qljOGdpVeSGqqgI88IGOKILH/h7jtJtlHDpriwwKTpXl4FudKWZaqK2Wrz9Fz0jfyY1FbZhkv/dzjN29FQVaxmWr7cNqjKb+H9LuXvuTUxt/uFTzFZHMNw0+iM4Tn4vMVPwa3X02fZ8V1IVWxLcvbhLOEIes1tjdWRXnzDQNDhCJh18t83R8GBEMU3ZX3ZtTaY3iTEJczHfg5c8HflGcPZoZ\n-----END CERTIFICATE-----"
           }
 ,         {
               "id"           : "intermediate_cert_fingerprintSHA256 <#1>",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "F0104FF17274608F1A18A1E1EABF8E68A51F500A87E2EFA22ECB622763FEF4CF"
+              "finding"      : "3337D4E4B4EF6A94F04915D2E86B1F8F47A3C83667DA2519D9B95AE7270AFFE1"
           }
 ,         {
               "id"           : "intermediate_cert_notBefore <#1>",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "2023-08-02 00:00"
+              "finding"      : "2024-04-17 00:00"
           }
 ,         {
               "id"           : "intermediate_cert_notAfter <#1>",
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "OK",
-              "finding"      : "2033-08-01 23:59"
+              "finding"      : "2034-04-16 23:59"
           }
 ,         {
               "id"           : "intermediate_cert_expiration <#1>",
@@ -507,7 +500,7 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "Gandi RSA Domain Validation Secure Server CA 3 <-- USERTrust RSA Certification Authority"
+              "finding"      : "GandiCert <-- DigiCert Global Root G2"
           }
 ,         {
               "id"           : "intermediate_cert_badOCSP",
@@ -1084,6 +1077,6 @@
               "ip"           : "www.amenagement-numerique.gouv.fr/217.70.184.56",
               "port"         : "443",
               "severity"     : "INFO",
-              "finding"      : "101"
+              "finding"      : "99"
           }
 ]
